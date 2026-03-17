@@ -106,10 +106,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
-    df = df[df["email"] != ""]
     # More aggressive dedup: drop exact duplicates first, then by name+email
     df = df.drop_duplicates(keep="first")
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
+    df = df[df["email"] != ""]
 
     df.to_csv(output_path, index=False)
 
