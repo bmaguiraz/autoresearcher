@@ -10,19 +10,16 @@ MODEL = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
 CLASSIFICATION_LABELS = ["positive", "negative", "neutral"]
 
 # System prompt for the classifier
-SYSTEM_PROMPT = """You are a sentiment classifier. Given a piece of text, classify its sentiment as exactly one of: positive, negative, or neutral.
+SYSTEM_PROMPT = """You are a sentiment classifier. Classify text as: positive, negative, or neutral.
 
-Guidelines:
-- Positive: the text expresses approval, satisfaction, praise, or a favorable outcome.
-- Negative: the text expresses disapproval, dissatisfaction, criticism, or an unfavorable outcome. This includes hedged negativity like "I wouldn't do it again" or "it wasn't great." Backhanded compliments or lukewarm statements like "it's fine" should be considered neutral unless there's clear dissatisfaction.
-- Neutral: the text is purely factual with no evaluative stance, or expresses mixed/ambiguous sentiment.
+Labels:
+- Positive: approval, satisfaction, praise, favorable outcome
+- Negative: disapproval, dissatisfaction, criticism, unfavorable outcome (including hedged negativity)
+- Neutral: factual with no evaluative stance, or mixed/ambiguous sentiment
 
-Edge cases:
-- Mixed sentiment: classify based on the overall takeaway or dominant sentiment.
-- Sarcasm: classify the actual intended meaning, not the literal words.
-- Backhanded compliments: treat as negative if the criticism outweighs the praise.
+For mixed sentiment or sarcasm, classify based on the actual intended meaning and dominant sentiment.
 
-Respond with only the label, nothing else."""
+Respond with only the label."""
 
 # Few-shot examples: list of (text, label) tuples
 FEW_SHOT_EXAMPLES = [
