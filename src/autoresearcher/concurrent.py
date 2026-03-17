@@ -1,11 +1,14 @@
 """Concurrent execution utilities for running experiments in parallel."""
 
+import logging
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Callable, Any
 
 from .experiment import BaseExperiment, ExperimentSummary
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -48,10 +51,10 @@ class ConcurrentExperimentRunner:
         if not experiments:
             return []
 
-        print(f"\n{'='*60}")
-        print(f"Running {len(experiments)} experiments concurrently")
-        print(f"Max workers: {self.max_workers or 'default'}")
-        print(f"{'='*60}\n")
+        logger.info("=" * 60)
+        logger.info(f"Running {len(experiments)} experiments concurrently")
+        logger.info(f"Max workers: {self.max_workers or 'default'}")
+        logger.info("=" * 60)
 
         start_time = time.time()
         results = []
@@ -70,14 +73,14 @@ class ConcurrentExperimentRunner:
                 results.append(result)
 
                 status = "✓" if result.success else "✗"
-                print(f"{status} {result.experiment_id} completed")
+                logger.info(f"{status} {result.experiment_id} completed")
 
         elapsed = time.time() - start_time
 
-        print(f"\n{'='*60}")
-        print(f"All experiments complete in {elapsed:.1f}s")
-        print(f"Successful: {sum(1 for r in results if r.success)}/{len(results)}")
-        print(f"{'='*60}\n")
+        logger.info("=" * 60)
+        logger.info(f"All experiments complete in {elapsed:.1f}s")
+        logger.info(f"Successful: {sum(1 for r in results if r.success)}/{len(results)}")
+        logger.info("=" * 60)
 
         return results
 
@@ -93,13 +96,16 @@ class ConcurrentExperimentRunner:
             ConcurrentExperimentResult with success status and summary/error.
         """
         try:
+            logger.debug(f"Starting experiment: {experiment.experiment_id}")
             summary = experiment.run()
+            logger.debug(f"Completed experiment: {experiment.experiment_id}")
             return ConcurrentExperimentResult(
                 experiment_id=experiment.experiment_id,
                 summary=summary,
                 success=True,
             )
         except Exception as e:
+            logger.error(f"Experiment {experiment.experiment_id} failed: {e}")
             return ConcurrentExperimentResult(
                 experiment_id=experiment.experiment_id,
                 summary=None,  # type: ignore

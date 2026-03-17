@@ -1,12 +1,15 @@
 """Base experiment classes for the autoresearcher framework."""
 
 import json
+import logging
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -94,11 +97,11 @@ class BaseExperiment(ABC):
 
     def run_cycle(self, cycle: int) -> ExperimentResult:
         """Execute a single experiment cycle."""
-        print(f"\n{'='*50}")
-        print(f"Cycle {cycle}/{self.max_cycles}")
-        print(f"{'='*50}")
+        logger.info("=" * 50)
+        logger.info(f"Cycle {cycle}/{self.max_cycles}")
+        logger.info("=" * 50)
 
-        print("\n[1/3] Evaluating...")
+        logger.info("[1/3] Evaluating...")
         metrics = self.evaluate(cycle)
 
         result = ExperimentResult(
@@ -108,23 +111,23 @@ class BaseExperiment(ABC):
         )
         self.results.append(result)
 
-        print(f"  Aggregate Score: {result.aggregate_score:.3f}")
+        logger.info(f"  Aggregate Score: {result.aggregate_score:.3f}")
         for name, value in metrics.items():
-            print(f"  {name}: {value:.3f}")
+            logger.info(f"  {name}: {value:.3f}")
 
         if cycle < self.max_cycles:
-            print("\n[2/3] Optimizing...")
+            logger.info("[2/3] Optimizing...")
             self.optimize(result)
 
-        print("\n[3/3] Saving results...")
+        logger.info("[3/3] Saving results...")
         self.save_results()
 
         return result
 
     def run(self) -> ExperimentSummary:
         """Execute the full experiment loop."""
-        print(f"\n# Experiment: {self.experiment_id}")
-        print(f"# Cycles: {self.max_cycles}\n")
+        logger.info(f"# Experiment: {self.experiment_id}")
+        logger.info(f"# Cycles: {self.max_cycles}")
 
         start_time = time.time()
 
@@ -134,13 +137,13 @@ class BaseExperiment(ABC):
         elapsed = time.time() - start_time
         summary = self.generate_summary(elapsed)
 
-        print(f"\n{'='*50}")
-        print("Experiment Complete!")
-        print(f"  Initial Score: {summary.initial_score:.3f}")
-        print(f"  Final Score:   {summary.final_score:.3f}")
-        print(f"  Improvement:   {summary.improvement:+.3f} ({summary.improvement_percentage:.1f}%)")
-        print(f"  Best Score:    {summary.best_score:.3f}")
-        print(f"  Elapsed:       {elapsed:.1f}s")
+        logger.info("=" * 50)
+        logger.info("Experiment Complete!")
+        logger.info(f"  Initial Score: {summary.initial_score:.3f}")
+        logger.info(f"  Final Score:   {summary.final_score:.3f}")
+        logger.info(f"  Improvement:   {summary.improvement:+.3f} ({summary.improvement_percentage:.1f}%)")
+        logger.info(f"  Best Score:    {summary.best_score:.3f}")
+        logger.info(f"  Elapsed:       {elapsed:.1f}s")
 
         return summary
 
