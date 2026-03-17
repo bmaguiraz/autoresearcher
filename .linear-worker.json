@@ -1,0 +1,28 @@
+{
+  "projectId": "62c20541-6d2a-4f57-a071-6c6625e7718e",
+  "projectName": "autoresearcher",
+  "teamId": "ba745c5b-3dee-421d-9d31-fe5707aff2ca",
+  "source": {
+    "type": "local",
+    "path": "/app/workspace"
+  },
+  "labels": {
+    "language": "unknown"
+  },
+  "hooks": {
+    "sessionStart": {
+      "enabled": true,
+      "action": "pull",
+      "async": true
+    },
+    "sessionEnd": {
+      "enabled": true,
+      "action": "push",
+      "async": false
+    }
+  },
+  "filters": {
+    "pullMine": false,
+    "excludeDone": true
+  }
+}
