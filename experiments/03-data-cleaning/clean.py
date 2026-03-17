@@ -34,16 +34,13 @@ def normalize_phone(phone):
 def normalize_date(date_str):
     if pd.isna(date_str) or date_str == "":
         return ""
-    date_str = str(date_str).strip()
     from dateutil import parser
     try:
-        dt = parser.parse(date_str, dayfirst=False)
-        return dt.strftime("%Y-%m-%d")
+        return parser.parse(str(date_str).strip(), dayfirst=False).strftime("%Y-%m-%d")
     except (ValueError, TypeError):
         pass
     try:
-        dt = parser.parse(date_str, dayfirst=True)
-        return dt.strftime("%Y-%m-%d")
+        return parser.parse(str(date_str).strip(), dayfirst=True).strftime("%Y-%m-%d")
     except (ValueError, TypeError):
         return ""
 
@@ -76,9 +73,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    null_values = ["N/A", "n/a", "null", "None", "none", "NULL", "", "NaN", "nan", "#N/A", "NA"]
+    # Replace all sentinel null values with empty string using case-insensitive match
+    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", ""}
     for col in df.columns:
-        df[col] = df[col].replace(null_values, "")
+        df[col] = df[col].apply(lambda x: "" if str(x).strip().lower() in sentinels else x)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
@@ -95,9 +93,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
-    # Drop rows with invalid emails
     df = df[df["email"] != ""]
-
     df = df.drop_duplicates()
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
