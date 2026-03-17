@@ -105,11 +105,14 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
     df["city"] = df["city"].apply(lambda x: x.title() if x else "")
 
+    # Handle age outliers
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
-    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[~((df["age"] < 0) | (df["age"] > 120))]
-    df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+
+    # Handle salary outliers
+    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+    df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     df.to_csv(output_path, index=False)
