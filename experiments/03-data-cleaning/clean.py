@@ -19,6 +19,12 @@ STATE_MAP = {
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
 }
 
+MONTH_MAP = {
+    "jan": "01", "feb": "02", "mar": "03", "apr": "04",
+    "may": "05", "jun": "06", "jul": "07", "aug": "08",
+    "sep": "09", "oct": "10", "nov": "11", "dec": "12",
+}
+
 
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
@@ -34,15 +40,31 @@ def normalize_phone(phone):
 def normalize_date(date_str):
     if pd.isna(date_str) or date_str == "":
         return ""
-    from dateutil import parser
-    try:
-        return parser.parse(str(date_str).strip(), dayfirst=False).strftime("%Y-%m-%d")
-    except (ValueError, TypeError):
-        pass
-    try:
-        return parser.parse(str(date_str).strip(), dayfirst=True).strftime("%Y-%m-%d")
-    except (ValueError, TypeError):
-        return ""
+    s = str(date_str).strip()
+
+    # YYYY-MM-DD
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
+    if m:
+        return s
+
+    # MM/DD/YYYY
+    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
+    if m:
+        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+
+    # Mon DD YYYY (e.g., "Jan 15 2024")
+    m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
+    if m:
+        mon = MONTH_MAP.get(m.group(1).lower()[:3])
+        if mon:
+            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+
+    # DD-MM-YYYY
+    m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
+    if m:
+        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+
+    return ""
 
 
 def normalize_state(state):
@@ -73,7 +95,6 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    # Replace all sentinel null values with empty string using case-insensitive match
     sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", ""}
     for col in df.columns:
         df[col] = df[col].apply(lambda x: "" if str(x).strip().lower() in sentinels else x)
