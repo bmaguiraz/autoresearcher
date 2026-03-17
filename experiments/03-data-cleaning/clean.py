@@ -92,8 +92,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    # Replace sentinel values with empty strings
-    sentinels = ["n/a", "null", "none", "nan", "na", "N/A", "NULL", "None", "NaN", "NA"]
+    # Replace sentinel values with empty strings (lowercase only)
+    sentinels = ["n/a", "null", "none", "nan", "na"]
     df = df.replace({s: "" for s in sentinels})
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
