@@ -17,6 +17,7 @@ STATE_MAP = {
     "south carolina": "SC", "south dakota": "SD", "tennessee": "TN", "texas": "TX",
     "utah": "UT", "vermont": "VT", "virginia": "VA", "washington": "WA",
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
+    "district of columbia": "DC",
 }
 
 VALID_STATES = set(STATE_MAP.values())
@@ -107,8 +108,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     df = df[df["email"] != ""]
-    # More aggressive dedup: drop exact duplicates first, then by name+email
-    df = df.drop_duplicates(keep="first")
+    # Deduplicate by name+email combination only
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
