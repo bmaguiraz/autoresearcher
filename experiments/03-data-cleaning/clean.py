@@ -109,13 +109,13 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering with simplified conversion back to string
+    # Outlier filtering and numeric conversion
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    df["age"] = df["age"].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
-    df["salary"] = df["salary"].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
+    df["age"] = df["age"].apply(lambda x: "" if pd.isna(x) else str(int(x)))
+    df["salary"] = df["salary"].apply(lambda x: "" if pd.isna(x) else str(int(x)))
 
     df.to_csv(output_path, index=False)
 
