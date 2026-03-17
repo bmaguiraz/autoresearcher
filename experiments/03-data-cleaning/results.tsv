@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+2dda3f0	97.9	25.0	22.9	25.0	25.0	keep	Baseline
+3f8986d	97.9	25.0	22.9	25.0	25.0	keep	Cycle 1: Expand sentinel patterns
+d82468f	97.9	25.0	22.9	25.0	25.0	keep	Cycle 2: Simplify sentinel check logic
