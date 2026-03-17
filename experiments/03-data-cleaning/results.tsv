@@ -7,3 +7,6 @@ de126c1	95.1	25.0	20.8	24.3	25.0	discard	Cycle 2: Remove email filter (worse)
 e133670	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
 380abf0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel detection
 bd74cba	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify state normalization
+4cc2b54	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+60a8d12	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling
+a85c985	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Expand sentinels to include tbd and tba
