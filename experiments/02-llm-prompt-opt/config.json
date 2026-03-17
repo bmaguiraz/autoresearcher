@@ -1,0 +1,20 @@
+{
+  "experiment_id": "02-llm-prompt-opt",
+  "name": "LLM Prompt Optimization",
+  "description": "Experiment to optimize LLM prompts through iterative refinement",
+  "version": "1.0.0",
+  "cycles": 5,
+  "parameters": {
+    "model": "claude-sonnet-4",
+    "temperature": 0.7,
+    "max_tokens": 2048,
+    "optimization_strategy": "iterative_refinement"
+  },
+  "baseline_prompt": "You are a helpful AI assistant. Please help the user with their task.",
+  "optimization_criteria": [
+    "clarity",
+    "specificity",
+    "response_quality",
+    "task_completion"
+  ]
+}
