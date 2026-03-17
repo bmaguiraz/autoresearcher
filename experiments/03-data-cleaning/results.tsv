@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5237f6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+b71b869	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Reorder email filter after dedup
+1e23ca5	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Combine strip and sentinel into single loop
