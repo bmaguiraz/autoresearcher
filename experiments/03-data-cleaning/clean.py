@@ -86,9 +86,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinel values
-    sentinels = ["N/A", "null", "None", "n/a", "NULL", "none", "NA", "na", "nan", "#N/A", "#n/a", ""]
-    df = df.fillna("").apply(lambda col: col.str.strip())
-    df = df.replace(sentinels, "")
+    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", ""}
+    df = df.fillna("")
+    for col in df.columns:
+        df[col] = df[col].str.strip().apply(lambda x: "" if x.lower() in sentinels else x)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
