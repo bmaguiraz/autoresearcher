@@ -96,7 +96,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     sentinels = ["n/a", "null", "none", "nan", "na", "N/A", "NULL", "None", "NaN", "NA"]
     df = df.replace({s: "" for s in sentinels})
 
-    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+    df["name"] = df["name"].str.title().fillna("")
     df["email"] = df["email"].apply(normalize_email)
 
     # Filter and deduplicate early on normalized key fields
