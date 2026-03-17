@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+9e744c9	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+9a30c72	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Vectorize sentinel replacement
+1c59081	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - Clarify outlier filtering logic
