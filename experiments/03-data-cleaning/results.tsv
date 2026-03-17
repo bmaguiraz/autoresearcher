@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline (round 3)
+da23e18	100.0	25.0	25.0	25.0	25.0	keep	Baseline (round 3)
+ddf41b6	97.9	25.0	22.9	25.0	25.0	discard	Hypothesis 1: Remove 'calif.' abbreviation (failed - needed by data)
