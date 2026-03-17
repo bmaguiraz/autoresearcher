@@ -20,7 +20,7 @@
       "task_completion"
     ]
   },
-  "cycles_completed": 1,
+  "cycles_completed": 2,
   "results": [
     {
       "cycle": 1,
@@ -32,7 +32,7 @@
         "task_completion": 0.7000000000000001
       },
       "aggregate_score": 0.725,
-      "timestamp": "2026-03-17T23:49:55.986236"
+      "timestamp": "2026-03-17T23:46:42.981965"
     },
     {
       "cycle": 2,
@@ -44,7 +44,7 @@
         "task_completion": 0.75
       },
       "aggregate_score": 0.775,
-      "timestamp": "2026-03-17T23:49:56.487165"
+      "timestamp": "2026-03-17T23:46:43.482814"
     }
   ],
   "summary": {
@@ -52,7 +52,7 @@
     "initial_score": 0.725,
     "final_score": 0.775,
     "improvement": 0.05,
-    "improvement_percentage": 6.896551724137931,
+    "improvement_percentage": 6.9,
     "best_score": 0.775,
     "average_score": 0.75
   }

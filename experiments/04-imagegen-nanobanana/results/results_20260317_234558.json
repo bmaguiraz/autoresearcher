@@ -18,7 +18,7 @@
       "composition"
     ]
   },
-  "cycles_completed": 3,
+  "cycles_completed": 2,
   "results": [
     {
       "cycle": 1,
@@ -43,27 +43,15 @@
       },
       "aggregate_score": 0.868,
       "timestamp": "2026-03-17T23:45:58.874632"
-    },
-    {
-      "cycle": 3,
-      "prompt": "An award-winning professional photograph of a perfectly ripe banana, studio lighting, shallow depth of field, highly detailed",
-      "metrics": {
-        "visual_quality": 0.9400000000000001,
-        "prompt_clarity": 0.92,
-        "style_consistency": 0.89,
-        "composition": 0.93
-      },
-      "aggregate_score": 0.92,
-      "timestamp": "2026-03-17T23:45:59.175566"
     }
   ],
   "summary": {
-    "total_cycles": 3,
+    "total_cycles": 2,
     "initial_score": 0.787,
-    "final_score": 0.92,
-    "improvement": 0.133,
-    "improvement_percentage": 16.9,
-    "best_score": 0.92,
-    "average_score": 0.858
+    "final_score": 0.868,
+    "improvement": 0.081,
+    "improvement_percentage": 10.29,
+    "best_score": 0.868,
+    "average_score": 0.828
   }
 }

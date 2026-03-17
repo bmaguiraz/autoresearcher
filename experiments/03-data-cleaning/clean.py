@@ -68,9 +68,10 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
+    # Check map first
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    # Check if already a 2-letter state code
     if len(s) == 2 and s.upper() in VALID_STATES:
         return s.upper()
     return ""
@@ -109,9 +110,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    for col in ["age", "salary"]:
-        df[col] = df[col].dropna().astype(int).astype(str)
-        df[col] = df[col].fillna("")
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
