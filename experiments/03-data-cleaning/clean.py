@@ -85,10 +85,13 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinel values in one pass
+    # Strip whitespace from all columns
+    df = df.apply(lambda col: col.str.strip())
+
+    # Replace sentinel values with empty strings
     sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", ""}
     for col in df.columns:
-        df[col] = df[col].str.strip().apply(lambda x: "" if str(x).lower() in sentinels else x)
+        df[col] = df[col].apply(lambda x: "" if str(x).lower() in sentinels else x)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
