@@ -65,12 +65,17 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
+    # Check state map first
     if s in STATE_MAP:
         return STATE_MAP[s]
+    # Check if already valid 2-letter code
     upper = s.upper()
-    if len(s) == 2 and upper in VALID_STATES:
+    if len(upper) == 2 and upper in VALID_STATES:
         return upper
-    return upper[:2]
+    # Fallback - try first 2 letters uppercase
+    if len(upper) >= 2:
+        return upper[:2]
+    return ""
 
 
 def normalize_email(email):
