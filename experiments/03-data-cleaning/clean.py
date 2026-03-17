@@ -94,7 +94,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].apply(lambda x: "" if str(x).strip().lower() in sentinels else x)
 
-    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+    # Normalize names: handle multiple spaces, proper title case
+    df["name"] = df["name"].apply(lambda x: " ".join(x.split()).title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
 
     # Filter and deduplicate early on normalized key fields
