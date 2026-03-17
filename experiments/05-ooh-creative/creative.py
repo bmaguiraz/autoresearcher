@@ -3,14 +3,14 @@
 USE_CASE = "restaurant"  # "plumber", "restaurant", or "writefit"
 
 # Creative elements (agent optimizes these)
-HEADLINE = "Handmade Pasta Since 1987"
-SUBHEADLINE = "Farm-to-table Italian | Tue-Sun 11am-10pm | 247 Main St"
+HEADLINE = "Handmade Pasta Daily"
+SUBHEADLINE = "Fresh Italian Since 1987 | Tue-Sun 11am-10pm | 247 Main"
 CTA = "(555) BELLA-01"
 COLOR_SCHEME = {
     "background": "#2D1B0E",  # dark brown (brand primary)
-    "headline": "#D4A87A",    # slightly lighter tan - better contrast, stays on-brand
+    "headline": "#C4956A",    # warm tan (brand secondary)
     "subheadline": "#FFFFFF", # white for readability
-    "cta": "#C41E1E",         # brighter red - more visible, still brand-appropriate
+    "cta": "#8B0000",         # dark red (brand accent)
 }
 LAYOUT = "hero-left"  # hero-left, hero-right, centered, split
 FORMAT = "bulletin"  # bulletin: 3.4:1, 7 word max
