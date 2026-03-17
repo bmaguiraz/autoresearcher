@@ -95,6 +95,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
+    df["city"] = df["city"].apply(lambda x: x.title() if x else "")
 
     # Filter and deduplicate early on normalized key fields
     df = df[df["email"] != ""]
