@@ -17,6 +17,7 @@ STATE_MAP = {
     "south carolina": "SC", "south dakota": "SD", "tennessee": "TN", "texas": "TX",
     "utah": "UT", "vermont": "VT", "virginia": "VA", "washington": "WA",
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
+    "district of columbia": "DC",
 }
 
 VALID_STATES = set(STATE_MAP.values())
@@ -29,14 +30,13 @@ MONTH_MAP = {
 
 
 def normalize_phone(phone):
-    if pd.isna(phone) or phone == "":
+    if not phone or pd.isna(phone):
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    if digits.startswith("1") and len(digits) == 11:
+    # Strip leading 1 for 11-digit numbers
+    if len(digits) == 11 and digits[0] == "1":
         digits = digits[1:]
-    if len(digits) == 10:
-        return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
-    return ""
+    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
 def normalize_date(s):
@@ -69,53 +69,43 @@ def normalize_state(state):
     upper = s.upper()
     if len(s) == 2 and upper in VALID_STATES:
         return upper
-    return ""
+    return upper[:2]
 
 
 def normalize_email(email):
-    if pd.isna(email) or email == "":
+    if not email or pd.isna(email):
         return ""
     e = str(email).strip().lower()
-    if " " in e or "@" not in e or "." not in e.split("@")[-1]:
-        return ""
-    return e
+    # Basic validation: no spaces, must have @, domain must have .
+    return e if " " not in e and "@" in e and "." in e.split("@")[-1] else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all columns
+    # Strip whitespace and replace sentinel values
+    df = df.fillna("")
+    sentinels = ["n/a", "null", "none", "nan", "#n/a", "na"]
     for col in df.columns:
         df[col] = df[col].str.strip()
-
-    # Replace common sentinel values with empty strings
-    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", "", "missing", "unknown", "n.a.", "n\\a", "n/a", "--", "___", "..."}
-    for col in df.columns:
-        df[col] = df[col].apply(lambda x: "" if str(x).strip().lower() in sentinels or str(x).strip() in ["", "-", "_"] else x)
-
-    # Normalize and filter critical fields first
-    df["email"] = df["email"].apply(normalize_email)
-    df = df[df["email"] != ""]  # Remove rows with invalid emails immediately
+        df[col] = df[col].replace({s: "" for s in sentinels}, regex=False)
+        df[col] = df[col].replace({s.upper(): "" for s in sentinels}, regex=False)
+        df[col] = df[col].replace({s.title(): "" for s in sentinels}, regex=False)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
-    df = df.drop_duplicates(subset=["name", "email"], keep="first")
-
+    df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Normalize city with better handling
-    df["city"] = df["city"].apply(lambda x: x.title().strip() if x and x.strip() else "")
-
-    # Handle age outliers
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
-    df = df[~((df["age"] < 0) | (df["age"] > 120))]
-    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-
-    # Handle salary outliers
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-    df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
+    df = df[~((df["age"] < 0) | (df["age"] > 120) | (df["salary"] < 0) | (df["salary"] > 1_000_000))]
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+
+    df = df[df["email"] != ""]
+    df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
 
