@@ -1,1 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+74a9090	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+2c7569a	97.2	25.0	22.9	24.3	25.0	discard	Cycle 1: Remove email filter (score decreased)
+abf1d19	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Combine outlier filters
+9d046ac	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify deduplication
