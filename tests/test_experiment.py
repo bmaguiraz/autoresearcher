@@ -1,6 +1,7 @@
 """Tests for the experiment base classes."""
 
 import json
+import logging
 from pathlib import Path
 from unittest.mock import patch
 
@@ -249,3 +250,55 @@ class TestRetryLogic:
         with pytest.raises(RuntimeError):
             exp.run_cycle(1)
         mock_sleep.assert_not_called()
+
+
+class TestLogging:
+    def test_init_logs_info(self, tmp_path, caplog):
+        config_path = _make_config(tmp_path)
+        with caplog.at_level(logging.INFO, logger="autoresearcher.experiment"):
+            SimpleExperiment(config_path)
+        assert any("Experiment initialized" in r.message for r in caplog.records)
+
+    def test_run_cycle_logs_start_and_completion(self, tmp_path, caplog):
+        config_path = _make_config(tmp_path, cycles=1)
+        exp = SimpleExperiment(config_path)
+        with caplog.at_level(logging.INFO, logger="autoresearcher.experiment"):
+            exp.run_cycle(1)
+        messages = [r.message for r in caplog.records]
+        assert any("Starting cycle" in m for m in messages)
+        assert any("completed successfully" in m for m in messages)
+
+    def test_run_logs_experiment_summary(self, tmp_path, caplog):
+        config_path = _make_config(tmp_path, cycles=1)
+        exp = SimpleExperiment(config_path)
+        with caplog.at_level(logging.INFO, logger="autoresearcher.experiment"):
+            exp.run()
+        messages = [r.message for r in caplog.records]
+        assert any("Starting experiment run" in m for m in messages)
+        assert any("completed" in m for m in messages)
+
+    def test_debug_logs_config(self, tmp_path, caplog):
+        config_path = _make_config(tmp_path)
+        with caplog.at_level(logging.DEBUG, logger="autoresearcher.experiment"):
+            SimpleExperiment(config_path)
+        messages = [r.message for r in caplog.records]
+        assert any("config" in m.lower() for m in messages)
+
+    def test_error_logged_on_failure(self, tmp_path, caplog):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=0)
+        exp = FlakeyExperiment(config_path, fail_times=1, retry_config=rc)
+        with caplog.at_level(logging.ERROR, logger="autoresearcher.experiment"):
+            with pytest.raises(RuntimeError):
+                exp.run()
+        assert any(r.levelno == logging.ERROR for r in caplog.records)
+
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_retry_logs_warning(self, mock_sleep, tmp_path, caplog):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=3, base_delay=0.1)
+        exp = FlakeyExperiment(config_path, fail_times=1, retry_config=rc)
+        with caplog.at_level(logging.WARNING, logger="autoresearcher.experiment"):
+            exp.run_cycle(1)
+        assert any(r.levelno == logging.WARNING for r in caplog.records)
+        assert any("Evaluation failed" in r.message for r in caplog.records)

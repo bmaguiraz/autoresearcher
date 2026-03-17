@@ -1,12 +1,15 @@
 """Base experiment classes for the autoresearcher framework."""
 
 import json
+import logging
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -89,6 +92,8 @@ class BaseExperiment(ABC):
         self.results_dir = self.experiment_dir / "results"
         self.results_dir.mkdir(exist_ok=True)
 
+        logger.info("Initializing experiment from config: %s", self.config_path)
+
         with open(self.config_path) as f:
             self.config = json.load(f)
 
@@ -96,6 +101,9 @@ class BaseExperiment(ABC):
         self.max_cycles: int = self.config.get("cycles", 5)
         self.retry_config: RetryConfig = retry_config or RetryConfig()
         self.results: list[ExperimentResult] = []
+
+        logger.info("Experiment initialized: id=%s, max_cycles=%d", self.experiment_id, self.max_cycles)
+        logger.debug("Experiment config: %s", json.dumps(self.config, indent=2))
 
     @abstractmethod
     def evaluate(self, cycle: int) -> dict[str, float]:
@@ -119,6 +127,10 @@ class BaseExperiment(ABC):
                 last_exception = exc
                 if attempt < self.retry_config.max_retries:
                     delay = self.retry_config.get_delay(attempt)
+                    logger.warning(
+                        "Evaluation failed (attempt %d/%d): %s. Retrying in %.1fs...",
+                        attempt + 1, max_attempts, exc, delay,
+                    )
                     print(f"  Evaluation failed (attempt {attempt + 1}/{max_attempts}): {exc}")
                     print(f"  Retrying in {delay:.1f}s...")
                     time.sleep(delay)
@@ -127,12 +139,18 @@ class BaseExperiment(ABC):
 
     def run_cycle(self, cycle: int) -> ExperimentResult:
         """Execute a single experiment cycle with retry support."""
-        print(f"\n{'='*50}")
+        logger.info("Starting cycle %d/%d for experiment %s", cycle, self.max_cycles, self.experiment_id)
+        sep = "=" * 50
+        print(f"\n{sep}")
         print(f"Cycle {cycle}/{self.max_cycles}")
-        print(f"{'='*50}")
+        print(sep)
 
         print("\n[1/3] Evaluating...")
+        logger.debug("Running evaluation for cycle %d", cycle)
+        eval_start = time.time()
         metrics = self._evaluate_with_retry(cycle)
+        eval_duration = time.time() - eval_start
+        logger.info("Evaluation completed in %.2fs with %d metrics", eval_duration, len(metrics))
 
         result = ExperimentResult(
             experiment_id=self.experiment_id,
@@ -141,33 +159,55 @@ class BaseExperiment(ABC):
         )
         self.results.append(result)
 
+        logger.info("Cycle %d aggregate score: %.3f", cycle, result.aggregate_score)
+        logger.debug("Cycle %d metrics: %s", cycle, json.dumps(metrics, indent=2))
         print(f"  Aggregate Score: {result.aggregate_score:.3f}")
         for name, value in metrics.items():
             print(f"  {name}: {value:.3f}")
 
         if cycle < self.max_cycles:
             print("\n[2/3] Optimizing...")
+            logger.debug("Running optimization for cycle %d", cycle)
+            opt_start = time.time()
             self.optimize(result)
+            opt_duration = time.time() - opt_start
+            logger.info("Optimization completed in %.2fs", opt_duration)
 
         print("\n[3/3] Saving results...")
+        logger.debug("Saving results for cycle %d", cycle)
         self.save_results()
+        logger.info("Cycle %d completed successfully", cycle)
 
         return result
 
     def run(self) -> ExperimentSummary:
         """Execute the full experiment loop."""
+        logger.info("Starting experiment run: %s with %d cycles", self.experiment_id, self.max_cycles)
         print(f"\n# Experiment: {self.experiment_id}")
         print(f"# Cycles: {self.max_cycles}\n")
 
         start_time = time.time()
 
-        for cycle in range(1, self.max_cycles + 1):
-            self.run_cycle(cycle)
+        try:
+            for cycle in range(1, self.max_cycles + 1):
+                self.run_cycle(cycle)
+        except Exception:
+            logger.error("Experiment failed during execution", exc_info=True)
+            raise
 
         elapsed = time.time() - start_time
         summary = self.generate_summary(elapsed)
 
-        print(f"\n{'='*50}")
+        logger.info(
+            "Experiment %s completed: initial=%.3f, final=%.3f, "
+            "improvement=%+.3f (%.1f%%), best=%.3f, elapsed=%.1fs",
+            self.experiment_id, summary.initial_score, summary.final_score,
+            summary.improvement, summary.improvement_percentage,
+            summary.best_score, elapsed,
+        )
+
+        sep = "=" * 50
+        print(f"\n{sep}")
         print("Experiment Complete!")
         print(f"  Initial Score: {summary.initial_score:.3f}")
         print(f"  Final Score:   {summary.final_score:.3f}")
@@ -179,8 +219,9 @@ class BaseExperiment(ABC):
 
     def generate_summary(self, elapsed: float) -> ExperimentSummary:
         """Generate summary statistics from collected results."""
+        logger.debug("Generating summary for %d results", len(self.results))
         scores = [r.aggregate_score for r in self.results]
-        return ExperimentSummary(
+        summary = ExperimentSummary(
             total_cycles=len(self.results),
             initial_score=scores[0] if scores else 0.0,
             final_score=scores[-1] if scores else 0.0,
@@ -188,9 +229,12 @@ class BaseExperiment(ABC):
             average_score=round(sum(scores) / len(scores), 4) if scores else 0.0,
             elapsed_seconds=round(elapsed, 1),
         )
+        logger.debug("Summary generated: %s", summary.to_dict())
+        return summary
 
     def save_results(self) -> Path:
         """Save current results to disk. Returns the path to the results file."""
+        logger.debug("Saving %d results to disk", len(self.results))
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         results_file = self.results_dir / f"results_{timestamp}.json"
 
@@ -201,11 +245,17 @@ class BaseExperiment(ABC):
             "results": [r.to_dict() for r in self.results],
         }
 
-        with open(results_file, "w") as f:
-            json.dump(output, f, indent=2)
+        try:
+            with open(results_file, "w") as f:
+                json.dump(output, f, indent=2)
+            logger.info("Results saved to: %s", results_file)
 
-        latest_file = self.results_dir / "results_latest.json"
-        with open(latest_file, "w") as f:
-            json.dump(output, f, indent=2)
+            latest_file = self.results_dir / "results_latest.json"
+            with open(latest_file, "w") as f:
+                json.dump(output, f, indent=2)
+            logger.debug("Latest results saved to: %s", latest_file)
+        except Exception:
+            logger.error("Failed to save results", exc_info=True)
+            raise
 
         return results_file
