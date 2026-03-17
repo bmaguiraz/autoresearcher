@@ -1,3 +1,1 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-ad1aa97	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
-9a5f2d8	97.9	25.0	22.9	25.0	25.0	revert	Cycle 1 - Combine strip and sentinel loops (score dropped)
