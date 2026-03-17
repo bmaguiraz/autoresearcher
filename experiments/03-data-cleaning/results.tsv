@@ -3,3 +3,4 @@ commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	descr
 742b7a2	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - vectorize sentinel replacement, simplify name normalization
 5dee5fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - vectorize age/salary int conversion
 62f86de	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Vectorize age/salary conversion
+ddc5c3f	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - Simplify helpers, remove redundant checks
