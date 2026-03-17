@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 3f293d4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+23e076b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace dateutil with regex date parsing
+8ce11f8	100.0	25.0	25.0	25.0	25.0	keep	Move fillna into column loop (simpler code)
