@@ -13,6 +13,20 @@ logger = logging.getLogger(__name__)
 
 
 @dataclass
+class RetryConfig:
+    """Configuration for retry behavior in experiment cycles."""
+
+    max_retries: int = 3
+    base_delay: float = 1.0
+    backoff_factor: float = 2.0
+    retryable_exceptions: tuple[type[Exception], ...] = (Exception,)
+
+    def get_delay(self, attempt: int) -> float:
+        """Calculate delay for a given retry attempt (0-indexed)."""
+        return self.base_delay * (self.backoff_factor ** attempt)
+
+
+@dataclass
 class ExperimentResult:
     """Stores the result of a single experiment run."""
 
@@ -72,7 +86,7 @@ class BaseExperiment(ABC):
         - optimize(): Generate an improved configuration
     """
 
-    def __init__(self, config_path: str | Path):
+    def __init__(self, config_path: str | Path, retry_config: RetryConfig | None = None):
         self.config_path = Path(config_path)
         self.experiment_dir = self.config_path.parent
         self.results_dir = self.experiment_dir / "results"
@@ -85,6 +99,7 @@ class BaseExperiment(ABC):
 
         self.experiment_id: str = self.config.get("experiment_id", "unknown")
         self.max_cycles: int = self.config.get("cycles", 5)
+        self.retry_config: RetryConfig = retry_config or RetryConfig()
         self.results: list[ExperimentResult] = []
 
         logger.info(f"Experiment initialized: id={self.experiment_id}, max_cycles={self.max_cycles}")
@@ -100,8 +115,32 @@ class BaseExperiment(ABC):
         """Apply optimization based on the latest result."""
         ...
 
+    def _evaluate_with_retry(self, cycle: int) -> dict[str, float]:
+        """Run evaluate() with retry logic on failure."""
+        last_exception: Exception | None = None
+        max_attempts = 1 + self.retry_config.max_retries
+
+        for attempt in range(max_attempts):
+            try:
+                return self.evaluate(cycle)
+            except self.retry_config.retryable_exceptions as exc:
+                last_exception = exc
+                if attempt < self.retry_config.max_retries:
+                    delay = self.retry_config.get_delay(attempt)
+                    logger.warning(
+                        f"Evaluation failed for cycle {cycle} "
+                        f"(attempt {attempt + 1}/{max_attempts}): {exc}"
+                    )
+                    logger.info(f"Retrying in {delay:.1f}s...")
+                    print(f"  Evaluation failed (attempt {attempt + 1}/{max_attempts}): {exc}")
+                    print(f"  Retrying in {delay:.1f}s...")
+                    time.sleep(delay)
+
+        logger.error(f"All {max_attempts} attempts failed for cycle {cycle}", exc_info=last_exception)
+        raise last_exception  # type: ignore[misc]
+
     def run_cycle(self, cycle: int) -> ExperimentResult:
-        """Execute a single experiment cycle."""
+        """Execute a single experiment cycle with retry support."""
         logger.info(f"Starting cycle {cycle}/{self.max_cycles} for experiment {self.experiment_id}")
         print(f"\n{'='*50}")
         print(f"Cycle {cycle}/{self.max_cycles}")
@@ -110,7 +149,7 @@ class BaseExperiment(ABC):
         print("\n[1/3] Evaluating...")
         logger.debug(f"Running evaluation for cycle {cycle}")
         eval_start = time.time()
-        metrics = self.evaluate(cycle)
+        metrics = self._evaluate_with_retry(cycle)
         eval_duration = time.time() - eval_start
         logger.info(f"Evaluation completed in {eval_duration:.2f}s with {len(metrics)} metrics")
 

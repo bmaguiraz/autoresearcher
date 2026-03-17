@@ -1,11 +1,14 @@
 """Concurrent execution utilities for running experiments in parallel."""
 
+import logging
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Callable, Any
 
 from .experiment import BaseExperiment, ExperimentSummary
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -46,8 +49,11 @@ class ConcurrentExperimentRunner:
             List of ConcurrentExperimentResult objects with results and status.
         """
         if not experiments:
+            logger.debug("No experiments to run")
             return []
 
+        logger.info(f"Starting concurrent run of {len(experiments)} experiments "
+                    f"with max_workers={self.max_workers or 'default'}")
         print(f"\n{'='*60}")
         print(f"Running {len(experiments)} experiments concurrently")
         print(f"Max workers: {self.max_workers or 'default'}")
@@ -62,6 +68,7 @@ class ConcurrentExperimentRunner:
                 executor.submit(self._run_single_experiment, exp): exp
                 for exp in experiments
             }
+            logger.debug(f"Submitted {len(future_to_exp)} experiments to executor")
 
             # Collect results as they complete
             for future in as_completed(future_to_exp):
@@ -69,14 +76,22 @@ class ConcurrentExperimentRunner:
                 result = future.result()
                 results.append(result)
 
+                if result.success:
+                    logger.info(f"Experiment {result.experiment_id} completed successfully")
+                else:
+                    logger.error(f"Experiment {result.experiment_id} failed: {result.error}")
                 status = "✓" if result.success else "✗"
                 print(f"{status} {result.experiment_id} completed")
 
         elapsed = time.time() - start_time
 
+        successful = sum(1 for r in results if r.success)
+        logger.info(f"All {len(results)} experiments complete in {elapsed:.1f}s "
+                    f"({successful} successful, {len(results) - successful} failed)")
+
         print(f"\n{'='*60}")
         print(f"All experiments complete in {elapsed:.1f}s")
-        print(f"Successful: {sum(1 for r in results if r.success)}/{len(results)}")
+        print(f"Successful: {successful}/{len(results)}")
         print(f"{'='*60}\n")
 
         return results
@@ -92,14 +107,19 @@ class ConcurrentExperimentRunner:
         Returns:
             ConcurrentExperimentResult with success status and summary/error.
         """
+        logger.debug(f"Starting experiment: {experiment.experiment_id}")
         try:
             summary = experiment.run()
+            logger.info(f"Experiment {experiment.experiment_id} finished: "
+                       f"score={summary.final_score:.3f}")
             return ConcurrentExperimentResult(
                 experiment_id=experiment.experiment_id,
                 summary=summary,
                 success=True,
             )
         except Exception as e:
+            logger.error(f"Experiment {experiment.experiment_id} raised an exception: {e}",
+                        exc_info=True)
             return ConcurrentExperimentResult(
                 experiment_id=experiment.experiment_id,
                 summary=None,  # type: ignore
@@ -138,8 +158,11 @@ class ConcurrentEvaluator:
             List of metric dicts in the same order as input items.
         """
         if not items:
+            logger.debug("No items to evaluate")
             return []
 
+        logger.info(f"Evaluating batch of {len(items)} items with "
+                    f"max_workers={self.max_workers or 'default'}")
         results = [None] * len(items)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -153,4 +176,5 @@ class ConcurrentEvaluator:
                 idx = future_to_idx[future]
                 results[idx] = future.result()
 
+        logger.info(f"Batch evaluation complete: {len(results)} results")
         return results  # type: ignore
