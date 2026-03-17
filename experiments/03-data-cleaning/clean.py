@@ -68,9 +68,10 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
+    # Check map first
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    # Check if already a 2-letter state code
     if len(s) == 2 and s.upper() in VALID_STATES:
         return s.upper()
     return ""
@@ -92,8 +93,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    # Replace sentinel values with empty strings (case-insensitive via lowercase conversion)
-    df = df.replace(["N/A", "null", "None", "nan"], "")
+    # Replace sentinel values with empty strings (case-insensitive)
+    sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
+    for col in df.columns:
+        df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
 
     # Normalize all fields first
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
