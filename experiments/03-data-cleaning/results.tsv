@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 4d18964	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+ef7bc2e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Vectorize name normalization
