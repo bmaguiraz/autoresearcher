@@ -97,6 +97,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Normalize states
     df["state"] = df["state"].apply(normalize_state)
 
+    # Remove duplicates after normalization (before type conversion)
+    df = df.drop_duplicates()
+
     # Convert age and salary to numeric, coerce errors
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
@@ -108,9 +111,6 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Handle NaN from numeric conversion — convert back to empty string for output
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-
-    # Remove exact duplicates
-    df = df.drop_duplicates()
 
     df.to_csv(output_path, index=False)
 
