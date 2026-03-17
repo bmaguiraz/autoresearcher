@@ -68,9 +68,9 @@ def normalize_state(state):
     if s in STATE_MAP:
         return STATE_MAP[s]
     upper = s.upper()
-    if len(s) == 2 and upper in VALID_STATES:
+    if len(upper) == 2 and upper in VALID_STATES:
         return upper
-    return upper[:2]
+    return upper[:2] if len(upper) >= 2 else ""
 
 
 def normalize_email(email):
