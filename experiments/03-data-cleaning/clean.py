@@ -30,14 +30,13 @@ MONTH_MAP = {
 
 
 def normalize_phone(phone):
-    if pd.isna(phone) or phone == "":
+    if not phone or pd.isna(phone):
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    if digits.startswith("1") and len(digits) == 11:
+    # Strip leading 1 for 11-digit numbers
+    if len(digits) == 11 and digits[0] == "1":
         digits = digits[1:]
-    if len(digits) == 10:
-        return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
-    return ""
+    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
 def normalize_date(s):
@@ -74,12 +73,11 @@ def normalize_state(state):
 
 
 def normalize_email(email):
-    if pd.isna(email) or email == "":
+    if not email or pd.isna(email):
         return ""
     e = str(email).strip().lower()
-    if " " in e or "@" not in e or "." not in e.split("@")[-1]:
-        return ""
-    return e
+    # Basic validation: no spaces, must have @, domain must have .
+    return e if " " not in e and "@" in e and "." in e.split("@")[-1] else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
