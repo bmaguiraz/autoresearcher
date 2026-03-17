@@ -1,3 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 297bce6	97.9	25.0	22.9	25.0	25.0	keep	Baseline
 2435394	97.9	25.0	22.9	25.0	25.0	discard	Cycle 1: Refine sentinel handling
+728bb0d	97.9	25.0	22.9	25.0	25.0	discard	Cycle 2: Refine outlier filtering logic
