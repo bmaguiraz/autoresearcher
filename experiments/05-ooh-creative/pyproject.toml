@@ -1,0 +1,11 @@
+[project]
+name = "exp05-ooh-creative"
+version = "0.1.0"
+description = "Autoresearch experiment: OOH ad creative optimization"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic[bedrock]>=0.40.0",
+    "google-genai>=1.0.0",
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+]
