@@ -105,11 +105,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     df = df[df["email"] != ""]
-    df = df.drop_duplicates()
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
-    # Drop rows where email was originally present but normalized to empty (corrupted data)
-    df = df[~((df["email"] == "") & (df["name"] != ""))]
 
     df.to_csv(output_path, index=False)
 
