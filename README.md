@@ -72,6 +72,7 @@ Each experiment lives in its own directory under `experiments/` with:
 
 - [Architecture Overview](docs/architecture.md)
 - [Running Experiments](docs/experiments.md)
+- [Linear Integration](docs/linear-integration.md)
 - [Contributing](docs/contributing.md)
 
 ## Development
