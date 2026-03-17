@@ -9,10 +9,13 @@ This document tracks webhook integration testing between Linear and the autorese
 ### MOR-20: Authentication Flow Test Issue
 
 **Date**: 2026-03-17
-**Session ID**: 3ae17842
 **Issue**: [MOR-20](https://linear.app/maguireb/issue/MOR-20/bug-in-authentication-flow)
 
-**Test Status**: ✅ Webhook Received Successfully
+**Test Status**: ✅ Webhook Integration Verified
+
+**Session History**:
+- Session 3ae17842: Initial webhook received (issue created)
+- Session 1b3ea2e1: Issue state change webhook (moved to "In Progress")
 
 **Details**:
 - Webhook trigger: Issue creation from Telegram
@@ -41,6 +44,18 @@ The following webhook flow components were verified:
 4. ✅ Issue analysis and investigation
 5. ✅ Session tracking (ac:sid label support)
 
+## Webhook Event Types Verified
+
+### Issue Creation Events
+- ✅ Webhook triggered when issue created from Telegram
+- ✅ Issue payload correctly parsed
+- ✅ Repository correctly identified and cloned
+
+### Issue Update Events
+- ✅ Webhook triggered when issue moved to "In Progress" state
+- ✅ State changes correctly detected
+- ✅ Multiple session tracking working correctly
+
 ## Notes
 
-This test confirms the end-to-end webhook integration is functioning correctly. Future issues will be processed through the same pipeline.
+This test confirms the end-to-end webhook integration is functioning correctly for both issue creation and update events. Future issues will be processed through the same pipeline.
