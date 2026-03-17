@@ -1,3 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 82d9cfa	100.0	25.0	25.0	25.0	25.0	keep	Baseline
 a86aa54	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel list to data-relevant values only
+1866025	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel value list
+d98b2fe	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline age/salary conversion logic
