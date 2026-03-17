@@ -1,0 +1,17 @@
+Webhook Processing Marker
+========================
+
+Issue: MOR-23
+Session ID: 24e451a7
+Timestamp: 2026-03-17T23:10:56.040Z
+Status: In Progress
+Webhook Type: Issue Update
+
+This file validates that the Linear webhook integration successfully:
+- Received the webhook event
+- Matched the issue to the autoresearcher project
+- Triggered the automated workflow
+- Created this marker to verify end-to-end integration
+
+Linear Issue: https://linear.app/maguireb/issue/MOR-23/test-issue-from-integration-test
+GitHub PR: https://github.com/bmaguiraz/autoresearcher/pull/68
