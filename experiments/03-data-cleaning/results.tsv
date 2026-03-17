@@ -1,5 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-6c6c164	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
-bc51674	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant empty email filter
-5d1f9e6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - refined dedup logic
-c33be9a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - added clarifying comments
+ad1aa97	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+ccfb70b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Simplify deduplication and add DC state
+b690b39	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - vectorize sentinel replacement
+32ca338	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - Improve state mapping and sentinel handling

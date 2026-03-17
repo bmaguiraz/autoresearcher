@@ -17,6 +17,7 @@ STATE_MAP = {
     "south carolina": "SC", "south dakota": "SD", "tennessee": "TN", "texas": "TX",
     "utah": "UT", "vermont": "VT", "virginia": "VA", "washington": "WA",
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
+    "district of columbia": "DC",
 }
 
 VALID_STATES = set(STATE_MAP.values())
@@ -69,7 +70,7 @@ def normalize_state(state):
     upper = s.upper()
     if len(s) == 2 and upper in VALID_STATES:
         return upper
-    return ""
+    return upper[:2]
 
 
 def normalize_email(email):
@@ -84,14 +85,10 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all columns
-    for col in df.columns:
-        df[col] = df[col].str.strip()
-
-    # Replace common sentinel values with empty strings
+    # Strip whitespace and replace sentinel values in one pass
     sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", ""}
     for col in df.columns:
-        df[col] = df[col].apply(lambda x: "" if str(x).strip().lower() in sentinels else x)
+        df[col] = df[col].str.strip().apply(lambda x: "" if x.lower() in sentinels else x)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
@@ -101,13 +98,11 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-    df = df[~((df["age"] < 0) | (df["age"] > 120))]
-    df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
+    df = df[~((df["age"] < 0) | (df["age"] > 120) | (df["salary"] < 0) | (df["salary"] > 1_000_000))]
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     df = df[df["email"] != ""]
-    # Deduplicate by name+email combination
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
