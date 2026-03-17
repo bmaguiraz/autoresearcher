@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+971aea9	97.9	25.0	22.9	25.0	25.0	keep	Baseline
+8c0fcd4	97.9	25.0	22.9	25.0	25.0	keep	Cycle 1: Expand sentinel patterns
+1058864	95.1	25.0	20.8	24.3	25.0	discard	Cycle 2: Keep empty emails (reverted)
