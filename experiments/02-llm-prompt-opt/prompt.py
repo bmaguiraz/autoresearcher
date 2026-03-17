@@ -4,7 +4,7 @@ The agent edits this file to optimize classification accuracy.
 """
 
 # Model to use for classification (Bedrock model ID)
-MODEL = "anthropic.claude-haiku-4-5-20251001-v1:0"
+MODEL = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Classification labels
 CLASSIFICATION_LABELS = ["positive", "negative", "neutral"]
