@@ -10,6 +10,7 @@ The integration allows creating Linear issues from Telegram messages, enabling s
 
 - `test_linear_integration.py` - Pytest-based integration tests
 - `verify_linear_telegram_e2e.py` - Standalone E2E verification script
+- `webhook_test_results.md` - Test results from Linear webhook processing
 
 ## Prerequisites
 
