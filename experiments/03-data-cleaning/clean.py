@@ -30,9 +30,9 @@ MONTH_MAP = {
 
 
 def normalize_phone(phone):
-    if pd.isna(phone) or phone == "":
+    if not phone:
         return ""
-    digits = re.sub(r"\D", "", str(phone))
+    digits = re.sub(r"\D", "", phone)
     if digits.startswith("1") and len(digits) == 11:
         digits = digits[1:]
     if len(digits) == 10:
@@ -41,9 +41,9 @@ def normalize_phone(phone):
 
 
 def normalize_date(s):
-    if pd.isna(s) or s == "":
+    if not s:
         return ""
-    s = str(s).strip()
+    s = s.strip()
     m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
     if m:
         return s
@@ -62,9 +62,9 @@ def normalize_date(s):
 
 
 def normalize_state(state):
-    if pd.isna(state) or state == "":
+    if not state:
         return ""
-    s = str(state).strip().lower()
+    s = state.strip().lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
     upper = s.upper()
@@ -74,9 +74,9 @@ def normalize_state(state):
 
 
 def normalize_email(email):
-    if pd.isna(email) or email == "":
+    if not email:
         return ""
-    e = str(email).strip().lower()
+    e = email.strip().lower()
     if " " in e or "@" not in e or "." not in e.split("@")[-1]:
         return ""
     return e
