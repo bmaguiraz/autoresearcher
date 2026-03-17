@@ -1,2 +1,3 @@
 commit	score	tier	visual_hierarchy	color_contrast	brand_integration	message_effectiveness	format_optimization	industry_practices	regulatory_compliance	status	description
-dadad0c	89.0	minor-revisions	20.0	11.0	10.0	16.0	10.0	12.0	10.0	keep	baseline writefit
+016c6a7	90.0	launch-ready	18.0	15.0	7.0	17.0	10.0	13.0	10.0	keep	baseline restaurant round 3
+16e1e0b	88.5	minor-revisions	18.0	11.0	8.5	17.0	10.0	14.0	10.0	discard	Accent color CTA - contrast loss outweighed brand gain
