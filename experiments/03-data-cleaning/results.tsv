@@ -1,3 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+b3805ac	97.9	25.0	22.9	25.0	25.0	keep	Baseline
+e61fc81	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add DC to state mapping
 5cfb1e4	0.0	0.0	0.0	0.0	0.0	crash	Cycle 2: Simplify sentinel handling (crashed)
 a5e98c6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Add full month names to date parsing
