@@ -1,1 +1,8 @@
-Bytecode compiled 1926 files in 111ms
+Bytecode compiled 1926 files in 138ms
+---
+score:              100.0
+type_correctness:   25.0
+null_handling:      25.0
+dedup:              25.0
+outlier_treatment:  25.0
+eval_seconds:       0.6
