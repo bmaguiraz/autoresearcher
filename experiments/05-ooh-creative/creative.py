@@ -16,5 +16,5 @@ LAYOUT = "hero-left"  # hero-left, hero-right, centered, split
 FORMAT = "bulletin"  # bulletin: 3.4:1, 7 word max
 
 # Image generation prompt for the hero image
-IMAGE_PROMPT = "close-up of fresh handmade pappardelle pasta being lifted from a rustic wooden board, flour dusted surface, warm golden hour lighting, authentic Italian trattoria kitchen, rich textures"
+IMAGE_PROMPT = "close-up of fresh handmade pappardelle pasta on rustic wooden board, flour dusted surface, warm golden hour lighting, authentic Italian trattoria kitchen, rich textures"
 IMAGE_STYLE = "food photography, warm natural lighting, shallow depth of field, appetizing and authentic mood, rustic Italian aesthetic"

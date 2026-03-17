@@ -421,7 +421,7 @@ Respond with ONLY valid JSON (no markdown, no code fences):
         content_blocks[1]["text"] += "\n\nThe FINAL RENDERED AD is attached — this is the actual billboard with headline, subheadline, and CTA text composited onto the hero image. Evaluate the complete ad as it would appear to viewers: text readability, visual hierarchy, color contrast against the actual background, layout effectiveness, and overall professional quality. This is the real creative, not a mockup."
 
     response = client.messages.create(
-        model="us.anthropic.claude-3-5-haiku-20241022-v1:0",
+        model="anthropic.claude-haiku-4-5-20251001-v1:0",
         max_tokens=512,
         messages=[{"role": "user", "content": content_blocks}],
     )
