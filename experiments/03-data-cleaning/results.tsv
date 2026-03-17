@@ -1,1 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5cfb1e4	0.0	0.0	0.0	0.0	0.0	crash	Cycle 2: Simplify sentinel handling (crashed)
+a5e98c6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Add full month names to date parsing
