@@ -1,1 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+7c25879	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+d307f05	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel replacement with column-wise replace
