@@ -19,6 +19,8 @@ STATE_MAP = {
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
 }
 
+VALID_STATES = set(STATE_MAP.values())
+
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -37,33 +39,24 @@ def normalize_phone(phone):
     return ""
 
 
-def normalize_date(date_str):
-    if pd.isna(date_str) or date_str == "":
+def normalize_date(s):
+    if pd.isna(s) or s == "":
         return ""
-    s = str(date_str).strip()
-
-    # YYYY-MM-DD
+    s = str(s).strip()
     m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
     if m:
         return s
-
-    # MM/DD/YYYY
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
-
-    # Mon DD YYYY (e.g., "Jan 15 2024")
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
         mon = MONTH_MAP.get(m.group(1).lower()[:3])
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-
-    # DD-MM-YYYY
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
-
     return ""
 
 
@@ -73,18 +66,17 @@ def normalize_state(state):
     s = str(state).strip().lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    if len(s) == 2 and s.upper() in STATE_MAP.values():
-        return s.upper()
-    return str(state).strip().upper()[:2]
+    upper = s.upper()
+    if len(s) == 2 and upper in VALID_STATES:
+        return upper
+    return upper[:2]
 
 
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
     e = str(email).strip().lower()
-    if " " in e:
-        return ""
-    if "@" not in e or "." not in e.split("@")[-1]:
+    if " " in e or "@" not in e or "." not in e.split("@")[-1]:
         return ""
     return e
 
@@ -107,10 +99,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-
     df = df[~((df["age"] < 0) | (df["age"] > 120))]
     df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
-
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
