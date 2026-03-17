@@ -13,4 +13,6 @@ ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016f
 e176f16	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 2 (session: c7a4323f)
 b94fde3	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion (session: c7a4323f)
 59035f4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline state normalization (session: c7a4323f)
-fa06946	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 788eeed8)
+d376c3e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 788eeed8)
+9f0c0fe	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Vectorized name normalization (session: 788eeed8)
+e91abfe	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Consolidate numeric conversion (session: 788eeed8)
