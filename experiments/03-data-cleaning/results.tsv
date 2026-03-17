@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+246ded1	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score on all dimensions
+2faa155	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify age/salary conversion (direct pd.isna check)
+a5f6d97	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel replacement with set comprehension
