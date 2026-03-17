@@ -2,3 +2,4 @@ commit	score	tier	visual_hierarchy	color_contrast	brand_integration	message_effe
 d1f33c5	90.5	launch-ready	20.0	11.0	8.5	17.0	10.0	14.0	10.0	keep	baseline restaurant - Casa Bella Trattoria
 1dce217	90.0	launch-ready	20.0	15.0	4.0	17.0	10.0	14.0	10.0	discard	hypothesis 1 - max contrast but lost brand integration
 89d4189	87.5	minor-revisions	20.0	11.0	5.5	17.0	10.0	14.0	10.0	discard	hypothesis 2 - balanced colors still hurt brand, no contrast gain
+35f7160	90.5	launch-ready	20.0	11.0	8.5	17.0	10.0	14.0	10.0	discard	hypothesis 3 - copy changes, score unchanged
