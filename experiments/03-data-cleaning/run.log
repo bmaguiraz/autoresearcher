@@ -1,32 +1,7 @@
-Bytecode compiled 1926 files in 161ms
-clean.py failed:
-Traceback (most recent call last):
-  File "/app/workspace/experiments/03-data-cleaning/clean.py", line 112, in <module>
-    clean()
-  File "/app/workspace/experiments/03-data-cleaning/clean.py", line 91, in clean
-    df[col] = df[col].str.strip().apply(lambda x: "" if x.lower() in sentinels else x)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/workspace/experiments/03-data-cleaning/.venv/lib/python3.11/site-packages/pandas/core/series.py", line 5084, in apply
-    ).apply()
-      ^^^^^^^
-  File "/app/workspace/experiments/03-data-cleaning/.venv/lib/python3.11/site-packages/pandas/core/apply.py", line 1520, in apply
-    return self.apply_standard()
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/app/workspace/experiments/03-data-cleaning/.venv/lib/python3.11/site-packages/pandas/core/apply.py", line 1578, in apply_standard
-    mapped = obj._map_values(mapper=curried)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/workspace/experiments/03-data-cleaning/.venv/lib/python3.11/site-packages/pandas/core/base.py", line 1020, in _map_values
-    return arr.map(mapper, na_action=na_action)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/workspace/experiments/03-data-cleaning/.venv/lib/python3.11/site-packages/pandas/core/arrays/base.py", line 2744, in map
-    return map_array(self, mapper, na_action=na_action)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/workspace/experiments/03-data-cleaning/.venv/lib/python3.11/site-packages/pandas/core/algorithms.py", line 1710, in map_array
-    return lib.map_infer(values, mapper)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "pandas/_libs/lib.pyx", line 3071, in pandas._libs.lib.map_infer
-  File "/app/workspace/experiments/03-data-cleaning/clean.py", line 91, in <lambda>
-    df[col] = df[col].str.strip().apply(lambda x: "" if x.lower() in sentinels else x)
-                                                        ^^^^^^^
-AttributeError: 'float' object has no attribute 'lower'
-
+---
+score:              97.9
+type_correctness:   25.0
+null_handling:      22.9
+dedup:              25.0
+outlier_treatment:  25.0
+eval_seconds:       0.5

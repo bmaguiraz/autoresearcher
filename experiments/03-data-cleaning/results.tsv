@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+dcbea36	97.9	25.0	22.9	25.0	25.0	keep	Baseline
+06ec93f	97.9	25.0	22.9	25.0	25.0	keep	Cycle 1: Expand sentinel patterns
+64a3d00	97.9	25.0	22.9	25.0	25.0	keep	Cycle 2: Add city normalization
