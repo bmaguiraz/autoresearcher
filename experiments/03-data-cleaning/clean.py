@@ -98,7 +98,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
 
     # Normalize all fields first
-    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+    df["name"] = df["name"].str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
