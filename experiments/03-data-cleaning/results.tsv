@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+4cc2b54	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+60a8d12	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling
+a85c985	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Expand sentinels to include tbd and tba
