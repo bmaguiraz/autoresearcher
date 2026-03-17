@@ -1,3 +1,5 @@
 commit	accuracy	cost_cents	status	description
 2c0ffb8	1.000	1.3	keep	Baseline - no changes applied
 2f4bfa1	1.000	1.3	keep	Cycle 1 - Condensed system prompt, maintained accuracy
+23a4c62	1.000	1.3	keep	Cycle 1: Condensed system prompt
+ffc586c	1.000	0.9	keep	Cycle 2: Added edge case rules, reduced to 3 few-shot examples
