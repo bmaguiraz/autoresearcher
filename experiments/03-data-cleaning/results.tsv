@@ -2,3 +2,5 @@ commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	descr
 6e4151c	100.0	25.0	25.0	25.0	25.0	keep	Baseline
 0d2ee4e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel replacement with dict-based replace
 9023eaf	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize outlier filtering with fillna for cleaner conversion
+dd635e5	100.0	25.0	25.0	25.0	25.0	keep	Run5 Baseline
+bcb0427	100.0	25.0	25.0	25.0	25.0	keep	Run5 Cycle 1: Simplify outlier conversion with pd.notna()
