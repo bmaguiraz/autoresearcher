@@ -8,9 +8,9 @@ SUBHEADLINE = "Farm-to-table Italian | Tue-Sun 11am-10pm | 247 Main St"
 CTA = "(555) BELLA-01"
 COLOR_SCHEME = {
     "background": "#2D1B0E",  # dark brown (brand primary)
-    "headline": "#C4956A",    # warm tan (brand secondary)
+    "headline": "#E8D4B8",    # lighter tan for better contrast
     "subheadline": "#FFFFFF", # white for readability
-    "cta": "#8B0000",         # dark red (brand accent)
+    "cta": "#FF4444",         # bright red for CTA visibility
 }
 LAYOUT = "hero-left"  # hero-left, hero-right, centered, split
 FORMAT = "bulletin"  # bulletin: 3.4:1, 7 word max
