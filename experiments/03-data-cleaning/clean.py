@@ -85,12 +85,16 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinel values
     df = df.fillna("")
-    sentinels = ["n/a", "null", "none", "nan", "#n/a", "na"]
+    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na"}
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].replace({s: "" for s in sentinels}, regex=False)
-        df[col] = df[col].replace({s.upper(): "" for s in sentinels}, regex=False)
-        df[col] = df[col].replace({s.title(): "" for s in sentinels}, regex=False)
+        # Build comprehensive sentinel set with all case variations
+        sentinel_dict = {}
+        for s in sentinels:
+            sentinel_dict[s] = ""
+            sentinel_dict[s.upper()] = ""
+            sentinel_dict[s.title()] = ""
+        df[col] = df[col].replace(sentinel_dict, regex=False)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
