@@ -10,6 +10,13 @@ The integration allows creating Linear issues from Telegram messages, enabling s
 
 - `test_linear_integration.py` - Pytest-based integration tests
 - `verify_linear_telegram_e2e.py` - Standalone E2E verification script
+- `cleanup_test_issues.py` - Utility to clean up test issues from Linear
+
+## Important Note About Test Issues
+
+**All test issues are now prefixed with `[TEST]`** to clearly distinguish them from real issues. Test issues also include a warning banner in the description.
+
+If you see issues like `[TEST] Bug in authentication flow` in Linear, these are created by the integration test suite and can be safely closed or cleaned up using the cleanup script.
 
 ## Prerequisites
 
@@ -144,6 +151,23 @@ Verify:
 - Linear API is accessible
 - No firewall blocking the connection
 
+## Cleaning Up Test Issues
+
+Test issues are marked with `[TEST]` prefix. To clean them up:
+
+```bash
+# Dry run - see what would be closed
+python tests/integration/cleanup_test_issues.py --dry-run
+
+# Actually close the test issues
+python tests/integration/cleanup_test_issues.py
+```
+
+The script will:
+1. Find all issues with `[TEST]` prefix
+2. Display them for review
+3. Move them to "Canceled" state
+
 ## Next Steps
 
 After verification succeeds:
@@ -153,7 +177,9 @@ After verification succeeds:
 3. Deploy bot to production
 4. Configure webhook URL in Telegram
 5. Test with real Telegram messages
+6. Clean up test issues periodically using `cleanup_test_issues.py`
 
 ## Related Issues
 
 - MOR-1: Test Linear integration - verify E2E issue creation from Telegram
+- MOR-26: Example test issue created by integration test (can be closed)

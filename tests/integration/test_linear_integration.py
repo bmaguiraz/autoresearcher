@@ -83,8 +83,8 @@ class TestLinearIntegration:
 
         variables = {
             "teamId": team_id,
-            "title": "Test Issue from Integration Test",
-            "description": "This is a test issue created by the Linear integration test suite."
+            "title": "[TEST] Issue from Integration Test",
+            "description": "⚠️ **THIS IS A TEST ISSUE** - Created by integration test suite\n\nThis is a test issue created by the Linear integration test suite. It can be safely closed."
         }
 
         response = requests.post(
@@ -162,8 +162,8 @@ class TestLinearIntegration:
 
             variables = {
                 "teamId": team_id,
-                "title": title,
-                "description": f"Created from Telegram by @{telegram_message['from']['username']}\n\n{description}"
+                "title": f"[TEST] {title}",
+                "description": f"⚠️ **THIS IS A TEST ISSUE** - Created by integration test suite\n\nCreated from Telegram by @{telegram_message['from']['username']}\n\n{description}"
             }
 
             response = requests.post(

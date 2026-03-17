@@ -210,8 +210,8 @@ def create_linear_issue(api_key: str, team_id: str, title: str, description: str
 
     variables = {
         "teamId": team_id,
-        "title": title,
-        "description": description
+        "title": f"[TEST] {title}",
+        "description": f"⚠️ **THIS IS A TEST ISSUE** - Created by E2E verification script\n\n{description}\n\n---\n\nThis issue can be safely closed after verification."
     }
 
     try:
