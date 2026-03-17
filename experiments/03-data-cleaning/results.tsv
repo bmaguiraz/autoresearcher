@@ -1,5 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-ad1aa97	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
-ccfb70b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Simplify deduplication and add DC state
-b690b39	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - vectorize sentinel replacement
-32ca338	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - Improve state mapping and sentinel handling
+4aebe59	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Fix NaN handling in sentinels
+466e99c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Chain deduplication operations
+7aa120c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - Improve state normalization
