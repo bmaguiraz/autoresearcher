@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-cc731f3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+ad1aa97	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+ccfb70b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Simplify deduplication and add DC state
