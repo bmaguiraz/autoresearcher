@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+616ccee	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+4e1bc4c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Vectorize name normalization
+767fd54	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Consolidate whitespace stripping
