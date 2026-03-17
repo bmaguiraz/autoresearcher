@@ -1,0 +1,8 @@
+[project]
+name = "exp02-llm-prompt-opt"
+version = "0.1.0"
+description = "Autoresearch experiment: LLM prompt optimization"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic[bedrock]>=0.40.0",
+]
