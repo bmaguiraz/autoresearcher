@@ -1,1 +1,2 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+9b371e7	100.0	25.0	25.0	25.0	25.0	keep	Baseline - fix NaN bug, perfect score
