@@ -1,0 +1,195 @@
+[
+  {
+    "id": "2c71db72-d7d0-493a-bd0e-73ec350a8ede",
+    "identifier": "MOR-37",
+    "title": "Autoresearch: Data Cleaning Pipeline (2 cycles, round 3)",
+    "description": "Run `/autoresearch run 03-data-cleaning --cycles 2`\n\nRotation issue #6 (round 3). Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-37/autoresearch-data-cleaning-pipeline-2-cycles-round-3",
+    "priority": 3,
+    "state": {
+      "name": "Todo",
+      "type": "unstarted"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        },
+        {
+          "id": "b5cd4532-571f-4a87-8481-34cca85df424",
+          "name": "ac:sid:eca22c42"
+        }
+      ]
+    },
+    "assignee": null
+  },
+  {
+    "id": "8308b625-a0d5-4535-995d-5976f0ef5311",
+    "identifier": "MOR-36",
+    "title": "Autoresearch: LLM Prompt Optimization (1 cycle, round 4)",
+    "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nRotation issue #5 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-36/autoresearch-llm-prompt-optimization-1-cycle-round-4",
+    "priority": 3,
+    "state": {
+      "name": "In Progress",
+      "type": "started"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "afdf622b-458b-42eb-bc48-a70c3dcdfaad",
+          "name": "ac:sid:0a1827f3"
+        },
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        }
+      ]
+    },
+    "assignee": {
+      "id": "8dff70cf-dd37-4a7f-91ef-66313948baf4",
+      "name": "Brian Maguire"
+    }
+  },
+  {
+    "id": "d56c4e6a-4c8e-4742-a0eb-1cfc91b39590",
+    "identifier": "MOR-33",
+    "title": "Autoresearch: Data Cleaning Pipeline (1 cycle, round 3)",
+    "description": "Run `/autoresearch run 03-data-cleaning --cycles 1`\n\nRotation issue #2 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-33/autoresearch-data-cleaning-pipeline-1-cycle-round-3",
+    "priority": 3,
+    "state": {
+      "name": "In Progress",
+      "type": "started"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        },
+        {
+          "id": "78f3d583-1f9a-439e-a3af-0b0ab44528de",
+          "name": "ac:sid:355f8ae3"
+        }
+      ]
+    },
+    "assignee": {
+      "id": "8dff70cf-dd37-4a7f-91ef-66313948baf4",
+      "name": "Brian Maguire"
+    }
+  },
+  {
+    "id": "54ddfd2c-7b7c-4d20-864d-496ac514523f",
+    "identifier": "MOR-32",
+    "title": "Autoresearch: LLM Prompt Optimization (1 cycle, round 3)",
+    "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nRotation issue #1 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-32/autoresearch-llm-prompt-optimization-1-cycle-round-3",
+    "priority": 3,
+    "state": {
+      "name": "In Progress",
+      "type": "started"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        },
+        {
+          "id": "81cb003d-c2d6-4727-b1eb-b8c957a76341",
+          "name": "ac:sid:72b22d67"
+        }
+      ]
+    },
+    "assignee": {
+      "id": "8dff70cf-dd37-4a7f-91ef-66313948baf4",
+      "name": "Brian Maguire"
+    }
+  },
+  {
+    "id": "3c53152b-bb89-4c8b-acee-dc8cc194e7aa",
+    "identifier": "MOR-31",
+    "title": "Autoresearch: OOH Creative WriteFit (1 cycle)",
+    "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case writefit`\n\nRotation issue #8 (final in first rotation). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-31/autoresearch-ooh-creative-writefit-1-cycle",
+    "priority": 3,
+    "state": {
+      "name": "In Progress",
+      "type": "started"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        },
+        {
+          "id": "f5f666e2-9435-45cb-82db-5ef5c099edf8",
+          "name": "ac:sid:cfeff23d"
+        }
+      ]
+    },
+    "assignee": {
+      "id": "8dff70cf-dd37-4a7f-91ef-66313948baf4",
+      "name": "Brian Maguire"
+    }
+  },
+  {
+    "id": "d668990a-2e75-4a10-ae96-e37a814cdc32",
+    "identifier": "MOR-29",
+    "title": "Autoresearch: Data Cleaning Pipeline (2 cycles, round 2)",
+    "description": "Run `/autoresearch run 03-data-cleaning --cycles 2`\n\nRotation issue #6. Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-29/autoresearch-data-cleaning-pipeline-2-cycles-round-2",
+    "priority": 3,
+    "state": {
+      "name": "In Progress",
+      "type": "started"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        },
+        {
+          "id": "1c8ed056-e14c-4077-b453-dffb3cdf3fe0",
+          "name": "ac:sid:c7a4323f"
+        }
+      ]
+    },
+    "assignee": {
+      "id": "8dff70cf-dd37-4a7f-91ef-66313948baf4",
+      "name": "Brian Maguire"
+    }
+  },
+  {
+    "id": "db5defca-2c4b-48cd-8528-945777c1158c",
+    "identifier": "MOR-14",
+    "title": "Autoresearch: LLM Prompt Optimization (2 cycles)",
+    "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 2`\n\nRotation issue #1. Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+    "url": "https://linear.app/maguireb/issue/MOR-14/autoresearch-llm-prompt-optimization-2-cycles",
+    "priority": 3,
+    "state": {
+      "name": "In Progress",
+      "type": "started"
+    },
+    "labels": {
+      "nodes": [
+        {
+          "id": "45f045d2-8771-4b0b-864a-30177b98be67",
+          "name": "ac:sid:ec511439"
+        },
+        {
+          "id": "51263ce4-8edf-4734-a364-06a72f5b0038",
+          "name": "ac:claimed"
+        }
+      ]
+    },
+    "assignee": {
+      "id": "8dff70cf-dd37-4a7f-91ef-66313948baf4",
+      "name": "Brian Maguire"
+    }
+  }
+]
