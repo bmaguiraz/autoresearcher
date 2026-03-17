@@ -4,3 +4,6 @@ e9cd933	97.9	25.0	22.9	25.0	25.0	keep	Cycle 1: Expand sentinel patterns
 de126c1	95.1	25.0	20.8	24.3	25.0	discard	Cycle 2: Remove email filter (worse)
 58b9318	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify email validation
 73f70dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify email validation
+e133670	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+380abf0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel detection
+bd74cba	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify state normalization
