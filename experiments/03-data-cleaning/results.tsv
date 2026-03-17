@@ -1,2 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-d01ea79	99.3	25.0	25.0	24.3	25.0	keep	Baseline
+f8ce0a3	99.3	25.0	25.0	24.3	25.0	keep	Baseline
+911464e	99.3	25.0	25.0	24.3	25.0	discard	Case-insensitive dedup on name+email
+43e67e7	99.3	25.0	25.0	24.3	25.0	discard	Filter empty name/email before dedup
+9bdf978	99.3	25.0	25.0	24.3	25.0	discard	Move dedup after outlier removal
+5d2542e	99.3	25.0	25.0	24.3	25.0	discard	Enhance phone normalization
+2b1d182	99.3	25.0	25.0	24.3	25.0	discard	Add email-only deduplication
