@@ -1,11 +1,14 @@
 """Concurrent execution utilities for running experiments in parallel."""
 
+import logging
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Callable, Any
 
 from .experiment import BaseExperiment, ExperimentSummary
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -46,7 +49,13 @@ class ConcurrentExperimentRunner:
             List of ConcurrentExperimentResult objects with results and status.
         """
         if not experiments:
+            logger.debug("No experiments to run, returning empty results")
             return []
+
+        logger.info(
+            "Starting concurrent run: %d experiments, max_workers=%s",
+            len(experiments), self.max_workers or "default",
+        )
 
         print(f"\n{'='*60}")
         print(f"Running {len(experiments)} experiments concurrently")
@@ -62,6 +71,7 @@ class ConcurrentExperimentRunner:
                 executor.submit(self._run_single_experiment, exp): exp
                 for exp in experiments
             }
+            logger.debug("Submitted %d experiments to thread pool", len(future_to_exp))
 
             # Collect results as they complete
             for future in as_completed(future_to_exp):
@@ -69,14 +79,25 @@ class ConcurrentExperimentRunner:
                 result = future.result()
                 results.append(result)
 
+                if result.success:
+                    logger.info("Experiment %s completed successfully", result.experiment_id)
+                else:
+                    logger.warning("Experiment %s failed: %s", result.experiment_id, result.error)
+
                 status = "✓" if result.success else "✗"
                 print(f"{status} {result.experiment_id} completed")
 
         elapsed = time.time() - start_time
+        successful = sum(1 for r in results if r.success)
+
+        logger.info(
+            "Concurrent run finished: %d/%d successful in %.1fs",
+            successful, len(results), elapsed,
+        )
 
         print(f"\n{'='*60}")
         print(f"All experiments complete in {elapsed:.1f}s")
-        print(f"Successful: {sum(1 for r in results if r.success)}/{len(results)}")
+        print(f"Successful: {successful}/{len(results)}")
         print(f"{'='*60}\n")
 
         return results
@@ -92,14 +113,20 @@ class ConcurrentExperimentRunner:
         Returns:
             ConcurrentExperimentResult with success status and summary/error.
         """
+        logger.debug("Running experiment: %s", experiment.experiment_id)
         try:
             summary = experiment.run()
+            logger.debug(
+                "Experiment %s finished: score=%.3f, cycles=%d",
+                experiment.experiment_id, summary.final_score, summary.total_cycles,
+            )
             return ConcurrentExperimentResult(
                 experiment_id=experiment.experiment_id,
                 summary=summary,
                 success=True,
             )
         except Exception as e:
+            logger.error("Experiment %s raised an exception: %s", experiment.experiment_id, e)
             return ConcurrentExperimentResult(
                 experiment_id=experiment.experiment_id,
                 summary=None,  # type: ignore
@@ -138,8 +165,13 @@ class ConcurrentEvaluator:
             List of metric dicts in the same order as input items.
         """
         if not items:
+            logger.debug("No items to evaluate, returning empty results")
             return []
 
+        logger.info(
+            "Starting batch evaluation: %d items, max_workers=%s",
+            len(items), self.max_workers or "default",
+        )
         results = [None] * len(items)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -153,4 +185,5 @@ class ConcurrentEvaluator:
                 idx = future_to_idx[future]
                 results[idx] = future.result()
 
+        logger.info("Batch evaluation complete: %d items processed", len(items))
         return results  # type: ignore
