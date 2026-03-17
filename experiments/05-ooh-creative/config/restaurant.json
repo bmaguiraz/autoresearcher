@@ -1,0 +1,14 @@
+{
+  "business_name": "Casa Bella Trattoria",
+  "business_category": "restaurant",
+  "tagline": "Fresh. Local. Delicious.",
+  "phone": "(555) BELLA-01",
+  "hours": "Tue-Sun 11am-10pm",
+  "location": "247 Main Street, Downtown",
+  "cuisine": "Italian",
+  "signature_dish": "Handmade Pappardelle",
+  "differentiator": "Farm-to-table Italian, handmade pasta daily, family recipes since 1987",
+  "required_info": ["hours", "location", "cuisine"],
+  "brand_colors": {"primary": "#2D1B0E", "secondary": "#C4956A", "accent": "#8B0000"},
+  "persona": "Nicole Torres — foodie looking for authentic local dining, values freshness and ambiance"
+}
