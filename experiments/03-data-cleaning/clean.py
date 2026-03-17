@@ -41,7 +41,6 @@ def normalize_date(date_str):
         return dt.strftime("%Y-%m-%d")
     except (ValueError, TypeError):
         pass
-    # Try day-first
     try:
         dt = parser.parse(date_str, dayfirst=True)
         return dt.strftime("%Y-%m-%d")
@@ -55,7 +54,6 @@ def normalize_state(state):
     s = str(state).strip().lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    # Already a 2-letter code
     if len(s) == 2 and s.upper() in STATE_MAP.values():
         return s.upper()
     return str(state).strip().upper()[:2]
@@ -64,7 +62,9 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).strip().lower().replace(" ", "")
+    e = str(email).strip().lower()
+    if " " in e:
+        return ""
     if "@" not in e or "." not in e.split("@")[-1]:
         return ""
     return e
@@ -73,44 +73,33 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all columns
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    # Replace sentinel null values
-    null_values = ["N/A", "n/a", "null", "None", "none", "NULL", ""]
+    null_values = ["N/A", "n/a", "null", "None", "none", "NULL", "", "NaN", "nan", "#N/A", "NA"]
     for col in df.columns:
         df[col] = df[col].replace(null_values, "")
 
-    # Normalize names to Title Case
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
-
-    # Normalize emails
     df["email"] = df["email"].apply(normalize_email)
-
-    # Normalize phones
     df["phone"] = df["phone"].apply(normalize_phone)
-
-    # Normalize dates
     df["signup_date"] = df["signup_date"].apply(normalize_date)
-
-    # Normalize states
     df["state"] = df["state"].apply(normalize_state)
 
-    # Convert age and salary to numeric, coerce errors
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
 
-    # Remove outliers
     df = df[~((df["age"] < 0) | (df["age"] > 120))]
     df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
 
-    # Handle NaN from numeric conversion — convert back to empty string for output
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
-    # Remove exact duplicates
+    # Drop rows with invalid emails
+    df = df[df["email"] != ""]
+
     df = df.drop_duplicates()
+    df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
 
