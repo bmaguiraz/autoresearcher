@@ -105,10 +105,15 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
+    # Convert to numeric and filter outliers in one pass
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-    df = df[~((df["age"] < 0) | (df["age"] > 120))]
-    df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
+
+    # Filter invalid ranges
+    df = df[(df["age"].isna()) | ((df["age"] >= 0) & (df["age"] <= 120))]
+    df = df[(df["salary"].isna()) | ((df["salary"] >= 0) & (df["salary"] <= 1_000_000))]
+
+    # Convert back to strings
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
