@@ -8,8 +8,8 @@ SUBHEADLINE = "AI-powered writing coach | writefit.ai"
 CTA = "writefit.ai"
 COLOR_SCHEME = {
     "background": "#5B5670",  # purple-grey (brand primary)
-    "headline": "#FAFAF8",    # off-white (brand accent)
-    "subheadline": "#6B47DC", # bright purple (brand secondary)
+    "headline": "#FFFFFF",    # white for maximum contrast
+    "subheadline": "#FFFFFF", # white for maximum contrast
     "cta": "#6B47DC",         # bright purple (brand secondary)
 }
 LAYOUT = "hero-left"  # hero-left, hero-right, centered, split
