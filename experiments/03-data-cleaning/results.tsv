@@ -3,3 +3,4 @@ commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	descr
 9278867	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling with regex and consolidate numeric conversion
 ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016fd0)
 c28fc67	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 3 (MOR-33, session: bfda8db9)
+b703fa0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion with lambda functions
