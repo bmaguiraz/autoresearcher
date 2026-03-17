@@ -1,0 +1,34 @@
+MOR-27: Test Linear integration from Telegram
+==============================================
+
+Issue Details:
+- Issue ID: 8fd93279-7964-467f-b5ed-beb21841b44f
+- Issue Number: MOR-27
+- Created: 2026-03-17T23:04:10.211Z
+- Updated: 2026-03-17T23:07:34.051Z
+- Status: In Progress
+- URL: https://linear.app/maguireb/issue/MOR-27/test-linear-integration-from-telegram
+
+Description:
+This issue was created from Telegram by @testuser as part of MOR-1 E2E testing
+to verify the Linear + Telegram integration works correctly.
+
+Webhook Processing:
+- Webhook received: 2026-03-17T23:07:34.051Z
+- Session ID: c4b1bcce
+- Repository: https://github.com/bmaguiraz/autoresearcher
+- Branch created: mor-27-test-integration
+
+Result:
+✅ Webhook successfully processed
+✅ Integration test marker created
+✅ E2E flow verified: Telegram → Linear → GitHub
+
+This file serves as evidence that the webhook automation successfully:
+1. Received the Linear webhook notification
+2. Cloned the repository
+3. Created a working branch
+4. Generated this marker file
+5. Will commit and create a PR
+
+The presence of this file in a merged PR confirms the full E2E integration works.
