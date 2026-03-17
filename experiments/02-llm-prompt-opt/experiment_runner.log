@@ -65,3 +65,132 @@
 2026-03-17 23:43:41,344 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
 2026-03-17 23:43:41,344 - __main__ - INFO - Final score: 0.775, Improvement: 0.050
 2026-03-17 23:43:41,344 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:42:58,853 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:42:58,853 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:42:58,853 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:42:58,853 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=2
+2026-03-17 23:42:58,853 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:42:58,853 - __main__ - INFO - Starting cycle 1/2
+2026-03-17 23:42:58,853 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:42:58,853 - __main__ - INFO - Generated new prompt variant for next cycle
+2026-03-17 23:42:58,853 - __main__ - INFO - Results saved successfully
+2026-03-17 23:42:58,854 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:42:59,354 - __main__ - INFO - Starting cycle 2/2
+2026-03-17 23:42:59,354 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.775
+2026-03-17 23:42:59,354 - __main__ - INFO - Results saved successfully
+2026-03-17 23:42:59,354 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-17 23:42:59,354 - __main__ - INFO - Experiment completed in 0.5s
+2026-03-17 23:42:59,355 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:42:59,355 - __main__ - INFO - Final score: 0.775, Improvement: 0.050
+2026-03-17 23:42:59,355 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:43:18,552 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:43:18,552 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:43:18,552 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:43:18,552 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=1
+2026-03-17 23:43:18,552 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:43:18,552 - __main__ - INFO - Starting cycle 1/1
+2026-03-17 23:43:18,552 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:43:18,553 - __main__ - INFO - Results saved successfully
+2026-03-17 23:43:18,553 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:43:18,553 - __main__ - INFO - Experiment completed in 0.0s
+2026-03-17 23:43:18,553 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:43:18,553 - __main__ - INFO - Final score: 0.725, Improvement: 0.000
+2026-03-17 23:43:18,553 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:39:40,658 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:39:40,658 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:39:40,658 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:39:40,658 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=2
+2026-03-17 23:39:40,658 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:39:40,658 - __main__ - INFO - Starting cycle 1/2
+2026-03-17 23:39:40,658 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:39:40,658 - __main__ - INFO - Generated new prompt variant for next cycle
+2026-03-17 23:39:40,659 - __main__ - INFO - Results saved successfully
+2026-03-17 23:39:40,659 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:39:41,159 - __main__ - INFO - Starting cycle 2/2
+2026-03-17 23:39:41,159 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.775
+2026-03-17 23:39:41,160 - __main__ - INFO - Results saved successfully
+2026-03-17 23:39:41,160 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-17 23:39:41,160 - __main__ - INFO - Experiment completed in 0.5s
+2026-03-17 23:39:41,160 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:39:41,160 - __main__ - INFO - Final score: 0.775, Improvement: 0.050
+2026-03-17 23:39:41,160 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:42:03,099 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:42:03,099 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:42:03,099 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:42:03,099 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=2
+2026-03-17 23:42:03,099 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:42:03,099 - __main__ - INFO - Starting cycle 1/2
+2026-03-17 23:42:03,099 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:42:03,100 - __main__ - INFO - Generated new prompt variant for next cycle
+2026-03-17 23:42:03,100 - __main__ - INFO - Results saved successfully
+2026-03-17 23:42:03,100 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:42:03,600 - __main__ - INFO - Starting cycle 2/2
+2026-03-17 23:42:03,600 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.775
+2026-03-17 23:42:03,601 - __main__ - INFO - Results saved successfully
+2026-03-17 23:42:03,601 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-17 23:42:03,601 - __main__ - INFO - Experiment completed in 0.5s
+2026-03-17 23:42:03,601 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:42:03,601 - __main__ - INFO - Final score: 0.775, Improvement: 0.050
+2026-03-17 23:42:03,601 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:46:42,981 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:46:42,981 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:46:42,981 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:46:42,981 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=2
+2026-03-17 23:46:42,981 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:46:42,981 - __main__ - INFO - Starting cycle 1/2
+2026-03-17 23:46:42,981 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:46:42,982 - __main__ - INFO - Generated new prompt variant for next cycle
+2026-03-17 23:46:42,982 - __main__ - INFO - Results saved successfully
+2026-03-17 23:46:42,982 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:46:43,482 - __main__ - INFO - Starting cycle 2/2
+2026-03-17 23:46:43,482 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.775
+2026-03-17 23:46:43,483 - __main__ - INFO - Results saved successfully
+2026-03-17 23:46:43,483 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-17 23:46:43,483 - __main__ - INFO - Experiment completed in 0.5s
+2026-03-17 23:46:43,483 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:46:43,483 - __main__ - INFO - Final score: 0.775, Improvement: 0.050
+2026-03-17 23:46:43,483 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:49:55,985 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:49:55,985 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:49:55,986 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:49:55,986 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=2
+2026-03-17 23:49:55,986 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:49:55,986 - __main__ - INFO - Starting cycle 1/2
+2026-03-17 23:49:55,986 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:49:55,986 - __main__ - INFO - Generated new prompt variant for next cycle
+2026-03-17 23:49:55,986 - __main__ - INFO - Results saved successfully
+2026-03-17 23:49:55,986 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:49:56,486 - __main__ - INFO - Starting cycle 2/2
+2026-03-17 23:49:56,487 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.775
+2026-03-17 23:49:56,487 - __main__ - INFO - Results saved successfully
+2026-03-17 23:49:56,487 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-17 23:49:56,487 - __main__ - INFO - Experiment completed in 0.5s
+2026-03-17 23:49:56,487 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:49:56,487 - __main__ - INFO - Final score: 0.775, Improvement: 0.050
+2026-03-17 23:49:56,487 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:50:08,250 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:50:08,250 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:50:08,250 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:50:08,250 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=1
+2026-03-17 23:50:08,251 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:50:08,251 - __main__ - INFO - Starting cycle 1/1
+2026-03-17 23:50:08,251 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:50:08,251 - __main__ - INFO - Results saved successfully
+2026-03-17 23:50:08,251 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:50:08,251 - __main__ - INFO - Experiment completed in 0.0s
+2026-03-17 23:50:08,251 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:50:08,251 - __main__ - INFO - Final score: 0.725, Improvement: 0.000
+2026-03-17 23:50:08,251 - __main__ - INFO - Experiment runner completed successfully
+2026-03-17 23:52:04,559 - __main__ - INFO - Starting experiment runner
+2026-03-17 23:52:04,559 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/02-llm-prompt-opt/config.json
+2026-03-17 23:52:04,559 - __main__ - INFO - Configuration loaded successfully
+2026-03-17 23:52:04,559 - __main__ - INFO - Experiment initialized: ID=02-llm-prompt-opt, Cycles=1
+2026-03-17 23:52:04,559 - __main__ - INFO - Starting experiment run: 02-llm-prompt-opt
+2026-03-17 23:52:04,559 - __main__ - INFO - Starting cycle 1/1
+2026-03-17 23:52:04,559 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.725
+2026-03-17 23:52:04,560 - __main__ - INFO - Results saved successfully
+2026-03-17 23:52:04,560 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-17 23:52:04,560 - __main__ - INFO - Experiment completed in 0.0s
+2026-03-17 23:52:04,560 - __main__ - INFO - Experiment 02-llm-prompt-opt finished successfully
+2026-03-17 23:52:04,560 - __main__ - INFO - Final score: 0.725, Improvement: 0.000
+2026-03-17 23:52:04,560 - __main__ - INFO - Experiment runner completed successfully

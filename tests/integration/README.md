@@ -10,6 +10,8 @@ The integration allows creating Linear issues from Telegram messages, enabling s
 
 - `test_linear_integration.py` - Pytest-based integration tests
 - `verify_linear_telegram_e2e.py` - Standalone E2E verification script
+- `linear_utils.py` - Reusable utility functions for Linear integration
+- `test_linear_utils.py` - Tests for Linear utility functions
 
 ## Prerequisites
 
@@ -38,6 +40,35 @@ This script will:
 4. Create a real Linear issue
 5. Report the results
 
+## Using Linear Utilities
+
+The `linear_utils.py` module provides reusable helper functions for Linear integration:
+
+```python
+from tests.integration.linear_utils import (
+    create_test_issue,
+    verify_linear_connection,
+    parse_telegram_create_issue_command,
+    get_linear_config
+)
+
+# Verify API connection
+viewer = verify_linear_connection()
+print(f"Connected as: {viewer['name']}")
+
+# Create a test issue
+issue = create_test_issue(
+    title="Bug in authentication",
+    description="Users cannot login"
+)
+print(f"Created issue: {issue['identifier']}")
+
+# Parse Telegram commands
+parsed = parse_telegram_create_issue_command(
+    "/create_issue Fix bug\nDescription: Details here"
+)
+```
+
 ## Running Pytest Tests
 
 For more comprehensive testing:
@@ -49,8 +80,14 @@ pip install pytest requests
 # Run all integration tests
 pytest tests/integration/test_linear_integration.py -v
 
+# Run utility tests
+pytest tests/integration/test_linear_utils.py -v
+
 # Run specific test
 pytest tests/integration/test_linear_integration.py::TestLinearIntegration::test_linear_api_connection -v
+
+# Run all tests in the integration directory
+pytest tests/integration/ -v
 ```
 
 ## Test Coverage
@@ -62,6 +99,9 @@ The tests verify:
 - ✅ Creating Linear issues via GraphQL API
 - ✅ Parsing Telegram message format
 - ✅ E2E flow: Telegram message → Linear issue
+- ✅ Utility functions for issue creation and management
+- ✅ Configuration handling with environment variables
+- ✅ Command parsing edge cases and error handling
 
 ## Telegram Message Format
 
