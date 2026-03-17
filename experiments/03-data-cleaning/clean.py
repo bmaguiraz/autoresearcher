@@ -110,8 +110,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
     for col in ["age", "salary"]:
-        df[col] = df[col].dropna().astype(int).astype(str)
-        df[col] = df[col].fillna("")
+        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
