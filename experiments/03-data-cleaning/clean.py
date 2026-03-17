@@ -69,7 +69,8 @@ def normalize_state(state):
     upper = s.upper()
     if len(s) == 2 and upper in VALID_STATES:
         return upper
-    return upper[:2]
+    # Return empty for invalid states instead of guessing
+    return ""
 
 
 def normalize_email(email):
