@@ -1,0 +1,9 @@
+[project]
+name = "exp03-data-cleaning"
+version = "0.1.0"
+description = "Autoresearch experiment: data cleaning optimization"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0.0",
+    "python-dateutil>=2.8.0",
+]
