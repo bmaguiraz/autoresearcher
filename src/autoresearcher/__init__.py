@@ -2,6 +2,11 @@
 
 __version__ = "0.1.0"
 
+from autoresearcher.concurrent import (
+    ConcurrentExperimentRunner,
+    ConcurrentEvaluator,
+    ConcurrentExperimentResult,
+)
 from autoresearcher.experiment import BaseExperiment, ExperimentResult, ExperimentSummary
 from autoresearcher.metrics import MetricDefinition, MetricsTracker
 from autoresearcher.results import ResultsLog, ResultsStore
@@ -10,6 +15,9 @@ __all__ = [
     "BaseExperiment",
     "ExperimentResult",
     "ExperimentSummary",
+    "ConcurrentExperimentRunner",
+    "ConcurrentEvaluator",
+    "ConcurrentExperimentResult",
     "MetricDefinition",
     "MetricsTracker",
     "ResultsLog",
