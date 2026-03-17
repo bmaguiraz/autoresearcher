@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 a2c2291	100.0	25.0	25.0	25.0	25.0	keep	Baseline: Perfect score with existing clean.py implementation
+537ccbd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimized sentinel handling with case-insensitive set-based lookup
