@@ -1,0 +1,87 @@
+name,email,phone,age,salary,signup_date,city,state
+John Smith,john.smith@gmail.com,(555) 123-4567,32,75000,2024-01-15,San Francisco,CA
+Jane Doe,jane.doe@yahoo.com,(555) 234-5678,28,62000,2024-01-15,Los Angeles,CA
+Robert Johnson,robert.johnson@hotmail.com,(555) 345-6789,45,95000,2024-01-15,Chicago,IL
+Maria Garcia,maria.garcia@outlook.com,(555) 456-7890,38,81000,2024-01-15,Houston,TX
+David Wilson,david.wilson@gmail.com,(555) 567-8901,55,120000,2024-02-20,Phoenix,AZ
+Sarah Brown,sarah.brown@gmail.com,(555) 678-9012,29,58000,2024-02-20,Philadelphia,PA
+Michael Davis,michael.davis@yahoo.com,(555) 789-0123,41,88000,2024-02-20,San Antonio,TX
+Emily Martinez,emily.martinez@hotmail.com,(555) 890-1234,33,71000,2024-02-20,San Diego,CA
+James Anderson,james.anderson@gmail.com,(555) 901-2345,47,105000,2024-03-10,Dallas,TX
+Jennifer Taylor,jennifer.taylor@yahoo.com,(555) 012-3456,26,54000,2024-03-10,San Jose,CA
+William Thomas,william.thomas@hotmail.com,(555) 123-4567,52,115000,2024-03-10,Austin,TX
+Lisa Jackson,lisa.jackson@outlook.com,(555) 234-5679,36,78000,2024-10-03,Jacksonville,FL
+Christopher White,christopher.white@gmail.com,(555) 345-6780,44,92000,2024-04-05,Fort Worth,TX
+Amanda Harris,amanda.harris@yahoo.com,(555) 456-7891,31,67000,2024-04-05,Columbus,OH
+Daniel Martin,daniel.martin@hotmail.com,(555) 567-8902,,83000,2024-04-05,Charlotte,NC
+Jessica Thompson,jessica.thompson@outlook.com,(555) 678-9013,39,,2024-05-04,Indianapolis,IN
+Matthew Garcia,matthew.garcia@gmail.com,(555) 789-0124,27,59000,2024-05-12,San Francisco,CA
+Ashley Robinson,ashley.robinson@yahoo.com,(555) 890-1235,34,73000,2024-05-12,Seattle,WA
+Andrew Clark,andrew.clark@hotmail.com,(555) 901-2346,48,108000,2024-05-12,Denver,CO
+Nicole Lewis,nicole.lewis@outlook.com,(555) 012-3467,,61000,2024-12-05,Washington,DC
+Joshua Walker,joshua.walker@gmail.com,(555) 123-4578,42,89000,2024-06-18,Nashville,TN
+Stephanie Hall,stephanie.hall@yahoo.com,(555) 234-5689,30,65000,2024-06-18,Oklahoma City,OK
+Kevin Allen,kevin.allen@hotmail.com,(555) 345-6790,50,112000,2024-06-18,El Paso,TX
+Rachel Young,rachel.young@outlook.com,(555) 456-7801,25,52000,2024-06-18,Boston,MA
+Brandon King,brandon.king@gmail.com,(555) 567-8912,37,79000,2024-07-22,Portland,OR
+Megan Wright,megan.wright@yahoo.com,(555) 678-9023,43,94000,2024-07-22,Las Vegas,NV
+Tyler Scott,tyler.scott@hotmail.com,(555) 789-0134,,86000,2024-07-22,Memphis,TN
+Kayla Green,kayla.green@outlook.com,(555) 890-1245,35,,2024-07-22,Louisville,KY
+Justin Adams,justin.adams@gmail.com,(555) 901-2356,51,118000,2024-08-14,Baltimore,MD
+Amber Nelson,amber.nelson@yahoo.com,(555) 012-3467,28,60000,2024-08-14,Milwaukee,WI
+Ryan Carter,ryan.carter@hotmail.com,(555) 123-4568,46,100000,2024-08-14,Albuquerque,NM
+Brittany Mitchell,brittany.mitchell@outlook.com,(555) 234-5670,33,72000,2024-08-14,Tucson,AZ
+Nathan Perez,nathan.perez@gmail.com,(555) 345-6781,40,87000,2024-09-09,Fresno,CA
+Samantha Roberts,samantha.roberts@yahoo.com,(555) 456-7892,29,63000,2024-09-09,Sacramento,CA
+Eric Turner,eric.turner@hotmail.com,(555) 567-8903,53,116000,2024-09-09,Mesa,AZ
+Lauren Phillips,lauren.phillips@outlook.com,(555) 678-9014,36,77000,2024-09-09,Kansas City,MO
+Jacob Campbell,jacob.campbell@gmail.com,(555) 789-0125,31,68000,2024-10-03,Atlanta,GA
+Courtney Parker,courtney.parker@yahoo.com,(555) 890-1236,27,55000,2024-10-03,Omaha,NE
+Dylan Evans,dylan.evans@hotmail.com,(555) 901-2347,49,107000,2024-10-03,Colorado Springs,CO
+Alyssa Edwards,alyssa.edwards@outlook.com,(555) 012-3468,34,74000,2024-03-10,Raleigh,NC
+Sean Collins,sean.collins@gmail.com,(555) 123-4579,44,93000,2024-11-11,Miami,FL
+Heather Stewart,heather.stewart@yahoo.com,(555) 234-5671,38,82000,2024-11-11,Virginia Beach,VA
+Patrick Sanchez,patrick.sanchez@hotmail.com,(555) 345-6782,26,56000,2024-11-11,Minneapolis,MN
+Victoria Morris,victoria.morris@outlook.com,(555) 456-7893,41,90000,2024-11-11,Tampa,FL
+Carlos Rogers,carlos.rogers@gmail.com,(555) 567-8904,35,76000,2024-12-01,New Orleans,LA
+Tiffany Reed,tiffany.reed@yahoo.com,(555) 678-9015,30,64000,2024-12-01,Cleveland,OH
+Marcus Cook,marcus.cook@hotmail.com,(555) 789-0136,47,103000,2024-12-01,Wichita,KS
+Angela Morgan,angela.morgan@outlook.com,(555) 890-1247,32,69000,2024-01-12,Arlington,TX
+Derek Bell,derek.bell@gmail.com,(555) 901-2358,54,119000,2024-01-28,Bakersfield,CA
+Christina Murphy,christina.murphy@yahoo.com,(555) 012-3469,39,84000,2024-01-28,Aurora,CO
+Tony Bailey,tony.bailey@hotmail.com,(555) 123-4570,43,96000,2024-01-28,Anaheim,CA
+Melissa Rivera,melissa.rivera@outlook.com,(555) 234-5681,28,57000,2024-01-28,Honolulu,HI
+Gregory Cooper,gregory.cooper@gmail.com,(555) 345-6792,50,111000,2024-02-14,Santa Ana,CA
+Catherine Richardson,catherine.richardson@yahoo.com,(555) 456-7803,36,79000,2024-02-14,Lexington,KY
+Luke Cox,luke.cox@hotmail.com,(555) 567-8905,45,98000,2024-02-14,Stockton,CA
+Monica Howard,monica.howard@outlook.com,(555) 678-9016,33,70000,2024-02-14,St. Paul,MN
+Harold Ward,harold.ward@gmail.com,(555) 789-0127,58,125000,2024-03-22,Cincinnati,OH
+Diana Torres,diana.torres@yahoo.com,(555) 890-1248,27,53000,2024-03-22,Greensboro,NC
+Philip Peterson,philip.peterson@hotmail.com,(555) 901-2349,41,91000,2024-03-22,Pittsburgh,PA
+Jasmine Gray,jasmine.gray@outlook.com,(555) 012-3470,30,66000,2024-03-22,St. Louis,MO
+Randy Ramirez,randy.ramirez@gmail.com,(555) 123-4580,46,102000,2024-04-18,Lincoln,NE
+Gloria James,gloria.james@yahoo.com,(555) 234-5682,35,75000,2024-04-18,Orlando,FL
+Keith Watson,keith.watson@hotmail.com,(555) 345-6793,52,114000,2024-04-18,Irvine,CA
+Vanessa Brooks,vanessa.brooks@outlook.com,(555) 456-7894,29,61000,2024-04-18,Durham,NC
+Frank Kelly,frank.kelly@gmail.com,(555) 567-8916,48,106000,2024-05-25,Riverside,CA
+Marie Price,marie.price@yahoo.com,(555) 678-9027,37,80000,2024-05-25,Toledo,OH
+George Bennett,george.bennett@hotmail.com,(555) 789-0138,44,93000,2024-05-25,Chandler,AZ
+Denise Wood,denise.wood@outlook.com,(555) 890-1249,31,67000,2024-05-25,Laredo,TX
+Alex Barnes,alex.barnes@gmail.com,(555) 901-2360,56,122000,2024-06-30,Madison,WI
+Carol Ross,carol.ross@yahoo.com,(555) 012-3471,40,85000,2024-06-30,Lubbock,TX
+Peter Henderson,peter.henderson@hotmail.com,(555) 123-4572,34,73000,2024-06-30,Scottsdale,AZ
+Debra Coleman,debra.coleman@outlook.com,(555) 234-5683,26,54000,2024-06-30,Glendale,AZ
+Oscar Jenkins,oscar.jenkins@gmail.com,(555) 345-6794,49,109000,2024-07-15,Norfolk,VA
+Tammy Perry,tammy.perry@yahoo.com,(555) 456-7895,38,81000,2024-07-15,Newark,NJ
+Troy Powell,troy.powell@hotmail.com,(555) 567-8907,42,90000,2024-07-15,Henderson,NV
+Rosa Long,rosa.long@outlook.com,(555) 678-9018,33,70000,2024-07-15,Birmingham,AL
+Tim Patterson,tim.patterson@gmail.com,(555) 789-0129,55,117000,2024-08-20,Boise,ID
+Wendy Hughes,wendy.hughes@yahoo.com,(555) 890-1240,28,58000,2024-08-20,Richmond,VA
+Fred Flores,fred.flores@hotmail.com,(555) 901-2341,47,101000,2024-08-20,Spokane,WA
+Donna Washington,donna.washington@outlook.com,(555) 012-3472,36,76000,2024-08-20,Des Moines,IA
+Ivan Bryant,ivan.bryant@gmail.com,(555) 567-8908,51,110000,2024-10-22,Akron,OH
+Paula Alexander,paula.alexander@yahoo.com,(555) 678-9019,29,63000,2024-10-22,Garland,TX
+Norma Griffin,norma.griffin@outlook.com,(555) 890-1251,34,,2024-10-22,Yonkers,NY
+Lance Diaz,lance.diaz@gmail.com,(555) 901-2362,40,88000,2024-11-05,Chesapeake,VA
+Ruth Hayes,ruth.hayes@yahoo.com,(555) 012-3473,46,99000,2024-11-05,Moreno Valley,CA
+Darren Myers,darren.myers@hotmail.com,(555) 123-4574,38,83000,2024-11-05,Fayetteville,NC
