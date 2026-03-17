@@ -16,6 +16,7 @@ This document tracks webhook integration testing between Linear and the autorese
 **Session History**:
 - Session 3ae17842: Initial webhook received (issue created)
 - Session 1b3ea2e1: Issue state change webhook (moved to "In Progress")
+- Session 7373cf1a: Issue update webhook (still "In Progress")
 
 **Details**:
 - Webhook trigger: Issue creation from Telegram
