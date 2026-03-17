@@ -116,6 +116,11 @@ class TestLinearIntegration:
         """
         Simulate a Telegram webhook message and verify it creates a Linear issue.
 
+        ⚠️ WARNING: This test creates REAL issues in your Linear workspace!
+
+        The issue "Bug in authentication flow" is test data. If you see MOR-26 or similar
+        issues in your backlog with this title, they are test artifacts and can be closed.
+
         In a real implementation, this would:
         1. Receive a webhook from Telegram
         2. Parse the message content
