@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+16adb86	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+79adf8e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified dedup logic
+6e82f03	97.9	25.0	22.9	25.0	25.0	discard	Cycle 2: State normalization change reduced score
