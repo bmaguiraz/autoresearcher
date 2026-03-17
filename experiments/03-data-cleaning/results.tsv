@@ -1,1 +1,8 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+baseline	97.2	25.0	22.9	24.3	25.0	keep	Baseline
+cycle1	99.3	25.0	25.0	24.3	25.0	keep	Expanded null handling with fillna
+cycle2	97.2	25.0	22.9	24.3	25.0	discard	name+email dedup (broke null handling)
+cycle3	99.3	25.0	25.0	24.3	25.0	keep	Improved name normalization (no change)
+cycle4	97.2	25.0	22.9	24.3	25.0	discard	Sort before dedup (regression)
+cycle5	99.3	25.0	25.0	24.3	25.0	keep	Stricter age outliers (no change)
+4b2eebe	100.0	25.0	25.0	25.0	25.0	keep	Drop invalid emails, add name+email dedup
