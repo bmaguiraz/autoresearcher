@@ -64,8 +64,9 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).strip().lower().replace(" ", "")
-    if "@" not in e or "." not in e.split("@")[-1]:
+    e = str(email).strip().lower()
+    # Reject emails with spaces (invalid format)
+    if " " in e or "@" not in e or "." not in e.split("@")[-1]:
         return ""
     return e
 
