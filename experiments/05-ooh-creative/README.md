@@ -2,106 +2,72 @@
 
 ## Overview
 
-Out-of-Home (OOH) advertising creative optimization experiment that tests concurrent execution of multiple creative variants.
+Autonomous AI researcher experiment for optimizing Out-of-Home (OOH) advertising creative using iterative testing and the OOH Canvas scoring rubric.
 
-**Key Innovation**: 4-way parallelism testing - runs multiple creative strategies simultaneously to compare effectiveness.
+**Experiment Type**: Autoresearch autonomous optimization
+**Goal**: Maximize composite score (0-100) across 7 evaluation categories
 
-## Metrics
+## Scoring - OOH Canvas (100 points)
 
-Each creative is evaluated on four dimensions (0-25 points each):
-
-- **Attention**: Eye-catching, memorable, stands out
-- **Clarity**: Clear message and obvious call-to-action
-- **Relevance**: Resonates with target audience
-- **Conversion Potential**: Likelihood to drive desired action
-
-**Total Score**: 0-100 (sum of all dimensions)
-
-## Creative Variants
-
-The experiment tests 4 different creative strategies:
-
-1. **Baseline**: Direct, feature-focused messaging
-2. **Emotional**: Appeals to customer pain points and desires
-3. **Urgency**: Time-sensitive offers and scarcity messaging
-4. **Social Proof**: Trust signals and testimonials
+| Category | Max Points | What's Evaluated |
+|---|---|---|
+| visual-hierarchy | 20 | Headline word count vs format max, total copy brevity, all elements present |
+| color-contrast | 15 | WCAG 2.1 contrast ratios (>=4.5:1 target), color diversity |
+| brand-integration | 10 | Brand primary/secondary/accent colors used, palette cohesion |
+| message-effectiveness | 20 | Clear CTA, benefit-driven copy, context-appropriate, reflects differentiator (LLM-judged) |
+| format-optimization | 10 | Valid format, valid layout, layout-format compatibility |
+| industry-practices | 15 | Category best practices, required business info present, trust signals (LLM-judged) |
+| regulatory-compliance | 10 | No prohibited claims, within word limits, no misleading language |
 
 ## Usage
 
-### Quick Start
+### Run via Autoresearch
+
+```bash
+# From project root
+/autoresearch run 05-ooh-creative --cycles 1 --use-case plumber
+```
+
+### Run Directly
 
 ```bash
 cd experiments/05-ooh-creative
-python runner.py --use-case plumber --cycles 1
+python eval.py
 ```
 
-### Command Line Options
+### Available Use Cases
 
-```bash
-python runner.py --use-case <case> --cycles <n> [--sequential]
-```
+- `plumber` - Quick Flow Plumbing (emergency services)
+- `restaurant` - Casa Bella Trattoria (Italian dining)
 
-- `--use-case`: Target use case (default: `plumber`)
-- `--cycles`: Number of optimization cycles (default: `1`)
-- `--sequential`: Run variants sequentially instead of in parallel
+Switch use cases by editing `USE_CASE` in `creative.py`.
 
-### Supported Use Cases
+## Files
 
-- `plumber` - Plumbing services (emergency repairs, 24/7 service)
-- More use cases can be added to the `_generate_creatives()` method
-
-## Example Output
-
-```
-==================================================================
-OOH Creative Optimization Experiment
-Use Case: Plumber
-Cycles: 1
-Parallel Variants: 4 (baseline, emotional, urgency, social_proof)
-==================================================================
-
-Running 4 variants concurrently...
-
-==================================================================
-EXPERIMENT RESULTS - Comparative Analysis
-==================================================================
-
-Variant         Score      Attention    Clarity    Relevance    Conversion
-----------------------------------------------------------------------
-baseline        72.0       15.0         22.0       18.0         17.0
-emotional       82.0       20.0         19.0       22.0         21.0
-urgency         84.0       22.0         20.0       19.0         23.0
-social_proof    82.0       18.0         21.0       21.0         22.0
-
-✓ Best Performing Variant: URGENCY
-  Score: 84.0/100
-
-Total Execution Time: 2.3s
-Successful Variants: 4/4
-```
+- `creative.py` - Creative brief configuration (edit this to optimize)
+- `eval.py` - Scorer implementing OOH Canvas rubric (frozen, do not edit)
+- `generate.py` - Image generator using Imagen 3 (frozen, do not edit)
+- `program.md` - Full autoresearch instructions for autonomous AI agent
+- `config/*.json` - Brand configurations (frozen, do not edit)
+- `results.tsv` - Experiment results log
 
 ## Results
 
-Results are saved to the `results/` directory:
-
-- Individual variant results in timestamped JSON files
-- Comparative analysis across all variants
-- Best performing variant identification
-- Execution time and parallelism metrics
+Results are logged to `results.tsv` with columns:
+- commit (7 chars)
+- score, tier
+- Individual category scores
+- status (keep/discard/crash)
+- description
 
 ## Architecture
 
-This experiment demonstrates the autoresearcher framework's concurrent execution capabilities:
+This is an **autoresearch experiment** designed for autonomous AI optimization:
 
-- Uses `ConcurrentExperimentRunner` from the core library
-- Runs multiple experiment instances in parallel using ThreadPoolExecutor
-- Each variant is an independent `BaseExperiment` instance
-- Results are collected and compared across variants
+1. AI agent reads `program.md` for instructions
+2. Agent iteratively modifies `creative.py` to test hypotheses
+3. Each change is committed and evaluated via `eval.py`
+4. Results are logged and the agent continues optimization
+5. Process runs autonomously until manually stopped
 
-## Future Enhancements
-
-- Add more use cases (HVAC, pest control, auto repair)
-- Implement multi-cycle optimization
-- A/B testing with real user feedback
-- Integration with ad platforms for live testing
-- Image/visual component optimization
+See `program.md` for complete methodology and instructions.

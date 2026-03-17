@@ -1,15 +1,11 @@
 [project]
-name = "ooh-creative-experiment"
+name = "exp05-ooh-creative"
 version = "0.1.0"
-description = "OOH advertising creative optimization with parallel execution"
+description = "Autoresearch experiment: OOH ad creative optimization"
 requires-python = ">=3.10"
-dependencies = []
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
+dependencies = [
+    "anthropic[bedrock]>=0.40.0",
+    "google-genai>=1.0.0",
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["../../src"]

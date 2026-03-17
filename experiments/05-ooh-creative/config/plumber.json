@@ -1,0 +1,12 @@
+{
+  "business_name": "Quick Flow Plumbing",
+  "business_category": "plumbing",
+  "tagline": "Fast Drains, Fair Prices",
+  "phone": "(555) 247-PIPE",
+  "license": "LIC #PLB-2024-1847",
+  "availability": "24/7 Emergency Service",
+  "differentiator": "Licensed & insured, 30-minute response time, no overtime charges",
+  "required_info": ["phone", "license", "availability"],
+  "brand_colors": {"primary": "#1B3A5C", "secondary": "#FFD700", "accent": "#FF6B35"},
+  "persona": "Marcus Chen — homeowner needing emergency plumbing, values trust signals"
+}

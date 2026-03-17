@@ -92,10 +92,11 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    # Replace sentinel values with empty strings using vectorized where
-    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", "", "missing", "unknown", "n.a.", "n\\a", "--", "___", "...", "-", "_"}
-    for col in df.columns:
-        df[col] = df[col].where(~df[col].str.lower().isin(sentinels), "")
+    # Replace sentinel values with empty strings - simplified using replace
+    sentinels = ["n/a", "null", "none", "nan", "#n/a", "na", "", "missing", "unknown", "n.a.", "n\\a", "--", "___", "...", "-", "_"]
+    sentinel_map = {s: "" for s in sentinels}
+    sentinel_map.update({s.upper(): "" for s in sentinels if s})
+    df = df.replace(sentinel_map)
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
@@ -108,12 +109,13 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
+    # Outlier filtering with simplified conversion back to string
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["age"] = df["age"].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
+    df["salary"] = df["salary"].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
 
     df.to_csv(output_path, index=False)
 

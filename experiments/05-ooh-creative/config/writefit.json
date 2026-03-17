@@ -1,0 +1,10 @@
+{
+  "business_name": "WriteFit.ai",
+  "business_category": "edtech",
+  "tagline": "Practice the writing skills you actually need.",
+  "website": "writefit.ai",
+  "differentiator": "AI-powered writing practice engine that diagnoses trait-level weaknesses and generates targeted exercises from the student's own essay — never writes for students",
+  "required_info": ["website", "differentiator"],
+  "brand_colors": {"primary": "#5B5670", "secondary": "#6B47DC", "accent": "#FAFAF8"},
+  "persona": "High school English teacher looking for a tool that helps students improve writing without doing the work for them — values research-backed methods and classroom visibility"
+}
