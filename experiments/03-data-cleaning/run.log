@@ -1,4 +1,8 @@
-Bytecode compiled 1926 files in 106ms
-clean.py failed:
-/app/workspace/experiments/03-data-cleaning/.venv/bin/python3: can't open file '/app/workspace/experiments/03-data-cleaning/clean.py': [Errno 2] No such file or directory
-
+Bytecode compiled 1926 files in 140ms
+---
+score:              99.3
+type_correctness:   25.0
+null_handling:      25.0
+dedup:              24.3
+outlier_treatment:  25.0
+eval_seconds:       0.5
