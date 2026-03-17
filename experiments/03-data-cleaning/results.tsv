@@ -1,4 +1,6 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+da23e18	100.0	25.0	25.0	25.0	25.0	keep	Baseline (round 3)
+ddf41b6	97.9	25.0	22.9	25.0	25.0	discard	Hypothesis 1: Remove 'calif.' abbreviation (failed - needed by data)
 a2c2291	100.0	25.0	25.0	25.0	25.0	keep	Baseline: Perfect score with existing clean.py implementation
 537ccbd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimized sentinel handling with case-insensitive set-based lookup
 1b6d075	86.7	25.0	14.6	22.1	25.0	discard	Cycle 2: FAILED - Numeric normalization broke null/dedup logic
