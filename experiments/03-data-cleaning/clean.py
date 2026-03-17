@@ -17,6 +17,7 @@ STATE_MAP = {
     "south carolina": "SC", "south dakota": "SD", "tennessee": "TN", "texas": "TX",
     "utah": "UT", "vermont": "VT", "virginia": "VA", "washington": "WA",
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
+    "district of columbia": "DC", "d.c.": "DC",
 }
 
 VALID_STATES = set(STATE_MAP.values())
@@ -76,7 +77,7 @@ def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
     e = str(email).strip().lower()
-    if " " in e or "@" not in e:
+    if " " in e or "@" not in e or "." not in e.split("@")[-1]:
         return ""
     return e
 
