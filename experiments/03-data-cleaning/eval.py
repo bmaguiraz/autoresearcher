@@ -8,17 +8,45 @@ import numpy as np
 
 CLEANED_PATH = "data/cleaned.csv"
 GROUND_TRUTH_PATH = "data/ground_truth.csv"
+MAX_RETRIES = 3
+RETRY_BASE_DELAY = 1.0  # seconds
 
 
 def run_clean():
-    """Run clean.py as a subprocess."""
-    result = subprocess.run(
-        [sys.executable, "clean.py"],
-        capture_output=True, text=True, timeout=60,
-    )
-    if result.returncode != 0:
-        print(f"clean.py failed:\n{result.stderr}", file=sys.stderr)
-        sys.exit(1)
+    """Run clean.py as a subprocess with retry logic."""
+    for attempt in range(MAX_RETRIES):
+        try:
+            result = subprocess.run(
+                [sys.executable, "clean.py"],
+                capture_output=True, text=True, timeout=60,
+            )
+            if result.returncode == 0:
+                return
+            # Non-zero exit code
+            if attempt < MAX_RETRIES - 1:
+                delay = RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"clean.py failed (attempt {attempt + 1}/{MAX_RETRIES}), retrying in {delay:.0f}s...", file=sys.stderr)
+                print(f"Error: {result.stderr}", file=sys.stderr)
+                time.sleep(delay)
+            else:
+                print(f"clean.py failed after {MAX_RETRIES} attempts:\n{result.stderr}", file=sys.stderr)
+                sys.exit(1)
+        except subprocess.TimeoutExpired:
+            if attempt < MAX_RETRIES - 1:
+                delay = RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"clean.py timed out (attempt {attempt + 1}/{MAX_RETRIES}), retrying in {delay:.0f}s...", file=sys.stderr)
+                time.sleep(delay)
+            else:
+                print(f"clean.py timed out after {MAX_RETRIES} attempts", file=sys.stderr)
+                sys.exit(1)
+        except Exception as e:
+            if attempt < MAX_RETRIES - 1:
+                delay = RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"clean.py error ({e}) (attempt {attempt + 1}/{MAX_RETRIES}), retrying in {delay:.0f}s...", file=sys.stderr)
+                time.sleep(delay)
+            else:
+                print(f"clean.py error after {MAX_RETRIES} attempts: {e}", file=sys.stderr)
+                sys.exit(1)
 
 
 def load_csv(path):
