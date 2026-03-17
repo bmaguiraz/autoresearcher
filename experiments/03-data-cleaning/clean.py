@@ -92,28 +92,30 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col in df.columns:
         df[col] = df[col].str.strip()
 
-    # Replace sentinel values with empty strings
-    sentinels = ["n/a", "null", "none", "nan", "na", "N/A", "NULL", "None", "NaN", "NA"]
-    df = df.replace({s: "" for s in sentinels})
+    # Replace sentinel values with empty strings (case-insensitive)
+    sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
+    for col in df.columns:
+        df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
 
-    df["name"] = df["name"].str.title().fillna("")
+    # Normalize all fields first
+    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
-
-    # Filter and deduplicate early on normalized key fields
-    df = df[df["email"] != ""]
-    df = df.drop_duplicates(subset=["name", "email"], keep="first")
-
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering - cleaner conversion logic
+    # Outlier filtering
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    for col in ["age", "salary"]:
+        df[col] = df[col].dropna().astype(int).astype(str)
+        df[col] = df[col].fillna("")
+
+    # Filter and deduplicate AFTER all normalization is complete
+    df = df[df["email"] != ""]
+    df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
 
