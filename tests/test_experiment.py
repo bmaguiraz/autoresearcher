@@ -2,20 +2,41 @@
 
 import json
 from pathlib import Path
+from unittest.mock import patch
 
-from autoresearcher.experiment import BaseExperiment, ExperimentResult, ExperimentSummary
+import pytest
+
+from autoresearcher.experiment import BaseExperiment, ExperimentResult, ExperimentSummary, RetryConfig
 
 
 class SimpleExperiment(BaseExperiment):
     """Concrete implementation for testing."""
 
-    def __init__(self, config_path):
-        super().__init__(config_path)
+    def __init__(self, config_path, **kwargs):
+        super().__init__(config_path, **kwargs)
         self._score = 0.5
 
     def evaluate(self, cycle):
         self._score += 0.1
         return {"accuracy": min(self._score, 1.0)}
+
+    def optimize(self, result):
+        pass
+
+
+class FlakeyExperiment(BaseExperiment):
+    """Experiment that fails a configurable number of times before succeeding."""
+
+    def __init__(self, config_path, fail_times=2, **kwargs):
+        super().__init__(config_path, **kwargs)
+        self._fail_times = fail_times
+        self._attempt = 0
+
+    def evaluate(self, cycle):
+        self._attempt += 1
+        if self._attempt <= self._fail_times:
+            raise RuntimeError(f"Transient failure (attempt {self._attempt})")
+        return {"accuracy": 0.9}
 
     def optimize(self, result):
         pass
@@ -136,3 +157,95 @@ class TestBaseExperiment:
         summary = exp.generate_summary(0.0)
         assert summary.total_cycles == 0
         assert summary.best_score == 0.0
+
+    def test_default_retry_config(self, tmp_path):
+        config_path = _make_config(tmp_path)
+        exp = SimpleExperiment(config_path)
+        assert exp.retry_config.max_retries == 3
+        assert exp.retry_config.base_delay == 1.0
+
+    def test_custom_retry_config(self, tmp_path):
+        config_path = _make_config(tmp_path)
+        rc = RetryConfig(max_retries=5, base_delay=0.5)
+        exp = SimpleExperiment(config_path, retry_config=rc)
+        assert exp.retry_config.max_retries == 5
+        assert exp.retry_config.base_delay == 0.5
+
+
+class TestRetryConfig:
+    def test_default_values(self):
+        rc = RetryConfig()
+        assert rc.max_retries == 3
+        assert rc.base_delay == 1.0
+        assert rc.backoff_factor == 2.0
+
+    def test_get_delay(self):
+        rc = RetryConfig(base_delay=1.0, backoff_factor=2.0)
+        assert rc.get_delay(0) == 1.0
+        assert rc.get_delay(1) == 2.0
+        assert rc.get_delay(2) == 4.0
+
+    def test_custom_backoff(self):
+        rc = RetryConfig(base_delay=0.5, backoff_factor=3.0)
+        assert rc.get_delay(0) == 0.5
+        assert rc.get_delay(1) == 1.5
+        assert rc.get_delay(2) == 4.5
+
+
+class TestRetryLogic:
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_retry_succeeds_after_failures(self, mock_sleep, tmp_path):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=3, base_delay=0.1)
+        exp = FlakeyExperiment(config_path, fail_times=2, retry_config=rc)
+        result = exp.run_cycle(1)
+        assert result.metrics["accuracy"] == 0.9
+        assert mock_sleep.call_count == 2
+
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_retry_exhausted_raises(self, mock_sleep, tmp_path):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=2, base_delay=0.1)
+        exp = FlakeyExperiment(config_path, fail_times=5, retry_config=rc)
+        with pytest.raises(RuntimeError, match="Transient failure"):
+            exp.run_cycle(1)
+        assert mock_sleep.call_count == 2
+
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_no_retry_on_success(self, mock_sleep, tmp_path):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=3, base_delay=0.1)
+        exp = SimpleExperiment(config_path, retry_config=rc)
+        result = exp.run_cycle(1)
+        assert "accuracy" in result.metrics
+        mock_sleep.assert_not_called()
+
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_retry_with_zero_retries(self, mock_sleep, tmp_path):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=0, base_delay=0.1)
+        exp = FlakeyExperiment(config_path, fail_times=1, retry_config=rc)
+        with pytest.raises(RuntimeError):
+            exp.run_cycle(1)
+        mock_sleep.assert_not_called()
+
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_retry_backoff_delays(self, mock_sleep, tmp_path):
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=3, base_delay=1.0, backoff_factor=2.0)
+        exp = FlakeyExperiment(config_path, fail_times=3, retry_config=rc)
+        result = exp.run_cycle(1)
+        assert result.metrics["accuracy"] == 0.9
+        delays = [call.args[0] for call in mock_sleep.call_args_list]
+        assert delays == [1.0, 2.0, 4.0]
+
+    @patch("autoresearcher.experiment.time.sleep")
+    def test_retryable_exceptions_filter(self, mock_sleep, tmp_path):
+        """Only retry on specified exception types."""
+        config_path = _make_config(tmp_path, cycles=1)
+        rc = RetryConfig(max_retries=3, base_delay=0.1, retryable_exceptions=(ValueError,))
+        exp = FlakeyExperiment(config_path, fail_times=1, retry_config=rc)
+        # FlakeyExperiment raises RuntimeError, not ValueError
+        with pytest.raises(RuntimeError):
+            exp.run_cycle(1)
+        mock_sleep.assert_not_called()
