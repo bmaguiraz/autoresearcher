@@ -16,6 +16,16 @@ The integration allows creating Linear issues from Telegram messages, enabling s
 1. **Linear API Key**: Get your API key from [Linear Settings → API](https://linear.app/settings/api)
 2. **Team ID**: Find your team ID in Linear (optional, defaults to autoresearcher team)
 
+## ⚠️ Important Note
+
+**These tests create REAL Linear issues in your workspace!**
+
+When you run `test_telegram_webhook_simulation()` or the verification script, they will create actual Linear issues with titles like:
+- "Bug in authentication flow" (MOR-26)
+- "Test Linear integration from Telegram"
+
+These are **NOT real bugs** - they are test data used to verify the integration works end-to-end. If you see these issues in your Linear backlog, you can safely close them or use them to verify your webhook integration is working.
+
 ## Running the E2E Verification
 
 The quickest way to verify the integration is using the standalone script:
@@ -157,3 +167,4 @@ After verification succeeds:
 ## Related Issues
 
 - MOR-1: Test Linear integration - verify E2E issue creation from Telegram
+- MOR-26: Example test issue created by `test_telegram_webhook_simulation()` (not a real bug)
