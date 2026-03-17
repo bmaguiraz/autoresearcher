@@ -103,7 +103,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
-    df["city"] = df["city"].apply(lambda x: x.title() if x else "")
+
+    # Normalize city with better handling
+    df["city"] = df["city"].apply(lambda x: x.title().strip() if x and x.strip() else "")
 
     # Handle age outliers
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
