@@ -10,19 +10,17 @@ MODEL = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
 CLASSIFICATION_LABELS = ["positive", "negative", "neutral"]
 
 # System prompt for the classifier
-SYSTEM_PROMPT = """You are a sentiment classifier. Classify the text as: positive, negative, or neutral.
+SYSTEM_PROMPT = """Classify sentiment as: positive, negative, or neutral.
 
-Guidelines:
-- Positive: expresses satisfaction, approval, or praise
-- Negative: expresses dissatisfaction, disapproval, or criticism (including subtle forms like "wouldn't recommend")
-- Neutral: factual statements with no clear emotional valence
+Positive = approval/satisfaction
+Negative = disapproval/dissatisfaction  
+Neutral = factual, no emotion
 
-Reply with only one word: the label."""
+Output only the label."""
 
 # Few-shot examples: list of (text, label) tuples
 FEW_SHOT_EXAMPLES = [
     ("I absolutely loved this product, it exceeded all my expectations!", "positive"),
     ("This was the worst experience I've ever had. Complete waste of money.", "negative"),
     ("The package arrived on Tuesday as scheduled.", "neutral"),
-    ("Not what I hoped for, pretty disappointed.", "negative"),
 ]
