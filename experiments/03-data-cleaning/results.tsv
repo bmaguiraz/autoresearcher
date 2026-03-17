@@ -1,3 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-82d9cfa	100.0	25.0	25.0	25.0	25.0	keep	Baseline
-a86aa54	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel list to data-relevant values only
+802b2e4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+9278867	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling with regex and consolidate numeric conversion
