@@ -98,7 +98,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     sentinel_map.update({s.upper(): "" for s in sentinels if s})
     df = df.replace(sentinel_map)
 
-    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+    # Optimize name normalization with vectorized title() and whitespace cleanup
+    df["name"] = df["name"].str.strip().str.title().fillna("")
     df["email"] = df["email"].apply(normalize_email)
 
     # Filter and deduplicate early on normalized key fields
