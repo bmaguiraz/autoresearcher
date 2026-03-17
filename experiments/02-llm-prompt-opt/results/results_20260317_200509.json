@@ -1,0 +1,95 @@
+{
+  "experiment_id": "02-llm-prompt-opt",
+  "config": {
+    "experiment_id": "02-llm-prompt-opt",
+    "name": "LLM Prompt Optimization",
+    "description": "Experiment to optimize LLM prompts through iterative refinement",
+    "version": "1.0.0",
+    "cycles": 5,
+    "parameters": {
+      "model": "claude-sonnet-4",
+      "temperature": 0.7,
+      "max_tokens": 2048,
+      "optimization_strategy": "iterative_refinement"
+    },
+    "baseline_prompt": "You are a helpful AI assistant. Please help the user with their task.",
+    "optimization_criteria": [
+      "clarity",
+      "specificity",
+      "response_quality",
+      "task_completion"
+    ]
+  },
+  "cycles_completed": 5,
+  "results": [
+    {
+      "cycle": 1,
+      "prompt": "You are a helpful AI assistant. Please help the user with their task.",
+      "metrics": {
+        "clarity": 0.75,
+        "specificity": 0.8,
+        "response_quality": 0.65,
+        "task_completion": 0.7000000000000001
+      },
+      "aggregate_score": 0.725,
+      "timestamp": "2026-03-17T20:05:07.650600"
+    },
+    {
+      "cycle": 2,
+      "prompt": "You are a highly capable AI assistant specialized in providing clear, actionable guidance.",
+      "metrics": {
+        "clarity": 0.7999999999999999,
+        "specificity": 0.85,
+        "response_quality": 0.7,
+        "task_completion": 0.75
+      },
+      "aggregate_score": 0.775,
+      "timestamp": "2026-03-17T20:05:08.151094"
+    },
+    {
+      "cycle": 3,
+      "prompt": "You are a professional AI assistant focused on delivering precise, contextual responses tailored to user needs.",
+      "metrics": {
+        "clarity": 0.85,
+        "specificity": 0.9,
+        "response_quality": 0.75,
+        "task_completion": 0.8
+      },
+      "aggregate_score": 0.825,
+      "timestamp": "2026-03-17T20:05:08.651855"
+    },
+    {
+      "cycle": 4,
+      "prompt": "You are an advanced AI assistant committed to understanding user intent and providing comprehensive, well-structured solutions.",
+      "metrics": {
+        "clarity": 0.9,
+        "specificity": 0.9500000000000001,
+        "response_quality": 0.8,
+        "task_completion": 0.8500000000000001
+      },
+      "aggregate_score": 0.875,
+      "timestamp": "2026-03-17T20:05:09.152548"
+    },
+    {
+      "cycle": 5,
+      "prompt": "You are a world-class AI assistant that excels at breaking down complex problems and delivering exceptional, personalized assistance.",
+      "metrics": {
+        "clarity": 0.95,
+        "specificity": 0.98,
+        "response_quality": 0.85,
+        "task_completion": 0.9
+      },
+      "aggregate_score": 0.92,
+      "timestamp": "2026-03-17T20:05:09.653269"
+    }
+  ],
+  "summary": {
+    "total_cycles": 5,
+    "initial_score": 0.725,
+    "final_score": 0.92,
+    "improvement": 0.195,
+    "improvement_percentage": 26.9,
+    "best_score": 0.92,
+    "average_score": 0.824
+  }
+}
