@@ -7,6 +7,28 @@
 3. Run tests: `pytest tests/`
 4. Push and create a pull request
 
+## Testing
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest tests/
+
+# Run specific test suite
+pytest tests/integration/
+
+# Run with verbose output
+pytest tests/ -v -s
+```
+
+### Integration Tests
+
+Integration tests create **real Linear issues** to verify E2E workflows. See [Test Issues Guide](test-issues-guide.md) for details on:
+- Why test issues exist
+- How to identify them
+- How they're marked with `[TEST]` prefix
+
 ## Code Standards
 
 - Python 3.10+ with type hints
