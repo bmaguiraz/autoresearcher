@@ -7,6 +7,7 @@ This document explains test issues that may appear in the Linear backlog as a re
 ## MOR-22: Bug in authentication flow
 
 **Status**: Test Issue - Should be closed
+**Current State**: In Progress (as of 2026-03-17)
 
 **Origin**: This issue was created by the integration test `test_telegram_webhook_simulation` in `tests/integration/test_linear_integration.py` (line 133).
 
@@ -14,6 +15,10 @@ This document explains test issues that may appear in the Linear backlog as a re
 - The issue description "Users are unable to login after password reset" is example text used to demonstrate the Linear-Telegram integration
 - Autoresearcher is a Python-based AI research automation platform with **no web application or authentication system**
 - There is no authentication flow to fix - this project focuses on running AI optimization experiments
+
+**Webhook Events Received**:
+1. **Issue Created** (2026-03-17 23:03:24 UTC) - Initial test issue creation
+2. **Issue Updated** (2026-03-17 23:11:45 UTC) - Moved to "In Progress" state
 
 **Resolution**: This issue should be closed as it was created for testing purposes and does not represent a real bug or feature request.
 
