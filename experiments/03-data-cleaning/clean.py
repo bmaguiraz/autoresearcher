@@ -65,11 +65,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
-    if s in STATE_MAP:
-        return STATE_MAP[s]
-    upper = s.upper()
-    if len(s) == 2 and upper in VALID_STATES:
-        return upper
+    mapped = STATE_MAP.get(s)
+    if mapped:
+        return mapped
+    if len(s) == 2 and s.upper() in VALID_STATES:
+        return s.upper()
     return ""
 
 
