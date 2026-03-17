@@ -97,13 +97,18 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
+    # Filter rows with valid emails first (before converting age/salary)
+    df = df[df["email"] != ""]
+
+    # Convert and filter age/salary outliers
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-    df = df[~((df["age"] < 0) | (df["age"] > 120) | (df["salary"] < 0) | (df["salary"] > 1_000_000))]
+    df = df[(df["age"].between(0, 120, inclusive="both") | df["age"].isna()) &
+            (df["salary"].between(0, 1_000_000, inclusive="both") | df["salary"].isna())]
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
-    df = df[df["email"] != ""]
+    # Deduplicate on name+email
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
