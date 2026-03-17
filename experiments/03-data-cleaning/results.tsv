@@ -8,3 +8,4 @@ ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016f
 1724851	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
 3d51411	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Case-insensitive sentinel matching (simplified)
 79f0780	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: eca22c42, MOR-37 round 3)
+46c3bf9	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion with apply(lambda)
