@@ -19,14 +19,6 @@ STATE_MAP = {
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
-MONTH_MAP = {
-    "jan": "01", "feb": "02", "mar": "03", "apr": "04",
-    "may": "05", "jun": "06", "jul": "07", "aug": "08",
-    "sep": "09", "oct": "10", "nov": "11", "dec": "12",
-}
-
 
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
@@ -39,25 +31,22 @@ def normalize_phone(phone):
     return ""
 
 
-def normalize_date(s):
-    if pd.isna(s) or s == "":
+def normalize_date(date_str):
+    if pd.isna(date_str) or date_str == "":
         return ""
-    s = str(s).strip()
-    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
-    if m:
-        return s
-    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
-    m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
-    if m:
-        mon = MONTH_MAP.get(m.group(1).lower()[:3])
-        if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
-    return ""
+    date_str = str(date_str).strip()
+    from dateutil import parser
+    try:
+        dt = parser.parse(date_str, dayfirst=False)
+        return dt.strftime("%Y-%m-%d")
+    except (ValueError, TypeError):
+        pass
+    # Try day-first
+    try:
+        dt = parser.parse(date_str, dayfirst=True)
+        return dt.strftime("%Y-%m-%d")
+    except (ValueError, TypeError):
+        return ""
 
 
 def normalize_state(state):
@@ -66,17 +55,17 @@ def normalize_state(state):
     s = str(state).strip().lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    upper = s.upper()
-    if len(s) == 2 and upper in VALID_STATES:
-        return upper
-    return ""
+    # Already a 2-letter code
+    if len(s) == 2 and s.upper() in STATE_MAP.values():
+        return s.upper()
+    return str(state).strip().upper()[:2]
 
 
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).strip().lower()
-    if " " in e or "@" not in e or "." not in e.split("@")[-1]:
+    e = str(email).strip().lower().replace(" ", "")
+    if "@" not in e or "." not in e.split("@")[-1]:
         return ""
     return e
 
@@ -84,26 +73,44 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinel values with empty strings
-    df = df.fillna("").apply(lambda col: col.str.strip())
-    sentinels = ["N/A", "null", "None", "n/a", "NULL", "none", "NA", "na", "nan", "#N/A", "#n/a", ""]
-    df = df.replace(sentinels, "")
+    # Strip whitespace from all columns
+    for col in df.columns:
+        df[col] = df[col].str.strip()
 
+    # Replace sentinel null values
+    null_values = ["N/A", "n/a", "null", "None", "none", "NULL", ""]
+    for col in df.columns:
+        df[col] = df[col].replace(null_values, "")
+
+    # Normalize names to Title Case
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+
+    # Normalize emails
     df["email"] = df["email"].apply(normalize_email)
+
+    # Normalize phones
     df["phone"] = df["phone"].apply(normalize_phone)
+
+    # Normalize dates
     df["signup_date"] = df["signup_date"].apply(normalize_date)
+
+    # Normalize states
     df["state"] = df["state"].apply(normalize_state)
 
+    # Convert age and salary to numeric, coerce errors
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+
+    # Remove outliers
     df = df[~((df["age"] < 0) | (df["age"] > 120))]
     df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
+
+    # Handle NaN from numeric conversion — convert back to empty string for output
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
+    # Filter rows without email and deduplicate by name+email
     df = df[df["email"] != ""]
-    # Deduplicate by name+email combination
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
