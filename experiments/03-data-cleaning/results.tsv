@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+77e9280	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+40707fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified outlier handling - cleaner pd.notna() logic
+8897d35	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Vectorized name normalization with str.title()
