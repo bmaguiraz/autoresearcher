@@ -109,9 +109,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    for col in ["age", "salary"]:
-        df[col] = df[col].dropna().astype(int).astype(str)
-        df[col] = df[col].fillna("")
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
