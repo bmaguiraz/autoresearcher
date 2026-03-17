@@ -1,1 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+7e231a6	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+4482264	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify age/salary conversion using pd.isna directly
