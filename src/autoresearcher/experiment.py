@@ -140,9 +140,10 @@ class BaseExperiment(ABC):
     def run_cycle(self, cycle: int) -> ExperimentResult:
         """Execute a single experiment cycle with retry support."""
         logger.info("Starting cycle %d/%d for experiment %s", cycle, self.max_cycles, self.experiment_id)
-        print(f"\n{\'=\'*50}")
+        sep = "=" * 50
+        print(f"\n{sep}")
         print(f"Cycle {cycle}/{self.max_cycles}")
-        print(f"{\'=\'*50}")
+        print(sep)
 
         print("\n[1/3] Evaluating...")
         logger.debug("Running evaluation for cycle %d", cycle)
@@ -205,7 +206,8 @@ class BaseExperiment(ABC):
             summary.best_score, elapsed,
         )
 
-        print(f"\n{\'=\'*50}")
+        sep = "=" * 50
+        print(f"\n{sep}")
         print("Experiment Complete!")
         print(f"  Initial Score: {summary.initial_score:.3f}")
         print(f"  Final Score:   {summary.final_score:.3f}")
