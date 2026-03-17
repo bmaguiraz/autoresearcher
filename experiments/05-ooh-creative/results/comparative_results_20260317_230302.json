@@ -1,35 +1,35 @@
 {
   "experiment_id": "05-ooh-creative",
-  "use_case": "plumber",
+  "use_case": "restaurant",
   "cycles": 1,
   "parallel_execution": true,
   "elapsed_seconds": 0.01,
   "results": [
     {
       "variant": "emotional",
-      "final_score": 20.894923116556583,
-      "success": true,
-      "error": null
-    },
-    {
-      "variant": "urgency",
-      "final_score": 21.30478878792112,
+      "final_score": 21.015714159090408,
       "success": true,
       "error": null
     },
     {
       "variant": "baseline",
-      "final_score": 18.628581180263122,
+      "final_score": 18.151016087045495,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "urgency",
+      "final_score": 20.32554091898752,
       "success": true,
       "error": null
     },
     {
       "variant": "social_proof",
-      "final_score": 19.96471923551684,
+      "final_score": 20.705314186051154,
       "success": true,
       "error": null
     }
   ],
-  "best_variant": "urgency",
-  "best_score": 21.30478878792112
+  "best_variant": "emotional",
+  "best_score": 21.015714159090408
 }

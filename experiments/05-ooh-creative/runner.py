@@ -71,6 +71,25 @@ class OOHCreativeExperiment(BaseExperiment):
                     "body": "500+ 5-star reviews. Licensed, insured, trusted by neighbors. Emergency & scheduled service. (555) 123-4567",
                 },
             }
+        elif use_case == "restaurant":
+            creatives = {
+                "baseline": {
+                    "headline": "Farm-to-Table Dining • Open Daily",
+                    "body": "Fresh ingredients, seasonal menu, craft cocktails. Reservations available. Visit us at 123 Main St.",
+                },
+                "emotional": {
+                    "headline": "Where Every Meal Feels Like Home",
+                    "body": "Authentic flavors, warm atmosphere, memories made. Perfect for date night or family gathering. Reserve today!",
+                },
+                "urgency": {
+                    "headline": "Limited Seating • Book Your Table Now",
+                    "body": "Only a few spots left this weekend! Award-winning chef, seasonal specials. Reserve at TableFor2.com",
+                },
+                "social_proof": {
+                    "headline": "★★★★★ Best Restaurant 2026",
+                    "body": "Featured in Food & Wine. 1,000+ rave reviews. Experience what everyone's talking about. Book now!",
+                },
+            }
         else:
             # Generic fallback
             creatives = {

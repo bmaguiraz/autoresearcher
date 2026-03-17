@@ -3,7 +3,7 @@
   "config": {
     "experiment_id": "05-ooh-creative",
     "cycles": 1,
-    "use_case": "plumber",
+    "use_case": "restaurant",
     "parallel_variants": 4,
     "metrics": {
       "attention": {
@@ -35,14 +35,14 @@
       "experiment_id": "05-ooh-creative-social_proof",
       "cycle": 1,
       "metrics": {
-        "attention": 17.14581965271295,
-        "clarity": 22.185476694883604,
-        "relevance": 20.038216583647092,
-        "conversion_potential": 20.489364010823707
+        "attention": 19.386544722373767,
+        "clarity": 21.122739701329717,
+        "relevance": 20.33783135425421,
+        "conversion_potential": 21.97414096624692
       },
-      "timestamp": "2026-03-17T22:46:14.705933",
+      "timestamp": "2026-03-17T23:03:02.156890",
       "metadata": {},
-      "aggregate_score": 19.96471923551684
+      "aggregate_score": 20.705314186051154
     }
   ]
 }
