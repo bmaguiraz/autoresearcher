@@ -90,7 +90,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].str.strip()
 
     # Replace common sentinel values with empty strings
-    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", "", "missing", "unknown", "n.a.", "n\\a", "--", "___", "...", "-", "_"}
+    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", "", "missing", "unknown", "n.a.", "n\\a", "--", "___", "...", "-", "_", "tbd", "tba"}
     for col in df.columns:
         df[col] = df[col].apply(lambda x: "" if str(x).strip().lower() in sentinels or str(x).strip() in sentinels else x)
 
