@@ -1,14 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-cbc9532	97.9	25.0	22.9	25.0	25.0	keep	Baseline
-e9cd933	97.9	25.0	22.9	25.0	25.0	keep	Cycle 1: Expand sentinel patterns
-de126c1	95.1	25.0	20.8	24.3	25.0	discard	Cycle 2: Remove email filter (worse)
-58b9318	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify email validation
-73f70dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify email validation
-e133670	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
-380abf0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel detection
-bd74cba	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify state normalization
-4cc2b54	100.0	25.0	25.0	25.0	25.0	keep	Baseline
-60a8d12	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling
-a85c985	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Expand sentinels to include tbd and tba
-39e6bdc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel detection
-5e9fbc6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Vectorize sentinel replacement
+be5c172	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+6a4f155	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Vectorize sentinel replacement
+26f6c31	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify outlier filtering with between()
