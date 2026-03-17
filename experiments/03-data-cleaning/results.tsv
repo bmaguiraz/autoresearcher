@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+369f514	97.9	25.0	22.9	25.0	25.0	keep	Baseline
+c9ffb07	99.3	25.0	25.0	24.3	25.0	keep	Cycle 1: Optimize sentinel handling
+71ebcd9	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Fix email validation and deduplication
