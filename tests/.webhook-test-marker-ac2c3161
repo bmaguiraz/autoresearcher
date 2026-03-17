@@ -1,0 +1,18 @@
+Linear Webhook Integration Test Marker
+=======================================
+
+Session ID: ac2c3161
+Issue: MOR-23
+Title: Test Issue from Integration Test
+State: In Progress
+Webhook Type: Status Update
+
+This marker file confirms that the Linear webhook was successfully:
+- Received by the webhook handler
+- Matched to the autoresearcher project configuration
+- Triggered automated PR update workflow
+- Processed by Claude Code agent
+
+Timestamp: 2026-03-17T23:15:25.076Z
+Linear Issue URL: https://linear.app/maguireb/issue/MOR-23/test-issue-from-integration-test
+GitHub PR: https://github.com/bmaguiraz/autoresearcher/pull/68
