@@ -1,6 +1,7 @@
 """Tests for concurrent execution utilities."""
 
 import json
+import logging
 import time
 from pathlib import Path
 
@@ -253,3 +254,53 @@ class TestConcurrentExperimentResult:
         assert result.experiment_id == "test-exp"
         assert result.success is False
         assert result.error == "Test error"
+
+
+class TestConcurrentLogging:
+    def test_run_experiments_logs_start_and_finish(self, tmp_path, caplog):
+        """Test that running experiments logs start and finish messages."""
+        config_path = _make_config(tmp_path, "exp-log", cycles=1)
+        exp = MockExperiment(config_path, sleep_time=0.01)
+        runner = ConcurrentExperimentRunner(max_workers=1)
+        with caplog.at_level(logging.INFO, logger="autoresearcher.concurrent"):
+            runner.run_experiments([exp])
+        messages = [r.message for r in caplog.records]
+        assert any("Starting concurrent run" in m for m in messages)
+        assert any("Concurrent run finished" in m for m in messages)
+
+    def test_successful_experiment_logs_info(self, tmp_path, caplog):
+        """Test that a successful experiment logs an info message."""
+        config_path = _make_config(tmp_path, "exp-ok", cycles=1)
+        exp = MockExperiment(config_path, sleep_time=0.01)
+        runner = ConcurrentExperimentRunner(max_workers=1)
+        with caplog.at_level(logging.INFO, logger="autoresearcher.concurrent"):
+            runner.run_experiments([exp])
+        assert any("completed successfully" in r.message for r in caplog.records)
+
+    def test_failed_experiment_logs_warning(self, tmp_path, caplog):
+        """Test that a failed experiment logs a warning."""
+        config_path = _make_config(tmp_path, "exp-bad", cycles=1)
+        exp = FailingExperiment(config_path)
+        runner = ConcurrentExperimentRunner(max_workers=1)
+        with caplog.at_level(logging.WARNING, logger="autoresearcher.concurrent"):
+            runner.run_experiments([exp])
+        assert any(r.levelno == logging.WARNING for r in caplog.records)
+        assert any("failed" in r.message for r in caplog.records)
+
+    def test_failed_experiment_logs_error_in_runner(self, tmp_path, caplog):
+        """Test that the internal runner logs an error for exceptions."""
+        config_path = _make_config(tmp_path, "exp-err", cycles=1)
+        exp = FailingExperiment(config_path)
+        runner = ConcurrentExperimentRunner(max_workers=1)
+        with caplog.at_level(logging.ERROR, logger="autoresearcher.concurrent"):
+            runner.run_experiments([exp])
+        assert any(r.levelno == logging.ERROR for r in caplog.records)
+
+    def test_batch_evaluation_logs_info(self, caplog):
+        """Test that batch evaluation logs start and completion."""
+        evaluator = ConcurrentEvaluator()
+        with caplog.at_level(logging.INFO, logger="autoresearcher.concurrent"):
+            evaluator.evaluate_batch(lambda x: {"v": x}, [1, 2, 3])
+        messages = [r.message for r in caplog.records]
+        assert any("Starting batch evaluation" in m for m in messages)
+        assert any("Batch evaluation complete" in m for m in messages)
