@@ -5,3 +5,7 @@ e487951	99.3	25.0	25.0	24.3	25.0	discard	Sort before dedup
 71dd9ad	99.3	25.0	25.0	24.3	25.0	discard	Fuzzy dedup on name+email
 3e2779c	99.3	25.0	25.0	24.3	25.0	discard	Simplify date parsing
 546b06c	99.3	25.0	25.0	24.3	25.0	discard	Tighter outlier bounds
+5d8beb4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify deduplication (maintained perfect score)
+133e6d6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Combine outlier filters (maintained perfect score)
+26259e0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 (repeat): No change - baseline already perfect
+f3a296c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 (repeat): Remove redundant lines (maintained perfect score)
