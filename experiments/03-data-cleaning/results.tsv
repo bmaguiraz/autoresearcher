@@ -1,4 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 0686616	97.9	25.0	22.9	25.0	25.0	keep	Baseline
 49e02a2	97.9	25.0	22.9	25.0	25.0	keep	Relaxed email validation
-fb831d6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Improve email validation
+fb831d6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add DC to state map (perfect score)
+321fa84	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Expand sentinel value detection
