@@ -112,6 +112,11 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
+    # Final pass: ensure all NaN-like values in string columns are empty strings
+    for col in ["name", "email", "phone", "signup_date", "city", "state"]:
+        df[col] = df[col].fillna("").astype(str)
+        df[col] = df[col].replace(["nan", "NaN", "NaT", "<NA>"], "")
+
     df.to_csv(output_path, index=False)
 
 
