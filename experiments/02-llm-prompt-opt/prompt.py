@@ -4,7 +4,7 @@ The agent edits this file to optimize classification accuracy.
 """
 
 # Model to use for classification (Bedrock model ID)
-MODEL = "anthropic.claude-haiku-4-5-20251001-v1:0"
+MODEL = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Classification labels
 CLASSIFICATION_LABELS = ["positive", "negative", "neutral"]
@@ -16,6 +16,11 @@ Guidelines:
 - Positive: the text expresses approval, satisfaction, praise, or a favorable outcome.
 - Negative: the text expresses disapproval, dissatisfaction, criticism, or an unfavorable outcome. This includes hedged negativity like "I wouldn't do it again" or "it wasn't great."
 - Neutral: the text is purely factual with no evaluative stance.
+
+Edge cases:
+- Mixed sentiment: classify based on the overall takeaway or dominant sentiment.
+- Sarcasm: classify the actual intended meaning, not the literal words.
+- Backhanded compliments: treat as negative if the criticism outweighs the praise.
 
 Respond with only the label, nothing else."""
 
