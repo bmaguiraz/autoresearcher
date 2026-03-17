@@ -86,6 +86,11 @@ def normalize_email(email):
     return e
 
 
+def convert_numeric_to_str(val):
+    """Convert numeric value to string, handling NaN."""
+    return str(int(val)) if pd.notna(val) else ""
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -110,8 +115,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["age"] = df["age"].apply(convert_numeric_to_str)
+    df["salary"] = df["salary"].apply(convert_numeric_to_str)
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
