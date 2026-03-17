@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+8403ecd	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+275b641	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - Optimize sentinel value replacement
+7e8c3da	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - Improve state normalization
