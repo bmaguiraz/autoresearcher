@@ -116,6 +116,10 @@ class TestLinearIntegration:
         """
         Simulate a Telegram webhook message and verify it creates a Linear issue.
 
+        NOTE: This test creates REAL Linear issues for E2E verification.
+        Issues are marked with [TEST] prefix and detailed description to distinguish
+        from production work items.
+
         In a real implementation, this would:
         1. Receive a webhook from Telegram
         2. Parse the message content
@@ -130,7 +134,7 @@ class TestLinearIntegration:
                 "first_name": "Test",
                 "username": "testuser"
             },
-            "text": "/create_issue Bug in authentication flow\nDescription: Users are unable to login after password reset.",
+            "text": "/create_issue [TEST] Bug in authentication flow\nDescription: Users are unable to login after password reset. This is a test issue from integration suite.",
             "date": 1234567890
         }
 
@@ -160,10 +164,24 @@ class TestLinearIntegration:
             }
             """
 
+            # Add clear test markers to prevent confusion with real issues
+            test_description = f"""**🧪 TEST ISSUE - Integration Test Suite**
+
+Created from Telegram by @{telegram_message['from']['username']}
+
+{description}
+
+---
+*This issue was created by the automated integration test suite at `tests/integration/test_linear_integration.py` to verify the Telegram → Linear → Agent webhook workflow. It is NOT a real bug.*
+
+**Test Purpose:** Verify E2E issue creation from Telegram messages
+**Test File:** `tests/integration/test_linear_integration.py:test_telegram_webhook_simulation`
+**Expected Behavior:** This issue validates that the webhook integration is working correctly."""
+
             variables = {
                 "teamId": team_id,
                 "title": title,
-                "description": f"Created from Telegram by @{telegram_message['from']['username']}\n\n{description}"
+                "description": test_description
             }
 
             response = requests.post(
