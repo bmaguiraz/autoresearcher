@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+bf0a35f	97.9	25.0	22.9	25.0	25.0	keep	Baseline
+f9990b2	97.9	25.0	22.9	25.0	25.0	keep	Cycle 1: Expand sentinel value detection
+5950bb5	97.9	25.0	22.9	25.0	25.0	keep	Cycle 2: Add final NaN cleanup pass for string columns
