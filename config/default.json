@@ -1,0 +1,11 @@
+{
+  "project": "autoresearcher",
+  "version": "0.1.0",
+  "experiments_dir": "experiments",
+  "results_dir": "results",
+  "default_model": "claude-sonnet-4",
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
+}
