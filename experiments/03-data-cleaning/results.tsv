@@ -1,9 +1,2 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-77e9280	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
-40707fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified outlier handling - cleaner pd.notna() logic
-8897d35	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Vectorized name normalization with str.title()
-802b2e4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
-9278867	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling with regex and consolidate numeric conversion
-ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016fd0)
-1724851	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
-3d51411	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Case-insensitive sentinel matching (simplified)
+0294bd7	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 355f8ae3)
