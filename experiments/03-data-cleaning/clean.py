@@ -50,7 +50,7 @@ def normalize_date(s):
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
-    m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
+    m = re.match(r"^([A-Za-z]{3,})\s+(\d{1,2}),?\s+(\d{4})$", s)
     if m:
         mon = MONTH_MAP.get(m.group(1).lower()[:3])
         if mon:
@@ -86,10 +86,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinel values
-    sentinels = {"n/a", "null", "none", "nan", "#n/a", "na", ""}
-    df = df.fillna("")
-    for col in df.columns:
-        df[col] = df[col].str.strip().apply(lambda x: "" if x.lower() in sentinels else x)
+    sentinels = ["N/A", "null", "None", "n/a", "NULL", "none", "NA", "na", "nan", "#N/A", "#n/a", ""]
+    df = df.fillna("").apply(lambda col: col.str.strip())
+    df = df.replace(sentinels, "")
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
@@ -99,7 +98,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-    df = df[~((df["age"] < 0) | (df["age"] > 120) | (df["salary"] < 0) | (df["salary"] > 1_000_000))]
+    df = df[~((df["age"] < 0) | (df["age"] > 120))]
+    df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
