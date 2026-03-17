@@ -95,6 +95,11 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
     df["email"] = df["email"].apply(normalize_email)
+
+    # Filter and deduplicate early on normalized key fields
+    df = df[df["email"] != ""]
+    df = df.drop_duplicates(subset=["name", "email"], keep="first")
+
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
@@ -105,10 +110,6 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = df[~((df["salary"] < 0) | (df["salary"] > 1_000_000))]
     df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
     df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-
-    df = df[df["email"] != ""]
-    # Deduplicate by name+email combination
-    df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
 
