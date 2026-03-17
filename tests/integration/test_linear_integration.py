@@ -120,6 +120,11 @@ class TestLinearIntegration:
         1. Receive a webhook from Telegram
         2. Parse the message content
         3. Create a Linear issue based on the message
+
+        NOTE: This test creates a real Linear issue for integration testing purposes.
+        Issues created by this test should be marked as test issues or closed after verification.
+        The "Bug in authentication flow" text is example text only - autoresearcher does not
+        have an authentication system as it is a Python research automation platform.
         """
         # Simulate incoming Telegram message
         telegram_message = {
