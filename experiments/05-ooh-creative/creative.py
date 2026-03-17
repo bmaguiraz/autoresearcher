@@ -1,20 +1,20 @@
 # OOH Creative Config — agent edits this file
 # Switch between use cases by changing USE_CASE
-USE_CASE = "writefit"  # "plumber", "restaurant", or "writefit"
+USE_CASE = "restaurant"  # "plumber", "restaurant", or "writefit"
 
 # Creative elements (agent optimizes these)
-HEADLINE = "Practice Writing Skills That Matter"
-SUBHEADLINE = "AI-powered exercises from your essay | writefit.ai"
-CTA = "writefit.ai"
+HEADLINE = "Handmade Pasta Since 1987"
+SUBHEADLINE = "Farm-to-table Italian | Tue-Sun 11am-10pm | 247 Main St"
+CTA = "(555) BELLA-01"
 COLOR_SCHEME = {
-    "background": "#5B5670",  # dark purple (brand primary)
-    "headline": "#FAFAF8",    # off-white (brand accent)
-    "subheadline": "#FAFAF8", # off-white for readability
-    "cta": "#6B47DC",         # bright purple (brand secondary)
+    "background": "#2D1B0E",  # dark brown (brand primary)
+    "headline": "#C4956A",    # warm tan (brand secondary)
+    "subheadline": "#FFFFFF", # white for readability
+    "cta": "#8B0000",         # dark red (brand accent)
 }
-LAYOUT = "centered"  # hero-left, hero-right, centered, split
-FORMAT = "digital-landscape"  # digital-landscape: 16:9, 10 word max
+LAYOUT = "hero-left"  # hero-left, hero-right, centered, split
+FORMAT = "bulletin"  # bulletin: 3.4:1, 7 word max
 
 # Image generation prompt for the hero image
-IMAGE_PROMPT = "high school student focused on writing an essay at a desk, laptop open with visible text, natural classroom lighting, modern educational setting, diverse students in background, productive learning atmosphere"
-IMAGE_STYLE = "educational photography, bright natural lighting, authentic classroom setting, motivational and focused mood, modern edtech aesthetic"
+IMAGE_PROMPT = "close-up of fresh handmade pappardelle pasta on rustic wooden board, flour dusted surface, warm golden hour lighting, authentic Italian trattoria kitchen, rich textures"
+IMAGE_STYLE = "food photography, warm natural lighting, shallow depth of field, appetizing and authentic mood, rustic Italian aesthetic"

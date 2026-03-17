@@ -1,3 +1,14 @@
-Bytecode compiled 2339 files in 142ms
+Bytecode compiled 2339 files in 146ms
 Ad composition failed: No API key was provided. Please pass a valid API key. Learn how to create an API key at https://ai.google.dev/gemini-api/docs/api-key.
 Continuing with text-only evaluation...
+---
+score:                     89.0
+tier:                      minor-revisions
+visual_hierarchy:          20.0
+color_contrast:            11.0
+brand_integration:         10.0
+message_effectiveness:     16.0
+format_optimization:       10.0
+industry_practices:        12.0
+regulatory_compliance:     10.0
+eval_seconds:              4.2
