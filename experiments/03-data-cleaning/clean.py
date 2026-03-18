@@ -104,7 +104,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         # Keep rows where value is missing OR within valid range
         mask = df[col].isna() | ((df[col] >= min_val) & (df[col] <= max_val))
         df = df[mask]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        # Convert to string, treating NaN as empty string
+        df[col] = df[col].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
