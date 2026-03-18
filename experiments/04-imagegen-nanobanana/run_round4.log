@@ -1,0 +1,70 @@
+2026-03-18 07:42:38,777 - __main__ - INFO - Starting experiment runner
+2026-03-18 07:42:38,777 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/config.json
+2026-03-18 07:42:38,777 - __main__ - INFO - Configuration loaded successfully
+2026-03-18 07:42:38,777 - __main__ - INFO - Experiment initialized: ID=04-imagegen-nanobanana, Cycles=2
+2026-03-18 07:42:38,778 - __main__ - INFO - Starting experiment run: 04-imagegen-nanobanana
+
+############################################################
+# Image Generation Prompt Optimization (Nano)
+# Experiment ID: 04-imagegen-nanobanana
+# Cycles: 2
+############################################################
+2026-03-18 07:42:38,778 - __main__ - INFO - Starting cycle 1/2
+
+============================================================
+Cycle 1/2
+============================================================
+
+[1/3] Evaluating prompt...
+2026-03-18 07:42:38,778 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.787
+  → Aggregate Score: 0.787
+  → Visual Quality: 0.780
+  → Prompt Clarity: 0.830
+  → Style Consistency: 0.730
+  → Composition: 0.810
+  → Current Prompt: "A photo of a banana"
+
+[2/3] Optimizing prompt for next cycle...
+  → Generated improved prompt
+2026-03-18 07:42:38,778 - __main__ - INFO - Generated new prompt variant for next cycle
+
+[3/3] Saving results...
+  → Results saved to /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/results
+2026-03-18 07:42:38,778 - __main__ - INFO - Results saved successfully
+2026-03-18 07:42:38,778 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-18 07:42:39,078 - __main__ - INFO - Starting cycle 2/2
+
+============================================================
+Cycle 2/2
+============================================================
+
+[1/3] Evaluating prompt...
+2026-03-18 07:42:39,078 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.868
+  → Aggregate Score: 0.868
+  → Visual Quality: 0.860
+  → Prompt Clarity: 0.910
+  → Style Consistency: 0.810
+  → Composition: 0.890
+  → Current Prompt: "A stunning 8K photograph of a perfect yellow banana with beautiful lighting and composition"
+
+[3/3] Saving results...
+  → Results saved to /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/results
+2026-03-18 07:42:39,079 - __main__ - INFO - Results saved successfully
+2026-03-18 07:42:39,079 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-18 07:42:39,079 - __main__ - INFO - Experiment completed in 0.3s
+
+============================================================
+Experiment Complete!
+============================================================
+
+Summary Statistics:
+  • Total Cycles: 2
+  • Initial Score: 0.787
+  • Final Score: 0.868
+  • Improvement: +0.081 (10.3%)
+  • Best Score: 0.868
+  • Average Score: 0.828
+  • Elapsed Time: 0.3s
+
+Results saved to: /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/results
+2026-03-18 07:42:39,079 - __main__ - INFO - Experiment 04-imagegen-nanobanana finished successfully
