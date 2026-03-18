@@ -2,3 +2,4 @@ commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	descr
 c27377c	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 4 (session: a9a9efe7)
 5de88f1	87.5	25.0	12.5	25.0	25.0	discard	Cycle 1: FAILED - Removed DD-MM-YYYY date format (broke null_handling)
 bcffadb	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: d6e737fe)
+28be201	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Consolidate outlier filtering (session: d6e737fe)
