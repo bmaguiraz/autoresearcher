@@ -49,28 +49,30 @@ def normalize_date(s):
     # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        mm, dd, yyyy = int(m[1]), int(m[2]), m[3]
+        return f"{yyyy}-{mm:02d}-{dd:02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
+        mon = MONTH_MAP.get(m[1].lower())
         if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+            return f"{m[3]}-{mon}-{int(m[2]):02d}"
     # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        dd, mm, yyyy = int(m[1]), int(m[2]), m[3]
+        return f"{yyyy}-{mm:02d}-{dd:02d}"
     return ""
 
 
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
+    s = str(state).strip().lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    upper = s.upper()
+    return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
 def normalize_email(email):
