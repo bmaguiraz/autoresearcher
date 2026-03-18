@@ -57,7 +57,8 @@ def normalize_date(s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     # Mon DD YYYY format
     if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
-        if mon := MONTH_MAP.get(m.group(1).lower()):
+        mon = MONTH_MAP.get(m.group(1).lower())
+        if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
     if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
@@ -69,12 +70,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
+    # Check state map first, then validate 2-letter codes
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
     upper = s.upper()
-    return upper if len(s) == 2 and upper in VALID_STATES else ""
+    return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
 def normalize_email(email):
