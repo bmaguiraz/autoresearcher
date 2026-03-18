@@ -57,3 +57,5 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 b7c5970	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace regex with string ops for date format check (session: 3a7b93cc)
 ff31683	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid upper() call when state length != 2 (session: 3a7b93cc)
 220b0eb	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 4c03bafb)
+4931270	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimize date parsing to avoid unnecessary split (session: 4c03bafb)
+1e456dd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Replace format_as_string_int with inline lambda (session: 4c03bafb)
