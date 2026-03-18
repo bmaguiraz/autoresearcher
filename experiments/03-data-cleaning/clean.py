@@ -50,10 +50,8 @@ def normalize_date(s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
-    if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
-        if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+    if m and (mon := MONTH_MAP.get(m.group(1).lower())):
+        return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
