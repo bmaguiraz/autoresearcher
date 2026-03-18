@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+6eaf427	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 3c8af4de)
+d425c19e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add strip() to state normalization
+64307c05	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Clarify outlier filtering logic
