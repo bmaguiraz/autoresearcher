@@ -69,12 +69,12 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
-    if mapped := STATE_MAP.get(s):
-        return mapped
-    # Check if it's a valid 2-letter state code
+    # Check STATE_MAP first, then validate 2-letter codes
+    if result := STATE_MAP.get(s):
+        return result
+    # For 2-letter codes, validate against VALID_STATES
     upper = s.upper()
-    return upper if len(s) == 2 and upper in VALID_STATES else ""
+    return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
 def normalize_email(email):
