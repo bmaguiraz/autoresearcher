@@ -1,0 +1,48 @@
+{
+  "experiment_id": "05-ooh-creative-social_proof",
+  "config": {
+    "experiment_id": "05-ooh-creative",
+    "cycles": 1,
+    "use_case": "writefit",
+    "parallel_variants": 4,
+    "metrics": {
+      "attention": {
+        "weight": 0.25,
+        "description": "Eye-catching and memorable"
+      },
+      "clarity": {
+        "weight": 0.25,
+        "description": "Clear message and call-to-action"
+      },
+      "relevance": {
+        "weight": 0.25,
+        "description": "Relevant to target audience"
+      },
+      "conversion_potential": {
+        "weight": 0.25,
+        "description": "Likelihood to drive action"
+      }
+    },
+    "constraints": {
+      "max_headline_length": 50,
+      "max_body_length": 100,
+      "style": "professional"
+    }
+  },
+  "cycles_completed": 1,
+  "results": [
+    {
+      "experiment_id": "05-ooh-creative-social_proof",
+      "cycle": 1,
+      "metrics": {
+        "attention": 18.62096989111944,
+        "clarity": 20.944300958475697,
+        "relevance": 21.395017347042756,
+        "conversion_potential": 23.8780565883965
+      },
+      "timestamp": "2026-03-18T01:42:59.856527",
+      "metadata": {},
+      "aggregate_score": 21.2095861962586
+    }
+  ]
+}
