@@ -34,7 +34,7 @@ def normalize_phone(phone):
         return ""
     digits = re.sub(r"\D", "", str(phone))
     # Strip leading 1 for 11-digit numbers
-    if len(digits) == 11 and digits[0] == "1":
+    if len(digits) == 11 and digits.startswith("1"):
         digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
@@ -52,10 +52,8 @@ def normalize_date(s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
-    if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
-        if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+    if m and (mon := MONTH_MAP.get(m.group(1).lower())):
+        return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
@@ -92,7 +90,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     }
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
+        df[col] = df[col].replace(sentinel_values, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
