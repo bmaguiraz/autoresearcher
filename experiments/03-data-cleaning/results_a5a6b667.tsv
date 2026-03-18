@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+063de02	100.0	25.0	25.0	25.0	25.0	keep	Simplify sentinel replacement using chained replace
+7e27b89	100.0	25.0	25.0	25.0	25.0	keep	Use dictionary for outlier ranges
