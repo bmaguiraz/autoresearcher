@@ -89,7 +89,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
 
     # Replace sentinel values with empty strings (case-insensitive)
-    sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
+    sentinel_pattern = re.compile(r"^(n/?a|null|none)$", re.IGNORECASE)
     for col in df.columns:
         df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
 
