@@ -26,3 +26,4 @@ d44f42d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimize sentinel matching (sess
 b3941b3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: dddddc78)
 49a4251	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: dddddc78)
 18f5489	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: 2c08f24d)
+7dd5c68	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Move sentinel values to module constant (session: 2c08f24d)
