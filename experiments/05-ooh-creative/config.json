@@ -1,7 +1,7 @@
 {
   "experiment_id": "05-ooh-creative",
   "cycles": 1,
-  "use_case": "writefit",
+  "use_case": "restaurant",
   "parallel_variants": 4,
   "metrics": {
     "attention": {

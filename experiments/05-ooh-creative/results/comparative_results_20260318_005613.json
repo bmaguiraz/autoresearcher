@@ -1,0 +1,35 @@
+{
+  "experiment_id": "05-ooh-creative",
+  "use_case": "restaurant",
+  "cycles": 1,
+  "parallel_execution": true,
+  "elapsed_seconds": 0.01,
+  "results": [
+    {
+      "variant": "baseline",
+      "final_score": 16.83510074120067,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "urgency",
+      "final_score": 20.95251445565472,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "emotional",
+      "final_score": 21.36289820024701,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "social_proof",
+      "final_score": 20.97123518765637,
+      "success": true,
+      "error": null
+    }
+  ],
+  "best_variant": "emotional",
+  "best_score": 21.36289820024701
+}
