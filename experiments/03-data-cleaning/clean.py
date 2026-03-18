@@ -29,10 +29,9 @@ MONTH_MAP = {
 }
 
 SENTINEL_VALUES = {
-    "n/a", "N/A", "na", "NA", "Na",
-    "null", "NULL", "Null",
-    "none", "NONE", "None",
-    "nan", "NAN", "Nan"
+    "n/a", "N/A",
+    "null", "NULL",
+    "none", "NONE",
 }
 
 
@@ -68,10 +67,8 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
-    if mapped := STATE_MAP.get(s):
-        return mapped
-    # Check if it's a valid 2-letter state code
+    if s in STATE_MAP:
+        return STATE_MAP[s]
     upper = s.upper()
     return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
