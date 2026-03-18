@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+a5c8ad6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Eliminate intermediate variable in normalize_email (session: 68830bfe)
+14df827	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify phone digit stripping logic (session: 68830bfe)
+5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 68830bfe)
 399608d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: 062a6a4b)
 f51623c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant strip() in normalize_state (session: 062a6a4b)
 8e02551	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 062a6a4b)
