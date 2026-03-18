@@ -49,17 +49,20 @@ def normalize_date(s):
     # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        mm, dd, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
-        if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+        mon, dd, yyyy = m.groups()
+        mon_num = MONTH_MAP.get(mon.lower())
+        if mon_num:
+            return f"{yyyy}-{mon_num}-{int(dd):02d}"
     # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        dd, mm, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
     return ""
 
 
