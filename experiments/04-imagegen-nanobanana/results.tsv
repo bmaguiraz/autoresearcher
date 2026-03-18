@@ -1,5 +1,2 @@
 commit	score	clip_score	aesthetic_score	consistency	status	description
-baseline	78.7	78.0	81.0	73.0	keep	Baseline - no changes applied
-cycle1	86.8	86.0	91.0	81.0	keep	Precise material textures, lighting angles, color temp for consistency
-cycle2_baseline	-	-	-	-	crash	Session de391930 baseline — GOOGLE_API_KEY not set
-cycle2_hyp1	-	-	-	-	crash	Material textures, dust motes, Portra color — GOOGLE_API_KEY not set
+baseline	70.3	70.5	61.8	78.4	keep	Baseline - no changes applied
