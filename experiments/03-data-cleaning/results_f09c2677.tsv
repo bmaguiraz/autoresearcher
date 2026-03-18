@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+650e27c	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score from previous optimizations
+b56861f	100.0	25.0	25.0	25.0	25.0	keep	cycle 1 - inline upper variable in normalize_state
+4eb2973	100.0	25.0	25.0	25.0	25.0	keep	cycle 2 - simplify dictionary lookup pattern
