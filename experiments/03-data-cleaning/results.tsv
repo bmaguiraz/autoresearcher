@@ -14,3 +14,4 @@ cfddc8a	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 02b2a
 9e146d7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify state normalization logic
 1ad706c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Condense phone normalization
 81bb6b2	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: 486aaf0e)
+65fe278	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Restructure date normalization with pattern list
