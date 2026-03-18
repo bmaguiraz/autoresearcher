@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Concurrent execution utilities for running experiments in parallel."""
 
 import logging

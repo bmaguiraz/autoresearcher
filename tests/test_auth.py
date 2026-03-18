@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for authentication module.
 
 Key test: verify sessions are invalidated after password reset (bug fix).

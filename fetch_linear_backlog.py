@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Fetch Linear backlog for a project."""
 import os
 import sys
