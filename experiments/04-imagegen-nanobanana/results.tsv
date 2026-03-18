@@ -1,2 +1,2 @@
 commit	score	clip_score	aesthetic_score	consistency	status	description
-cycle0_baseline	-	-	-	-	crash	Baseline evaluation failed - GOOGLE_API_KEY not configured in environment
+baseline	70.3	70.5	61.8	78.4	keep	Baseline - no changes applied
