@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+de27fed	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Extract numeric formatting into helper function (session: ebf2a245)
+b202153	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use descriptive variable name in normalize_email (session: ebf2a245)
+6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: ebf2a245)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
 5cb4687	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit length check in normalize_state (session: 3246b1bb)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3246b1bb)
