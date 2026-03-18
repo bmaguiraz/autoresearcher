@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+778287b4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+1b527572	100.0	25.0	25.0	25.0	25.0	keep	Remove intermediate variable in normalize_state
+580e9db5	100.0	25.0	25.0	25.0	25.0	keep	Reuse parameter name in normalize_email
