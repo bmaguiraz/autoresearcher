@@ -70,7 +70,6 @@ def normalize_state(state):
     s = str(state).lower()
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
     upper = s.upper()
     return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
