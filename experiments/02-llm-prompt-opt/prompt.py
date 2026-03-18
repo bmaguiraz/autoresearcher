@@ -17,6 +17,11 @@ Guidelines:
 - Negative: the text expresses disapproval, dissatisfaction, criticism, or an unfavorable outcome. This includes hedged negativity like "I wouldn't do it again" or "it wasn't great."
 - Neutral: the text is purely factual with no evaluative stance.
 
+Edge cases:
+- Mixed sentiment: classify based on the overall takeaway or dominant sentiment.
+- Sarcasm: classify based on the intended meaning, not literal words.
+- Backhanded compliments: if criticism outweighs praise, classify as negative.
+
 Respond with only the label, nothing else."""
 
 # Few-shot examples: list of (text, label) tuples
