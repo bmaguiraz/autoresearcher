@@ -18,7 +18,7 @@
       "composition"
     ]
   },
-  "cycles_completed": 2,
+  "cycles_completed": 1,
   "results": [
     {
       "cycle": 1,
@@ -31,27 +31,15 @@
       },
       "aggregate_score": 0.787,
       "timestamp": "2026-03-18T10:19:51.925750"
-    },
-    {
-      "cycle": 2,
-      "prompt": "A stunning 8K photograph of a perfect yellow banana with beautiful lighting and composition",
-      "metrics": {
-        "visual_quality": 0.8600000000000001,
-        "prompt_clarity": 0.91,
-        "style_consistency": 0.81,
-        "composition": 0.89
-      },
-      "aggregate_score": 0.868,
-      "timestamp": "2026-03-18T10:19:52.226584"
     }
   ],
   "summary": {
-    "total_cycles": 2,
+    "total_cycles": 1,
     "initial_score": 0.787,
-    "final_score": 0.868,
-    "improvement": 0.081,
-    "improvement_percentage": 10.29,
-    "best_score": 0.868,
-    "average_score": 0.828
+    "final_score": 0.787,
+    "improvement": 0.0,
+    "improvement_percentage": 0.0,
+    "best_score": 0.787,
+    "average_score": 0.787
   }
 }
