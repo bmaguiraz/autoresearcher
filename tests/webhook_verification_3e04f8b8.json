@@ -1,0 +1,32 @@
+{
+  "webhook_session": {
+    "session_id": "3e04f8b8",
+    "timestamp": "2026-03-17T23:11:38.459Z",
+    "event_type": "issue_update",
+    "issue": {
+      "id": "ebe0bc51-1071-4bd6-a851-e37e6677d917",
+      "identifier": "MOR-21",
+      "title": "Test Issue from Integration Test",
+      "state": "In Progress",
+      "url": "https://linear.app/maguireb/issue/MOR-21/test-issue-from-integration-test"
+    },
+    "project": {
+      "name": "autoresearcher",
+      "linear_project_id": "62c20541-6d2a-4f57-a071-6c6625e7718e",
+      "repository": "https://github.com/bmaguiraz/autoresearcher"
+    },
+    "workflow_verification": {
+      "webhook_received": true,
+      "repository_cloned": true,
+      "branch_created": true,
+      "changes_committed": true,
+      "status": "in_progress"
+    }
+  },
+  "metadata": {
+    "description": "Webhook verification file for Linear integration test",
+    "purpose": "Verify end-to-end webhook workflow from Linear to GitHub",
+    "created_by": "Claude Code via Linear webhook",
+    "notes": "This file serves as evidence that the webhook integration is functioning correctly"
+  }
+}
