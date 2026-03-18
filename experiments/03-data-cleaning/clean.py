@@ -103,7 +103,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        # Vectorized conversion: fill NaN with empty string, convert valid to int strings
+        df[col] = df[col].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
