@@ -25,5 +25,4 @@ Respond with only the label."""
 FEW_SHOT_EXAMPLES = [
     ("I absolutely loved this product, it exceeded all my expectations!", "positive"),
     ("This was the worst experience I've ever had. Complete waste of money.", "negative"),
-    ("The package arrived on Tuesday as scheduled.", "neutral"),
 ]
