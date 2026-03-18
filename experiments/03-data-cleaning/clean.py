@@ -37,7 +37,7 @@ SENTINEL_VALUES = {
 
 
 def normalize_phone(phone):
-    if pd.isna(phone) or phone == "":
+    if pd.isna(phone) or not phone:
         return ""
     digits = re.sub(r"\D", "", str(phone))
     digits = digits[1:] if len(digits) == 11 and digits.startswith("1") else digits
@@ -77,7 +77,7 @@ def normalize_state(state):
 
 
 def normalize_email(email):
-    if pd.isna(email) or email == "":
+    if pd.isna(email) or not email:
         return ""
     e = str(email).lower()
     return e if "@" in e and " " not in e else ""
