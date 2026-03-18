@@ -43,3 +43,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 30ad9c70)
 8cb69a1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 30ad9c70)
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
+fdc8385\t100.0\t25.0\t25.0\t25.0\t25.0\tkeep\tBaseline - MOR-37 Round 3 (session: 72823574)
+4b0f86d\t100.0\t25.0\t25.0\t25.0\t25.0\tkeep\tCycle 1: Extract month_lower variable in normalize_date (session: 72823574)
+3c2909f\t100.0\t25.0\t25.0\t25.0\t25.0\tkeep\tCycle 2: Clarify phone digit stripping with explicit if statement (session: 72823574)
