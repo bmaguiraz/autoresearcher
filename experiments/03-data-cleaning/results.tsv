@@ -1,4 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+c0ad7ff	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: e3a57ed3)
 e3e4656	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace regex sentinel matching with set-based approach (session: 0ffa1fce)
 f274315	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: 0ffa1fce)
 121c065	87.5	25.0	12.5	25.0	25.0	discard	Cycle 1: FAILED - Simplified phone normalization (broke null_handling)
