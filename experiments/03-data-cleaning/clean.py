@@ -68,7 +68,7 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).strip().lower()
+    s = str(state).lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
     upper = s.upper()
