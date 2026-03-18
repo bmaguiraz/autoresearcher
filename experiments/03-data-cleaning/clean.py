@@ -59,11 +59,13 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
-    if s in STATE_MAP:
-        return STATE_MAP[s]
-    s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    s = str(state).strip()
+    # Check if already a valid 2-letter code (most common case)
+    if len(s) == 2 and s.upper() in VALID_STATES:
+        return s.upper()
+    # Otherwise, check the state name mapping
+    s_lower = s.lower()
+    return STATE_MAP.get(s_lower, "")
 
 
 def normalize_email(email):
