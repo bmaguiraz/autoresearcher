@@ -1,4 +1,6 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+121c065	87.5	25.0	12.5	25.0	25.0	discard	Cycle 1: FAILED - Simplified phone normalization (broke null_handling)
+fabc5b3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: 42dc6cb6)
 c27377c	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 4 (session: a9a9efe7)
 5de88f1	87.5	25.0	12.5	25.0	25.0	discard	Cycle 1: FAILED - Removed DD-MM-YYYY date format (broke null_handling)
 bcffadb	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: d6e737fe)
