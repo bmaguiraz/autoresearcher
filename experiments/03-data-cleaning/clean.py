@@ -39,8 +39,9 @@ SENTINEL_VALUES = {
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
-    digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    raw_digits = re.sub(r"\D", "", str(phone))
+    # Strip leading 1 for 11-digit numbers
+    digits = raw_digits[1:] if len(raw_digits) == 11 and raw_digits[0] == "1" else raw_digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -71,9 +72,11 @@ def normalize_state(state):
     # Use .get() to avoid redundant lookup
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
-    upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    # Check if it's a valid 2-letter state code (check length first)
+    if len(s) == 2:
+        upper = s.upper()
+        return upper if upper in VALID_STATES else ""
+    return ""
 
 
 def normalize_email(email):
