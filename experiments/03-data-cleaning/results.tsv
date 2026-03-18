@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 40ea7cda)
+0b17f2e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline upper variable with walrus operator in normalize_state (session: 40ea7cda)
+c98b598	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 40ea7cda)
