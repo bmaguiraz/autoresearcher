@@ -1,0 +1,57 @@
+{
+  "experiment_id": "02-llm-prompt-opt",
+  "round": 5,
+  "timestamp": "2026-03-18T00:31:00Z",
+  "config": {
+    "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "task": "sentiment_classification",
+    "eval_set_size": 50,
+    "labels": ["positive", "negative", "neutral"]
+  },
+  "cycles": [
+    {
+      "cycle": 0,
+      "description": "Baseline",
+      "commit": "91fd77b",
+      "results": {
+        "accuracy": 1.0,
+        "correct": 50,
+        "total": 50,
+        "cost_cents": 0.9,
+        "eval_seconds": 44.8
+      },
+      "prompt_config": {
+        "few_shot_examples": 3
+      }
+    },
+    {
+      "cycle": 1,
+      "description": "Reduced to 2 few-shot examples",
+      "commit": "27ff8bc",
+      "hypothesis": "Reduce from 3 to 2 examples (removed neutral) for simplicity while maintaining accuracy",
+      "results": {
+        "accuracy": 0.96,
+        "correct": 48,
+        "total": 50,
+        "cost_cents": 0.8,
+        "eval_seconds": 45.2,
+        "errors": [
+          {"index": 7, "expected": "positive", "got": "neutral"},
+          {"index": 12, "expected": "positive", "got": "neutral"}
+        ]
+      },
+      "prompt_config": {
+        "few_shot_examples": 2
+      },
+      "status": "regression"
+    }
+  ],
+  "summary": {
+    "total_cycles": 1,
+    "baseline_accuracy": 1.0,
+    "final_accuracy": 0.96,
+    "improvement": -0.04,
+    "status": "completed",
+    "notes": "Hypothesis tested: Reducing from 3 to 2 few-shot examples (removing neutral example) resulted in accuracy regression from 100% to 96%. Two positive examples were misclassified as neutral. Cost decreased slightly (0.9¢ → 0.8¢) but accuracy loss outweighs the minimal cost savings. Recommendation: Keep 3 examples for optimal accuracy."
+  }
+}
