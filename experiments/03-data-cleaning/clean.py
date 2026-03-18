@@ -42,9 +42,10 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
+    # Handle ISO timestamp format - strip time component if present
+    s = str(s).split("T")[0]
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
+    if m:
         return s
     # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
@@ -85,10 +86,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinels in one pass
     sentinel_values = {
-        "n/a", "N/A", "na", "NA", "Na",
-        "null", "NULL", "Null",
-        "none", "NONE", "None",
-        "nan", "NAN", "Nan"
+        "n/a", "na", "null", "none", "nan",
+        "N/A", "NA", "NULL", "NONE", "NAN",
+        "None", "Null", "Nan"
     }
     for col in df.columns:
         df[col] = df[col].str.strip()
