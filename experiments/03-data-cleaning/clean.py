@@ -84,6 +84,12 @@ def normalize_email(email):
     return e if "@" in e and " " not in e else ""
 
 
+def normalize_name(name):
+    if pd.isna(name) or name == "":
+        return ""
+    return str(name).title()
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -93,7 +99,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
-    df["name"] = df["name"].str.title()
+    df["name"] = df["name"].apply(normalize_name)
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
