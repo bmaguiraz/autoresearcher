@@ -71,6 +71,25 @@ class OOHCreativeExperiment(BaseExperiment):
                     "body": "500+ 5-star reviews. Licensed, insured, trusted by neighbors. Emergency & scheduled service. (555) 123-4567",
                 },
             }
+        elif use_case == "writefit":
+            creatives = {
+                "baseline": {
+                    "headline": "WriteFit: Write Better, Faster",
+                    "body": "AI-powered writing assistant for fitness pros. Create engaging content in minutes. Try free today!",
+                },
+                "emotional": {
+                    "headline": "Stop Struggling With Content",
+                    "body": "WriteFit helps fitness trainers write compelling posts, emails & programs. Save hours every week. Start free!",
+                },
+                "urgency": {
+                    "headline": "Limited: Free Pro Trial Ending Soon",
+                    "body": "Join 5,000+ trainers using WriteFit. AI-powered content that converts. Claim your free trial now!",
+                },
+                "social_proof": {
+                    "headline": "★★★★★ Trusted by 5,000+ Trainers",
+                    "body": "Top-rated writing tool for fitness pros. Create better content 10x faster. Join WriteFit free today!",
+                },
+            }
         else:
             # Generic fallback
             creatives = {

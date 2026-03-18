@@ -48,6 +48,7 @@ python runner.py --use-case <case> --cycles <n> [--sequential]
 ### Supported Use Cases
 
 - `plumber` - Plumbing services (emergency repairs, 24/7 service)
+- `writefit` - AI-powered writing assistant for fitness professionals
 - More use cases can be added to the `_generate_creatives()` method
 
 ## Example Output
