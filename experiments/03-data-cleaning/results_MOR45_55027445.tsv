@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5210592	100.0	25.0	25.0	25.0	25.0	baseline	Baseline - perfect score from previous optimizations
+8e8947c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline upper variable in normalize_state
+3b25028	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email function
