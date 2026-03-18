@@ -19,6 +19,7 @@ STATE_MAP = {
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
     "district of columbia": "DC", "d.c.": "DC",
 }
+VALID_STATE_CODES = set(STATE_MAP.values())
 
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
@@ -47,17 +48,20 @@ def normalize_date(s):
     # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        mm, dd, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
+        mon_str, dd, yyyy = m.groups()
+        mon = MONTH_MAP.get(mon_str.lower())
         if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+            return f"{yyyy}-{mon}-{int(dd):02d}"
     # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        dd, mm, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
     return ""
 
 
@@ -67,7 +71,7 @@ def normalize_state(state):
     s = str(state).lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    if len(s) == 2 and (upper := s.upper()) in STATE_MAP.values():
+    if len(s) == 2 and (upper := s.upper()) in VALID_STATE_CODES:
         return upper
     return ""
 
