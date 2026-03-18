@@ -73,7 +73,7 @@ def format_results_comment(results_data: dict, session_id: str) -> str:
         else:
             table_rows.append(f"| {variant.title():<15} | N/A | ❌ Failed |")
 
-    comment = f"""## ✅ Autoresearch Complete - MOR-39 (Round 3)
+    comment = f"""## ✅ Autoresearch Complete - MOR-47 (Round 4)
 
 ### Experiment: OOH Creative WriteFit (1 cycle)
 
@@ -107,8 +107,8 @@ The **{best_variant}** variant achieved the highest aggregate score across all O
 
 ### Files Updated
 
-- `experiments/05-ooh-creative/results/comparative_results_20260318_001733.json` - Comparative analysis
-- `experiments/05-ooh-creative/results/results_20260318_001733.json` - Detailed results
+- `experiments/05-ooh-creative/results/comparative_results_20260318_004200.json` - Comparative analysis
+- `experiments/05-ooh-creative/results/results_20260318_004200.json` - Detailed results
 - `experiments/05-ooh-creative/config.json` - Updated configuration
 - `experiments/05-ooh-creative/experiment.log` - Execution logs
 
@@ -127,8 +127,8 @@ def main():
         return 1
 
     # Issue ID from webhook payload
-    issue_id = "9776871d-0025-4c4c-a878-761bf4d451dc"
-    session_id = "d98919a8"
+    issue_id = "5d6f680e-c705-468d-8f12-9a894eee6c46"
+    session_id = "482492f8"
 
     # Load results
     script_dir = Path(__file__).parent
