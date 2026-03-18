@@ -79,10 +79,12 @@ def normalize_state(state):
 
 
 def normalize_email(email):
+    # Early return for invalid/empty values
     if pd.isna(email) or email == "":
         return ""
     e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    # Valid email must have @ and no spaces
+    return e if "@" in e and not e.count(" ") else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
