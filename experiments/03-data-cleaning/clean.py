@@ -86,10 +86,9 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
+    # Strip whitespace and replace sentinels - streamlined
     for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        df[col] = df[col].str.strip().where(~df[col].str.strip().isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -98,11 +97,14 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
-    for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    # Outlier filtering and numeric conversion - explicit for clarity
+    df["age"] = pd.to_numeric(df["age"], errors="coerce")
+    df = df[df["age"].isna() | df["age"].between(0, 120)]
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+
+    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+    df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
+    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
