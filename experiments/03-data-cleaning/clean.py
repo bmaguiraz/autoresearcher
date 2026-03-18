@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -71,7 +69,7 @@ def normalize_state(state):
     if mapped:
         return mapped
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if len(upper) == 2 and upper in STATE_MAP.values() else ""
 
 
 def normalize_email(email):
@@ -84,8 +82,8 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all string columns using vectorized operation
-    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
+    # Strip whitespace from all string columns
+    df = df.apply(lambda col: col.str.strip())
 
     # Replace sentinel values with empty strings (case-insensitive)
     sentinel_values = {"n/a", "na", "null", "none", "nan"}
