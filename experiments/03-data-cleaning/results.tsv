@@ -45,3 +45,4 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 39a85824)
 97b9b10	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Combine date format match and month lookup (session: 39a85824)
+a6bf2e4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: 39a85824)
