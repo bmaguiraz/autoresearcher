@@ -1,0 +1,1170 @@
+{
+  "id": "62c20541-6d2a-4f57-a071-6c6625e7718e",
+  "name": "autoresearcher",
+  "description": "",
+  "state": "backlog",
+  "issues": {
+    "nodes": [
+      {
+        "id": "fba464b0-22e1-4568-97de-af5182f7c0e8",
+        "identifier": "MOR-68",
+        "title": "strop adding more autoresearcher issues inwant tonstop development for a while pause and stop all",
+        "description": null,
+        "priority": 1,
+        "priorityLabel": "Urgent",
+        "url": "https://linear.app/maguireb/issue/MOR-68/strop-adding-more-autoresearcher-issues-inwant-tonstop-development-for",
+        "state": {
+          "name": "Backlog",
+          "type": "backlog"
+        },
+        "assignee": null,
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:claimed"
+            },
+            {
+              "name": "ac:sid:8d832f34"
+            }
+          ]
+        },
+        "createdAt": "2026-03-18T09:15:21.546Z",
+        "updatedAt": "2026-03-18T10:26:14.657Z"
+      },
+      {
+        "id": "dfef97d6-7bb5-4823-a8f1-b606083ab134",
+        "identifier": "MOR-67",
+        "title": "Autoresearch: 02-llm-prompt-opt --cycles 2",
+        "description": "Run autoresearch experiment `02-llm-prompt-opt` with 2 cycles.\n\nThis experiment optimizes LLM prompts using automated search and evaluation.\n\n```\nexperiment: 02-llm-prompt-opt\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-67/autoresearch-02-llm-prompt-opt-cycles-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T02:00:27.804Z",
+        "updatedAt": "2026-03-18T02:03:34.767Z"
+      },
+      {
+        "id": "548d053f-7b72-4e22-8e7c-d3280d1d1bca",
+        "identifier": "MOR-66",
+        "title": "Autoresearch: 05-ooh-creative --cycles 1 --use-case writefit",
+        "description": "Run autoresearch experiment `05-ooh-creative` with 1 cycle, writefit use case.\n\nThis experiment optimizes out-of-home creative for WriteFit advertising.\n\n```\nexperiment: 05-ooh-creative\ncycles: 1\nuse-case: writefit\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-66/autoresearch-05-ooh-creative-cycles-1-use-case-writefit",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:55:25.839Z",
+        "updatedAt": "2026-03-18T01:59:23.465Z"
+      },
+      {
+        "id": "7cfd7148-48db-4263-a9e1-ff74668000fd",
+        "identifier": "MOR-65",
+        "title": "Autoresearch: 04-imagegen-nanobanana --cycles 1",
+        "description": "Run autoresearch experiment `04-imagegen-nanobanana` with 1 cycle.\n\nThis experiment optimizes image generation prompts using automated search and evaluation.\n\n```\nexperiment: 04-imagegen-nanobanana\ncycles: 1\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-65/autoresearch-04-imagegen-nanobanana-cycles-1",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:50:27.084Z",
+        "updatedAt": "2026-03-18T06:46:51.968Z"
+      },
+      {
+        "id": "86470c49-41d4-48a8-bccd-c006451fca3a",
+        "identifier": "MOR-64",
+        "title": "Autoresearch: 03-data-cleaning --cycles 2",
+        "description": "Run autoresearch experiment `03-data-cleaning` with 2 cycles.\n\nThis experiment optimizes data cleaning pipelines using automated search and evaluation.\n\n```\nexperiment: 03-data-cleaning\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-64/autoresearch-03-data-cleaning-cycles-2",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:sid:fdce78a1"
+            },
+            {
+              "name": "ac:claimed"
+            }
+          ]
+        },
+        "createdAt": "2026-03-18T01:45:25.315Z",
+        "updatedAt": "2026-03-18T10:25:56.882Z"
+      },
+      {
+        "id": "c1072d68-3ba4-4c62-be38-196b64639187",
+        "identifier": "MOR-63",
+        "title": "Autoresearch: 02-llm-prompt-opt --cycles 1",
+        "description": "Run autoresearch experiment `02-llm-prompt-opt` with 1 cycle.\n\nThis experiment optimizes LLM prompts using automated search and evaluation.\n\n```\nexperiment: 02-llm-prompt-opt\ncycles: 1\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-63/autoresearch-02-llm-prompt-opt-cycles-1",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:40:24.561Z",
+        "updatedAt": "2026-03-18T02:03:32.336Z"
+      },
+      {
+        "id": "27793150-40ed-4807-959e-e569715b16bf",
+        "identifier": "MOR-61",
+        "title": "Autoresearch: 05-ooh-creative --cycles 1 --use-case restaurant",
+        "description": "Run autoresearch experiment `05-ooh-creative` with 1 cycle, restaurant use case.\n\nThis experiment optimizes out-of-home creative for restaurant advertising.\n\n```\nexperiment: 05-ooh-creative\ncycles: 1\nuse-case: restaurant\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-61/autoresearch-05-ooh-creative-cycles-1-use-case-restaurant",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:35:26.120Z",
+        "updatedAt": "2026-03-18T02:03:30.174Z"
+      },
+      {
+        "id": "0fccc76a-122c-4631-8647-30ab02c60d7e",
+        "identifier": "MOR-60",
+        "title": "Autoresearch: 04-imagegen-nanobanana --cycles 2",
+        "description": "Run autoresearch experiment `04-imagegen-nanobanana` with 2 cycles.\n\nThis experiment optimizes image generation prompts using automated search and evaluation.\n\n```\nexperiment: 04-imagegen-nanobanana\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-60/autoresearch-04-imagegen-nanobanana-cycles-2",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:sid:6f1136c4"
+            },
+            {
+              "name": "ac:claimed"
+            }
+          ]
+        },
+        "createdAt": "2026-03-18T01:30:24.829Z",
+        "updatedAt": "2026-03-18T10:25:54.249Z"
+      },
+      {
+        "id": "a59a625f-6b76-4c21-ac5d-94a85ebb935e",
+        "identifier": "MOR-59",
+        "title": "Autoresearch: 03-data-cleaning --cycles 1",
+        "description": "Run autoresearch experiment `03-data-cleaning` with 1 cycle.\n\nThis experiment optimizes data cleaning pipelines using automated search and evaluation.\n\n```\nexperiment: 03-data-cleaning\ncycles: 1\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-59/autoresearch-03-data-cleaning-cycles-1",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:25:25.470Z",
+        "updatedAt": "2026-03-18T02:03:27.080Z"
+      },
+      {
+        "id": "48f40075-b553-4850-b7b4-1661f98daf05",
+        "identifier": "MOR-58",
+        "title": "Autoresearch: 02-llm-prompt-opt --cycles 2",
+        "description": "Run autoresearch experiment `02-llm-prompt-opt` with 2 cycles.\n\nThis experiment optimizes LLM prompts using automated search and evaluation.\n\n```\nexperiment: 02-llm-prompt-opt\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-58/autoresearch-02-llm-prompt-opt-cycles-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:20:25.411Z",
+        "updatedAt": "2026-03-18T02:05:56.944Z"
+      },
+      {
+        "id": "e0c82256-e1f3-4b9b-9851-a38502a13c33",
+        "identifier": "MOR-57",
+        "title": "Autoresearch: 05-ooh-creative --cycles 1 --use-case writefit",
+        "description": "Run autoresearch experiment `05-ooh-creative` with 1 cycle, writefit use case.\n\nThis experiment optimizes out-of-home creative for WriteFit advertising.\n\n```\nexperiment: 05-ooh-creative\ncycles: 1\nuse-case: writefit\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-57/autoresearch-05-ooh-creative-cycles-1-use-case-writefit",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:15:26.702Z",
+        "updatedAt": "2026-03-18T02:02:17.061Z"
+      },
+      {
+        "id": "251c434b-0bd2-4f66-8483-fb6fbab4e700",
+        "identifier": "MOR-55",
+        "title": "Autoresearch: 04-imagegen-nanobanana --cycles 1",
+        "description": "Run autoresearch experiment `04-imagegen-nanobanana` with 1 cycle.\n\nThis experiment optimizes image generation prompts using automated search and evaluation.\n\n```\nexperiment: 04-imagegen-nanobanana\ncycles: 1\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-55/autoresearch-04-imagegen-nanobanana-cycles-1",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:10:25.432Z",
+        "updatedAt": "2026-03-18T01:17:59.213Z"
+      },
+      {
+        "id": "61fc28c3-bfe3-4c8b-81c2-b79c1a340dcd",
+        "identifier": "MOR-54",
+        "title": "Autoresearch: 03-data-cleaning --cycles 2",
+        "description": "Run autoresearch experiment `03-data-cleaning` with 2 cycles.\n\nThis experiment optimizes data cleaning pipelines using automated search and evaluation.\n\n```\nexperiment: 03-data-cleaning\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-54/autoresearch-03-data-cleaning-cycles-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:05:24.862Z",
+        "updatedAt": "2026-03-18T02:03:24.807Z"
+      },
+      {
+        "id": "e0b9029b-8d88-4227-bdda-59fdb101e8dc",
+        "identifier": "MOR-53",
+        "title": "Autoresearch: 02-llm-prompt-opt --cycles 1",
+        "description": "Run autoresearch experiment `02-llm-prompt-opt` with 1 cycle.\n\nThis experiment optimizes LLM prompts using automated search and evaluation.\n\n```\nexperiment: 02-llm-prompt-opt\ncycles: 1\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-53/autoresearch-02-llm-prompt-opt-cycles-1",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T01:00:24.441Z",
+        "updatedAt": "2026-03-18T02:03:23.820Z"
+      },
+      {
+        "id": "51609a59-e42d-45be-a650-33f1f45be7c4",
+        "identifier": "MOR-51",
+        "title": "Autoresearch: 05-ooh-creative --cycles 1 --use-case restaurant",
+        "description": "Run autoresearch experiment `05-ooh-creative` with 1 cycle, restaurant use case.\n\nThis experiment optimizes out-of-home creative for restaurant advertising.\n\n```\nexperiment: 05-ooh-creative\ncycles: 1\nuse-case: restaurant\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-51/autoresearch-05-ooh-creative-cycles-1-use-case-restaurant",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:55:25.194Z",
+        "updatedAt": "2026-03-18T00:58:17.314Z"
+      },
+      {
+        "id": "e489792a-b693-413d-8ddd-1df318a701af",
+        "identifier": "MOR-50",
+        "title": "Autoresearch: 04-imagegen-nanobanana --cycles 2",
+        "description": "Run autoresearch experiment `04-imagegen-nanobanana` with 2 cycles.\n\nThis experiment optimizes image generation prompts using automated search and evaluation.\n\n```\nexperiment: 04-imagegen-nanobanana\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-50/autoresearch-04-imagegen-nanobanana-cycles-2",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:sid:ea0d6378"
+            },
+            {
+              "name": "ac:claimed"
+            }
+          ]
+        },
+        "createdAt": "2026-03-18T00:50:25.009Z",
+        "updatedAt": "2026-03-18T10:25:28.683Z"
+      },
+      {
+        "id": "1d10b8f2-1ede-4435-9b60-e9aa5ce5b88c",
+        "identifier": "MOR-49",
+        "title": "Autoresearch: 03-data-cleaning --cycles 1",
+        "description": "Run autoresearch experiment `03-data-cleaning` with 1 cycle.\n\nThis experiment optimizes data cleaning pipelines using automated search and evaluation.\n\n```\nexperiment: 03-data-cleaning\ncycles: 1\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-49/autoresearch-03-data-cleaning-cycles-1",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:45:24.531Z",
+        "updatedAt": "2026-03-18T02:03:10.342Z"
+      },
+      {
+        "id": "cdee93e4-7dd6-4613-b617-f06567bac86c",
+        "identifier": "MOR-48",
+        "title": "Autoresearch: 02-llm-prompt-opt --cycles 2",
+        "description": "Run autoresearch experiment `02-llm-prompt-opt` with 2 cycles.\n\nThis experiment optimizes LLM prompts using automated search and evaluation.\n\n```\nexperiment: 02-llm-prompt-opt\ncycles: 2\n```",
+        "priority": 0,
+        "priorityLabel": "No priority",
+        "url": "https://linear.app/maguireb/issue/MOR-48/autoresearch-02-llm-prompt-opt-cycles-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:42:37.055Z",
+        "updatedAt": "2026-03-18T00:55:30.815Z"
+      },
+      {
+        "id": "5d6f680e-c705-468d-8f12-9a894eee6c46",
+        "identifier": "MOR-47",
+        "title": "Autoresearch: OOH Creative WriteFit (1 cycle, round 4)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case writefit`\n\nRotation issue #8 (round 4). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-47/autoresearch-ooh-creative-writefit-1-cycle-round-4",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:40:26.409Z",
+        "updatedAt": "2026-03-18T00:53:20.074Z"
+      },
+      {
+        "id": "db545dfd-76ad-4f03-b4be-306b3c17b349",
+        "identifier": "MOR-46",
+        "title": "Autoresearch: Image Gen Prompt Opt (1 cycle, round 4)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 1`\n\nRotation issue #7 (round 4). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-46/autoresearch-image-gen-prompt-opt-1-cycle-round-4",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:sid:b38d700c"
+            },
+            {
+              "name": "ac:claimed"
+            }
+          ]
+        },
+        "createdAt": "2026-03-18T00:35:25.285Z",
+        "updatedAt": "2026-03-18T10:24:58.818Z"
+      },
+      {
+        "id": "289a194f-1b6a-44ef-a3ac-985be68551e2",
+        "identifier": "MOR-45",
+        "title": "Autoresearch: Data Cleaning Pipeline (2 cycles, round 4)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 2`\n\nRotation issue #6 (round 4). Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-45/autoresearch-data-cleaning-pipeline-2-cycles-round-4",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:claimed"
+            },
+            {
+              "name": "ac:sid:0e072dc6"
+            }
+          ]
+        },
+        "createdAt": "2026-03-18T00:30:28.025Z",
+        "updatedAt": "2026-03-18T10:25:13.859Z"
+      },
+      {
+        "id": "09cd60d2-a07a-4656-b002-8605c32d316f",
+        "identifier": "MOR-44",
+        "title": "Autoresearch: LLM Prompt Optimization (1 cycle, round 5)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nRotation issue #5 (round 4). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-44/autoresearch-llm-prompt-optimization-1-cycle-round-5",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:25:25.829Z",
+        "updatedAt": "2026-03-18T00:38:02.842Z"
+      },
+      {
+        "id": "2c46dd3e-6fb9-4b90-99e7-789b5f6ad2f0",
+        "identifier": "MOR-43",
+        "title": "Autoresearch: OOH Creative Restaurant (1 cycle, round 4)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case restaurant`\n\nRotation issue #4 (round 4). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-43/autoresearch-ooh-creative-restaurant-1-cycle-round-4",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:20:30.173Z",
+        "updatedAt": "2026-03-18T00:25:35.231Z"
+      },
+      {
+        "id": "6a66e6c7-74ed-454d-b8e4-fd961a592417",
+        "identifier": "MOR-42",
+        "title": "Autoresearch: Image Gen Prompt Opt (2 cycles, round 4)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 2`\n\nRotation issue #3 (round 4). Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-42/autoresearch-image-gen-prompt-opt-2-cycles-round-4",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:15:23.614Z",
+        "updatedAt": "2026-03-18T00:20:52.543Z"
+      },
+      {
+        "id": "a69677d2-5536-4463-83fa-2dcc04198db8",
+        "identifier": "MOR-41",
+        "title": "Autoresearch: Data Cleaning Pipeline (1 cycle, round 4)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 1`\n\nRotation issue #2 (round 4). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-41/autoresearch-data-cleaning-pipeline-1-cycle-round-4",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:10:25.237Z",
+        "updatedAt": "2026-03-18T02:03:08.229Z"
+      },
+      {
+        "id": "054c1cff-0433-46e2-9237-28b9243bc2d8",
+        "identifier": "MOR-40",
+        "title": "Autoresearch: LLM Prompt Optimization (2 cycles, round 4)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 2`\n\nRotation issue #1 (round 4). Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-40/autoresearch-llm-prompt-optimization-2-cycles-round-4",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:05:24.815Z",
+        "updatedAt": "2026-03-18T00:38:25.974Z"
+      },
+      {
+        "id": "9776871d-0025-4c4c-a878-761bf4d451dc",
+        "identifier": "MOR-39",
+        "title": "Autoresearch: OOH Creative WriteFit (1 cycle, round 3)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case writefit`\n\nRotation issue #8 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-39/autoresearch-ooh-creative-writefit-1-cycle-round-3",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-18T00:00:24.903Z",
+        "updatedAt": "2026-03-18T01:27:45.776Z"
+      },
+      {
+        "id": "024d223b-1464-49d7-bd6b-c7ef51ec2f93",
+        "identifier": "MOR-38",
+        "title": "Autoresearch: Image Gen Prompt Opt (1 cycle, round 3)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 1`\n\nRotation issue #7 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-38/autoresearch-image-gen-prompt-opt-1-cycle-round-3",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:sid:fcfb2450"
+            },
+            {
+              "name": "ac:claimed"
+            }
+          ]
+        },
+        "createdAt": "2026-03-17T23:55:27.807Z",
+        "updatedAt": "2026-03-18T10:26:10.992Z"
+      },
+      {
+        "id": "2c71db72-d7d0-493a-bd0e-73ec350a8ede",
+        "identifier": "MOR-37",
+        "title": "Autoresearch: Data Cleaning Pipeline (2 cycles, round 3)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 2`\n\nRotation issue #6 (round 3). Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-37/autoresearch-data-cleaning-pipeline-2-cycles-round-3",
+        "state": {
+          "name": "In Progress",
+          "type": "started"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "ac:claimed"
+            },
+            {
+              "name": "ac:sid:45429dd3"
+            }
+          ]
+        },
+        "createdAt": "2026-03-17T23:50:26.482Z",
+        "updatedAt": "2026-03-18T10:25:02.511Z"
+      },
+      {
+        "id": "8308b625-a0d5-4535-995d-5976f0ef5311",
+        "identifier": "MOR-36",
+        "title": "Autoresearch: LLM Prompt Optimization (1 cycle, round 4)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nRotation issue #5 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-36/autoresearch-llm-prompt-optimization-1-cycle-round-4",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:45:32.351Z",
+        "updatedAt": "2026-03-18T00:29:31.069Z"
+      },
+      {
+        "id": "f9d3f0a6-2016-463a-bc33-5808bb0213fd",
+        "identifier": "MOR-35",
+        "title": "Autoresearch: OOH Creative Restaurant (1 cycle, round 3)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case restaurant`\n\nRotation issue #4 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-35/autoresearch-ooh-creative-restaurant-1-cycle-round-3",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:40:23.630Z",
+        "updatedAt": "2026-03-17T23:50:23.701Z"
+      },
+      {
+        "id": "1c972222-6b20-4167-8db5-7bd8950ccb3c",
+        "identifier": "MOR-34",
+        "title": "Autoresearch: Image Gen Prompt Opt (2 cycles, round 3)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 2`\n\nRotation issue #3 (round 3). Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-34/autoresearch-image-gen-prompt-opt-2-cycles-round-3",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:35:24.071Z",
+        "updatedAt": "2026-03-17T23:50:52.594Z"
+      },
+      {
+        "id": "d56c4e6a-4c8e-4742-a0eb-1cfc91b39590",
+        "identifier": "MOR-33",
+        "title": "Autoresearch: Data Cleaning Pipeline (1 cycle, round 3)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 1`\n\nRotation issue #2 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-33/autoresearch-data-cleaning-pipeline-1-cycle-round-3",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:32:30.404Z",
+        "updatedAt": "2026-03-18T00:03:41.463Z"
+      },
+      {
+        "id": "54ddfd2c-7b7c-4d20-864d-496ac514523f",
+        "identifier": "MOR-32",
+        "title": "Autoresearch: LLM Prompt Optimization (1 cycle, round 3)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nRotation issue #1 (round 3). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-32/autoresearch-llm-prompt-optimization-1-cycle-round-3",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:30:31.228Z",
+        "updatedAt": "2026-03-18T00:54:30.177Z"
+      },
+      {
+        "id": "3c53152b-bb89-4c8b-acee-dc8cc194e7aa",
+        "identifier": "MOR-31",
+        "title": "Autoresearch: OOH Creative WriteFit (1 cycle)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case writefit`\n\nRotation issue #8 (final in first rotation). Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-31/autoresearch-ooh-creative-writefit-1-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:20:25.250Z",
+        "updatedAt": "2026-03-18T02:03:05.978Z"
+      },
+      {
+        "id": "14b36fbd-a27d-44dd-98d1-fa0b621fc8eb",
+        "identifier": "MOR-30",
+        "title": "Autoresearch: Image Gen Prompt Opt (1 cycle, round 2)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 1`\n\nRotation issue #7. Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 2,
+        "priorityLabel": "High",
+        "url": "https://linear.app/maguireb/issue/MOR-30/autoresearch-image-gen-prompt-opt-1-cycle-round-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:15:26.398Z",
+        "updatedAt": "2026-03-17T23:30:17.188Z"
+      },
+      {
+        "id": "d668990a-2e75-4a10-ae96-e37a814cdc32",
+        "identifier": "MOR-29",
+        "title": "Autoresearch: Data Cleaning Pipeline (2 cycles, round 2)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 2`\n\nRotation issue #6. Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-29/autoresearch-data-cleaning-pipeline-2-cycles-round-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:10:26.273Z",
+        "updatedAt": "2026-03-18T00:02:52.385Z"
+      },
+      {
+        "id": "f75eb54d-40bf-4167-bc4b-2d3112726299",
+        "identifier": "MOR-28",
+        "title": "Autoresearch: LLM Prompt Optimization (1 cycle, round 2)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nRotation issue #5. Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-28/autoresearch-llm-prompt-optimization-1-cycle-round-2",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:05:24.550Z",
+        "updatedAt": "2026-03-17T23:32:40.765Z"
+      },
+      {
+        "id": "f540cf19-7e1d-4876-adce-1dc818781d64",
+        "identifier": "MOR-17",
+        "title": "Autoresearch: OOH Creative Restaurant (1 cycle)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case restaurant`\n\nRotation issue #4. Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-17/autoresearch-ooh-creative-restaurant-1-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T23:00:25.402Z",
+        "updatedAt": "2026-03-18T00:18:17.067Z"
+      },
+      {
+        "id": "23d191e0-9db6-45b4-b806-0c4c84b403f3",
+        "identifier": "MOR-16",
+        "title": "Autoresearch: Image Gen Prompt Opt (2 cycles)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 2`\n\nRotation issue #3. Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-16/autoresearch-image-gen-prompt-opt-2-cycles",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:55:24.196Z",
+        "updatedAt": "2026-03-17T23:13:22.472Z"
+      },
+      {
+        "id": "b3b8b51b-396b-44e1-859e-eb7243fc4d37",
+        "identifier": "MOR-15",
+        "title": "Autoresearch: Data Cleaning Pipeline (1 cycle)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 1`\n\nRotation issue #2. Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-15/autoresearch-data-cleaning-pipeline-1-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:50:25.180Z",
+        "updatedAt": "2026-03-17T23:47:25.796Z"
+      },
+      {
+        "id": "db5defca-2c4b-48cd-8528-945777c1158c",
+        "identifier": "MOR-14",
+        "title": "Autoresearch: LLM Prompt Optimization (2 cycles)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 2`\n\nRotation issue #1. Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-14/autoresearch-llm-prompt-optimization-2-cycles",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:45:32.075Z",
+        "updatedAt": "2026-03-18T00:05:24.129Z"
+      },
+      {
+        "id": "32313e1a-29f2-4b71-8151-7c8c134bc8c7",
+        "identifier": "MOR-13",
+        "title": "Autoresearch: OOH Creative Plumber (1 cycle)",
+        "description": "Run `/autoresearch run 05-ooh-creative --cycles 1 --use-case plumber`\n\nShort experiment to test 4-way per-issue parallelism. Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-13/autoresearch-ooh-creative-plumber-1-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:42:01.381Z",
+        "updatedAt": "2026-03-17T23:30:08.880Z"
+      },
+      {
+        "id": "b0b5bdf2-1a96-4e1b-82fc-fb689825c8e5",
+        "identifier": "MOR-12",
+        "title": "Autoresearch: Image Gen Prompt Opt (1 cycle)",
+        "description": "Run `/autoresearch run 04-imagegen-nanobanana --cycles 1`\n\nShort experiment to test per-issue parallelism alongside Data Cleaning. Run 1 optimization cycle \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-12/autoresearch-image-gen-prompt-opt-1-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:41:44.868Z",
+        "updatedAt": "2026-03-17T23:12:25.527Z"
+      },
+      {
+        "id": "7696c59a-f297-48e8-8deb-49c1dc6dcfb2",
+        "identifier": "MOR-11",
+        "title": "Autoresearch: Data Cleaning Pipeline (2 cycles)",
+        "description": "Run `/autoresearch run 03-data-cleaning --cycles 2`\n\nShort experiment to test per-issue parallelism. Run 2 optimization cycles \u2014 baseline + 2 hypotheses.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 2,
+        "priorityLabel": "High",
+        "url": "https://linear.app/maguireb/issue/MOR-11/autoresearch-data-cleaning-pipeline-2-cycles",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:41:43.613Z",
+        "updatedAt": "2026-03-17T23:12:25.789Z"
+      },
+      {
+        "id": "a32042ac-330c-40d9-85f1-527b657135fd",
+        "identifier": "MOR-10",
+        "title": "Autoresearch: LLM Prompt Optimization (1 cycle)",
+        "description": "Run `/autoresearch run 02-llm-prompt-opt --cycles 1`\n\nShort experiment to test the new per-issue claiming pipeline. Run 1 optimization cycle only \u2014 baseline + 1 hypothesis.\n\nPost cycle progress comments and final results to this issue.",
+        "priority": 2,
+        "priorityLabel": "High",
+        "url": "https://linear.app/maguireb/issue/MOR-10/autoresearch-llm-prompt-optimization-1-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T22:35:05.226Z",
+        "updatedAt": "2026-03-17T23:35:47.850Z"
+      },
+      {
+        "id": "c22ab05f-bb86-48f5-8f77-d4f676ab784a",
+        "identifier": "MOR-9",
+        "title": "Concurrency test B: add logging to experiment runner",
+        "description": "Test issue B \u2014 created immediately after issue A. The webhook for this should hit the DynamoDB lock and return \"Active\" (skipped), since the first webhook already claimed the lock.",
+        "priority": 4,
+        "priorityLabel": "Low",
+        "url": "https://linear.app/maguireb/issue/MOR-9/concurrency-test-b-add-logging-to-experiment-runner",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Allen (Dev Team Leader)",
+          "email": "maguireb215@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T21:35:36.472Z",
+        "updatedAt": "2026-03-17T22:06:05.457Z"
+      },
+      {
+        "id": "e748b065-48cc-422a-9823-8cf47043e881",
+        "identifier": "MOR-8",
+        "title": "Concurrency test A: add retry logic to eval.py runner",
+        "description": "Test issue A \u2014 created to verify per-project concurrency control. Should trigger a webhook that acquires the DynamoDB lock and invokes AgentCore.",
+        "priority": 4,
+        "priorityLabel": "Low",
+        "url": "https://linear.app/maguireb/issue/MOR-8/concurrency-test-a-add-retry-logic-to-evalpy-runner",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T21:35:30.829Z",
+        "updatedAt": "2026-03-17T21:45:11.611Z"
+      },
+      {
+        "id": "f5d55990-6693-42e6-9440-73f34c94b211",
+        "identifier": "MOR-7",
+        "title": "Run autoresearch experiment 03-data-cleaning with 2 cycles (repeat)",
+        "description": "Run experiment 03-data-cleaning with 2 evaluation cycles.\n\nUse `/autoresearch run 03-data-cleaning --cycles 2` to execute.\n\n*This issue was created by the E2E integration test.*",
+        "priority": 2,
+        "priorityLabel": "High",
+        "url": "https://linear.app/maguireb/issue/MOR-7/run-autoresearch-experiment-03-data-cleaning-with-2-cycles-repeat",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": [
+            {
+              "name": "Bug"
+            },
+            {
+              "name": "Feature"
+            }
+          ]
+        },
+        "createdAt": "2026-03-17T20:43:49.010Z",
+        "updatedAt": "2026-03-17T22:09:23.021Z"
+      },
+      {
+        "id": "7c74b324-617c-4418-926e-9b64e50c5397",
+        "identifier": "MOR-6",
+        "title": "Run autoresearch experiment 03-data-cleaning with 5 cycles (per-cycle comments test)",
+        "description": "Run experiment 03-data-cleaning with 5 optimization cycles to validate per-cycle progress comments.\n\nUse `/autoresearch run 03-data-cleaning --cycles 5` to execute.\n\n**What to verify:**\n\n* A progress comment is posted after **every cycle** (cycles 0\u20135), not just at the end\n* Each comment includes the running recap table with all cycles so far\n* The final \"Reporting Results\" summary comment is also posted at the end\n\nThe per-cycle comment format is defined in the `## Progress Updates` section of the autoresearch [SKILL.md](<http://SKILL.md>).",
+        "priority": 3,
+        "priorityLabel": "Medium",
+        "url": "https://linear.app/maguireb/issue/MOR-6/run-autoresearch-experiment-03-data-cleaning-with-5-cycles-per-cycle",
+        "state": {
+          "name": "Done",
+          "type": "completed"
+        },
+        "assignee": {
+          "name": "Brian Maguire",
+          "email": "maguireb@gmail.com"
+        },
+        "labels": {
+          "nodes": []
+        },
+        "createdAt": "2026-03-17T20:08:58.396Z",
+        "updatedAt": "2026-03-17T20:47:42.408Z"
+      }
+    ]
+  }
+}
