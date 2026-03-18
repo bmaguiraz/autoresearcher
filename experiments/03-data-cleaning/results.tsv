@@ -12,3 +12,4 @@ cfddc8a	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 02b2a
 9e146d7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify state normalization logic
 1ad706c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Condense phone normalization
 80ae160	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 949e0e61)
+a6940bd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace regex sentinel matching with set lookup
