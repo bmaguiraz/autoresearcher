@@ -52,3 +52,4 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 80e77fb	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize sentinel replacement to avoid duplicate strip() calls (session: 3246b1bb)
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: b26cc49c)
 a31477d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Check length before calling upper() in normalize_state (session: b26cc49c)
+058f311	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Clarify NaN handling order in outlier conversion (session: b26cc49c)
