@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+ad2d9ea	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Remove redundant keep parameter in drop_duplicates (session: 6711c79d)
+120bd36	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use startswith() for phone prefix check (session: 6711c79d)
+6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 6711c79d)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
 5cb4687	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit length check in normalize_state (session: 3246b1bb)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3246b1bb)
