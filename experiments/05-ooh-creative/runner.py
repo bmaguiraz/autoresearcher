@@ -71,42 +71,23 @@ class OOHCreativeExperiment(BaseExperiment):
                     "body": "500+ 5-star reviews. Licensed, insured, trusted by neighbors. Emergency & scheduled service. (555) 123-4567",
                 },
             }
-        elif use_case == "restaurant":
-            creatives = {
-                "baseline": {
-                    "headline": "Casa Bella Trattoria • Authentic Italian",
-                    "body": "Handmade pasta daily. Farm-to-table ingredients. Tue-Sun 11am-10pm. 247 Main St. (555) BELLA-01",
-                },
-                "emotional": {
-                    "headline": "Taste Italy, Right Here at Home",
-                    "body": "Family recipes since 1987. Fresh ingredients, handmade with love. Experience authentic Italian dining. (555) BELLA-01",
-                },
-                "urgency": {
-                    "headline": "Fresh Pasta Made Daily—Reserve Now",
-                    "body": "Limited seating! Handmade pappardelle & farm-fresh ingredients. Book your table today. (555) BELLA-01",
-                },
-                "social_proof": {
-                    "headline": "★★★★★ Casa Bella Trattoria",
-                    "body": "Voted Best Italian 3 years running. Family recipes since 1987. Downtown at 247 Main St. (555) BELLA-01",
-                },
-            }
         elif use_case == "writefit":
             creatives = {
                 "baseline": {
-                    "headline": "WriteFit.ai • Practice Writing Skills",
-                    "body": "AI-powered writing practice that helps students improve. Never writes for them. Research-backed methods. Visit writefit.ai",
+                    "headline": "WriteFit: Write Better, Feel Better",
+                    "body": "AI-powered writing coach for health & fitness content. Join 10,000+ writers. Start free at writefit.io",
                 },
                 "emotional": {
-                    "headline": "Stop AI From Writing Student Essays",
-                    "body": "WriteFit helps students practice real writing skills—without doing the work for them. Teachers trust us. writefit.ai",
+                    "headline": "Transform Your Writing Journey",
+                    "body": "Finally break through writer's block. WriteFit helps you create compelling fitness content effortlessly. Try it free!",
                 },
                 "urgency": {
-                    "headline": "Transform Your Writing Class Today",
-                    "body": "AI-powered practice exercises target each student's weaknesses. Start improving writing skills now. Visit writefit.ai",
+                    "headline": "Limited Time: 50% Off WriteFit Pro",
+                    "body": "Join today and unlock premium AI writing tools. Offer ends soon. Start your trial at writefit.io",
                 },
                 "social_proof": {
-                    "headline": "Trusted by High School Teachers",
-                    "body": "Research-backed writing practice that diagnoses weaknesses and builds skills. Students practice, we guide. writefit.ai",
+                    "headline": "★★★★★ Trusted by 10,000+ Writers",
+                    "body": "Top fitness bloggers and coaches use WriteFit. See why it's the #1 rated writing tool for fitness content. Try free!",
                 },
             }
         else:
