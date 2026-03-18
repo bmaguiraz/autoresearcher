@@ -79,8 +79,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    email_lower = str(email).lower().strip()
+    return email_lower if "@" in email_lower and " " not in email_lower else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
@@ -88,8 +88,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinels in one pass
     for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        df[col] = df[col].str.strip().replace(SENTINEL_VALUES, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
