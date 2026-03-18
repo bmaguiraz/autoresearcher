@@ -74,6 +74,12 @@ def normalize_state(state):
     return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
+def normalize_name(name):
+    if pd.isna(name) or name == "":
+        return ""
+    return str(name).title()
+
+
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
@@ -93,7 +99,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].where(~df[col].isin(sentinel_values), "")
 
     # Normalize all fields first
-    df["name"] = df["name"].str.title()
+    df["name"] = df["name"].apply(normalize_name)
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
