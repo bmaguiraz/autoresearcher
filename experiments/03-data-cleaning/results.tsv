@@ -43,3 +43,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 30ad9c70)
 8cb69a1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 30ad9c70)
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
+bbada0e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: c758ef74)
+dacc20b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Reorder lambda condition for consistency (session: c758ef74)
+72761cf	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Replace ternary with explicit if in normalize_phone (session: c758ef74)
