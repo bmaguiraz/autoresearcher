@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -42,21 +40,21 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s)
-    # Handle ISO timestamp format (YYYY-MM-DDTHH:MM:SS or similar)
-    if "T" in s:
-        s = s.split("T")[0]
-    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
-    if m:
+    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    # Already in correct format
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
+    # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+    # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
         mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+    # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
@@ -67,11 +65,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
-    upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    if len(s) == 2 and (upper := s.upper()) in STATE_MAP.values():
+        return upper
+    return ""
 
 
 def normalize_email(email):
@@ -85,10 +83,15 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinels in one pass
-    sentinel_values = {"n/a", "na", "null", "none", "nan"}
+    sentinel_values = {
+        "n/a", "N/A", "na", "NA", "Na",
+        "null", "NULL", "Null",
+        "none", "NONE", "None",
+        "nan", "NAN", "Nan"
+    }
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].str.lower().isin(sentinel_values), "")
+        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
