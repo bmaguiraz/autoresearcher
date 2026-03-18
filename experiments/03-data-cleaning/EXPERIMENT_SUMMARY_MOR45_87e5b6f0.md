@@ -105,6 +105,7 @@ def normalize_email(email):
 - Clearer intent - transform and validate the email
 
 ## Links
+- **GitHub PR:** [#840](https://github.com/bmaguiraz/autoresearcher/pull/840)
 - **Linear Issue:** [MOR-45](https://linear.app/maguireb/issue/MOR-45/autoresearch-data-cleaning-pipeline-2-cycles-round-4)
 - **Branch:** `autoresearch/MOR-45-87e5b6f0`
 - **Session ID:** 87e5b6f0
