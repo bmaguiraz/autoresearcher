@@ -46,20 +46,22 @@ def normalize_date(s):
     # Handle ISO timestamp format (YYYY-MM-DDTHH:MM:SS or similar)
     if "T" in s:
         s = s.split("T")[0]
-    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
-    if m:
-        return s
-    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
-    m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
-    if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
-        if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+
+    # Try each date format pattern
+    patterns = [
+        (r"^(\d{4})-(\d{2})-(\d{2})$", lambda m: s),  # Already ISO
+        (r"^(\d{1,2})/(\d{1,2})/(\d{4})$", lambda m: f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"),  # MM/DD/YYYY
+        (r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", lambda m: f"{m.group(3)}-{MONTH_MAP.get(m.group(1).lower(), '00')}-{int(m.group(2)):02d}"),  # Mon DD YYYY
+        (r"^(\d{1,2})-(\d{1,2})-(\d{4})$", lambda m: f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"),  # DD-MM-YYYY
+    ]
+
+    for pattern, formatter in patterns:
+        m = re.match(pattern, s)
+        if m:
+            result = formatter(m)
+            # Validate month mapping for text dates
+            if "00" not in result:
+                return result
     return ""
 
 
