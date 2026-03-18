@@ -89,17 +89,23 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all columns
+<<<<<<< HEAD
+    # Strip whitespace and replace sentinel values
+    sentinels = ["N/A", "n/a", "NA", "na", "null", "Null", "NULL", "none", "None", "NONE", "nan", "NaN", "NAN"]
     for col in df.columns:
-        df[col] = df[col].str.strip()
+        df[col] = df[col].str.strip().replace(sentinels, "")
+=======
+    # Strip whitespace from all string columns using vectorized operation
+    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
 
     # Replace sentinel values with empty strings (case-insensitive)
     sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
     for col in df.columns:
         df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
+>>>>>>> a04fb0c (MOR-29: Cycle 2 - Optimize string stripping with vectorized operation)
 
     # Normalize all fields first
-    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+    df["name"] = df["name"].str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
@@ -110,8 +116,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+
+    # Convert numeric fields back to strings
+    for col in ["age", "salary"]:
+        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]

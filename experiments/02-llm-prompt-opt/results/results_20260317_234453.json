@@ -1,7 +1,5 @@
 {
   "experiment_id": "02-llm-prompt-opt",
-  "round": 3,
-  "timestamp": "2026-03-17T23:52:25Z",
   "config": {
     "experiment_id": "02-llm-prompt-opt",
     "name": "LLM Prompt Optimization",
@@ -34,7 +32,7 @@
         "task_completion": 0.7000000000000001
       },
       "aggregate_score": 0.725,
-      "timestamp": "2026-03-17T23:58:50.324742"
+      "timestamp": "2026-03-17T23:44:52.983108"
     },
     {
       "cycle": 2,
@@ -46,7 +44,7 @@
         "task_completion": 0.75
       },
       "aggregate_score": 0.775,
-      "timestamp": "2026-03-17T23:58:50.825594"
+      "timestamp": "2026-03-17T23:44:53.483959"
     }
   ],
   "summary": {

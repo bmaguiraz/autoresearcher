@@ -1,7 +1,5 @@
 {
   "experiment_id": "02-llm-prompt-opt",
-  "round": 3,
-  "timestamp": "2026-03-17T23:52:25Z",
   "config": {
     "experiment_id": "02-llm-prompt-opt",
     "name": "LLM Prompt Optimization",
@@ -22,7 +20,7 @@
       "task_completion"
     ]
   },
-  "cycles_completed": 2,
+  "cycles_completed": 1,
   "results": [
     {
       "cycle": 1,
@@ -34,28 +32,16 @@
         "task_completion": 0.7000000000000001
       },
       "aggregate_score": 0.725,
-      "timestamp": "2026-03-17T23:58:50.324742"
-    },
-    {
-      "cycle": 2,
-      "prompt": "You are a highly capable AI assistant specialized in providing clear, actionable guidance.",
-      "metrics": {
-        "clarity": 0.7999999999999999,
-        "specificity": 0.85,
-        "response_quality": 0.7,
-        "task_completion": 0.75
-      },
-      "aggregate_score": 0.775,
-      "timestamp": "2026-03-17T23:58:50.825594"
+      "timestamp": "2026-03-17T23:42:58.853534"
     }
   ],
   "summary": {
-    "total_cycles": 2,
+    "total_cycles": 1,
     "initial_score": 0.725,
-    "final_score": 0.775,
-    "improvement": 0.05,
-    "improvement_percentage": 6.9,
-    "best_score": 0.775,
-    "average_score": 0.75
+    "final_score": 0.725,
+    "improvement": 0.0,
+    "improvement_percentage": 0.0,
+    "best_score": 0.725,
+    "average_score": 0.725
   }
 }
