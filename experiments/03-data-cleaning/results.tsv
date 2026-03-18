@@ -46,3 +46,4 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: bb7fb438)
 74913e0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier_specs into loop (session: bb7fb438)
 ba7b9ef	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() in normalize_phone (session: bb7fb438)
+20fb769	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 6a2eef6e)
