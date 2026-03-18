@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -73,14 +71,14 @@ def normalize_state(state):
         return mapped
     # Check if it's a valid 2-letter state code
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if len(upper) == 2 and upper in STATE_MAP.values() else ""
 
 
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    email = str(email).lower()
+    return email if "@" in email and " " not in email else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
