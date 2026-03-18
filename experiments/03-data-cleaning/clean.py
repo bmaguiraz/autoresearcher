@@ -84,10 +84,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinels in one pass
     sentinel_values = {
-        "n/a", "N/A", "na", "NA", "Na",
-        "null", "NULL", "Null",
-        "none", "NONE", "None",
-        "nan", "NAN", "Nan"
+        "n/a", "N/A",
+        "null", "NULL",
+        "none", "NONE"
     }
     for col in df.columns:
         df[col] = df[col].str.strip()
