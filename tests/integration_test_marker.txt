@@ -1,10 +1,10 @@
 Linear Webhook Integration Test
 ================================
 
-Issue: MOR-21
-Title: Test Issue from Integration Test
-Created: 2026-03-17T23:03:23.876Z
-Session ID: 8042c42e
+Issue: MOR-97
+Title: Test Issue from Utility
+Created: 2026-03-18T22:04:59.333Z
+Session ID: dcc88e6d
 
 Status: WEBHOOK RECEIVED AND PROCESSED SUCCESSFULLY
 
@@ -12,7 +12,12 @@ This file confirms that the Linear webhook integration is functioning correctly:
 ✓ Webhook received from Linear
 ✓ Issue payload parsed
 ✓ Repository cloned
-✓ Branch created
+✓ Branch created: MOR-97-test-issue-from-utility
 ✓ Implementation completed
 
 Integration test passed.
+
+Test Details:
+- Test function: test_create_test_issue_utility (tests/integration/test_linear_utils.py:120-135)
+- Purpose: Verifies the create_test_issue() helper function works correctly
+- Description: This issue was created using the linear_utils helper function.
