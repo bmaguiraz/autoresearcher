@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+39c2863	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Reuse parameter in normalize_email (session: f4e9d85f)
+eb1f1bf	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier_specs list (session: f4e9d85f)
+5210592	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: f4e9d85f)
 399608d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: 062a6a4b)
 f51623c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant strip() in normalize_state (session: 062a6a4b)
 8e02551	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 062a6a4b)
