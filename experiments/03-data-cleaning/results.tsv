@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+b797a76	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 3db870ef)
+2f8882c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Chain email filter and deduplication (session: 3db870ef)
+7810c8c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Improve lambda consistency in outlier filtering (session: 3db870ef)
