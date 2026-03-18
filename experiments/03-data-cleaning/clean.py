@@ -59,7 +59,7 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).strip()
+    s = str(state)
     # Check if already a valid 2-letter code (most common case)
     if len(s) == 2 and s.upper() in VALID_STATES:
         return s.upper()
