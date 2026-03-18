@@ -1,0 +1,3 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+857afe9	100.0	25.0	25.0	25.0	25.0	baseline	Baseline - existing clean.py already optimized
+f39d9b1	100.0	25.0	25.0	25.0	25.0	keep	Simplified outlier filtering - maintained perfect score
