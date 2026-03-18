@@ -1,2 +1,3 @@
 commit	score	clip_score	aesthetic_score	consistency	status	description
 baseline	70.3	70.5	61.8	78.4	keep	Baseline - no changes applied
+session_79ca145d_baseline	-	-	-	-	crash	Session 79ca145d baseline — GOOGLE_API_KEY not set in AWS Secrets Manager
