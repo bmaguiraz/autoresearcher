@@ -100,10 +100,13 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["age"] = pd.to_numeric(df["age"], errors="coerce")
+    df = df[df["age"].isna() | df["age"].between(0, 120)]
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+
+    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+    df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
+    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
