@@ -86,11 +86,6 @@ def normalize_email(email):
     return email_lower if "@" in email_lower and " " not in email_lower else ""
 
 
-def format_as_string_int(value):
-    """Convert numeric value to integer string, or empty string if missing."""
-    return str(int(value)) if pd.notna(value) else ""
-
-
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -110,7 +105,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(format_as_string_int)
+        df[col] = df[col].apply(lambda v: str(int(v)) if pd.notna(v) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
