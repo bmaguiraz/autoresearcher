@@ -1,22 +1,23 @@
-2026-03-18 02:03:55,297 - __main__ - INFO - Starting experiment runner
-2026-03-18 02:03:55,297 - __main__ - INFO - Initializing experiment with config: /app/workspace/experiments/04-imagegen-nanobanana/config.json
-2026-03-18 02:03:55,297 - __main__ - INFO - Configuration loaded successfully
-2026-03-18 02:03:55,297 - __main__ - INFO - Experiment initialized: ID=04-imagegen-nanobanana, Cycles=1
-2026-03-18 02:03:55,297 - __main__ - INFO - Starting experiment run: 04-imagegen-nanobanana
+2026-03-18 06:24:54,808 - __main__ - INFO - Starting experiment runner
+2026-03-18 06:24:54,808 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/config.json
+2026-03-18 06:24:54,809 - __main__ - INFO - Configuration loaded successfully
+2026-03-18 06:24:54,809 - __main__ - INFO - Experiment initialized: ID=04-imagegen-nanobanana, Cycles=2
+2026-03-18 06:24:54,809 - __main__ - INFO - Overriding cycles from config (2) with command line argument (1)
+2026-03-18 06:24:54,809 - __main__ - INFO - Starting experiment run: 04-imagegen-nanobanana
 
 ############################################################
 # Image Generation Prompt Optimization (Nano)
 # Experiment ID: 04-imagegen-nanobanana
 # Cycles: 1
 ############################################################
-2026-03-18 02:03:55,297 - __main__ - INFO - Starting cycle 1/1
+2026-03-18 06:24:54,809 - __main__ - INFO - Starting cycle 1/1
 
 ============================================================
 Cycle 1/1
 ============================================================
 
 [1/3] Evaluating prompt...
-2026-03-18 02:03:55,297 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.787
+2026-03-18 06:24:54,809 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.787
   → Aggregate Score: 0.787
   → Visual Quality: 0.780
   → Prompt Clarity: 0.830
@@ -25,10 +26,10 @@ Cycle 1/1
   → Current Prompt: "A photo of a banana"
 
 [3/3] Saving results...
-  → Results saved to /app/workspace/experiments/04-imagegen-nanobanana/results
-2026-03-18 02:03:55,298 - __main__ - INFO - Results saved successfully
-2026-03-18 02:03:55,298 - __main__ - INFO - Cycle 1 completed successfully
-2026-03-18 02:03:55,298 - __main__ - INFO - Experiment completed in 0.0s
+  → Results saved to /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/results
+2026-03-18 06:24:54,809 - __main__ - INFO - Results saved successfully
+2026-03-18 06:24:54,809 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-18 06:24:54,809 - __main__ - INFO - Experiment completed in 0.0s
 
 ============================================================
 Experiment Complete!
@@ -43,5 +44,5 @@ Summary Statistics:
   • Average Score: 0.787
   • Elapsed Time: 0.0s
 
-Results saved to: /app/workspace/experiments/04-imagegen-nanobanana/results
-2026-03-18 02:03:55,298 - __main__ - INFO - Experiment 04-imagegen-nanobanana finished successfully
+Results saved to: /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/results
+2026-03-18 06:24:54,809 - __main__ - INFO - Experiment 04-imagegen-nanobanana finished successfully
