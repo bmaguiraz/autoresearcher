@@ -93,7 +93,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
-    df["name"] = df["name"].str.title()
+    # Handle multiple spaces in names and ensure proper title case
+    df["name"] = df["name"].str.replace(r"\s+", " ", regex=True).str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
