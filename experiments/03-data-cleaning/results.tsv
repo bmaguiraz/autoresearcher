@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5caabf7	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 5f9157db)
+f813a4e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric field conversion with apply() lambda
+6237484	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel value handling with explicit list
 47ede5e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 355f8ae3)
 f10be70	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified numeric conversion with lambda (session: 355f8ae3)
 a2c2291	100.0	25.0	25.0	25.0	25.0	keep	Baseline: Perfect score with existing clean.py implementation
