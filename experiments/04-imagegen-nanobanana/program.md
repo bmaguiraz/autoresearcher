@@ -1,42 +1,75 @@
-# autoresearch — Experiment 04: Image Gen Prompt Optimization (Nano)
+# Program: Image Gen Prompt Optimization with Nano Banana
 
-A minimal experiment to test per-issue parallelism alongside other experiments.
+## Objective
 
-## Purpose
+Maximize the composite image generation score (0-100) by iteratively refining
+the prompt configuration in `prompt.py`. The score combines CLIP similarity,
+aesthetic quality, and cross-seed consistency.
 
-This is a short test experiment designed to:
-- Validate parallel experiment execution
-- Test the autoresearch framework with a different domain (image generation)
-- Run quickly (1 optimization cycle: baseline + 1 hypothesis)
+## Rules
 
-## Configuration
+1. **Edit only `prompt.py`** — `eval.py` is frozen.
+2. **Loop forever** — NEVER STOP.
+3. **Keep or revert** — after each eval, keep the change if score improved,
+   otherwise `git checkout prompt.py` to revert.
 
-- **Cycles**: 2 (baseline evaluation + 1 optimized hypothesis)
-- **Domain**: Image generation prompts
-- **Optimization Target**: Improve prompt quality metrics
+## Cycle
 
-## Metrics
-
-The experiment evaluates prompts on four dimensions:
-- **visual_quality**: Simulated quality of generated images
-- **prompt_clarity**: How clear and specific the prompt is
-- **style_consistency**: Consistency of artistic style
-- **composition**: Quality of image composition
-
-## Experiment Flow
-
-1. **Cycle 1 (Baseline)**: Evaluate the baseline prompt
-2. **Cycle 2 (Optimized)**: Evaluate an improved prompt variant
-
-## Running the Experiment
-
-```bash
-cd experiments/04-imagegen-nanobanana
-python runner.py
+```
+1. Form a hypothesis about what prompt change will improve the score.
+2. Edit prompt.py (one focused change per cycle).
+3. git add prompt.py && git commit -m "<hypothesis>"
+4. python eval.py   → read the score block from stdout.
+5. If score >= best score so far → KEEP. Record in results.tsv.
+   If score < best score        → REVERT: git checkout HEAD~1 -- prompt.py && git commit -m "revert: <hypothesis>"
+6. Append row to results.tsv.
+7. Go to 1.
 ```
 
-## Notes
+## What You Can Change
 
-- This is a "nano" experiment with simulated metrics for testing purposes
-- Designed to run quickly (~1-2 seconds) to test parallelism
-- Does not make actual API calls or generate real images
+- `POSITIVE_PROMPT` — the main generation prompt
+- `NEGATIVE_PROMPT` — things to avoid
+- `STYLE_TOKENS` — artistic style modifiers
+- `TARGET_DESCRIPTION` — the subject matter (explore different scenes)
+- `ASPECT_RATIO` — "1:1", "16:9", "9:16", "4:3", "3:4"
+- `NUM_SEEDS` — how many images to generate (more = slower but more reliable consistency score)
+
+## What You Must NOT Change
+
+- `SEEDS` — fixed for reproducibility across runs.
+
+## Hypothesis Space
+
+- Prompt specificity: generic vs highly detailed descriptions
+- Lighting terms: golden hour, soft diffused, dramatic, rim lighting
+- Material descriptions: weathered oak, brushed copper, hand-thrown ceramic
+- Composition: rule of thirds, leading lines, centered subject
+- Artistic style: photorealistic vs painterly vs cinematic
+- Negative prompt refinement: what artifacts to suppress
+- Subject matter: try different scenes to find what the model excels at
+- Color palette: warm vs cool, monochrome, complementary colors
+- Texture emphasis: fabric, wood grain, metal patina, glass reflections
+- Atmosphere: fog, dust motes, rain, steam, bokeh
+
+## Timing
+
+Each cycle takes ~60-90 seconds (API calls + scoring). Plan accordingly.
+
+## Logging
+
+Maintain `results.tsv` with columns:
+
+```
+commit	score	clip_score	aesthetic_score	consistency	status	description
+```
+
+- `status`: "keep" or "revert"
+- `description`: brief note on what was tried
+
+## Scoring Breakdown
+
+- **Composite** = 0.4 * CLIP + 0.3 * Aesthetic + 0.3 * Consistency
+- **CLIP score**: how well the image matches the prompt text (0-100)
+- **Aesthetic score**: sharpness, color richness, contrast (0-100)
+- **Consistency**: visual similarity across seeds (0-100, higher = more consistent)

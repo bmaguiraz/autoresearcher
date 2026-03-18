@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Frozen scorer for image generation prompt optimization.
 
 Generates images via Gemini's imagen-3.0-generate-002 model, then scores them
