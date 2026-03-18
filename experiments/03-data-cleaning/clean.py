@@ -68,12 +68,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
+    # Try state map first, then validate 2-letter codes
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if upper in VALID_STATES else ""
 
 
 def normalize_email(email):
@@ -99,10 +98,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    outlier_specs = [("age", 0, 120), ("salary", 0, 1_000_000)]
-    for col, min_val, max_val in outlier_specs:
+    for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
+        mask = df[col].isna() | ((df[col] >= min_val) & (df[col] <= max_val))
+        df = df[mask]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
