@@ -26,6 +26,13 @@ MONTH_MAP = {
     "sep": "09", "oct": "10", "nov": "11", "dec": "12",
 }
 
+SENTINEL_VALUES = {
+    "n/a", "N/A", "na", "NA", "Na",
+    "null", "NULL", "Null",
+    "none", "NONE", "None",
+    "nan", "NAN", "Nan"
+}
+
 
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
@@ -47,7 +54,8 @@ def normalize_date(s):
     # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        mm, dd, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
@@ -57,7 +65,8 @@ def normalize_date(s):
     # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        dd, mm, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
     return ""
 
 
@@ -83,15 +92,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinels in one pass
-    sentinel_values = {
-        "n/a", "N/A", "na", "NA", "Na",
-        "null", "NULL", "Null",
-        "none", "NONE", "None",
-        "nan", "NAN", "Nan"
-    }
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
+        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
