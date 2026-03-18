@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	baseline (perfect score)
+a382f0c	100.0	25.0	25.0	25.0	25.0	keep	stricter email validation (maintained perfect score)
