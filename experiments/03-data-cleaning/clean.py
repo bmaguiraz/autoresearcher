@@ -102,9 +102,12 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Outlier filtering and numeric conversion
     for col, (min_val, max_val) in [("age", (0, 120)), ("salary", (0, 1_000_000))]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        numeric_vals = pd.to_numeric(df[col], errors="coerce")
+        # Keep rows where value is NaN or within valid range
+        valid_mask = numeric_vals.isna() | numeric_vals.between(min_val, max_val)
+        df = df[valid_mask]
+        # Convert back to string, preserving empty strings for NaN
+        df[col] = numeric_vals[valid_mask].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
