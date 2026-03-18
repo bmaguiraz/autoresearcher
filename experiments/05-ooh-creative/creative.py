@@ -1,6 +1,6 @@
 # OOH Creative Config — agent edits this file
 # Switch between use cases by changing USE_CASE
-USE_CASE = "restaurant"  # "plumber", "restaurant", or "writefit"
+USE_CASE = "writefit"  # "plumber", "restaurant", or "writefit"
 
 # Creative elements (agent optimizes these)
 HEADLINE = "Taste Real Italy Downtown"
