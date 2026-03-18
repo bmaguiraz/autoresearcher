@@ -29,10 +29,9 @@ MONTH_MAP = {
 }
 
 SENTINEL_VALUES = {
-    "n/a", "N/A", "na", "NA", "Na",
-    "null", "NULL", "Null",
-    "none", "NONE", "None",
-    "nan", "NAN", "Nan"
+    "n/a", "N/A",
+    "null", "NULL",
+    "none", "NONE",
 }
 
 
