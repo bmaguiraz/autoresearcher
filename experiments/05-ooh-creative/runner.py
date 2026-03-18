@@ -90,6 +90,25 @@ class OOHCreativeExperiment(BaseExperiment):
                     "body": "Voted Best Italian 3 years running. Family recipes since 1987. Downtown at 247 Main St. (555) BELLA-01",
                 },
             }
+        elif use_case == "writefit":
+            creatives = {
+                "baseline": {
+                    "headline": "WriteFit.ai • Practice Writing Skills",
+                    "body": "AI-powered writing practice that helps students improve. Never writes for them. Research-backed methods. Visit writefit.ai",
+                },
+                "emotional": {
+                    "headline": "Stop AI From Writing Student Essays",
+                    "body": "WriteFit helps students practice real writing skills—without doing the work for them. Teachers trust us. writefit.ai",
+                },
+                "urgency": {
+                    "headline": "Transform Your Writing Class Today",
+                    "body": "AI-powered practice exercises target each student's weaknesses. Start improving writing skills now. Visit writefit.ai",
+                },
+                "social_proof": {
+                    "headline": "Trusted by High School Teachers",
+                    "body": "Research-backed writing practice that diagnoses weaknesses and builds skills. Students practice, we guide. writefit.ai",
+                },
+            }
         else:
             # Generic fallback
             creatives = {
