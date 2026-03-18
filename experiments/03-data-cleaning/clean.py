@@ -79,8 +79,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    email = str(email).lower()
+    return email if "@" in email and " " not in email else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
@@ -106,8 +106,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
-    df = df[df["email"] != ""]
-    df = df.drop_duplicates(subset=["name", "email"], keep="first")
+    df = df[df["email"] != ""].drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
 
