@@ -48,9 +48,9 @@ def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
-        return s
+    # Already in correct format (YYYY-MM-DD)
+    if m := re.match(r"^(\d{4}-\d{2}-\d{2})$", s):
+        return m.group(1)
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
@@ -68,12 +68,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
+    # Check state name mapping first
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
-    upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    # Validate 2-letter state code
+    return s.upper() if len(s) == 2 and s.upper() in VALID_STATES else ""
 
 
 def normalize_email(email):
