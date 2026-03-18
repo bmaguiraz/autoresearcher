@@ -72,15 +72,15 @@ def normalize_state(state):
     if mapped := STATE_MAP.get(s):
         return mapped
     # Check if it's a valid 2-letter state code
-    upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    s_upper = s.upper()
+    return s_upper if s_upper in VALID_STATES else ""
 
 
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    email_lower = str(email).lower()
+    return email_lower if "@" in email_lower and " " not in email_lower else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
