@@ -55,7 +55,7 @@ def normalize_date(s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
-        mon = MONTH_MAP.get(m.group(1).lower()[:3])
+        mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
@@ -68,9 +68,10 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
+    # Check map first
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    # Check if already a 2-letter state code
     if len(s) == 2 and s.upper() in VALID_STATES:
         return s.upper()
     return ""
