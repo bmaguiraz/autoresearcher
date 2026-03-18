@@ -48,9 +48,6 @@ def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
-        return s
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
@@ -58,8 +55,12 @@ def normalize_date(s):
     if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    # DD-MM-YYYY format
-    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
+    # DD-MM-YYYY or already correct YYYY-MM-DD format
+    if m := re.match(r"^(\d{1,4})-(\d{1,2})-(\d{2,4})$", s):
+        # Check if it's already YYYY-MM-DD (year is 4 digits at start)
+        if len(m.group(1)) == 4:
+            return s
+        # Otherwise it's DD-MM-YYYY
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     return ""
 
@@ -79,8 +80,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    e = str(email).lower().strip()
+    return e if "@" in e and not any(c.isspace() for c in e) else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
