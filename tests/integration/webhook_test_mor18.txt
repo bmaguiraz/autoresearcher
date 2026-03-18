@@ -1,0 +1,27 @@
+Linear Webhook Integration Test - MOR-18
+==========================================
+
+Test Issue: Test Issue from Integration Test
+Issue ID: 8bdf2aa3-7463-4820-a950-9cf585677689
+Linear Issue: MOR-18
+Created: 2026-03-17T23:03:15.773Z
+Updated: 2026-03-17T23:06:14.652Z
+State: In Progress
+Assignee: Brian Maguire
+
+Description:
+This is a test issue created by the Linear integration test suite.
+
+Purpose:
+This file verifies that the Linear webhook → Claude Code → GitHub workflow is functioning correctly.
+
+Workflow verification:
+✓ Linear webhook received and parsed
+✓ Repository cloned/updated
+✓ Branch created (mor-18-integration-test)
+✓ Test marker file created
+✓ Changes will be committed and pushed
+✓ Pull request will be created
+
+Session ID: 170bb784
+Timestamp: 2026-03-17 23:06:14 UTC

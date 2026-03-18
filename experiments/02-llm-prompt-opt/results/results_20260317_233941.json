@@ -5,7 +5,7 @@
     "name": "LLM Prompt Optimization",
     "description": "Experiment to optimize LLM prompts through iterative refinement",
     "version": "1.0.0",
-    "cycles": 1,
+    "cycles": 2,
     "parameters": {
       "model": "claude-sonnet-4",
       "temperature": 0.7,
@@ -20,7 +20,7 @@
       "task_completion"
     ]
   },
-  "cycles_completed": 1,
+  "cycles_completed": 2,
   "results": [
     {
       "cycle": 1,
@@ -32,16 +32,28 @@
         "task_completion": 0.7000000000000001
       },
       "aggregate_score": 0.725,
-      "timestamp": "2026-03-17T23:06:44.962905"
+      "timestamp": "2026-03-17T23:39:40.658834"
+    },
+    {
+      "cycle": 2,
+      "prompt": "You are a highly capable AI assistant specialized in providing clear, actionable guidance.",
+      "metrics": {
+        "clarity": 0.7999999999999999,
+        "specificity": 0.85,
+        "response_quality": 0.7,
+        "task_completion": 0.75
+      },
+      "aggregate_score": 0.775,
+      "timestamp": "2026-03-17T23:39:41.159675"
     }
   ],
   "summary": {
-    "total_cycles": 1,
+    "total_cycles": 2,
     "initial_score": 0.725,
-    "final_score": 0.725,
-    "improvement": 0.0,
-    "improvement_percentage": 0.0,
-    "best_score": 0.725,
-    "average_score": 0.725
+    "final_score": 0.775,
+    "improvement": 0.05,
+    "improvement_percentage": 6.9,
+    "best_score": 0.775,
+    "average_score": 0.75
   }
 }

@@ -1,4 +1,58 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5caabf7	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 5f9157db)
+f813a4e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric field conversion with apply() lambda
+6237484	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel value handling with explicit list
+47ede5e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 355f8ae3)
+f10be70	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified numeric conversion with lambda (session: 355f8ae3)
+a2c2291	100.0	25.0	25.0	25.0	25.0	keep	Baseline: Perfect score with existing clean.py implementation
+537ccbd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimized sentinel handling with case-insensitive set-based lookup
+1b6d075	86.7	25.0	14.6	22.1	25.0	discard	Cycle 2: FAILED - Numeric normalization broke null/dedup logic
+d07f6fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Removed redundant slice in date normalization
+82d9cfa	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+a86aa54	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel list to data-relevant values only
+1866025	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel value list
+d98b2fe	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline age/salary conversion logic
+2f0fbcf	100.0	25.0	25.0	25.0	25.0	keep	Baseline (Round 3)
+3bc5005	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify age/salary conversion - remove fillna, use pd.notna()
+246ded1	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score on all dimensions
+2faa155	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify age/salary conversion (direct pd.isna check)
+a5f6d97	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel replacement with set comprehension
+77e9280	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+40707fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified outlier handling - cleaner pd.notna() logic
+8897d35	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Vectorized name normalization with str.title()
 802b2e4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
 9278867	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling with regex and consolidate numeric conversion
 ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016fd0)
+c28fc67	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 3 (MOR-33, session: bfda8db9)
+b703fa0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion with lambda functions
+1724851	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+3d51411	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Case-insensitive sentinel matching (simplified)
+e176f16	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 2 (session: c7a4323f)
+b94fde3	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion (session: c7a4323f)
+59035f4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline state normalization (session: c7a4323f)
+da23e18	100.0	25.0	25.0	25.0	25.0	keep	Baseline (round 3)
+ddf41b6	97.9	25.0	22.9	25.0	25.0	discard	Hypothesis 1: Remove 'calif.' abbreviation (failed - needed by data)
+a2c2291	100.0	25.0	25.0	25.0	25.0	keep	Baseline: Perfect score with existing clean.py implementation
+537ccbd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimized sentinel handling with case-insensitive set-based lookup
+1b6d075	86.7	25.0	14.6	22.1	25.0	discard	Cycle 2: FAILED - Numeric normalization broke null/dedup logic
+d07f6fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Removed redundant slice in date normalization
+82d9cfa	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+a86aa54	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel list to data-relevant values only
+1866025	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel value list
+d98b2fe	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline age/salary conversion logic
+2f0fbcf	100.0	25.0	25.0	25.0	25.0	keep	Baseline (Round 3)
+3bc5005	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify age/salary conversion - remove fillna, use pd.notna()
+246ded1	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score on all dimensions
+2faa155	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify age/salary conversion (direct pd.isna check)
+a5f6d97	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel replacement with set comprehension
+77e9280	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+40707fc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplified outlier handling - cleaner pd.notna() logic
+8897d35	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Vectorized name normalization with str.title()
+802b2e4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
+9278867	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling with regex and consolidate numeric conversion
+ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016fd0)
+1724851	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+3d51411	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Case-insensitive sentinel matching (simplified)
+e176f16	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 2 (session: c7a4323f)
+b94fde3	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion (session: c7a4323f)
+59035f4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline state normalization (session: c7a4323f)

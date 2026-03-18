@@ -1,0 +1,48 @@
+{
+  "experiment_id": "05-ooh-creative-social_proof",
+  "config": {
+    "experiment_id": "05-ooh-creative",
+    "cycles": 1,
+    "use_case": "restaurant",
+    "parallel_variants": 4,
+    "metrics": {
+      "attention": {
+        "weight": 0.25,
+        "description": "Eye-catching and memorable"
+      },
+      "clarity": {
+        "weight": 0.25,
+        "description": "Clear message and call-to-action"
+      },
+      "relevance": {
+        "weight": 0.25,
+        "description": "Relevant to target audience"
+      },
+      "conversion_potential": {
+        "weight": 0.25,
+        "description": "Likelihood to drive action"
+      }
+    },
+    "constraints": {
+      "max_headline_length": 50,
+      "max_body_length": 100,
+      "style": "professional"
+    }
+  },
+  "cycles_completed": 1,
+  "results": [
+    {
+      "experiment_id": "05-ooh-creative-social_proof",
+      "cycle": 1,
+      "metrics": {
+        "attention": 18.304533345309945,
+        "clarity": 21.152753035665775,
+        "relevance": 21.545416718182803,
+        "conversion_potential": 23.063482401438492
+      },
+      "timestamp": "2026-03-17T23:08:22.875547",
+      "metadata": {},
+      "aggregate_score": 21.016546375149254
+    }
+  ]
+}

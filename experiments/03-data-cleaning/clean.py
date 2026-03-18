@@ -55,7 +55,7 @@ def normalize_date(s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
-        mon = MONTH_MAP.get(m.group(1).lower()[:3])
+        mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
@@ -68,9 +68,10 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
+    # Check map first
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    # Check if already a 2-letter state code
     if len(s) == 2 and s.upper() in VALID_STATES:
         return s.upper()
     return ""
@@ -88,14 +89,10 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all columns
+    # Strip whitespace and replace sentinel values
+    sentinels = ["N/A", "n/a", "NA", "na", "null", "Null", "NULL", "none", "None", "NONE", "nan", "NaN", "NAN"]
     for col in df.columns:
-        df[col] = df[col].str.strip()
-
-    # Replace sentinel values with empty strings (case-insensitive)
-    sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
-    for col in df.columns:
-        df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
+        df[col] = df[col].str.strip().replace(sentinels, "")
 
     # Normalize all fields first
     df["name"] = df["name"].apply(lambda x: x.title() if x else "")
@@ -109,9 +106,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    for col in ["age", "salary"]:
-        df[col] = df[col].dropna().astype(int).astype(str)
-        df[col] = df[col].fillna("")
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
