@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Integration test for Linear issue creation from Telegram.
 

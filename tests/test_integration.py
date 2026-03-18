@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Integration tests for autoresearcher.
 
 This module contains integration tests that verify the system works end-to-end

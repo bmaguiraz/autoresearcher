@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Result tracking and persistence utilities."""
 
 import csv

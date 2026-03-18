@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Metrics tracking and comparison utilities."""
 
 from dataclasses import dataclass

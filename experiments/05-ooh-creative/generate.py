@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Image generation via Nano Banana (Gemini Flash Image Generation).
 
 Generates a hero image from the creative config and saves to outputs/hero.png.

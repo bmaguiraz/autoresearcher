@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Frozen evaluator for sentiment classification.
 
 DO NOT MODIFY THIS FILE. The agent edits only prompt.py.

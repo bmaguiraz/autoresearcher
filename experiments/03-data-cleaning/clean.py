@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Data cleaning script — the agent edits this file to improve quality scores."""
 
 import re

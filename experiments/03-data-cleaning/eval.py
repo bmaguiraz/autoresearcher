@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Frozen evaluation script — scores the output of clean.py against ground truth."""
 
 import subprocess
