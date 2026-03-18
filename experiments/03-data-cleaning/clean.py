@@ -93,7 +93,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
-    df["name"] = df["name"].str.title()
+    # Handle multiple spaces in names and ensure proper title case
+    df["name"] = df["name"].str.replace(r"\s+", " ", regex=True).str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
@@ -106,7 +107,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
-    df = df[df["email"] != ""]
+    # First filter out rows with empty emails, then deduplicate on name+email
+    df = df[df["email"] != ""].copy()
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
