@@ -1,3 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
 b89a93b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Improved normalize_state consistency
+df2b36e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Inlined normalize_state conversion
