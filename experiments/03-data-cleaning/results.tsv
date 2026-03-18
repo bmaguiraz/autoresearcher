@@ -32,3 +32,5 @@ b3941b3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: ddddd
 1b5dd2c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add strip() and optimize upper() calls in normalize_state
 a4e69dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple unpacking
 572aa81	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: d7196f16)
+a88f681	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Unroll outlier filtering loop for clarity (session: d7196f16)
+05d1e4b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use walrus operator in normalize_state (session: d7196f16)
