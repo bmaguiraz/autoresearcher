@@ -1,1 +1,3 @@
 commit	score	clip_score	aesthetic_score	consistency	status	description
+baseline	0.787	0.780	0.830	0.730	keep	Baseline: "A photo of a banana"
+cycle2	0.868	0.860	0.910	0.810	keep	Optimized: "A stunning 8K photograph of a perfect yellow banana with beautiful lighting and composition"
