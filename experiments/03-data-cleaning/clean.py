@@ -39,8 +39,8 @@ SENTINEL_VALUES = {
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
-    digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits.startswith("1") else digits
+    all_digits = re.sub(r"\D", "", str(phone))
+    digits = all_digits[1:] if len(all_digits) == 11 and all_digits.startswith("1") else all_digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
