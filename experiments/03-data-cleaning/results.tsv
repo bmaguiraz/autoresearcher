@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+91181ba	100.0	25.0	25.0	25.0	25.0	keep	Baseline - session d55e636b
+e808f36	99.3	25.0	25.0	24.3	25.0	discard	Simplify email validation - score decreased
+c6cc3f1	100.0	25.0	25.0	25.0	25.0	keep	Simplify date normalization - maintained perfect score
