@@ -46,3 +46,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 30ad9c70)
 8cb69a1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 30ad9c70)
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 886fd6e0)
+442271a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify phone normalization with explicit country code check (session: 886fd6e0)
+b7db181	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify nested walrus operator in date normalization (session: 886fd6e0)
