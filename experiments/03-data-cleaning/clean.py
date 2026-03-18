@@ -92,8 +92,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Replace sentinel values with empty strings (case-insensitive)
     sentinel_values = {"n/a", "na", "null", "none", "nan"}
+    # Pre-compute lowercase comparison to avoid repeated str.lower() calls
     for col in df.columns:
-        df[col] = df[col].where(~df[col].str.lower().isin(sentinel_values), "")
+        lowercase_col = df[col].str.lower()
+        df[col] = df[col].where(~lowercase_col.isin(sentinel_values), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
