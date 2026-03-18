@@ -44,10 +44,11 @@ def normalize_phone(phone):
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
-def normalize_date(s):
-    if pd.isna(s) or s == "":
+def normalize_date(date_str):
+    if pd.isna(date_str) or date_str == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    # Handle ISO timestamp format (strip time component)
+    s = str(date_str).split("T")[0]
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
@@ -79,8 +80,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    lowered = str(email).lower()
+    return lowered if "@" in lowered and " " not in lowered else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
