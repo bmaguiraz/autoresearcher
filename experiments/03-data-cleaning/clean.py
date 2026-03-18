@@ -48,7 +48,7 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    s = str(s).partition("T")[0]  # Handle ISO timestamp format (partition is more efficient than split)
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
