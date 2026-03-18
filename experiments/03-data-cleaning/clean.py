@@ -28,14 +28,6 @@ MONTH_MAP = {
     "sep": "09", "oct": "10", "nov": "11", "dec": "12",
 }
 
-SENTINEL_VALUES = {
-    "n/a", "N/A", "na", "NA", "Na",
-    "null", "NULL", "Null",
-    "none", "NONE", "None",
-    "nan", "NAN", "Nan"
-}
-
-
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
@@ -85,9 +77,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinels in one pass
+    sentinels = ["n/a", "N/A", "na", "NA", "Na", "null", "NULL", "Null", "none", "NONE", "None", "nan", "NAN", "Nan"]
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        df[col] = df[col].where(~df[col].isin(sentinels), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
