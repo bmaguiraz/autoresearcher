@@ -98,11 +98,18 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
-    for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    # Outlier filtering and numeric conversion - optimized to filter once
+    df["age"] = pd.to_numeric(df["age"], errors="coerce")
+    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+
+    # Create combined filter mask to reduce intermediate dataframes
+    age_valid = df["age"].isna() | df["age"].between(0, 120)
+    salary_valid = df["salary"].isna() | df["salary"].between(0, 1_000_000)
+    df = df[age_valid & salary_valid]
+
+    # Convert back to strings using pandas nullable integer for efficiency
+    for col in ["age", "salary"]:
+        df[col] = df[col].astype('Int64').astype(str).replace('<NA>', '')
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
