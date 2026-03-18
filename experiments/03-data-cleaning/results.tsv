@@ -1,4 +1,6 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5042850	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_date (session: 6b9b9a25)
+f4d893d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add clarity to email validation logic (session: 6b9b9a25)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 6b9b9a25)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
