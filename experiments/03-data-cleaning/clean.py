@@ -44,10 +44,10 @@ def normalize_phone(phone):
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
-def normalize_date(s):
-    if pd.isna(s) or s == "":
+def normalize_date(date_str):
+    if pd.isna(date_str) or date_str == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    s = str(date_str).split("T")[0]  # Handle ISO timestamp format
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
