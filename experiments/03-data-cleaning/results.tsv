@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 1c91cedd)
+8d98c40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add defensive strip in normalize_state
+340553a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Add defensive strip in normalize_email
