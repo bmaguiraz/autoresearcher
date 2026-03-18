@@ -7,3 +7,4 @@ d7cff25	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify email validation (sessi
 7086d25	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 4 (MOR-41, session: 6a1758b8)
 f17a448	99.2	24.9	25.0	24.3	25.0	discard	Cycle 1: FAILED - Removed whitespace stripping (broke type_correctness and dedup)
 c575def	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: 64ff3d61)
+6118851	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimize sentinel value handling with set lookup (session: 64ff3d61)
