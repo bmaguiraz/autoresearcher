@@ -80,6 +80,14 @@ def normalize_email(email):
     return e if "@" in e and " " not in e else ""
 
 
+def filter_outliers(df, column, min_val, max_val):
+    """Filter outliers and convert numeric column back to string format."""
+    df[column] = pd.to_numeric(df[column], errors="coerce")
+    df = df[df[column].isna() | df[column].between(min_val, max_val)]
+    df[column] = df[column].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    return df
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -101,11 +109,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
-    for col, (min_val, max_val) in [("age", (0, 120)), ("salary", (0, 1_000_000))]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    # Outlier filtering
+    df = filter_outliers(df, "age", 0, 120)
+    df = filter_outliers(df, "salary", 0, 1_000_000)
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
