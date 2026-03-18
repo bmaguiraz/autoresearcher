@@ -79,8 +79,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    email = str(email).lower()
+    return email if "@" in email and " " not in email else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
@@ -93,10 +93,13 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
-    df["email"] = df["email"].apply(normalize_email)
-    df["phone"] = df["phone"].apply(normalize_phone)
-    df["signup_date"] = df["signup_date"].apply(normalize_date)
-    df["state"] = df["state"].apply(normalize_state)
+    for col, normalize_fn in [
+        ("email", normalize_email),
+        ("phone", normalize_phone),
+        ("signup_date", normalize_date),
+        ("state", normalize_state),
+    ]:
+        df[col] = df[col].apply(normalize_fn)
 
     # Outlier filtering and numeric conversion
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
