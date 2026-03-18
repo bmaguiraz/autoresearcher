@@ -92,18 +92,18 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         stripped = df[col].str.strip()
         df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
-    # Normalize all fields first
-    df["name"] = df["name"].str.title()
+    # Normalize all fields first - use vectorized methods where possible
+    df["name"] = df["name"].str.replace(r'\s+', ' ', regex=True).str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
+    # Outlier filtering and numeric conversion - vectorized approach
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        numeric_col = pd.to_numeric(df[col], errors="coerce")
+        df = df[numeric_col.isna() | numeric_col.between(min_val, max_val)]
+        df[col] = numeric_col[df.index].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
