@@ -91,7 +91,6 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].str.strip()
         df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
 
-    # Normalize all fields first
     df["name"] = df["name"].str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
