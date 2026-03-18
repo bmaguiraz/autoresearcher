@@ -1,0 +1,11 @@
+Bytecode compiled 1646 files in 104ms
+Generating images...  Saved /app/workspace/experiments/04-imagegen-nanobanana/outputs/seed_42.png
+  Saved /app/workspace/experiments/04-imagegen-nanobanana/outputs/seed_123.png
+  Saved /app/workspace/experiments/04-imagegen-nanobanana/outputs/seed_456.png
+---
+score:            69.4
+clip_score:       67.6
+aesthetic_score:  63.3
+consistency:      77.9
+images_generated: 3
+eval_seconds:     44.0

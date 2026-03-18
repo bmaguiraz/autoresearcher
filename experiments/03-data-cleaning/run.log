@@ -1,3 +1,9 @@
+Using CPython 3.11.14 interpreter at: /usr/local/bin/python3
+Creating virtual environment at: .venv
+Downloading pandas (10.3MiB)
+ Downloaded pandas
+Installed 4 packages in 25ms
+Bytecode compiled 1926 files in 2.89s
 ---
 score:              100.0
 type_correctness:   25.0
