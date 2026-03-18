@@ -45,3 +45,4 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 04c0159f)
 d175597	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimize date parsing with partition() (session: 04c0159f)
+0087f00	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify outlier lambda condition (session: 04c0159f)
