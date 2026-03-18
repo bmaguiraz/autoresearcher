@@ -1,1 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+7d6db26	100.0	25.0	25.0	25.0	25.0	keep	baseline (perfect score)
+4acf5e6	97.9	25.0	22.9	25.0	25.0	discard	removed state abbreviations - decreased null_handling
+7413357	100.0	25.0	25.0	25.0	25.0	keep	simplified SENTINEL_VALUES (removed title case variants)
+acf136c	100.0	25.0	25.0	25.0	25.0	keep	simplified state normalization (removed walrus operator)
