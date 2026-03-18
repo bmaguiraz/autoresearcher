@@ -89,7 +89,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     }
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
+        df[col] = df[col].replace(sentinel_values, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
