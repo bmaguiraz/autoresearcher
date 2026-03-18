@@ -40,3 +40,4 @@ a4e69dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple
 982f5ef	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 74e284a3)
 20a7d59	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Move sentinel values to module-level constant (session: 74e284a3)
 fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for better readability (session: 74e284a3)
+05add5e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 48a5c7a5)
