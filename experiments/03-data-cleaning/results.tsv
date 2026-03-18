@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+acc23cb	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 576257ad)
+c932ae1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit strip to state normalization
+92e3fc4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Add explicit strip to date normalization
