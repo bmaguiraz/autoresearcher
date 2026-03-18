@@ -48,7 +48,10 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    s = str(s)
+    # Handle ISO timestamp format only if present
+    if "T" in s:
+        s = s.split("T")[0]
     # Already in correct format YYYY-MM-DD (faster than regex)
     if len(s) == 10 and s[4] == '-' and s[7] == '-':
         return s
