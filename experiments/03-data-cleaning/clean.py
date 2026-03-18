@@ -83,13 +83,18 @@ def normalize_email(email):
     return e if "@" in e and " " not in e else ""
 
 
+def to_int_string(x):
+    """Convert numeric value to integer string, or empty string if NaN."""
+    return str(int(x)) if pd.notna(x) else ""
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
-    for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+    # Strip whitespace from all columns
+    df = df.apply(lambda col: col.str.strip())
+    # Replace all sentinel values with empty string in single operation
+    df = df.replace(SENTINEL_VALUES, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -103,7 +108,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].apply(to_int_string)
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
