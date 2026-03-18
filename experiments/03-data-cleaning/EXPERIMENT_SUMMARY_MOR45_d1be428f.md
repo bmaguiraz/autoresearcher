@@ -103,7 +103,7 @@ def normalize_email(email):
 - More concise without sacrificing readability
 
 ## Links
-- **GitHub PR:** TBD
+- **GitHub PR:** [#1117](https://github.com/bmaguiraz/autoresearcher/pull/1117)
 - **Linear Issue:** [MOR-45](https://linear.app/maguireb/issue/MOR-45/autoresearch-data-cleaning-pipeline-2-cycles-round-4)
 - **Branch:** `autoresearch/MOR-45-d1be428f`
 
