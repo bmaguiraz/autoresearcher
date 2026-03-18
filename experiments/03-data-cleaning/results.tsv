@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+212e70c	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: c1c183f4)
+da30b8f	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Combine month name date parsing conditions (session: c1c183f4)
+b0a09c7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize ISO timestamp split (session: c1c183f4)
