@@ -48,19 +48,19 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    date_str = str(s).split("T")[0]  # Handle ISO timestamp format
     # Already in correct format YYYY-MM-DD (faster than regex)
-    if len(s) == 10 and s[4] == '-' and s[7] == '-':
-        return s
+    if len(date_str) == 10 and date_str[4] == '-' and date_str[7] == '-':
+        return date_str
     # MM/DD/YYYY format
-    if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
+    if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", date_str):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     # Mon DD YYYY format
-    if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
+    if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", date_str):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
-    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
+    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", date_str):
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     return ""
 
