@@ -46,20 +46,20 @@ def normalize_date(s):
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
-    # MM/DD/YYYY format
-    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
         mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    # DD-MM-YYYY format
-    m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
+    # Numeric date formats: MM/DD/YYYY or DD-MM-YYYY
+    m = re.match(r"^(\d{1,2})([/-])(\d{1,2})\2(\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        # If separator is '-', it's DD-MM-YYYY; if '/', it's MM/DD/YYYY
+        if m.group(2) == "-":
+            return f"{m.group(4)}-{int(m.group(3)):02d}-{int(m.group(1)):02d}"
+        else:
+            return f"{m.group(4)}-{int(m.group(1)):02d}-{int(m.group(3)):02d}"
     return ""
 
 
@@ -84,15 +84,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinels in one pass
-    sentinel_values = {
-        "n/a", "N/A", "na", "NA", "Na",
-        "null", "NULL", "Null",
-        "none", "NONE", "None",
-        "nan", "NAN", "Nan"
-    }
+    sentinel_values = {"n/a", "na", "null", "none", "nan"}
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
+        df[col] = df[col].where(~df[col].str.lower().isin(sentinel_values), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
