@@ -71,6 +71,25 @@ class OOHCreativeExperiment(BaseExperiment):
                     "body": "500+ 5-star reviews. Licensed, insured, trusted by neighbors. Emergency & scheduled service. (555) 123-4567",
                 },
             }
+        elif use_case == "writefit":
+            creatives = {
+                "baseline": {
+                    "headline": "WriteFit.ai • Better Writing Skills",
+                    "body": "AI-powered practice engine. Diagnose weaknesses, generate targeted exercises. Never writes for students. writefit.ai",
+                },
+                "emotional": {
+                    "headline": "Help Students Actually Improve Writing",
+                    "body": "No more AI cheating. WriteFit diagnoses weaknesses and builds skills through practice. Teachers and students love it. writefit.ai",
+                },
+                "urgency": {
+                    "headline": "Transform Writing Skills This Semester",
+                    "body": "Research-backed AI practice engine. Start free trial today. Classroom visibility and real skill growth. writefit.ai",
+                },
+                "social_proof": {
+                    "headline": "Trusted by English Teachers Nationwide",
+                    "body": "AI that teaches, not replaces. Trait-level diagnosis, targeted practice. Join educators building real writing skills. writefit.ai",
+                },
+            }
         else:
             # Generic fallback
             creatives = {
