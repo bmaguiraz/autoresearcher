@@ -40,7 +40,9 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    # Use removeprefix() for cleaner handling of 11-digit numbers starting with "1"
+    if len(digits) == 11:
+        digits = digits.removeprefix("1")
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -79,8 +81,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    lowered = str(email).lower()
+    return lowered if "@" in lowered and " " not in lowered else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
