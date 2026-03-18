@@ -1,4 +1,6 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+9fdf2e4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index access instead of startswith() for phone prefix (session: bf3b14e6)
+ca7323c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Avoid redundant strip() by using temporary variable (session: bf3b14e6)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: bf3b14e6)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
