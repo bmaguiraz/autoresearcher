@@ -87,10 +87,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Strip whitespace from all string columns using vectorized operation
     df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
 
-    # Replace sentinel values with empty strings (case-insensitive)
-    sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
+    # Replace sentinel values with empty strings (explicit set for performance)
+    sentinel_values = {"n/a", "na", "null", "none", "nan", "N/A", "NA", "NULL", "None", "NaN", "NAN", "NONE"}
     for col in df.columns:
-        df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
+        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
