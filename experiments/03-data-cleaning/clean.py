@@ -46,17 +46,20 @@ def normalize_date(s):
     # Handle ISO timestamp format (YYYY-MM-DDTHH:MM:SS or similar)
     if "T" in s:
         s = s.split("T")[0]
-    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
-    if m:
+    # Already in ISO format
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
+    # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+    # Mon DD YYYY format (e.g., "Jan 15 2020")
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
         mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+    # DD-MM-YYYY format
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
     if m:
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
@@ -89,8 +92,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Replace sentinel values with empty strings (case-insensitive)
     sentinel_values = {"n/a", "na", "null", "none", "nan"}
+    # Pre-compute lowercase comparison to avoid repeated str.lower() calls
     for col in df.columns:
-        df[col] = df[col].where(~df[col].str.lower().isin(sentinel_values), "")
+        lowercase_col = df[col].str.lower()
+        df[col] = df[col].where(~lowercase_col.isin(sentinel_values), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
