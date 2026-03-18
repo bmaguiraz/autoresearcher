@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+20ea39d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Consolidate fillna with apply (session: 69aeedcd)
+39ce313	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Convert phone normalization to multi-line if (session: 69aeedcd)
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 69aeedcd)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 0d1c13eb)
