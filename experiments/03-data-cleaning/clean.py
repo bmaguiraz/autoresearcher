@@ -40,7 +40,9 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits.startswith("1") else digits
+    # Strip leading 1 for 11-digit numbers (e.g., 1-XXX-XXX-XXXX)
+    if len(digits) == 11 and digits[0] == "1":
+        digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
