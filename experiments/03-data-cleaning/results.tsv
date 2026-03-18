@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+65fe044	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: 023a51b1)
+55509be	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 023a51b1)
+116b51d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Inline outlier spec list and reuse numeric series (session: 023a51b1)
 f7bd27e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline phone normalization (session: 6413c0bb)
 88556f3	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in date normalization (session: 6413c0bb)
 2d2b234	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 6413c0bb)
