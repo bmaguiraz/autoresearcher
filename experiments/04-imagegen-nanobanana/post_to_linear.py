@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Post experiment results to Linear issue as comments.
+Post image generation experiment results to Linear issue as comments.
 """
 import json
 import os
@@ -78,11 +78,12 @@ def format_cycle_comment(cycle_data: dict) -> str:
     return comment
 
 
-def format_summary_comment(summary: dict, cycles_completed: int) -> str:
+def format_summary_comment(summary: dict, cycles_completed: int, experiment_id: str) -> str:
     """Format the final summary as a markdown comment."""
     comment = f"""## ✅ Experiment Complete - {cycles_completed} Cycles
 
 ### Summary Statistics
+- **Experiment ID:** {experiment_id}
 - **Total Cycles:** {summary['total_cycles']}
 - **Initial Score:** {summary['initial_score']:.3f}
 - **Final Score:** {summary['final_score']:.3f}
@@ -91,7 +92,7 @@ def format_summary_comment(summary: dict, cycles_completed: int) -> str:
 - **Average Score:** {summary['average_score']:.3f}
 
 ### Results
-The experiment has completed successfully with a {summary['improvement_percentage']:.1f}% improvement in aggregate score across {summary['total_cycles']} optimization cycles.
+The experiment has completed successfully with a **{summary['improvement_percentage']:.1f}% improvement** in aggregate score across {summary['total_cycles']} optimization cycles.
 
 Results are available in `experiments/04-imagegen-nanobanana/results/results_latest.json`
 """
@@ -132,7 +133,11 @@ def main():
             return 1
 
     # Post summary comment
-    summary_body = format_summary_comment(data["summary"], data["cycles_completed"])
+    summary_body = format_summary_comment(
+        data["summary"],
+        data["cycles_completed"],
+        data["experiment_id"]
+    )
     try:
         comment = post_comment_to_issue(issue_id, summary_body, api_key)
         print(f"✓ Posted summary comment (ID: {comment['id']})")
