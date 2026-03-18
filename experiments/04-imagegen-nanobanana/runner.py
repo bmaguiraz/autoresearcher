@@ -225,6 +225,12 @@ class ImageGenPromptExperiment:
 
 def main():
     """Main entry point for the experiment runner."""
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Run image generation prompt optimization experiment')
+    parser.add_argument('--cycles', type=int, help='Number of optimization cycles to run (overrides config)')
+    args = parser.parse_args()
+
     logger.info("Starting experiment runner")
     script_dir = Path(__file__).parent
     config_path = script_dir / "config.json"
@@ -235,6 +241,12 @@ def main():
 
     try:
         experiment = ImageGenPromptExperiment(str(config_path))
+
+        # Override cycles from command line if provided
+        if args.cycles is not None:
+            logger.info(f"Overriding cycles from config ({experiment.cycles}) with command line argument ({args.cycles})")
+            experiment.cycles = args.cycles
+
         experiment.run()
         return 0
     except Exception as e:
