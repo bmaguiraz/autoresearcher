@@ -71,6 +71,25 @@ class OOHCreativeExperiment(BaseExperiment):
                     "body": "500+ 5-star reviews. Licensed, insured, trusted by neighbors. Emergency & scheduled service. (555) 123-4567",
                 },
             }
+        elif use_case == "restaurant":
+            creatives = {
+                "baseline": {
+                    "headline": "Casa Bella Trattoria • Authentic Italian",
+                    "body": "Handmade pasta daily. Farm-to-table ingredients. Tue-Sun 11am-10pm. 247 Main St. (555) BELLA-01",
+                },
+                "emotional": {
+                    "headline": "Taste Italy, Right Here at Home",
+                    "body": "Family recipes since 1987. Fresh ingredients, handmade with love. Experience authentic Italian dining. (555) BELLA-01",
+                },
+                "urgency": {
+                    "headline": "Fresh Pasta Made Daily—Reserve Now",
+                    "body": "Limited seating! Handmade pappardelle & farm-fresh ingredients. Book your table today. (555) BELLA-01",
+                },
+                "social_proof": {
+                    "headline": "★★★★★ Casa Bella Trattoria",
+                    "body": "Voted Best Italian 3 years running. Family recipes since 1987. Downtown at 247 Main St. (555) BELLA-01",
+                },
+            }
         else:
             # Generic fallback
             creatives = {
