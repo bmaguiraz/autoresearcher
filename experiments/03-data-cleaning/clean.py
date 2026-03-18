@@ -34,8 +34,7 @@ def normalize_phone(phone):
         return ""
     digits = re.sub(r"\D", "", str(phone))
     # Strip leading 1 for 11-digit numbers
-    if len(digits) == 11 and digits[0] == "1":
-        digits = digits[1:]
+    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -46,20 +45,20 @@ def normalize_date(s):
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
-    # MM/DD/YYYY format
-    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
+    # MM/DD/YYYY or DD-MM-YYYY format (differentiate by context - try MM/DD first)
+    m = re.match(r"^(\d{1,2})[/-](\d{1,2})[/-](\d{4})$", s)
     if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        # If slash, assume MM/DD/YYYY; if dash, assume DD-MM-YYYY
+        if "/" in s:
+            return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        else:
+            return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     # Mon DD YYYY format
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
         mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    # DD-MM-YYYY format
-    m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     return ""
 
 
@@ -102,7 +101,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    for col, (min_val, max_val) in [("age", (0, 120)), ("salary", (0, 1_000_000))]:
+    outlier_specs = [("age", 0, 120), ("salary", 0, 1_000_000)]
+    for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
