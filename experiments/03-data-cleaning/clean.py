@@ -47,7 +47,8 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    # Handle ISO timestamp format - partition is cleaner than split for this
+    s = str(s).partition("T")[0]
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
@@ -103,7 +104,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        # Vectorized conversion: fill NaN with empty string, convert valid to int strings
+        df[col] = df[col].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
