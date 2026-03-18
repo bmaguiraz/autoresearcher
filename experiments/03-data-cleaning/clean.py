@@ -89,7 +89,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Strip whitespace and replace sentinels in one pass
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        df[col] = df[col].mask(df[col].isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -101,7 +101,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Outlier filtering and numeric conversion
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
+        df = df[df[col].isna() | ((df[col] >= min_val) & (df[col] <= max_val))]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
