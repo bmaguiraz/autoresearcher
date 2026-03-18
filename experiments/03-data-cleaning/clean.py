@@ -68,9 +68,8 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
-    if mapped := STATE_MAP.get(s):
-        return mapped
+    if s in STATE_MAP:
+        return STATE_MAP[s]
     # Check if it's a valid 2-letter state code
     s = s.upper()
     return s if len(s) == 2 and s in VALID_STATES else ""
