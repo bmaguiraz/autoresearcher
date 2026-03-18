@@ -1,1 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+127a11d	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 session 6efb4845
+2be97f5	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant VALID_STATES set (session: 6efb4845)
