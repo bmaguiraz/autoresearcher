@@ -102,7 +102,7 @@ for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
 - Less code to maintain
 
 ## Links
-- **GitHub PR:** TBD
+- **GitHub PR:** [#1570](https://github.com/bmaguiraz/autoresearcher/pull/1570)
 - **Linear Issue:** [MOR-45](https://linear.app/maguireb/issue/MOR-45/autoresearch-data-cleaning-pipeline-2-cycles-round-4)
 - **Branch:** `autoresearch/MOR-45-504d371b`
 
