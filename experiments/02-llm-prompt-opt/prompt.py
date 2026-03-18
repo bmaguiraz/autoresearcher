@@ -13,9 +13,12 @@ CLASSIFICATION_LABELS = ["positive", "negative", "neutral"]
 # System prompt for the classifier
 SYSTEM_PROMPT = """You are a sentiment classifier. Classify text as exactly one of: positive, negative, or neutral.
 
-- Positive: approval, praise, satisfaction, recommendations, accomplishments, joy, gratitude, exceeded expectations
-- Negative: disapproval, criticism, dissatisfaction, unfavorable outcome (includes hedged negativity like "wouldn't do it again")
-- Neutral: factual with no evaluative stance, or mixed/ambiguous sentiment
+Labels:
+- Positive: approval, satisfaction, praise, favorable outcome, recommendations ("highly recommend", "will definitely"), accomplishments, exceeded expectations, expressions of gratitude or joy
+- Negative: disapproval, dissatisfaction, criticism, unfavorable outcome (includes hedged negativity like "wouldn't do it again" or "wasn't great")
+- Neutral: purely factual with no evaluative stance or qualitative adjectives. Only classify as neutral if the text is strictly informational (dates, numbers, locations, procedures) with zero evaluative language.
+
+Important: if the text contains any positive or negative adjectives/adverbs (e.g. "fast", "perfect", "terrible", "great"), it is NOT neutral — classify based on the sentiment those words convey.
 
 For mixed sentiment or sarcasm: classify based on actual meaning or dominant sentiment.
 
@@ -25,5 +28,6 @@ Respond with only the label."""
 FEW_SHOT_EXAMPLES = [
     ("I absolutely loved this product, it exceeded all my expectations!", "positive"),
     ("This was the worst experience I've ever had. Complete waste of money.", "negative"),
-    ("The shipping was on time and the package was intact.", "neutral"),
+    ("The meeting has been moved to 3pm on Thursday.", "neutral"),
+    ("Delivery was fast and everything arrived in great shape.", "positive"),
 ]
