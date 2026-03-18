@@ -55,7 +55,7 @@ def normalize_date(s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
     if m:
-        mon = MONTH_MAP.get(m.group(1).lower()[:3])
+        mon = MONTH_MAP.get(m.group(1).lower())
         if mon:
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
@@ -68,12 +68,9 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).strip().lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
-    if len(s) == 2 and s.upper() in VALID_STATES:
-        return s.upper()
-    return ""
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    return s.upper() if len(s) == 2 and s.upper() in VALID_STATES else ""
 
 
 def normalize_email(email):
@@ -88,14 +85,20 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace from all columns
+<<<<<<< HEAD
+    # Strip whitespace and replace sentinel values
+    sentinels = ["N/A", "n/a", "NA", "na", "null", "Null", "NULL", "none", "None", "NONE", "nan", "NaN", "NAN"]
     for col in df.columns:
-        df[col] = df[col].str.strip()
+        df[col] = df[col].str.strip().replace(sentinels, "")
+=======
+    # Strip whitespace from all string columns using vectorized operation
+    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
 
     # Replace sentinel values with empty strings (case-insensitive)
     sentinel_pattern = re.compile(r"^(n/?a|null|none|nan)$", re.IGNORECASE)
     for col in df.columns:
         df[col] = df[col].where(~df[col].str.match(sentinel_pattern, na=False), "")
+>>>>>>> a04fb0c (MOR-29: Cycle 2 - Optimize string stripping with vectorized operation)
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -109,6 +112,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
+
+    # Convert numeric fields back to strings
     for col in ["age", "salary"]:
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
