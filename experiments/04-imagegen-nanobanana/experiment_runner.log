@@ -426,3 +426,20 @@
 2026-03-18 13:03:05,064 - __main__ - INFO - Cycle 1 completed successfully
 2026-03-18 13:03:05,064 - __main__ - INFO - Experiment completed in 0.0s
 2026-03-18 13:03:05,064 - __main__ - INFO - Experiment 04-imagegen-nanobanana finished successfully
+2026-03-18 13:10:56,572 - __main__ - INFO - Starting experiment runner
+2026-03-18 13:10:56,573 - __main__ - INFO - Initializing experiment with config: /app/workspace/autoresearcher/experiments/04-imagegen-nanobanana/config.json
+2026-03-18 13:10:56,573 - __main__ - INFO - Configuration loaded successfully
+2026-03-18 13:10:56,573 - __main__ - INFO - Experiment initialized: ID=04-imagegen-nanobanana, Cycles=2
+2026-03-18 13:10:56,573 - __main__ - INFO - Overriding cycles from config (2) with command line argument (2)
+2026-03-18 13:10:56,573 - __main__ - INFO - Starting experiment run: 04-imagegen-nanobanana
+2026-03-18 13:10:56,573 - __main__ - INFO - Starting cycle 1/2
+2026-03-18 13:10:56,573 - __main__ - INFO - Cycle 1 evaluation complete: aggregate_score=0.787
+2026-03-18 13:10:56,573 - __main__ - INFO - Generated new prompt variant for next cycle
+2026-03-18 13:10:56,573 - __main__ - INFO - Results saved successfully
+2026-03-18 13:10:56,573 - __main__ - INFO - Cycle 1 completed successfully
+2026-03-18 13:10:56,874 - __main__ - INFO - Starting cycle 2/2
+2026-03-18 13:10:56,874 - __main__ - INFO - Cycle 2 evaluation complete: aggregate_score=0.868
+2026-03-18 13:10:56,874 - __main__ - INFO - Results saved successfully
+2026-03-18 13:10:56,874 - __main__ - INFO - Cycle 2 completed successfully
+2026-03-18 13:10:56,874 - __main__ - INFO - Experiment completed in 0.3s
+2026-03-18 13:10:56,875 - __main__ - INFO - Experiment 04-imagegen-nanobanana finished successfully
