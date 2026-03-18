@@ -1,5 +1,5 @@
 {
-  "experiment_id": "05-ooh-creative-emotional",
+  "experiment_id": "05-ooh-creative-social_proof",
   "config": {
     "experiment_id": "05-ooh-creative",
     "cycles": 1,
@@ -32,17 +32,17 @@
   "cycles_completed": 1,
   "results": [
     {
-      "experiment_id": "05-ooh-creative-emotional",
+      "experiment_id": "05-ooh-creative-social_proof",
       "cycle": 1,
       "metrics": {
-        "attention": 18.494142422340918,
-        "clarity": 18.36432223852105,
-        "relevance": 23.78263411934888,
-        "conversion_potential": 21.8979491148935
+        "attention": 16.673817338130082,
+        "clarity": 20.42134921465025,
+        "relevance": 20.59982002943603,
+        "conversion_potential": 21.673897695485977
       },
-      "timestamp": "2026-03-18T00:01:40.086125",
+      "timestamp": "2026-03-18T00:01:40.086354",
       "metadata": {},
-      "aggregate_score": 20.634761973776087
+      "aggregate_score": 19.842221069425584
     }
   ]
 }
