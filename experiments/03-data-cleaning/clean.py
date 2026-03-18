@@ -40,7 +40,8 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits.startswith("1") else digits
+    if len(digits) == 11 and digits.startswith("1"):
+        digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -79,7 +80,7 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
+    e = str(email).strip().lower()
     return e if "@" in e and " " not in e else ""
 
 
