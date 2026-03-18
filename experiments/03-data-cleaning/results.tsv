@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	baseline - already perfect
+55f3cc6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: vectorized sentinel handling - same score, cleaner code
