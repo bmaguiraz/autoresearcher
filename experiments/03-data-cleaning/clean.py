@@ -34,7 +34,7 @@ def normalize_phone(phone):
         return ""
     digits = re.sub(r"\D", "", str(phone))
     # Strip leading 1 for 11-digit numbers
-    if len(digits) == 11 and digits[0] == "1":
+    if len(digits) == 11 and digits.startswith("1"):
         digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
@@ -42,7 +42,9 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    s = str(s)
+    if "T" in s:
+        s = s.split("T")[0]
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
