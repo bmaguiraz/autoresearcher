@@ -71,9 +71,11 @@ def normalize_state(state):
     # Use .get() to avoid redundant lookup
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
-    if len(s) == 2 and (u := s.upper()) in VALID_STATES:
-        return u
+    # Check if it's a valid 2-letter state code (check length first to avoid upper() call)
+    if len(s) == 2:
+        u = s.upper()
+        if u in VALID_STATES:
+            return u
     return ""
 
 
