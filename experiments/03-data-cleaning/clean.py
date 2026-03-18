@@ -47,8 +47,9 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
+    # Handle ISO timestamp format and extract date part
+    s = str(s).split("T")[0]
+    # Already in YYYY-MM-DD format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
     # MM/DD/YYYY format
@@ -79,17 +80,18 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    # Lowercase and validate format in one pass
+    lower = str(email).lower()
+    return lower if "@" in lower and " " not in lower else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
+    # Strip whitespace and replace sentinels
     for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        stripped = df[col].str.strip()
+        df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
