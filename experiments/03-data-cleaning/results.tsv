@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 5210592	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: e08200b9)
+f3e584b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use startswith() in phone normalization (session: e08200b9)
+0399242	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Consolidate NaN handling in outlier filtering (session: e08200b9)
