@@ -1,5 +1,7 @@
 # Autoresearcher
 
+[![Build Status](https://github.com/bmaguiraz/autoresearcher/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bmaguiraz/autoresearcher/actions/workflows/ci.yml)
+
 AI-powered autonomous research and optimization platform.
 
 Autoresearcher automates iterative experimentation workflows using LLMs. It provides a framework for running optimization experiments, tracking results, and systematically improving prompts and configurations.
