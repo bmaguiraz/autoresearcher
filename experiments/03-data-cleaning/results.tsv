@@ -3,3 +3,6 @@ commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	descr
 3648d2d	0.0	0.0	0.0	0.0	0.0	crash	Refactor date normalization - IndexError in tuple indexing
 5219827	100.0	25.0	25.0	25.0	25.0	keep	Optimize outlier filtering logic
 e579f8a	100.0	25.0	25.0	25.0	25.0	keep	Simplify sentinel value replacement
+6c25fd5	100.0	25.0	25.0	25.0	25.0	keep	Baseline - session 8706611f
+984222a	100.0	25.0	25.0	25.0	25.0	keep	Strengthen email validation with strict regex
+0205388	100.0	25.0	25.0	25.0	25.0	keep	Improve name normalization with whitespace cleanup
