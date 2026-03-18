@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+ed2d53a	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3e60da94)
+bdaf8cc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Explicit mask for outlier filtering (session: 3e60da94)
+c272f0a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel replacement with dict (session: 3e60da94)
