@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -73,7 +71,7 @@ def normalize_state(state):
         return mapped
     # Check if it's a valid 2-letter state code
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if upper in STATE_MAP.values() else ""
 
 
 def normalize_email(email):
@@ -103,7 +101,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
