@@ -31,6 +31,10 @@ b3941b3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: ddddd
 18f5489	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 45f5fa9d)
 1b5dd2c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add strip() and optimize upper() calls in normalize_state
 a4e69dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple unpacking
-8e02551	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 7f3e1306)
-d97f98a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use zfill() for date padding (session: 7f3e1306)
-7d413d9	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() in phone normalization (session: 7f3e1306)
+2e38f8c	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 718525ff)
+7bd0476	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant strip() in normalize_state (session: 718525ff)
+4efc056	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Inline upper variable in normalize_state (session: 718525ff)
+982f5ef	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 74e284a3)
+20a7d59	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Move sentinel values to module-level constant (session: 74e284a3)
+fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for better readability (session: 74e284a3)
+bb5f56f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: dd73b622)
