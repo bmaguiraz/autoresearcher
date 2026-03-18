@@ -28,12 +28,12 @@ MONTH_MAP = {
     "sep": "09", "oct": "10", "nov": "11", "dec": "12",
 }
 
-SENTINEL_VALUES = {
+SENTINEL_VALUES = frozenset({
     "n/a", "N/A", "na", "NA", "Na",
     "null", "NULL", "Null",
     "none", "NONE", "None",
     "nan", "NAN", "Nan"
-}
+})
 
 
 def normalize_phone(phone):
