@@ -40,7 +40,8 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits.startswith("1") else digits
+    if len(digits) == 11 and digits[0] == "1":
+        digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -73,7 +74,7 @@ def normalize_state(state):
         return mapped
     # Check if it's a valid 2-letter state code
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if len(s) == 2 and upper in VALID_STATES else ""
 
 
 def normalize_email(email):
@@ -88,8 +89,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinels in one pass
     for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        stripped = df[col].str.strip()
+        df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
