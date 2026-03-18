@@ -46,20 +46,22 @@ def normalize_date(s):
     # Handle ISO timestamp format (YYYY-MM-DDTHH:MM:SS or similar)
     if "T" in s:
         s = s.split("T")[0]
-    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
-    if m:
-        return s
-    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
-    m = re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s)
-    if m:
-        mon = MONTH_MAP.get(m.group(1).lower())
-        if mon:
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    m = re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s)
-    if m:
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+
+    # Try each date format pattern
+    patterns = [
+        (r"^(\d{4})-(\d{2})-(\d{2})$", lambda m: s),  # Already ISO
+        (r"^(\d{1,2})/(\d{1,2})/(\d{4})$", lambda m: f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"),  # MM/DD/YYYY
+        (r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", lambda m: f"{m.group(3)}-{MONTH_MAP.get(m.group(1).lower(), '00')}-{int(m.group(2)):02d}"),  # Mon DD YYYY
+        (r"^(\d{1,2})-(\d{1,2})-(\d{4})$", lambda m: f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"),  # DD-MM-YYYY
+    ]
+
+    for pattern, formatter in patterns:
+        m = re.match(pattern, s)
+        if m:
+            result = formatter(m)
+            # Validate month mapping for text dates
+            if "00" not in result:
+                return result
     return ""
 
 
@@ -81,6 +83,14 @@ def normalize_email(email):
     return e if "@" in e and " " not in e else ""
 
 
+def filter_outliers(df, col, min_val, max_val):
+    """Filter outliers from a numeric column and convert back to string."""
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+    df = df[df[col].isna() | df[col].between(min_val, max_val)]
+    df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    return df
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -100,10 +110,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    for col, (min_val, max_val) in [("age", (0, 120)), ("salary", (0, 1_000_000))]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df = filter_outliers(df, "age", 0, 120)
+    df = filter_outliers(df, "salary", 0, 1_000_000)
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
