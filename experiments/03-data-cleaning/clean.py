@@ -102,7 +102,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     outlier_specs = [("age", 0, 120), ("salary", 0, 1_000_000)]
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
+        # Keep rows where value is null OR within valid range
+        valid_mask = df[col].isna() | df[col].between(min_val, max_val)
+        df = df[valid_mask]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
