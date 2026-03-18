@@ -1,0 +1,58 @@
+{
+  "experiment_id": "03-data-cleaning",
+  "session_id": "7d3a42be",
+  "cycles_completed": 2,
+  "results": [
+    {
+      "cycle": 1,
+      "strategy": "baseline",
+      "metrics": {
+        "completeness": 0.781,
+        "consistency": 1.0,
+        "accuracy": 1.0,
+        "deduplication_rate": 1.0
+      },
+      "aggregate_score": 0.9343,
+      "timestamp": "2026-03-18T04:16:10.805714Z",
+      "records_processed": 1050,
+      "records_cleaned": 820
+    },
+    {
+      "cycle": 2,
+      "strategy": "optimized",
+      "metrics": {
+        "completeness": 0.9524,
+        "consistency": 0.972,
+        "accuracy": 1.0,
+        "deduplication_rate": 1.0
+      },
+      "aggregate_score": 0.9787,
+      "timestamp": "2026-03-18T04:16:11.306617Z",
+      "records_processed": 1050,
+      "records_cleaned": 1000
+    }
+  ],
+  "summary": {
+    "initial_score": 0.9343,
+    "final_score": 0.9787,
+    "improvement": 0.0444,
+    "improvement_percentage": 4.75
+  },
+  "config": {
+    "experiment_id": "03-data-cleaning",
+    "cycles": 2,
+    "optimization_target": "aggregate_score",
+    "quality_thresholds": {
+      "completeness": 0.8,
+      "consistency": 0.85,
+      "accuracy": 0.85,
+      "deduplication_rate": 0.9
+    },
+    "cleaning_strategies": [
+      "remove_nulls",
+      "standardize_formats",
+      "validate_values",
+      "deduplicate_records"
+    ]
+  }
+}
