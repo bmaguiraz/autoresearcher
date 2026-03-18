@@ -1,1 +1,4 @@
 commit	accuracy	cost_cents	status	description
+c18e3fef	1.000	0.9	keep	Baseline - fixed model ID to cross-region inference profile
+8504a9d0	1.000	1.1	keep	Added edge case handling for mixed sentiment and sarcasm
+1fe8908c	0.980	0.7	discard	Streamlined prompt - reduced accuracy to 49/50
