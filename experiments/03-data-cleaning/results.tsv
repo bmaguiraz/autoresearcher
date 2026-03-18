@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+4413522	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify timestamp handling in date normalization (session: fec0f9bd)
+302f164	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add strip() to state normalization for consistency (session: fec0f9bd)
+d3f20b3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: fec0f9bd)
 d8c425b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Remove redundant strip() calls in normalize functions (session: 31195d49)
 a6429ac	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Consolidate whitespace stripping with sentinel replacement (session: 31195d49)
 aa5a7c1	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 31195d49)

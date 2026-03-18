@@ -42,10 +42,7 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s)
-    # Handle ISO timestamp format (YYYY-MM-DDTHH:MM:SS or similar)
-    if "T" in s:
-        s = s.split("T")[0]
+    s = str(s).split("T")[0]  # Strip timestamp if present
     m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", s)
     if m:
         return s
@@ -66,7 +63,7 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
+    s = str(state).strip().lower()
     mapped = STATE_MAP.get(s)
     if mapped:
         return mapped
