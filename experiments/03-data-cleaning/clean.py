@@ -71,16 +71,21 @@ def normalize_state(state):
     # Use .get() to avoid redundant lookup
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
-    upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    # Check length first before uppercasing (cheaper operation)
+    if len(s) == 2:
+        upper = s.upper()
+        return upper if upper in VALID_STATES else ""
+    return ""
 
 
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    lowered = str(email).lower()
+    # Validate: must contain @ and no spaces
+    if "@" not in lowered or " " in lowered:
+        return ""
+    return lowered
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
