@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+81b8e9f	86.7	25.0	14.6	22.1	25.0	discard	Cycle 1: Set outliers to empty - score dropped
+a7326e4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Reorder dedup/filter - maintained perfect score
