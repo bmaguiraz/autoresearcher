@@ -40,9 +40,13 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    if len(digits) == 11 and digits[0] == "1":
+    # Handle 1-XXX-XXX-XXXX format
+    if len(digits) == 11 and digits.startswith("1"):
         digits = digits[1:]
-    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
+    # Ensure exactly 10 digits before formatting
+    if len(digits) != 10:
+        return ""
+    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
 
 
 def normalize_date(s):
