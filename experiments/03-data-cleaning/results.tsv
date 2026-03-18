@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+2e91e1e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use replace() instead of where() for sentinel removal (session: 32cd9fc6)
+4302166	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace conditional expression with if statement in normalize_phone (session: 32cd9fc6)
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 32cd9fc6)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 0d1c13eb)
