@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Compose the final OOH ad by rendering copy text onto the hero image.
 
 Takes the hero image and overlays headline, subheadline, and CTA using

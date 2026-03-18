@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # OOH Creative Config — agent edits this file
 # Switch between use cases by changing USE_CASE
 USE_CASE = "writefit"  # "plumber", "restaurant", or "writefit"

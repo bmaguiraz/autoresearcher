@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Mutable prompt configuration for sentiment classification.
 
 The agent edits this file to optimize classification accuracy.

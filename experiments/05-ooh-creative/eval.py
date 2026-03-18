@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """OOH Creative Scorer — implements the OOH Canvas rubric.
 
 Scores a creative config against 7 categories (100 points total):

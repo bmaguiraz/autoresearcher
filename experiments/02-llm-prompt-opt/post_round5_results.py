@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Post Round 5 experiment results to Linear issue MOR-44."""
 import json
 import os

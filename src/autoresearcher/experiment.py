@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Base experiment classes for the autoresearcher framework."""
 
 import json

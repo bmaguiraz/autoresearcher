@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Authentication module for autoresearcher.
 
 Provides user authentication and password reset functionality.
