@@ -86,10 +86,12 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
+    # Strip whitespace and replace sentinels - optimized with fillna
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+
+    # Replace all sentinels in one vectorized operation
+    df = df.replace(SENTINEL_VALUES, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -106,7 +108,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
-    df = df[df["email"] != ""]
+    # Combine filtering and dedup in single pass with stricter validation
+    df = df[(df["email"] != "") & (df["name"] != "")]
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
