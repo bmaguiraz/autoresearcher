@@ -225,3 +225,88 @@ class TestSessionValidation:
         del auth_manager.users["testuser"]
 
         assert auth_manager.validate_session(session_id) is False
+
+
+class TestMOR26Verification:
+    """MOR-26: Verification that authentication bug is fixed.
+
+    Issue: Users are unable to login after password reset
+    Root cause: Sessions were not invalidated after password reset
+    Fix: password_version tracking ensures old sessions become invalid
+
+    This test class explicitly verifies MOR-26 is resolved.
+    """
+
+    def test_mor26_login_after_password_reset_works(self, auth_manager, test_user):
+        """MOR-26: Verify users CAN login with new password after reset.
+
+        The bug description says "Users are unable to login after password reset."
+        This test confirms users CAN login after reset with the NEW password.
+        """
+        # Initial login works
+        session1 = auth_manager.login("testuser", "password123")
+        assert auth_manager.validate_session(session1) is True
+
+        # Reset password
+        reset_token = auth_manager.request_password_reset("testuser")
+        auth_manager.reset_password("testuser", reset_token, "new_secure_password")
+
+        # CRITICAL: User SHOULD be able to login with new password
+        # This was the bug - if this fails, MOR-26 is not fixed
+        new_session = auth_manager.login("testuser", "new_secure_password")
+        assert new_session is not None
+        assert auth_manager.validate_session(new_session) is True
+
+    def test_mor26_old_sessions_invalidated_after_reset(self, auth_manager, test_user):
+        """MOR-26: Verify old sessions are invalidated (security requirement).
+
+        After password reset, all previous sessions must be invalid.
+        This prevents unauthorized access with stolen session tokens.
+        """
+        # Create multiple sessions before reset
+        session1 = auth_manager.login("testuser", "password123")
+        session2 = auth_manager.login("testuser", "password123")
+
+        assert auth_manager.validate_session(session1) is True
+        assert auth_manager.validate_session(session2) is True
+
+        # Reset password
+        reset_token = auth_manager.request_password_reset("testuser")
+        auth_manager.reset_password("testuser", reset_token, "new_password")
+
+        # Old sessions MUST be invalid
+        assert auth_manager.validate_session(session1) is False
+        assert auth_manager.validate_session(session2) is False
+
+    def test_mor26_complete_password_reset_flow(self, auth_manager, test_user):
+        """MOR-26: End-to-end test of password reset flow.
+
+        Simulates complete user experience:
+        1. User logs in and uses the system
+        2. User forgets password and requests reset
+        3. User resets password with token
+        4. User can login with new password
+        5. Old sessions are no longer valid
+        """
+        # Step 1: User logs in normally
+        old_session = auth_manager.login("testuser", "password123")
+        assert auth_manager.validate_session(old_session) is True
+
+        # Step 2: User requests password reset
+        reset_token = auth_manager.request_password_reset("testuser")
+        assert reset_token is not None
+
+        # Step 3: User receives token via email and resets password
+        auth_manager.reset_password("testuser", reset_token, "MyNewPassword123!")
+
+        # Step 4: User can login with NEW password
+        new_session = auth_manager.login("testuser", "MyNewPassword123!")
+        assert new_session is not None
+        assert auth_manager.validate_session(new_session) is True
+
+        # Step 5: Old session is invalid (security requirement)
+        assert auth_manager.validate_session(old_session) is False
+
+        # Step 6: Old password no longer works
+        with pytest.raises(AuthenticationError):
+            auth_manager.login("testuser", "password123")
