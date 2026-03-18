@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+b1e18df	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: cdd44ab5)
+5a5a1fb	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant VALID_STATES set (session: cdd44ab5)
+4e63c8b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: cdd44ab5)
