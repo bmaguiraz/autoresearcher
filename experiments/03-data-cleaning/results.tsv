@@ -20,6 +20,8 @@ a5f6d97	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify sentinel replacement wi
 802b2e4	100.0	25.0	25.0	25.0	25.0	keep	Baseline
 9278867	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel handling with regex and consolidate numeric conversion
 ef16f1b	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score (session: 0c016fd0)
+c28fc67	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 3 (MOR-33, session: bfda8db9)
+b703fa0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify numeric conversion with lambda functions
 1724851	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
 3d51411	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Case-insensitive sentinel matching (simplified)
 e176f16	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 2 (session: c7a4323f)
