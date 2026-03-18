@@ -1,2 +1,3 @@
 commit	score	clip_score	aesthetic_score	consistency	status	description
 baseline	78.7	78.0	81.0	73.0	keep	Baseline - no changes applied
+cycle1	86.8	86.0	91.0	81.0	keep	Precise material textures, lighting angles, color temp for consistency
