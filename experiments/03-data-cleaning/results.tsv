@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+bedf426	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+eaffa73	100.0	25.0	25.0	25.0	25.0	keep	simplify sentinel replacement - maintained perfect score
+ff9b9e6	100.0	25.0	25.0	25.0	25.0	keep	remove intermediate variable - maintained perfect score
