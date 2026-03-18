@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+9f5c6ab9	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use partition for ISO timestamp split (session: 4973f2d3)
+587df26f	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use temp variable for stripped values (session: 4973f2d3)
+376fd6ff	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: 4973f2d3)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 0d1c13eb)
