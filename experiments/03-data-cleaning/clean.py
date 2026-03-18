@@ -67,7 +67,8 @@ def normalize_state(state):
     s = str(state).lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    if len(s) == 2 and (upper := s.upper()) in STATE_MAP.values():
+    upper = s.upper()
+    if len(s) == 2 and upper in STATE_MAP.values():
         return upper
     return ""
 
