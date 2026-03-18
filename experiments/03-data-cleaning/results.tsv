@@ -1,4 +1,6 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+2471032	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use temp variable in sentinel replacement loop (session: 99883679)
+96d6f87	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Convert ternary to conditional in normalize_phone (session: 99883679)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 99883679)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
