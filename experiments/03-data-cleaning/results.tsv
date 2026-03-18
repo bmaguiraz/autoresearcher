@@ -1,2 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 5210592	100.0	25.0	25.0	25.0	25.0	keep	baseline
+625a127	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline upper variable in normalize_state
