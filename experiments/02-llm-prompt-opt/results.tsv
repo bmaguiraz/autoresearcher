@@ -1,1 +1,3 @@
 commit	accuracy	cost_cents	status	description
+1a20c9a	1.000	1.0	keep	Baseline - no changes applied
+734dd21	1.000	0.8	keep	Streamlined system prompt - 20% cost reduction
