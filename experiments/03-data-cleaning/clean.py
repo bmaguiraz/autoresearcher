@@ -54,14 +54,14 @@ def normalize_date(s):
         return s
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        return f"{m.group(3)}-{m.group(1).zfill(2)}-{m.group(2).zfill(2)}"
     # Mon DD YYYY format
     if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
         if mon := MONTH_MAP.get(m.group(1).lower()):
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+            return f"{m.group(3)}-{mon}-{m.group(2).zfill(2)}"
     # DD-MM-YYYY format
     if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        return f"{m.group(3)}-{m.group(2).zfill(2)}-{m.group(1).zfill(2)}"
     return ""
 
 
@@ -103,7 +103,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].map(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
