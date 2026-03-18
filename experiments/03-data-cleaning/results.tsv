@@ -2,3 +2,4 @@ commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	descr
 cab5f03	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 5e8d82eb)
 44824db	0.0	0.0	0.0	0.0	0.0	crash	Cycle 1a: FAILED - Vectorized string conversion (dtype assignment error)
 a416af5	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify phone normalization with ternary expression
+cde3060	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Check length of upper variable in normalize_state
