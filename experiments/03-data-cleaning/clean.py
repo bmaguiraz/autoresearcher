@@ -20,7 +20,7 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
+VALID_STATES = set(STATE_MAP.values())  # Cache for O(1) lookups
 
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
@@ -40,7 +40,7 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits.startswith("1") else digits
+    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
