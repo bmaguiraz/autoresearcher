@@ -67,12 +67,12 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
+    state_str = str(state)
     # Use .get() to avoid redundant lookup
-    if mapped := STATE_MAP.get(s):
+    if mapped := STATE_MAP.get(state_str.lower()):
         return mapped
     # Check if it's a valid 2-letter state code
-    upper = s.upper()
+    upper = state_str.upper()
     return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
