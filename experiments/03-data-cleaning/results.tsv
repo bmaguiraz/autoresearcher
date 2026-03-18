@@ -41,3 +41,5 @@ a4e69dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple
 20a7d59	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Move sentinel values to module-level constant (session: 74e284a3)
 fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for better readability (session: 74e284a3)
 05add5e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 48a5c7a5)
+c959ac1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Avoid parameter shadowing in normalize_email (session: 48a5c7a5)
+205d080	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() in normalize_phone (session: 48a5c7a5)
