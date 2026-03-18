@@ -86,10 +86,8 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
-    for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+    # Strip whitespace and replace sentinels in one pass - optimized
+    df = df.apply(lambda col: col.str.strip().where(~col.isin(SENTINEL_VALUES), ""))
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -98,11 +96,11 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
+    # Outlier filtering and numeric conversion - streamlined
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].fillna("").apply(lambda x: str(int(x)) if x != "" else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
