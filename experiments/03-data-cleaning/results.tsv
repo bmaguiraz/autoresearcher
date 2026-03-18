@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 2e38f8c	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score from previous optimization
+3888bfa	crash	-	-	-	-	discard	vectorized operations caused dtype conflict
+f6b7e0d	100.0	25.0	25.0	25.0	25.0	keep	more explicit phone normalization logic
