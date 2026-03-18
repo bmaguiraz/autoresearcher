@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+f8e755a	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: f18d93aa)
+889e12a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use direct indexing instead of startswith (session: f18d93aa)
+73e45fe	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Inline intermediate variable in normalize_email (session: f18d93aa)
