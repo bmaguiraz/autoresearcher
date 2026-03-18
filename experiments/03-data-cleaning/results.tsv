@@ -1,4 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+c3adea7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove VALID_STATES constant, inline check in normalize_state (session: 56501036)
 3a7fc02	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: 56501036)
 5fb4a81	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify state normalization logic (session: 665d853a)
 87802f0	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-49 (session: 665d853a)
