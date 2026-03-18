@@ -88,9 +88,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinels in one pass
+    sentinel_map = {v: "" for v in SENTINEL_VALUES}
     for col in df.columns:
-        stripped = df[col].str.strip()
-        df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
+        df[col] = df[col].str.strip().replace(sentinel_map)
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
