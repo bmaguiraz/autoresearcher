@@ -49,8 +49,8 @@ def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
+    # Already in correct format - check without regex for speed
+    if len(s) == 10 and s[4] == "-" and s[7] == "-":
         return s
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
@@ -81,7 +81,10 @@ def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
     e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    # More explicit validation logic
+    if "@" not in e or " " in e:
+        return ""
+    return e
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
