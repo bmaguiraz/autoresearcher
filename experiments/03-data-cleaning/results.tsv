@@ -46,3 +46,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 c8dc6c5	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 44d87b51)
 fbfdcb3	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace between() with explicit comparisons (session: 44d87b51)
 406d9d2	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for clearer phone normalization (session: 44d87b51)
+376a323	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 057e14f7)
+3d3aa94	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Check length before uppercasing in normalize_state
+fc670ea	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith in normalize_phone
