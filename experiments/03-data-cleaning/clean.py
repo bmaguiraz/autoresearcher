@@ -68,10 +68,10 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
-    if mapped := STATE_MAP.get(s):
+    # Try map lookup first, then check 2-letter codes
+    mapped = STATE_MAP.get(s)
+    if mapped:
         return mapped
-    # Check if it's a valid 2-letter state code
     upper = s.upper()
     return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
@@ -88,8 +88,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinels in one pass
     for col in df.columns:
-        df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+        df[col] = df[col].str.strip().where(~df[col].str.strip().isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
