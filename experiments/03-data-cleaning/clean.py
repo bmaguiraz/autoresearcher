@@ -43,7 +43,7 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).strip()
+    s = str(s)
     # Handle ISO timestamp format (YYYY-MM-DDTHH:MM:SS or similar)
     if "T" in s:
         s = s.split("T")[0]
@@ -67,7 +67,7 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).strip().lower()
+    s = str(state).lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
     return s.upper() if len(s) == 2 and s.upper() in VALID_STATES else ""
@@ -76,7 +76,7 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).strip().lower()
+    e = str(email).lower()
     return e if "@" in e and " " not in e else ""
 
 
