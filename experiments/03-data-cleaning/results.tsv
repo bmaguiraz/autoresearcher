@@ -1,4 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+a7170ca	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify normalize_email by reusing parameter
 0810c22	crash	-	-	-	-	discard	Cycle 1 ATTEMPT 1: CRASH - Walrus operator in ternary caused UnboundLocalError
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: a96b9516)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
