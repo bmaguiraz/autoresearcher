@@ -73,10 +73,10 @@ def normalize_state(state):
     if mapped := STATE_MAP.get(s):
         return mapped
     # Check if it's a valid 2-letter state code
-    if len(s) == 2:
-        upper = s.upper()
-        return upper if upper in VALID_STATES else ""
-    return ""
+    if len(s) != 2:
+        return ""
+    upper = s.upper()
+    return upper if upper in VALID_STATES else ""
 
 
 def normalize_email(email):
