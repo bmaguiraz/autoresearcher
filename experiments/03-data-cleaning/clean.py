@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -42,7 +40,7 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    s = str(s)
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
@@ -70,7 +68,7 @@ def normalize_state(state):
     if s in STATE_MAP:
         return STATE_MAP[s]
     s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    return s if len(s) == 2 and s in STATE_MAP.values() else ""
 
 
 def normalize_email(email):
