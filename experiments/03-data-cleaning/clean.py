@@ -77,9 +77,7 @@ def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
     e = str(email).strip().lower()
-    if " " in e or "@" not in e:
-        return ""
-    return e
+    return e if "@" in e and " " not in e else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
