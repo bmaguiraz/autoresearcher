@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+fdb95a3	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: d86a8836)
+63cd8e2	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use startswith() in phone normalization (session: d86a8836)
+2b79f47	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Reuse parameter in normalize_email (session: d86a8836)
