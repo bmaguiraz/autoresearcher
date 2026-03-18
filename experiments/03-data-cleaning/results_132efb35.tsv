@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5341e71	100.0	25.0	25.0	25.0	25.0	keep	baseline - already optimal
+4acb69a	100.0	25.0	25.0	25.0	25.0	keep	simplified sentinel replacement
+0ef75e0	100.0	25.0	25.0	25.0	25.0	keep	simplified phone normalization and outlier filtering
