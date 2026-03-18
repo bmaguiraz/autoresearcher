@@ -1,4 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+ddee231	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Make strip/sentinel replacement more explicit (session: 12080973)
 718e5c2	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify phone normalization with explicit if statement (session: 12080973)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 12080973)
 399608d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: 062a6a4b)
