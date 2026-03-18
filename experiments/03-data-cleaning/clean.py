@@ -19,6 +19,7 @@ STATE_MAP = {
     "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
     "district of columbia": "DC", "d.c.": "DC",
 }
+VALID_STATE_CODES = set(STATE_MAP.values())
 
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
@@ -67,7 +68,7 @@ def normalize_state(state):
     s = str(state).lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    if len(s) == 2 and (upper := s.upper()) in STATE_MAP.values():
+    if len(s) == 2 and (upper := s.upper()) in VALID_STATE_CODES:
         return upper
     return ""
 
