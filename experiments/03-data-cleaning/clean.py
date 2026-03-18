@@ -47,10 +47,8 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
-        return s
+    # Handle ISO timestamp format by extracting date part
+    s = str(s).split("T")[0]
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
@@ -61,7 +59,8 @@ def normalize_date(s):
     # DD-MM-YYYY format
     if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
-    return ""
+    # Return as-is if already in correct YYYY-MM-DD format, otherwise empty
+    return s if re.match(r"^\d{4}-\d{2}-\d{2}$", s) else ""
 
 
 def normalize_state(state):
@@ -102,7 +101,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].apply(lambda x: "" if pd.isna(x) else str(int(x)))
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
