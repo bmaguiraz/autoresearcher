@@ -39,8 +39,8 @@ SENTINEL_VALUES = {
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
-    digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    raw_digits = re.sub(r"\D", "", str(phone))
+    digits = raw_digits[1:] if len(raw_digits) == 11 and raw_digits[0] == "1" else raw_digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -79,8 +79,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    lower_email = str(email).lower()
+    return lower_email if "@" in lower_email and " " not in lower_email else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
