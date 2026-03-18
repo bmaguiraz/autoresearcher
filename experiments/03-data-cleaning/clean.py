@@ -39,8 +39,8 @@ SENTINEL_VALUES = {
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
-    digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    all_digits = re.sub(r"\D", "", str(phone))
+    digits = all_digits[1:] if len(all_digits) == 11 and all_digits[0] == "1" else all_digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -103,7 +103,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].fillna("").astype(str).str.replace(r"\.0$", "", regex=True)
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
