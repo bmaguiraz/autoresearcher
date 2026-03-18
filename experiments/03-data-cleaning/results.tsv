@@ -1,4 +1,5 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5fb4a81	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify state normalization logic (session: 665d853a)
 87802f0	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-49 (session: 665d853a)
 d8c425b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Remove redundant strip() calls in normalize functions (session: 31195d49)
 a6429ac	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Consolidate whitespace stripping with sentinel replacement (session: 31195d49)
