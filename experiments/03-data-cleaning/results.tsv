@@ -51,3 +51,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
 80e77fb	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize sentinel replacement to avoid duplicate strip() calls (session: 3246b1bb)
 259d319	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_date (session: 9c9001e2)
+ecb925d	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 9c9001e2)
+34c7455	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Check state length before calling upper() (session: 9c9001e2)
+9a8eb05	0.0	0.0	0.0	0.0	0.0	crash	Cycle 2: FAILED - Walrus operator scoping error in normalize_email
