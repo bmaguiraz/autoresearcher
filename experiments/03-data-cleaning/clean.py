@@ -86,10 +86,12 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
+    # Strip whitespace and replace sentinels - optimized with fillna
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
+
+    # Replace all sentinels in one vectorized operation
+    df = df.replace(SENTINEL_VALUES, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
