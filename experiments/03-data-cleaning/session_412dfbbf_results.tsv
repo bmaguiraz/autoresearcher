@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+0f02129	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+07e608b	100.0	25.0	25.0	25.0	25.0	keep	cycle 1 - simplified outlier filtering (removed loop)
+5003c53	100.0	25.0	25.0	25.0	25.0	keep	cycle 2 - streamlined sentinel handling (combined strip ops)
