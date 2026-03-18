@@ -1,0 +1,35 @@
+{
+  "experiment_id": "05-ooh-creative",
+  "use_case": "writefit",
+  "cycles": 1,
+  "parallel_execution": true,
+  "elapsed_seconds": 0.01,
+  "results": [
+    {
+      "variant": "baseline",
+      "final_score": 18.148322679514326,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "emotional",
+      "final_score": 20.980391753199257,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "urgency",
+      "final_score": 21.03701355180814,
+      "success": true,
+      "error": null
+    },
+    {
+      "variant": "social_proof",
+      "final_score": 21.712612972124752,
+      "success": true,
+      "error": null
+    }
+  ],
+  "best_variant": "social_proof",
+  "best_score": 21.712612972124752
+}
