@@ -34,3 +34,6 @@ a4e69dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple
 8e02551	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 7f3e1306)
 d97f98a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use zfill() for date padding (session: 7f3e1306)
 7d413d9	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() in phone normalization (session: 7f3e1306)
+65fe044	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: d54e1cf2)
+6f83d45	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use ternary operator in phone normalization (session: d54e1cf2)
+27d1f20	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Inline upper() call in normalize_state (session: d54e1cf2)
