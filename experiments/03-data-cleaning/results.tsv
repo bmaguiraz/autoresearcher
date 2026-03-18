@@ -56,3 +56,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 1aa3c9e	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 3a7b93cc)
 b7c5970	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Replace regex with string ops for date format check (session: 3a7b93cc)
 ff31683	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid upper() call when state length != 2 (session: 3a7b93cc)
+2090fca	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 3f028f74)
+af9e9fd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Avoid unnecessary split when no timestamp present (session: 3f028f74)
+0c0b3ed	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use walrus operator in state validation check (session: 3f028f74)
