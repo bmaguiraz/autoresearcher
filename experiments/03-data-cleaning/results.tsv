@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+891c38c	100.0	25.0	25.0	25.0	25.0	keep	cycle 1 - inline outlier specs, maintained perfect score
+c36b89a	100.0	25.0	25.0	25.0	25.0	keep	cycle 2 - remove redundant comment, maintained perfect score
