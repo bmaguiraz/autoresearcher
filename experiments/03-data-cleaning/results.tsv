@@ -1,3 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 1f9f2fd	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 937af745)
 d89c68a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify state normalization (session: 937af745)
+9cd54eb	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize outlier filtering (session: 937af745)
