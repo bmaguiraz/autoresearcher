@@ -71,7 +71,7 @@ def normalize_state(state):
     if mapped:
         return mapped
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if upper in VALID_STATES else ""
 
 
 def normalize_email(email):
