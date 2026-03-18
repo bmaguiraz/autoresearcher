@@ -3,7 +3,7 @@
   "name": "Image Generation Prompt Optimization (Nano)",
   "description": "Short experiment to test per-issue parallelism. 1 cycle optimization for image gen prompts.",
   "version": "1.0.0",
-  "cycles": 1,
+  "cycles": 2,
   "parameters": {
     "model": "stable-diffusion",
     "optimization_strategy": "iterative_refinement"
