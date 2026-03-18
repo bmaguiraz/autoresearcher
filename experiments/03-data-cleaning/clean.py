@@ -95,7 +95,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].str.strip().replace(sentinels, "")
 
     # Normalize all fields first
-    df["name"] = df["name"].apply(lambda x: x.title() if x else "")
+    df["name"] = df["name"].str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
@@ -106,8 +106,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
     df = df[df["age"].isna() | df["age"].between(0, 120)]
     df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
-    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+
+    # Convert numeric fields back to strings
+    for col in ["age", "salary"]:
+        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
