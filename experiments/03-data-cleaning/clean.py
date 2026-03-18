@@ -107,9 +107,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     salary_valid = df["salary"].isna() | df["salary"].between(0, 1_000_000)
     df = df[age_valid & salary_valid]
 
-    # Convert back to strings
+    # Convert back to strings using pandas nullable integer for efficiency
     for col in ["age", "salary"]:
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].astype('Int64').astype(str).replace('<NA>', '')
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
