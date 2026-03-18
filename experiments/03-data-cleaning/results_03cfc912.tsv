@@ -1,0 +1,5 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5341e71	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+4372e85	100.0	25.0	25.0	25.0	25.0	keep	cycle 1 - check length before uppercasing in normalize_state
+7a95eed	-	-	-	-	-	crash	cycle 2 failed - pandas dtype issue with explicit masking
+f5ed769	100.0	25.0	25.0	25.0	25.0	keep	cycle 2 - chain filter and deduplication
