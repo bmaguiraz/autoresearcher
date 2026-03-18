@@ -1,6 +1,7 @@
+Bytecode compiled 983 files in 77ms
 ---
 accuracy:        1.000
 correct:         50
 total:           50
-cost_cents:      0.9
-eval_seconds:    80.3
+cost_cents:      1.4
+eval_seconds:    47.2
