@@ -40,7 +40,8 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    # Strip leading 1 for 11-digit numbers
+    digits = digits[1:] if digits.startswith("1") and len(digits) == 11 else digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -83,6 +84,11 @@ def normalize_email(email):
     return e if "@" in e and " " not in e else ""
 
 
+def to_int_str(x):
+    """Convert numeric value to integer string, or empty string if missing."""
+    return str(int(x)) if pd.notna(x) else ""
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -103,7 +109,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in outlier_specs:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        df[col] = df[col].apply(to_int_str)
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
