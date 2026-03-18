@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+e6a9100	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: b29db25f)
+e15474a	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline upper variable in normalize_state (session: b29db25f)
+8ccc40d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: b29db25f)
