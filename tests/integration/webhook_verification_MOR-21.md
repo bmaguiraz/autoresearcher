@@ -23,8 +23,8 @@ This is a test issue created by the Linear integration test suite to verify the 
 4. ✅ Linear backlog fetched for project 62c20541-6d2a-4f57-a071-6c6625e7718e
 5. ✅ Branch created: MOR-21-test-issue-from-integration-test-95c25478
 6. ✅ Verification marker updated with session 95c25478
-7. 🔄 Commit and push pending
-8. 🔄 PR creation pending
+7. ✅ Changes committed and pushed
+8. ✅ PR created: https://github.com/bmaguiraz/autoresearcher/pull/291
 
 ## Webhook Payload Summary
 
