@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5341e71	100.0	25.0	25.0	25.0	25.0	keep	baseline - already perfect
+5ca13cd	100.0	25.0	25.0	25.0	25.0	keep	simplified outlier filtering - cleaner code, same score
+71a0721	100.0	25.0	25.0	25.0	25.0	keep	simplified sentinel replacement with replace() - cleaner chain
