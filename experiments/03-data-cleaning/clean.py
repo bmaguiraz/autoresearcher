@@ -53,14 +53,14 @@ def normalize_date(s):
         return s
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+        return f"{m[3]}-{int(m[1]):02d}-{int(m[2]):02d}"
     # Mon DD YYYY format
     if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
-        if mon := MONTH_MAP.get(m.group(1).lower()):
-            return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
+        if mon := MONTH_MAP.get(m[1].lower()):
+            return f"{m[3]}-{mon}-{int(m[2]):02d}"
     # DD-MM-YYYY format
     if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        return f"{m[3]}-{int(m[2]):02d}-{int(m[1]):02d}"
     return ""
 
 
@@ -80,7 +80,7 @@ def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
     e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    return e if "@" in e and not e.count(" ") else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
