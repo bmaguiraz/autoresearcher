@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+0a002d2	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline phone digit length check (session: 7a1140f8)
+e708185	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline upper() in normalize_state (session: 7a1140f8)
+6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 7a1140f8)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
 5cb4687	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit length check in normalize_state (session: 3246b1bb)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3246b1bb)
