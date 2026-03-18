@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5f0076fe	100.0	25.0	25.0	25.0	25.0	keep	baseline
+ef41b3bd	100.0	25.0	25.0	25.0	25.0	keep	keep=last deduplication
+6f59f748	100.0	25.0	25.0	25.0	25.0	keep	dedup before email filter
