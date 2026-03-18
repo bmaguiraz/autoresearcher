@@ -84,7 +84,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Strip whitespace and replace sentinels in one pass
     sentinel_values = {
-        "n/a", "N/A", "na", "NA", "Na",
+        "n/a", "N/A", "na", "NA",
         "null", "NULL", "Null",
         "none", "NONE", "None",
         "nan", "NAN", "Nan"
