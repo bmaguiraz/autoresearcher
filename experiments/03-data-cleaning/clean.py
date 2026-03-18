@@ -42,7 +42,9 @@ def normalize_phone(phone):
     digits = re.sub(r"\D", "", str(phone))
     if len(digits) == 11 and digits[0] == "1":
         digits = digits[1:]
-    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
+    if len(digits) == 10:
+        return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+    return ""
 
 
 def normalize_date(s):
@@ -50,8 +52,8 @@ def normalize_date(s):
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
     # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
-        return s
+    if m := re.match(r"^\d{4}-\d{2}-\d{2}$", s):
+        return m.group(0)
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
