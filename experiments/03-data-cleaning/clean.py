@@ -49,8 +49,8 @@ def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
+    # Already in correct format YYYY-MM-DD (faster than regex)
+    if len(s) == 10 and s[4] == '-' and s[7] == '-':
         return s
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
