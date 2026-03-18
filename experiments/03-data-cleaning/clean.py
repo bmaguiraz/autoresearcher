@@ -66,11 +66,11 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
-    if s in STATE_MAP:
-        return STATE_MAP[s]
-    s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    lower = str(state).lower()
+    if lower in STATE_MAP:
+        return STATE_MAP[lower]
+    upper = lower.upper()
+    return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
 def normalize_email(email):
@@ -108,8 +108,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
-    df = df[df["email"] != ""]
-    df = df.drop_duplicates(subset=["name", "email"], keep="first")
+    df = df[df["email"] != ""].drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
 
