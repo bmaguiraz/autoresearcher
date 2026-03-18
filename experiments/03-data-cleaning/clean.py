@@ -90,7 +90,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Replace sentinel values with empty strings (case-insensitive)
     sentinel_values = {"n/a", "na", "null", "none", "nan"}
     for col in df.columns:
-        df[col] = df[col].where(~df[col].str.lower().isin(sentinel_values), "")
+        mask = df[col].str.lower().isin(sentinel_values)
+        df.loc[mask, col] = ""
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
