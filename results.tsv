@@ -1,1 +1,3 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+70f810e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use partition() instead of split() in normalize_date (session: 1802c0ec)
+776a497	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use .replace() with dict for sentinel removal (session: 1802c0ec)
