@@ -105,9 +105,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
-    # Filter and deduplicate AFTER all normalization is complete
-    df = df[df["email"] != ""]
+    # Deduplicate first, then filter empty emails - may preserve more valid rows
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
+    df = df[df["email"] != ""]
 
     df.to_csv(output_path, index=False)
 
