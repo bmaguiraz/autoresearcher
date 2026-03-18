@@ -44,3 +44,5 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 8cb69a1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 30ad9c70)
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
 5210592	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 51e4b2d1)
+a3d1b24	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove VALID_STATES set (session: 51e4b2d1)
+b131933	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Clarify phone normalization (session: 51e4b2d1)
