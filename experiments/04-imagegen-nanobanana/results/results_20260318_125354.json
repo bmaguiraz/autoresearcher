@@ -18,7 +18,7 @@
       "composition"
     ]
   },
-  "cycles_completed": 1,
+  "cycles_completed": 2,
   "results": [
     {
       "cycle": 1,
@@ -30,7 +30,7 @@
         "composition": 0.8099999999999999
       },
       "aggregate_score": 0.787,
-      "timestamp": "2026-03-18T12:54:03.287613"
+      "timestamp": "2026-03-18T12:53:54.138781"
     },
     {
       "cycle": 2,
@@ -42,16 +42,16 @@
         "composition": 0.89
       },
       "aggregate_score": 0.868,
-      "timestamp": "2026-03-18T12:54:03.588417"
+      "timestamp": "2026-03-18T12:53:54.439619"
     }
   ],
   "summary": {
-    "total_cycles": 1,
+    "total_cycles": 2,
     "initial_score": 0.787,
-    "final_score": 0.787,
-    "improvement": 0.0,
-    "improvement_percentage": 0.0,
-    "best_score": 0.787,
-    "average_score": 0.787
+    "final_score": 0.868,
+    "improvement": 0.081,
+    "improvement_percentage": 10.29,
+    "best_score": 0.868,
+    "average_score": 0.828
   }
 }
