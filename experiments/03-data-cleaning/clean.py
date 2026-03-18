@@ -66,11 +66,14 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
-    if s in STATE_MAP:
-        return STATE_MAP[s]
-    s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    s = str(state).strip().lower()
+    # Check map first
+    mapped = STATE_MAP.get(s)
+    if mapped:
+        return mapped
+    # Check if it's already a 2-letter code
+    upper = s.upper()
+    return upper if len(upper) == 2 and upper in VALID_STATES else ""
 
 
 def normalize_email(email):
@@ -102,7 +105,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    for col, (min_val, max_val) in [("age", (0, 120)), ("salary", (0, 1_000_000))]:
+    outlier_ranges = {"age": (0, 120), "salary": (0, 1_000_000)}
+    for col, (min_val, max_val) in outlier_ranges.items():
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
