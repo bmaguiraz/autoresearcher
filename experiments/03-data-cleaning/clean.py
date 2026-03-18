@@ -105,15 +105,12 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering
-    df["age"] = pd.to_numeric(df["age"], errors="coerce")
-    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
-    df = df[df["age"].isna() | df["age"].between(0, 120)]
-    df = df[df["salary"].isna() | df["salary"].between(0, 1_000_000)]
-
-    # Convert numeric fields back to strings
-    for col in ["age", "salary"]:
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    # Outlier filtering and conversion to strings (consolidated)
+    for col, (min_val, max_val) in [("age", (0, 120)), ("salary", (0, 1_000_000))]:
+        numeric_vals = pd.to_numeric(df[col], errors="coerce")
+        valid = numeric_vals.isna() | numeric_vals.between(min_val, max_val)
+        df = df[valid]
+        df[col] = numeric_vals[valid].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
