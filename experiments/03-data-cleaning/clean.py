@@ -39,8 +39,11 @@ SENTINEL_VALUES = {
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
-    digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    # Use string comprehension for digit extraction
+    digits = "".join(c for c in str(phone) if c.isdigit())
+    # Strip leading 1 from 11-digit numbers
+    if len(digits) == 11 and digits[0] == "1":
+        digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -48,8 +51,8 @@ def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format YYYY-MM-DD (faster than regex)
-    if len(s) == 10 and s[4] == '-' and s[7] == '-':
+    # Already in correct format YYYY-MM-DD
+    if len(s) == 10 and s[4] == '-' and s[7] == '-' and s[:4].isdigit():
         return s
     # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
@@ -71,9 +74,11 @@ def normalize_state(state):
     # Use .get() to avoid redundant lookup
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
-    if len(s) == 2 and (u := s.upper()) in VALID_STATES:
-        return u
+    # Check if it's a valid 2-letter state code (check length first to avoid upper() call)
+    if len(s) == 2:
+        u = s.upper()
+        if u in VALID_STATES:
+            return u
     return ""
 
 
