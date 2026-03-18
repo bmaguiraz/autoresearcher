@@ -82,8 +82,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    email_lower = str(email).lower()
-    return email_lower if "@" in email_lower and " " not in email_lower else ""
+    email = str(email).lower()
+    return email if "@" in email and " " not in email else ""
 
 
 def format_as_string_int(value):
