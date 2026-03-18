@@ -84,6 +84,12 @@ def normalize_email(email):
     return e if "@" in e and " " not in e else ""
 
 
+def normalize_name(name):
+    if pd.isna(name) or name == "":
+        return ""
+    return str(name).title()
+
+
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
@@ -93,7 +99,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
-    df["name"] = df["name"].str.title()
+    df["name"] = df["name"].apply(normalize_name)
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
@@ -103,7 +109,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        # Vectorized conversion: convert non-null to int then string
+        df[col] = df[col].astype('Int64').astype(str).replace('<NA>', '')
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
