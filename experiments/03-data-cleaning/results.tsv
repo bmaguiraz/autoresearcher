@@ -6,3 +6,4 @@ bcffadb	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: d6e73
 d7cff25	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify email validation (session: d6e737fe)
 7086d25	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 4 (MOR-41, session: 6a1758b8)
 f17a448	99.2	24.9	25.0	24.3	25.0	discard	Cycle 1: FAILED - Removed whitespace stripping (broke type_correctness and dedup)
+cfddc8a	100.0	25.0	25.0	25.0	25.0	keep	Baseline - Round 4 (MOR-41, session: 3ad93710)
