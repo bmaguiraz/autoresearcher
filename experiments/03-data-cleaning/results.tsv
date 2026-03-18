@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+1298786	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_state by removing walrus operator (session: c4dd8195)
+c69b38f	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Split phone normalization return logic for clarity (session: c4dd8195)
+6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: c4dd8195)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
 5cb4687	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit length check in normalize_state (session: 3246b1bb)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3246b1bb)
