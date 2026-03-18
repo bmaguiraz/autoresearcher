@@ -13,3 +13,5 @@ f17a448	99.2	24.9	25.0	24.3	25.0	discard	Cycle 1: FAILED - Removed whitespace st
 cfddc8a	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 02b2af78)
 9e146d7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify state normalization logic
 1ad706c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Condense phone normalization
+c3b4667	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-41 Round 4 (session: 805ce523)
+61293fa	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Extract outlier bounds as constants
