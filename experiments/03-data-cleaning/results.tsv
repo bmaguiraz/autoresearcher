@@ -46,3 +46,7 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: bb7fb438)
 74913e0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier_specs into loop (session: bb7fb438)
 ba7b9ef	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() in normalize_phone (session: bb7fb438)
+20fb769	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 6521a7c3)
+93357c7	0.0	0.0	0.0	0.0	0.0	crash	Cycle 1 attempt 1: CRASHED - Walrus operator in normalize_email (UnboundLocalError)
+270e7e7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Clarify phone normalization with explicit check
+7d844e4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize state normalization with early length check
