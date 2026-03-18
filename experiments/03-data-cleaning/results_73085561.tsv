@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5210592	100.0	25.0	25.0	25.0	25.0	keep	baseline - already optimal from previous sessions
+d5e6eec	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline upper variable in normalize_state
+1d2e407	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Chain filter and deduplication operations
