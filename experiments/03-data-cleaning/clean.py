@@ -101,12 +101,18 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
-    outlier_specs = [("age", 0, 120), ("salary", 0, 1_000_000)]
-    for col, min_val, max_val in outlier_specs:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    # Outlier filtering and numeric conversion (vectorized approach)
+    df["age"] = pd.to_numeric(df["age"], errors="coerce")
+    df["salary"] = pd.to_numeric(df["salary"], errors="coerce")
+
+    # Filter outliers in one pass using combined mask
+    age_valid = df["age"].isna() | df["age"].between(0, 120)
+    salary_valid = df["salary"].isna() | df["salary"].between(0, 1_000_000)
+    df = df[age_valid & salary_valid]
+
+    # Convert back to strings
+    df["age"] = df["age"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+    df["salary"] = df["salary"].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
     # Deduplicate after normalization (email filter already applied earlier)
     df = df[df["email"] != ""]  # Re-filter after email normalization
