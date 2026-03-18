@@ -46,3 +46,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 30ad9c70)
 8cb69a1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 30ad9c70)
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 60e70a23)
+5b8f496	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Chain filter and deduplication operations (session: 60e70a23)
+3e1e14b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Remove redundant keep parameter in drop_duplicates (session: 60e70a23)
