@@ -1,9 +1,9 @@
 {
-  "experiment_id": "05-ooh-creative-social_proof",
+  "experiment_id": "05-ooh-creative-baseline",
   "config": {
     "experiment_id": "05-ooh-creative",
     "cycles": 1,
-    "use_case": "writefit",
+    "use_case": "restaurant",
     "parallel_variants": 4,
     "metrics": {
       "attention": {
@@ -32,17 +32,17 @@
   "cycles_completed": 1,
   "results": [
     {
-      "experiment_id": "05-ooh-creative-social_proof",
+      "experiment_id": "05-ooh-creative-baseline",
       "cycle": 1,
       "metrics": {
-        "attention": 18.064650664221727,
-        "clarity": 19.301109438309833,
-        "relevance": 22.92106776428065,
-        "conversion_potential": 23.6808998680357
+        "attention": 15.86822304829103,
+        "clarity": 23.590885567024273,
+        "relevance": 16.512278874330004,
+        "conversion_potential": 18.576906869757067
       },
-      "timestamp": "2026-03-18T01:46:04.091787",
+      "timestamp": "2026-03-18T01:44:28.653893",
       "metadata": {},
-      "aggregate_score": 20.991931933711978
+      "aggregate_score": 18.637073589850594
     }
   ]
 }
