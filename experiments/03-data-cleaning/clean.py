@@ -44,10 +44,11 @@ def normalize_phone(phone):
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
-def normalize_date(s):
-    if pd.isna(s) or s == "":
+def normalize_date(date):
+    if pd.isna(date) or date == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    # Handle ISO timestamp format by taking date portion only
+    s = str(date).split("T")[0]
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
@@ -102,7 +103,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
-        df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
+        # Convert valid numbers back to string, empty for NaN
+        df[col] = df[col].apply(lambda val: str(int(val)) if pd.notna(val) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
