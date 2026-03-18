@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+8e7c267	100.0	25.0	25.0	25.0	25.0	keep	baseline - already optimal from previous runs
+fb3aada	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify outlier handling with fillna
+47d7cf6	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Inline upper variable in normalize_state
