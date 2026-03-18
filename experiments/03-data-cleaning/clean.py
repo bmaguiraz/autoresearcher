@@ -20,6 +20,8 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
+VALID_STATES = set(STATE_MAP.values())
+
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -67,9 +69,8 @@ def normalize_state(state):
     s = str(state).lower()
     if s in STATE_MAP:
         return STATE_MAP[s]
-    if len(s) == 2 and (upper := s.upper()) in STATE_MAP.values():
-        return upper
-    return ""
+    s = s.upper()
+    return s if len(s) == 2 and s in VALID_STATES else ""
 
 
 def normalize_email(email):
