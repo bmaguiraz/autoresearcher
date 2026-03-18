@@ -1,0 +1,59 @@
+{
+  "experiment_id": "02-llm-prompt-opt",
+  "config": {
+    "experiment_id": "02-llm-prompt-opt",
+    "name": "LLM Prompt Optimization",
+    "description": "Experiment to optimize LLM prompts through iterative refinement",
+    "version": "1.0.0",
+    "cycles": 2,
+    "parameters": {
+      "model": "claude-sonnet-4",
+      "temperature": 0.7,
+      "max_tokens": 2048,
+      "optimization_strategy": "iterative_refinement"
+    },
+    "baseline_prompt": "You are a helpful AI assistant. Please help the user with their task.",
+    "optimization_criteria": [
+      "clarity",
+      "specificity",
+      "response_quality",
+      "task_completion"
+    ]
+  },
+  "cycles_completed": 2,
+  "results": [
+    {
+      "cycle": 1,
+      "prompt": "You are a helpful AI assistant. Please help the user with their task.",
+      "metrics": {
+        "clarity": 0.75,
+        "specificity": 0.8,
+        "response_quality": 0.65,
+        "task_completion": 0.7000000000000001
+      },
+      "aggregate_score": 0.725,
+      "timestamp": "2026-03-18T22:45:40.484857"
+    },
+    {
+      "cycle": 2,
+      "prompt": "You are a highly capable AI assistant specialized in providing clear, actionable guidance.",
+      "metrics": {
+        "clarity": 0.7999999999999999,
+        "specificity": 0.85,
+        "response_quality": 0.7,
+        "task_completion": 0.75
+      },
+      "aggregate_score": 0.775,
+      "timestamp": "2026-03-18T22:45:40.985718"
+    }
+  ],
+  "summary": {
+    "total_cycles": 2,
+    "initial_score": 0.725,
+    "final_score": 0.775,
+    "improvement": 0.05,
+    "improvement_percentage": 6.9,
+    "best_score": 0.775,
+    "average_score": 0.75
+  }
+}
