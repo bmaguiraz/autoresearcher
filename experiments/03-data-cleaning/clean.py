@@ -82,8 +82,9 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    # Inline the lowercasing directly in the check for clarity
+    normalized = str(email).lower()
+    return normalized if "@" in normalized and " " not in normalized else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
