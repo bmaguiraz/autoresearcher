@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+dfd1226	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use bracket indexing instead of .group() for regex matches (session: d85bebe2)
+8ec4933	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use count() instead of 'in' for space check in normalize_email (session: d85bebe2)
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: d85bebe2)
 f446948	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() for phone prefix check (session: 0d1c13eb)
 2704182	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier specs into for loop (session: 0d1c13eb)
 5341e71	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 0d1c13eb)
