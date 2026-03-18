@@ -69,10 +69,8 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
     upper = s.upper()
     return upper if len(s) == 2 and upper in VALID_STATES else ""
 
@@ -107,7 +105,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
 
     # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
-    df = df.drop_duplicates(subset=["name", "email"], keep="first")
+    df = df.drop_duplicates(subset=["name", "email"])
 
     df.to_csv(output_path, index=False)
 
