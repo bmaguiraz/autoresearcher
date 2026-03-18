@@ -316,3 +316,56 @@
 2026-03-18 00:49:49,673 - autoresearcher.concurrent - INFO - Experiment 05-ooh-creative-social_proof completed successfully
 2026-03-18 00:49:49,674 - autoresearcher.concurrent - INFO - Concurrent run finished: 4/4 successful in 0.0s
 2026-03-18 00:49:49,674 - __main__ - INFO - Experiment completed successfully in 0.0s
+2026-03-18 01:16:34,328 - __main__ - INFO - Starting OOH creative experiment: use_case=writefit, cycles=1
+2026-03-18 01:16:34,328 - autoresearcher.experiment - INFO - Initializing experiment from config: /app/workspace/autoresearcher/experiments/05-ooh-creative/config.json
+2026-03-18 01:16:34,328 - autoresearcher.experiment - INFO - Experiment initialized: id=05-ooh-creative, max_cycles=1
+2026-03-18 01:16:34,328 - __main__ - INFO - Initialized baseline variant for writefit
+2026-03-18 01:16:34,328 - autoresearcher.experiment - INFO - Initializing experiment from config: /app/workspace/autoresearcher/experiments/05-ooh-creative/config.json
+2026-03-18 01:16:34,328 - autoresearcher.experiment - INFO - Experiment initialized: id=05-ooh-creative, max_cycles=1
+2026-03-18 01:16:34,328 - __main__ - INFO - Initialized emotional variant for writefit
+2026-03-18 01:16:34,329 - autoresearcher.experiment - INFO - Initializing experiment from config: /app/workspace/autoresearcher/experiments/05-ooh-creative/config.json
+2026-03-18 01:16:34,329 - autoresearcher.experiment - INFO - Experiment initialized: id=05-ooh-creative, max_cycles=1
+2026-03-18 01:16:34,329 - __main__ - INFO - Initialized urgency variant for writefit
+2026-03-18 01:16:34,329 - autoresearcher.experiment - INFO - Initializing experiment from config: /app/workspace/autoresearcher/experiments/05-ooh-creative/config.json
+2026-03-18 01:16:34,329 - autoresearcher.experiment - INFO - Experiment initialized: id=05-ooh-creative, max_cycles=1
+2026-03-18 01:16:34,329 - __main__ - INFO - Initialized social_proof variant for writefit
+2026-03-18 01:16:34,329 - __main__ - INFO - Running variants concurrently (4-way parallelism)
+2026-03-18 01:16:34,329 - autoresearcher.concurrent - INFO - Starting concurrent run: 4 experiments, max_workers=4
+2026-03-18 01:16:34,329 - autoresearcher.experiment - INFO - Starting experiment run: 05-ooh-creative-baseline with 1 cycles
+2026-03-18 01:16:34,329 - autoresearcher.experiment - INFO - Starting experiment run: 05-ooh-creative-emotional with 1 cycles
+2026-03-18 01:16:34,330 - autoresearcher.experiment - INFO - Starting experiment run: 05-ooh-creative-urgency with 1 cycles
+2026-03-18 01:16:34,330 - autoresearcher.experiment - INFO - Starting cycle 1/1 for experiment 05-ooh-creative-emotional
+2026-03-18 01:16:34,330 - autoresearcher.experiment - INFO - Starting cycle 1/1 for experiment 05-ooh-creative-baseline
+2026-03-18 01:16:34,330 - autoresearcher.experiment - INFO - Starting experiment run: 05-ooh-creative-social_proof with 1 cycles
+2026-03-18 01:16:34,330 - autoresearcher.experiment - INFO - Starting cycle 1/1 for experiment 05-ooh-creative-urgency
+2026-03-18 01:16:34,330 - autoresearcher.experiment - INFO - Starting cycle 1/1 for experiment 05-ooh-creative-social_proof
+2026-03-18 01:16:34,335 - __main__ - INFO - Variant 'emotional' evaluated - Attention: 20.6, Clarity: 19.0, Relevance: 22.7, Conversion: 20.6
+2026-03-18 01:16:34,335 - __main__ - INFO - Variant 'baseline' evaluated - Attention: 14.4, Clarity: 22.0, Relevance: 18.5, Conversion: 16.9
+2026-03-18 01:16:34,335 - __main__ - INFO - Variant 'urgency' evaluated - Attention: 20.2, Clarity: 19.6, Relevance: 18.9, Conversion: 24.1
+2026-03-18 01:16:34,335 - __main__ - INFO - Variant 'social_proof' evaluated - Attention: 19.5, Clarity: 19.5, Relevance: 21.8, Conversion: 21.1
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Evaluation completed in 0.01s with 4 metrics
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Evaluation completed in 0.01s with 4 metrics
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Evaluation completed in 0.01s with 4 metrics
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Evaluation completed in 0.01s with 4 metrics
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Cycle 1 aggregate score: 20.730
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Cycle 1 aggregate score: 17.932
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Cycle 1 aggregate score: 20.714
+2026-03-18 01:16:34,336 - autoresearcher.experiment - INFO - Cycle 1 aggregate score: 20.466
+2026-03-18 01:16:34,337 - autoresearcher.experiment - INFO - Results saved to: /app/workspace/autoresearcher/experiments/05-ooh-creative/results/results_20260318_011634.json
+2026-03-18 01:16:34,338 - autoresearcher.experiment - INFO - Results saved to: /app/workspace/autoresearcher/experiments/05-ooh-creative/results/results_20260318_011634.json
+2026-03-18 01:16:34,338 - autoresearcher.experiment - INFO - Results saved to: /app/workspace/autoresearcher/experiments/05-ooh-creative/results/results_20260318_011634.json
+2026-03-18 01:16:34,338 - autoresearcher.experiment - INFO - Cycle 1 completed successfully
+2026-03-18 01:16:34,338 - autoresearcher.experiment - INFO - Experiment 05-ooh-creative-urgency completed: initial=20.714, final=20.714, improvement=+0.000 (0.0%), best=20.714, elapsed=0.0s
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Cycle 1 completed successfully
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Cycle 1 completed successfully
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Results saved to: /app/workspace/autoresearcher/experiments/05-ooh-creative/results/results_20260318_011634.json
+2026-03-18 01:16:34,339 - autoresearcher.concurrent - INFO - Experiment 05-ooh-creative-urgency completed successfully
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Experiment 05-ooh-creative-emotional completed: initial=20.730, final=20.730, improvement=+0.000 (0.0%), best=20.730, elapsed=0.0s
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Experiment 05-ooh-creative-baseline completed: initial=17.932, final=17.932, improvement=+0.000 (0.0%), best=17.932, elapsed=0.0s
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Cycle 1 completed successfully
+2026-03-18 01:16:34,339 - autoresearcher.experiment - INFO - Experiment 05-ooh-creative-social_proof completed: initial=20.466, final=20.466, improvement=+0.000 (0.0%), best=20.466, elapsed=0.0s
+2026-03-18 01:16:34,340 - autoresearcher.concurrent - INFO - Experiment 05-ooh-creative-emotional completed successfully
+2026-03-18 01:16:34,340 - autoresearcher.concurrent - INFO - Experiment 05-ooh-creative-baseline completed successfully
+2026-03-18 01:16:34,340 - autoresearcher.concurrent - INFO - Experiment 05-ooh-creative-social_proof completed successfully
+2026-03-18 01:16:34,340 - autoresearcher.concurrent - INFO - Concurrent run finished: 4/4 successful in 0.0s
+2026-03-18 01:16:34,340 - __main__ - INFO - Experiment completed successfully in 0.0s
