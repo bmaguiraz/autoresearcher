@@ -60,7 +60,8 @@ def normalize_date(s):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
     if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+        day, month, year = m.groups()
+        return f"{year}-{int(month):02d}-{int(day):02d}"
     return ""
 
 
