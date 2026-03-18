@@ -55,7 +55,7 @@ def post_comment_to_issue(issue_id: str, comment_body: str, api_key: str) -> dic
     return data["data"]["commentCreate"]["comment"]
 
 
-def format_cycle_comment(cycle_data: dict) -> str:
+def format_cycle_comment(cycle_data: dict, prompt_config: str = None, image_paths: list = None) -> str:
     """Format a single cycle's results as a markdown comment."""
     cycle_num = cycle_data["cycle"]
     metrics = cycle_data["metrics"]
@@ -66,16 +66,40 @@ def format_cycle_comment(cycle_data: dict) -> str:
 
 **Aggregate Score:** `{score:.3f}`
 
-### Metrics
-- **Visual Quality:** {metrics['visual_quality']:.3f}
-- **Prompt Clarity:** {metrics['prompt_clarity']:.3f}
-- **Style Consistency:** {metrics['style_consistency']:.3f}
-- **Composition:** {metrics['composition']:.3f}
+### Metrics Table
+
+| Metric | Score |
+|--------|-------|
+| Visual Quality | {metrics['visual_quality']:.3f} |
+| Prompt Clarity | {metrics['prompt_clarity']:.3f} |
+| Style Consistency | {metrics['style_consistency']:.3f} |
+| Composition | {metrics['composition']:.3f} |
+| **Aggregate** | **{score:.3f}** |
 
 **Prompt:** "{prompt}"
 
 **Timestamp:** {cycle_data['timestamp']}
 """
+
+    # Add collapsible prompt.py config if provided
+    if prompt_config:
+        comment += f"""
+<details>
+<summary>📝 prompt.py Configuration</summary>
+
+```python
+{prompt_config}
+```
+
+</details>
+"""
+
+    # Add inline generated images if provided
+    if image_paths:
+        comment += "\n### Generated Images\n\n"
+        for img_path in image_paths:
+            comment += f"![Generated Image]({img_path})\n\n"
+
     return comment
 
 
@@ -121,16 +145,42 @@ def main():
     with open(results_file, 'r') as f:
         data = json.load(f)
 
+    # Load prompt.py config for collapsible section
+    prompt_config = None
+    prompt_file = Path(__file__).parent / "prompt.py"
+    if prompt_file.exists():
+        with open(prompt_file, 'r') as f:
+            prompt_config = f.read()
+
+    # Check for generated images in outputs directory
+    outputs_dir = Path(__file__).parent / "outputs"
+
     print(f"Posting results to Linear issue {issue_id}...")
 
     # Post cycle comments
     for cycle_result in data["results"]:
-        comment_body = format_cycle_comment(cycle_result)
+        cycle_num = cycle_result['cycle']
+
+        # Look for images for this cycle
+        image_paths = []
+        if outputs_dir.exists():
+            cycle_images = sorted(outputs_dir.glob(f"cycle_{cycle_num}_*.png"))
+            if not cycle_images:
+                # Fallback to seed-based naming
+                cycle_images = sorted(outputs_dir.glob("seed_*.png"))
+
+            # Upload images or use relative paths (depending on your setup)
+            for img_path in cycle_images:
+                # For now, just include relative paths
+                # In production, you might want to upload to an image host
+                image_paths.append(str(img_path.relative_to(Path(__file__).parent)))
+
+        comment_body = format_cycle_comment(cycle_result, prompt_config, image_paths if image_paths else None)
         try:
             comment = post_comment_to_issue(issue_id, comment_body, api_key)
-            print(f"✓ Posted cycle {cycle_result['cycle']} comment (ID: {comment['id']})")
+            print(f"✓ Posted cycle {cycle_num} comment (ID: {comment['id']})")
         except Exception as e:
-            print(f"✗ Failed to post cycle {cycle_result['cycle']} comment: {e}")
+            print(f"✗ Failed to post cycle {cycle_num} comment: {e}")
             return 1
 
     # Post summary comment
