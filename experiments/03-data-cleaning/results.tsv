@@ -48,3 +48,4 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: c8d3214c)
 69d95f4	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use direct character comparison in phone normalization (session: c8d3214c)
+a3df12f	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Clarify whitespace/sentinel processing comment (session: c8d3214c)
