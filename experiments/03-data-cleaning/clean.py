@@ -65,11 +65,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    mapped = STATE_MAP.get(s)
-    if mapped:
-        return mapped
-    upper = s.upper()
-    return upper if len(upper) == 2 and upper in STATE_MAP.values() else ""
+    if s in STATE_MAP:
+        return STATE_MAP[s]
+    if len(s) == 2 and (upper := s.upper()) in STATE_MAP.values():
+        return upper
+    return ""
 
 
 def normalize_email(email):
