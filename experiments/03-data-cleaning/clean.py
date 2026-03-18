@@ -28,19 +28,13 @@ MONTH_MAP = {
     "sep": "09", "oct": "10", "nov": "11", "dec": "12",
 }
 
-SENTINEL_VALUES = {
-    "n/a", "N/A", "na", "NA", "Na",
-    "null", "NULL", "Null",
-    "none", "NONE", "None",
-    "nan", "NAN", "Nan"
-}
+SENTINEL_LOWER = {"n/a", "na", "null", "none", "nan"}
 
 
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    # Strip leading 1 from 11-digit numbers in one expression
     digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
@@ -48,18 +42,14 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
-    # Already in correct format YYYY-MM-DD (faster than regex)
+    s = str(s).split("T")[0]
     if len(s) == 10 and s[4] == '-' and s[7] == '-':
         return s
-    # MM/DD/YYYY format
     if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
-    # Mon DD YYYY format
     if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    # DD-MM-YYYY format
     if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     return ""
@@ -69,10 +59,8 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
-    # Use .get() to avoid redundant lookup
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
     if len(s) == 2 and (u := s.upper()) in VALID_STATES:
         return u
     return ""
@@ -88,25 +76,21 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
     for col in df.columns:
         stripped = df[col].str.strip()
-        df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
+        df[col] = stripped.where(~stripped.str.lower().isin(SENTINEL_LOWER), "")
 
-    # Normalize all fields first
     df["name"] = df["name"].str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
     df["signup_date"] = df["signup_date"].apply(normalize_date)
     df["state"] = df["state"].apply(normalize_state)
 
-    # Outlier filtering and numeric conversion
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: "" if pd.isna(x) else str(int(x)))
 
-    # Filter and deduplicate AFTER all normalization is complete
     df = df[df["email"] != ""]
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
