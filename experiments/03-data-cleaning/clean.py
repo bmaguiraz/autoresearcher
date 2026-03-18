@@ -59,9 +59,9 @@ def normalize_date(s):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
-    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
-    return ""
+    return (f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+            if (m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s))
+            else "")
 
 
 def normalize_state(state):
@@ -79,8 +79,8 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    lower = str(email).lower()
+    return lower if "@" in lower and " " not in lower else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
