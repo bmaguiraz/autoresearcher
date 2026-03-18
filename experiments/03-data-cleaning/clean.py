@@ -40,7 +40,9 @@ def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
     digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
+    # Strip leading 1 for 11-digit North American numbers
+    if len(digits) == 11 and digits.startswith("1"):
+        digits = digits[1:]
     return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 
 
@@ -67,13 +69,12 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
-    # Use .get() to avoid redundant lookup
+    s = str(state).strip().lower()
+    # Try state name lookup first, then check if already a valid code
     if mapped := STATE_MAP.get(s):
         return mapped
-    # Check if it's a valid 2-letter state code
     upper = s.upper()
-    return upper if len(upper) == 2 and upper in VALID_STATES else ""
+    return upper if upper in VALID_STATES else ""
 
 
 def normalize_email(email):
