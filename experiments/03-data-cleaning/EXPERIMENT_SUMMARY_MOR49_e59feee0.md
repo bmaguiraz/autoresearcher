@@ -77,7 +77,7 @@ def normalize_state(state):
 - Same performance, better readability
 
 ## Links
-- **GitHub PR:** TBD
+- **GitHub PR:** [#460](https://github.com/bmaguiraz/autoresearcher/pull/460)
 - **Linear Issue:** [MOR-49](https://linear.app/maguireb/issue/MOR-49/autoresearch-03-data-cleaning-cycles-1)
 - **Branch:** `autoresearch/MOR-49-e59feee0`
 
