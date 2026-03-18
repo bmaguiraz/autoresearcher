@@ -20,12 +20,17 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
     "sep": "09", "oct": "10", "nov": "11", "dec": "12",
+}
+
+SENTINEL_VALUES = {
+    "n/a", "N/A", "na", "NA", "Na",
+    "null", "NULL", "Null",
+    "none", "NONE", "None",
+    "nan", "NAN", "Nan"
 }
 
 
@@ -70,7 +75,7 @@ def normalize_state(state):
     if s in STATE_MAP:
         return STATE_MAP[s]
     s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    return s if len(s) == 2 and s in STATE_MAP.values() else ""
 
 
 def normalize_email(email):
@@ -84,15 +89,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
     # Strip whitespace and replace sentinels in one pass
-    sentinel_values = {
-        "n/a", "N/A", "na", "NA", "Na",
-        "null", "NULL", "Null",
-        "none", "NONE", "None",
-        "nan", "NAN", "Nan"
-    }
     for col in df.columns:
         df[col] = df[col].str.strip()
-        df[col] = df[col].where(~df[col].isin(sentinel_values), "")
+        df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
