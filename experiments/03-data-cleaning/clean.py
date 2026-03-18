@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -61,8 +59,9 @@ def normalize_state(state):
     s = str(state).lower()
     if mapped := STATE_MAP.get(s):
         return mapped
-    if len(s) == 2 and (u := s.upper()) in VALID_STATES:
-        return u
+    upper = s.upper()
+    if len(s) == 2 and upper in STATE_MAP.values():
+        return upper
     return ""
 
 
