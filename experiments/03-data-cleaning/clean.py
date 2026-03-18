@@ -91,7 +91,10 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df[col] = df[col].str.strip()
         df[col] = df[col].where(~df[col].isin(SENTINEL_VALUES), "")
 
-    # Normalize all fields first
+    # Filter out rows with missing emails early (before expensive normalization)
+    df = df[df["email"] != ""]
+
+    # Normalize all fields
     df["name"] = df["name"].str.title()
     df["email"] = df["email"].apply(normalize_email)
     df["phone"] = df["phone"].apply(normalize_phone)
@@ -105,8 +108,8 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
 
-    # Filter and deduplicate AFTER all normalization is complete
-    df = df[df["email"] != ""]
+    # Deduplicate after normalization (email filter already applied earlier)
+    df = df[df["email"] != ""]  # Re-filter after email normalization
     df = df.drop_duplicates(subset=["name", "email"], keep="first")
 
     df.to_csv(output_path, index=False)
