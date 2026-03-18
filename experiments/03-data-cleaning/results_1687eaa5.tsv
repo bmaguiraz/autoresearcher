@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5341e71	100.0	25.0	25.0	25.0	25.0	keep	baseline (already optimal)
+d5410f9	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: simplified outlier logic
+41af7d7	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: optimized state validation
