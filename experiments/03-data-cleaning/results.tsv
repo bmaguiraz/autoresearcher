@@ -1,5 +1,1 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-2e5d9f6	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 025f4c5c)
-3648d2d	0.0	0.0	0.0	0.0	0.0	crash	Refactor date normalization - IndexError in tuple indexing
-5219827	100.0	25.0	25.0	25.0	25.0	keep	Optimize outlier filtering logic
-e579f8a	100.0	25.0	25.0	25.0	25.0	keep	Simplify sentinel value replacement
