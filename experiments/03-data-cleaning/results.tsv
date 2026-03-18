@@ -51,3 +51,6 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
 80e77fb	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize sentinel replacement to avoid duplicate strip() calls (session: 3246b1bb)
 6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 (session: ef9a2cc1)
+c27acde	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimize ISO timestamp handling in normalize_date (session: ef9a2cc1)
+8246a4d	crash	-	-	-	-	crash	Cycle 2 attempt 1: FAILED - Vectorized conversion caused pandas dtype error (session: ef9a2cc1)
+e4374ad	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Check length before uppercasing in normalize_state (session: ef9a2cc1)
