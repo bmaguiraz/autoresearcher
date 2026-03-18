@@ -1,1 +1,3 @@
 cycle	commit	score	clip_score	aesthetic_score	consistency	images_generated	status	description
+0	55afd54	82.4	67.7	87.0	97.5	3	keep	Baseline - coffee shop interior with warm lighting
+1	e39f33a	80.7	63.5	87.0	97.5	3	discard	Enhanced prompt detail - too verbose, decreased CLIP score
