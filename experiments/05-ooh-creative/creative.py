@@ -9,7 +9,7 @@ CTA = "247 Main St | Tue-Sun 11am-10pm"
 COLOR_SCHEME = {
     "background": "#2D1B0E",  # dark brown (brand primary)
     "headline": "#C4956A",    # warm tan (brand secondary)
-    "subheadline": "#C4956A", # warm tan
+    "subheadline": "#C4956A", # warm tan (brand secondary)
     "cta": "#FFFFFF",         # white for contrast
 }
 LAYOUT = "hero-right"  # hero-left, hero-right, centered, split
