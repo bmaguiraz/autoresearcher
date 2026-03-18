@@ -1,3 +1,2 @@
 commit	score	clip_score	aesthetic_score	consistency	status	description
-baseline	70.3	70.5	61.8	78.4	keep	Baseline - no changes applied
-cycle1	70.1	66.6	59.0	85.9	discard	Enhanced detail, volumetric lighting, film aesthetic - decreased CLIP and aesthetic scores
+session_9f033524_baseline	-	-	-	-	crash	Session 9f033524 baseline — GOOGLE_API_KEY not set
