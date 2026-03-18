@@ -37,7 +37,7 @@ SENTINEL_VALUES = {
 
 
 def normalize_phone(phone):
-    if pd.isna(phone) or phone == "":
+    if pd.isna(phone) or not phone:
         return ""
     digits = re.sub(r"\D", "", str(phone))
     if len(digits) == 11 and digits[0] == "1":
@@ -46,7 +46,7 @@ def normalize_phone(phone):
 
 
 def normalize_date(s):
-    if pd.isna(s) or s == "":
+    if pd.isna(s) or not s:
         return ""
     s = str(s).split("T")[0]  # Handle ISO timestamp format
     # Already in correct format
@@ -66,7 +66,7 @@ def normalize_date(s):
 
 
 def normalize_state(state):
-    if pd.isna(state) or state == "":
+    if pd.isna(state) or not state:
         return ""
     s = str(state).lower()
     # Use .get() to avoid redundant lookup
@@ -78,7 +78,7 @@ def normalize_state(state):
 
 
 def normalize_email(email):
-    if pd.isna(email) or email == "":
+    if pd.isna(email) or not email:
         return ""
     e = str(email).lower()
     return e if "@" in e and " " not in e else ""
