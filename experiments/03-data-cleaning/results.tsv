@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+16db08b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Clarify outlier filtering with explanatory comments (session: e4f05057)
+38b4b2c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add clarifying comment to normalize_email (session: e4f05057)
+6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: e4f05057)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
 5cb4687	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit length check in normalize_state (session: 3246b1bb)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3246b1bb)
