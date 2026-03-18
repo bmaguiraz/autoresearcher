@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from autoresearcher.concurrent import (
+    BatchEvaluationError,
     ConcurrentExperimentRunner,
     ConcurrentEvaluator,
     ConcurrentExperimentResult,
@@ -241,6 +242,66 @@ class TestConcurrentEvaluator:
         assert results[1]["precision"] == pytest.approx(0.3)
         assert results[2]["recall"] == pytest.approx(0.36)
 
+    def test_evaluate_batch_raises_on_failure(self):
+        """Test that a failing eval_fn raises BatchEvaluationError."""
+        evaluator = ConcurrentEvaluator(max_workers=2)
+
+        def eval_fn(x):
+            if x == 2:
+                raise ValueError("item 2 failed")
+            return {"value": x}
+
+        with pytest.raises(BatchEvaluationError) as exc_info:
+            evaluator.evaluate_batch(eval_fn, [1, 2, 3])
+
+        err = exc_info.value
+        assert len(err.errors) == 1
+        assert 1 in err.errors  # index 1 has value 2 which fails
+        assert err.results[0] == {"value": 1}
+        assert err.results[2] == {"value": 3}
+        assert err.results[1] is None
+
+    def test_evaluate_batch_partial_results_recoverable(self):
+        """Test that partial results can be recovered from BatchEvaluationError."""
+        evaluator = ConcurrentEvaluator(max_workers=4)
+
+        def eval_fn(x):
+            if x % 2 == 0:
+                raise RuntimeError(f"even number {x}")
+            return {"score": float(x)}
+
+        items = [1, 2, 3, 4, 5]
+        with pytest.raises(BatchEvaluationError) as exc_info:
+            evaluator.evaluate_batch(eval_fn, items)
+
+        err = exc_info.value
+        # 2 failures (indices 1 and 3, values 2 and 4)
+        assert len(err.errors) == 2
+        assert 1 in err.errors
+        assert 3 in err.errors
+        # Successful results are preserved
+        assert err.results[0] == {"score": 1.0}
+        assert err.results[2] == {"score": 3.0}
+        assert err.results[4] == {"score": 5.0}
+        # Failed results are None
+        assert err.results[1] is None
+        assert err.results[3] is None
+
+    def test_evaluate_batch_all_fail(self):
+        """Test BatchEvaluationError when all items fail."""
+        evaluator = ConcurrentEvaluator()
+
+        def eval_fn(x):
+            raise ValueError("always fails")
+
+        with pytest.raises(BatchEvaluationError) as exc_info:
+            evaluator.evaluate_batch(eval_fn, [1, 2, 3])
+
+        err = exc_info.value
+        assert len(err.errors) == 3
+        assert all(r is None for r in err.results)
+        assert "3/3" in str(err)
+
 
 class TestConcurrentExperimentResult:
     def test_result_dataclass_structure(self):
@@ -305,3 +366,19 @@ class TestConcurrentLogging:
         messages = [r.message for r in caplog.records]
         assert any("Starting batch evaluation" in m for m in messages)
         assert any("Batch evaluation complete" in m for m in messages)
+
+    def test_batch_failure_logs_error_and_warning(self, caplog):
+        """Test that batch failures log error per item and warning summary."""
+        evaluator = ConcurrentEvaluator()
+
+        def eval_fn(x):
+            if x == 2:
+                raise ValueError("fail")
+            return {"v": x}
+
+        with caplog.at_level(logging.ERROR, logger="autoresearcher.concurrent"):
+            with pytest.raises(BatchEvaluationError):
+                evaluator.evaluate_batch(eval_fn, [1, 2, 3])
+
+        assert any(r.levelno == logging.ERROR for r in caplog.records)
+        assert any("Batch item" in r.message for r in caplog.records)

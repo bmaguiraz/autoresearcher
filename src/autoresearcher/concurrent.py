@@ -22,6 +22,25 @@ class ConcurrentExperimentResult:
     error: str | None = None
 
 
+class BatchEvaluationError(Exception):
+    """Raised when one or more items in a batch evaluation fail.
+
+    Attributes:
+        results: List with successful results and None for failed items.
+        errors: Dict mapping item index to the exception that occurred.
+    """
+
+    def __init__(
+        self,
+        message: str,
+        results: list[dict[str, float] | None],
+        errors: dict[int, Exception],
+    ):
+        super().__init__(message)
+        self.results = results
+        self.errors = errors
+
+
 class ConcurrentExperimentRunner:
     """Runner for executing multiple experiments concurrently.
 
@@ -85,7 +104,7 @@ class ConcurrentExperimentRunner:
                 else:
                     logger.warning("Experiment %s failed: %s", result.experiment_id, result.error)
 
-                status = "✓" if result.success else "✗"
+                status = "+" if result.success else "x"
                 print(f"{status} {result.experiment_id} completed")
 
         elapsed = time.time() - start_time
@@ -164,6 +183,11 @@ class ConcurrentEvaluator:
 
         Returns:
             List of metric dicts in the same order as input items.
+
+        Raises:
+            BatchEvaluationError: If any evaluation fails. The exception
+                carries partial results and per-item errors so callers
+                can recover successful results.
         """
         if not items:
             logger.debug("No items to evaluate, returning empty results")
@@ -173,7 +197,8 @@ class ConcurrentEvaluator:
             "Starting batch evaluation: %d items, max_workers=%s",
             len(items), self.max_workers or "default",
         )
-        results = [None] * len(items)
+        results: list[dict[str, float] | None] = [None] * len(items)
+        errors: dict[int, Exception] = {}
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             # Submit all evaluations with their index
@@ -184,7 +209,23 @@ class ConcurrentEvaluator:
             # Collect results in order
             for future in as_completed(future_to_idx):
                 idx = future_to_idx[future]
-                results[idx] = future.result()
+                try:
+                    results[idx] = future.result()
+                except Exception as exc:
+                    logger.error("Batch item %d failed: %s", idx, exc)
+                    errors[idx] = exc
+
+        if errors:
+            successful = len(items) - len(errors)
+            logger.warning(
+                "Batch evaluation partial failure: %d/%d succeeded",
+                successful, len(items),
+            )
+            raise BatchEvaluationError(
+                f"{len(errors)}/{len(items)} evaluations failed",
+                results=results,
+                errors=errors,
+            )
 
         logger.info("Batch evaluation complete: %d items processed", len(items))
         return results  # type: ignore

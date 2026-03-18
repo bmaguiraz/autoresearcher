@@ -53,6 +53,14 @@ class TestResultsLog:
         log = ResultsLog(log_path)
         assert log.best_accuracy() == 0.0
 
+    def test_best_accuracy_no_keep_rows(self, tmp_path):
+        """best_accuracy returns 0.0 when rows exist but none have status 'keep'."""
+        log_path = tmp_path / "results.tsv"
+        log = ResultsLog(log_path)
+        log.append("aaa1111111", 0.9, 1.0, "skip", "skipped")
+        log.append("bbb2222222", 0.8, 2.0, "revert", "reverted")
+        assert log.best_accuracy() == 0.0
+
     def test_read_all_nonexistent(self, tmp_path):
         log_path = tmp_path / "nonexistent.tsv"
         log = ResultsLog.__new__(ResultsLog)

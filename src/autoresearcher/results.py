@@ -44,11 +44,17 @@ class ResultsLog:
             return list(reader)
 
     def best_accuracy(self) -> float:
-        """Return the highest accuracy recorded."""
+        """Return the highest accuracy recorded among 'keep' rows.
+
+        Returns 0.0 if there are no rows or no rows with status 'keep'.
+        """
         rows = self.read_all()
-        if not rows:
+        keep_accuracies = [
+            float(r["accuracy"]) for r in rows if r.get("status") == "keep"
+        ]
+        if not keep_accuracies:
             return 0.0
-        return max(float(r["accuracy"]) for r in rows if r.get("status") == "keep")
+        return max(keep_accuracies)
 
 
 class ResultsStore:

@@ -4,6 +4,7 @@
 __version__ = "0.1.0"
 
 from autoresearcher.concurrent import (
+    BatchEvaluationError,
     ConcurrentExperimentRunner,
     ConcurrentEvaluator,
     ConcurrentExperimentResult,
@@ -14,6 +15,7 @@ from autoresearcher.results import ResultsLog, ResultsStore
 
 __all__ = [
     "BaseExperiment",
+    "BatchEvaluationError",
     "ExperimentResult",
     "ExperimentSummary",
     "RetryConfig",
