@@ -54,16 +54,18 @@ def normalize_date(s):
     # Already in correct format
     if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
         return s
-    # MM/DD/YYYY format
-    if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+    # MM/DD/YYYY or DD-MM-YYYY format (with / or -)
+    if m := re.match(r"^(\d{1,2})([/-])(\d{1,2})\2(\d{4})$", s):
+        month, day = int(m.group(1)), int(m.group(3))
+        # Assume MM/DD if using /, DD-MM if using -
+        if m.group(2) == "/":
+            return f"{m.group(4)}-{month:02d}-{day:02d}"
+        else:
+            return f"{m.group(4)}-{day:02d}-{month:02d}"
     # Mon DD YYYY format
     if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
-    # DD-MM-YYYY format
-    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     return ""
 
 
