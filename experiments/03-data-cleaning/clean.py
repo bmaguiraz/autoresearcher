@@ -47,19 +47,20 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    # Handle ISO timestamp format - extract date part only
+    date_str = str(s).split("T")[0]
     # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
-        return s
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
+        return date_str
     # MM/DD/YYYY format
-    if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s):
+    if m := re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", date_str):
         return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
     # Mon DD YYYY format
-    if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", s):
+    if m := re.match(r"^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$", date_str):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
-    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
+    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", date_str):
         return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
     return ""
 
@@ -79,8 +80,9 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
-    return e if "@" in e and " " not in e else ""
+    email_str = str(email).lower()
+    # Valid emails must contain @ and have no spaces
+    return email_str if "@" in email_str and " " not in email_str else ""
 
 
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
