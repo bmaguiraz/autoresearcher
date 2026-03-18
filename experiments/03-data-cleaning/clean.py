@@ -35,13 +35,16 @@ SENTINEL_VALUES = {
     "nan", "NAN", "Nan"
 }
 
+OUTLIER_SPECS = [("age", 0, 120), ("salary", 0, 1_000_000)]
+
 
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
         return ""
-    digits = re.sub(r"\D", "", str(phone))
-    digits = digits[1:] if len(digits) == 11 and digits[0] == "1" else digits
-    return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
+    all_digits = re.sub(r"\D", "", str(phone))
+    # Strip leading 1 from 11-digit numbers
+    cleaned_digits = all_digits[1:] if len(all_digits) == 11 and all_digits[0] == "1" else all_digits
+    return f"({cleaned_digits[:3]}) {cleaned_digits[3:6]}-{cleaned_digits[6:]}" if len(cleaned_digits) == 10 else ""
 
 
 def normalize_date(s):
@@ -99,8 +102,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    outlier_specs = [("age", 0, 120), ("salary", 0, 1_000_000)]
-    for col, min_val, max_val in outlier_specs:
+    for col, min_val, max_val in OUTLIER_SPECS:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
