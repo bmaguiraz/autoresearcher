@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5210592	100.0	25.0	25.0	25.0	25.0	keep	baseline (perfect score)
+479cb49	100.0	25.0	25.0	25.0	25.0	keep	cycle 1: streamlined outlier filtering
+c21ec1c	100.0	25.0	25.0	25.0	25.0	keep	cycle 2: refined state normalization
