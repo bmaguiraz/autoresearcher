@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+d739229c	100.0	25.0	25.0	25.0	25.0	keep	Baseline - perfect score
+9cbb505c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1 - better name normalization, maintained perfect score
+79e1da48	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2 - optimized deduplication, maintained perfect score
