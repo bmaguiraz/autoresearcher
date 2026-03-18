@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+7c6eec32	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: b12b90dd)
+5ae2eb81	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Check length before calling upper() in normalize_state (session: b12b90dd)
+8f5a283b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Reorder lambda condition for clarity in outlier filtering (session: b12b90dd)
