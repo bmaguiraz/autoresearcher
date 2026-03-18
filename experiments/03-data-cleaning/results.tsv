@@ -1,2 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
 5210592	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+afef2ac	97.2	25.0	22.9	24.3	25.0	discard	removed email filter - score dropped (reverted)
+8c3f268	100.0	25.0	25.0	25.0	25.0	keep	simplified outlier filtering - maintained perfect score
