@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the metrics tracking module."""
 
 from autoresearcher.metrics import MetricDefinition, MetricsTracker
