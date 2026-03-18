@@ -28,12 +28,12 @@ MONTH_MAP = {
     "sep": "09", "oct": "10", "nov": "11", "dec": "12",
 }
 
-SENTINEL_VALUES = {
+SENTINEL_VALUES = frozenset({
     "n/a", "N/A", "na", "NA", "Na",
     "null", "NULL", "Null",
     "none", "NONE", "None",
     "nan", "NAN", "Nan"
-}
+})
 
 
 def normalize_phone(phone):
@@ -106,7 +106,9 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     # Outlier filtering and numeric conversion
     for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
         numeric_col = pd.to_numeric(df[col], errors="coerce")
-        df = df[numeric_col.isna() | numeric_col.between(min_val, max_val)]
+        valid_mask = numeric_col.isna() | numeric_col.between(min_val, max_val)
+        df = df[valid_mask]
+        # Convert valid numeric values to string, empty for NaN
         df[col] = numeric_col[df.index].apply(lambda v: str(int(v)) if pd.notna(v) else "")
 
     # Filter and deduplicate AFTER all normalization is complete
