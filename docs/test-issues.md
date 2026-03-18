@@ -12,6 +12,11 @@ The integration test suite in `tests/integration/test_linear_integration.py` cre
 - **Description**: "Users are unable to login after password reset"
 - **Status**: Test artifact - not a real bug
 - **Reason**: Autoresearcher is a research automation platform with no authentication system
+- **Webhook Events Tracked**:
+  - Session 3ae17842: Issue creation webhook
+  - Session 1b3ea2e1: State changed to "In Progress"
+  - Session 7373cf1a: Issue update webhook
+  - Session 5eb1e44e (current): Issue update webhook - tracking state progression
 
 ### How to Identify Test Issues
 
