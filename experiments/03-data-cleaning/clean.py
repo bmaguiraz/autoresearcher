@@ -35,6 +35,10 @@ SENTINEL_VALUES = {
     "nan", "NAN", "Nan"
 }
 
+# Outlier validation ranges
+AGE_MIN, AGE_MAX = 0, 120
+SALARY_MIN, SALARY_MAX = 0, 1_000_000
+
 
 def normalize_phone(phone):
     if pd.isna(phone) or phone == "":
@@ -87,10 +91,11 @@ def normalize_email(email):
 def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df = pd.read_csv(input_path, dtype=str)
 
-    # Strip whitespace and replace sentinels in one pass
+    # Strip whitespace and replace sentinel values with empty strings
     for col in df.columns:
         stripped = df[col].str.strip()
-        df[col] = stripped.where(~stripped.isin(SENTINEL_VALUES), "")
+        is_sentinel = stripped.isin(SENTINEL_VALUES)
+        df[col] = stripped.where(~is_sentinel, "")
 
     # Normalize all fields first
     df["name"] = df["name"].str.title()
@@ -100,7 +105,7 @@ def clean(input_path="data/messy.csv", output_path="data/cleaned.csv"):
     df["state"] = df["state"].apply(normalize_state)
 
     # Outlier filtering and numeric conversion
-    for col, min_val, max_val in [("age", 0, 120), ("salary", 0, 1_000_000)]:
+    for col, min_val, max_val in [("age", AGE_MIN, AGE_MAX), ("salary", SALARY_MIN, SALARY_MAX)]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df[df[col].isna() | df[col].between(min_val, max_val)]
         df[col] = df[col].apply(lambda x: str(int(x)) if pd.notna(x) else "")
