@@ -59,9 +59,9 @@ def normalize_date(s):
         if mon := MONTH_MAP.get(m.group(1).lower()):
             return f"{m.group(3)}-{mon}-{int(m.group(2)):02d}"
     # DD-MM-YYYY format
-    if m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s):
-        return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
-    return ""
+    return (f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
+            if (m := re.match(r"^(\d{1,2})-(\d{1,2})-(\d{4})$", s))
+            else "")
 
 
 def normalize_state(state):
