@@ -108,7 +108,7 @@ def normalize_state(state):
 - Maintains perfect score while reducing code footprint
 
 ## Links
-- **GitHub PR:** TBD
+- **GitHub PR:** [#2560](https://github.com/bmaguiraz/autoresearcher/pull/2560)
 - **Linear Issue:** [MOR-45](https://linear.app/maguireb/issue/MOR-45)
 - **Branch:** `autoresearch/MOR-45-9c690c58`
 
