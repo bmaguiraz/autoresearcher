@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+5341e71	100.0	25.0	25.0	25.0	25.0	baseline	Starting point - already optimal from previous sessions
+486e9e7	100.0	25.0	25.0	25.0	25.0	keep	Inline upper variable in normalize_state - cleaner code
+372417f	100.0	25.0	25.0	25.0	25.0	keep	Reuse parameter name in normalize_email - consistent pattern
