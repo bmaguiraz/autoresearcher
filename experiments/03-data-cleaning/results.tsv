@@ -1,7 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
-74e2e9d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple unpacking (session: caff4963)
-f8c9fba	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Optimize normalize_state with walrus operator and strip (session: caff4963)
-0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: caff4963)
 399608d	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify normalize_email by reusing parameter (session: 062a6a4b)
 f51623c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove redundant strip() in normalize_state (session: 062a6a4b)
 8e02551	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: 062a6a4b)
@@ -43,6 +40,6 @@ a4e69dc	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Simplify date parsing with tuple
 982f5ef	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 74e284a3)
 20a7d59	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Move sentinel values to module-level constant (session: 74e284a3)
 fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for better readability (session: 74e284a3)
-0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: bb7fb438)
-74913e0	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Inline outlier_specs into loop (session: bb7fb438)
-ba7b9ef	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use startswith() in normalize_phone (session: bb7fb438)
+0875d05	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 30ad9c70)
+8cb69a1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in normalize_state (session: 30ad9c70)
+764161b	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Avoid parameter reassignment in normalize_email (session: 30ad9c70)
