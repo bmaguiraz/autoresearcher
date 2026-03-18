@@ -1,0 +1,28 @@
+Linear Webhook Integration Test - MOR-69
+==========================================
+
+Issue: MOR-69 - Test Issue from Integration Test
+Session ID: 39e0fe3f
+Created: 2026-03-18T14:04:00.557Z
+Status: Verified
+
+Description:
+This is a test issue created by the Linear integration test suite.
+
+Webhook Processing:
+✓ Webhook received and parsed
+✓ Repository cloned: https://github.com/bmaguiraz/autoresearcher
+✓ Linear backlog fetched for project: 62c20541-6d2a-4f57-a071-6c6625e7718e
+✓ Branch created: mor-69-test-issue-from-integration-test
+✓ Marker file created to verify webhook handling
+
+Test Purpose:
+Verify that the Linear webhook integration correctly:
+1. Receives issue creation events
+2. Clones/updates the repository
+3. Creates appropriate branches
+4. Processes issue details
+5. Commits and creates pull requests
+
+This marker file serves as evidence that the webhook was successfully processed
+and the automated workflow completed for test issue MOR-69.
