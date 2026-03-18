@@ -20,8 +20,6 @@ STATE_MAP = {
     "district of columbia": "DC", "d.c.": "DC",
 }
 
-VALID_STATES = set(STATE_MAP.values())
-
 MONTH_MAP = {
     "jan": "01", "feb": "02", "mar": "03", "apr": "04",
     "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -42,10 +40,10 @@ def normalize_phone(phone):
 def normalize_date(s):
     if pd.isna(s) or s == "":
         return ""
-    s = str(s).split("T")[0]  # Handle ISO timestamp format
+    s = str(s)
     # Already in correct format
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
-        return s
+    if re.match(r"^\d{4}-\d{2}-\d{2}", s):
+        return s[:10]
     # MM/DD/YYYY format
     m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
     if m:
@@ -67,10 +65,11 @@ def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
     s = str(state).lower()
+    # Check STATE_MAP first, then validate 2-letter codes
     if s in STATE_MAP:
         return STATE_MAP[s]
-    s = s.upper()
-    return s if len(s) == 2 and s in VALID_STATES else ""
+    upper = s.upper()
+    return upper if len(upper) == 2 and upper in STATE_MAP.values() else ""
 
 
 def normalize_email(email):
