@@ -1,6 +1,7 @@
 # Autoresearcher
 
 ![Build Status](https://github.com/bmaguiraz/autoresearcher/actions/workflows/ci.yml/badge.svg?branch=main)
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 
 AI-powered autonomous research and optimization platform.
 
