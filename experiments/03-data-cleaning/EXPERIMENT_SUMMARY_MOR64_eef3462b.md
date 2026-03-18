@@ -86,7 +86,7 @@ return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}" if len(digits) == 10 else ""
 - Clearer intent: "remove prefix if present" rather than "reassign to either stripped or original"
 
 ## Links
-- **GitHub PR:** TBD
+- **GitHub PR:** [#1929](https://github.com/bmaguiraz/autoresearcher/pull/1929)
 - **Linear Issue:** [MOR-64](https://linear.app/maguireb/issue/MOR-64/autoresearch-03-data-cleaning-cycles-2)
 - **Branch:** `autoresearch/MOR-64-eef3462b`
 
