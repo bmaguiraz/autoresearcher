@@ -52,3 +52,4 @@ fd9d596	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Restructure outlier specs for be
 80e77fb	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Optimize sentinel replacement to avoid duplicate strip() calls (session: 3246b1bb)
 3a15d65	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: c2b3ddf4)
 e90ff37	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Reuse email parameter in normalize_email (session: c2b3ddf4)
+fa8085c	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use map() instead of apply() for outlier conversion (session: c2b3ddf4)
