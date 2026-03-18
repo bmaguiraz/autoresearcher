@@ -79,7 +79,7 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
+    e = str(email).strip().lower()
     return e if "@" in e and " " not in e else ""
 
 
