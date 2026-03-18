@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+8b449a5	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Remove redundant comment from normalize_date (session: da43f264)
+467fe67	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Cache column reference in outlier filtering loop (session: da43f264)
+6ccf6d8	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-64 (session: da43f264)
 c891b40	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Use index check instead of startswith for phone prefix (session: 3246b1bb)
 5cb4687	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Add explicit length check in normalize_state (session: 3246b1bb)
 376fd6f	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 (session: 3246b1bb)
