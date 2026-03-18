@@ -1,1 +1,4 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+882332d	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: dc36e665)
+912d2fd	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Simplify sentinel replacement logic
+c9d8ed1	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Improve email normalization clarity
