@@ -1,4 +1,7 @@
 commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+1ee467f	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Remove redundant comments in clean function (session: e9a8e025)
+17ced39	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Remove inline conditional for phone digit trimming (session: e9a8e025)
+d41f732	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-45 Round 4 (session: e9a8e025)
 f7bd27e	100.0	25.0	25.0	25.0	25.0	keep	Cycle 2: Streamline phone normalization (session: 6413c0bb)
 88556f3	100.0	25.0	25.0	25.0	25.0	keep	Cycle 1: Use walrus operator in date normalization (session: 6413c0bb)
 2d2b234	100.0	25.0	25.0	25.0	25.0	keep	Baseline - MOR-37 Round 3 (session: 6413c0bb)
