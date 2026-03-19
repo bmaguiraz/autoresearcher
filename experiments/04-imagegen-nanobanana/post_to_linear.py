@@ -98,7 +98,9 @@ def format_cycle_comment(cycle_data: dict, prompt_config: str = None, image_path
     if image_paths:
         comment += "\n### Generated Images\n\n"
         for img_path in image_paths:
-            comment += f"![Generated Image]({img_path})\n\n"
+            # Create descriptive alt text for accessibility
+            alt_text = f"AI-generated image for cycle {cycle_num} using prompt: {prompt[:100]}{'...' if len(prompt) > 100 else ''}"
+            comment += f"![{alt_text}]({img_path})\n\n"
 
     return comment
 
