@@ -1,0 +1,23 @@
+{
+  "experiment_id": "06-llm-comparison",
+  "description": "Compare Claude Sonnet vs GPT-4o response quality on research summarization tasks",
+  "models": {
+    "claude": "claude-sonnet-4-20250514",
+    "gpt4": "gpt-4o"
+  },
+  "topics": [
+    "Quantum computing advances in error correction and fault-tolerant quantum computing",
+    "mRNA vaccine mechanisms and their application beyond COVID-19",
+    "Ocean carbon sequestration techniques and their potential for climate change mitigation"
+  ],
+  "parameters": {
+    "temperature": 0.7,
+    "max_tokens": 2048
+  },
+  "scoring_dimensions": [
+    "factual_accuracy",
+    "citation_quality",
+    "readability",
+    "completeness"
+  ]
+}
