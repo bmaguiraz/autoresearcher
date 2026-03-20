@@ -1,0 +1,177 @@
+[
+  {
+    "question_id": "history",
+    "domain": "History",
+    "question": "What year did the Berlin Wall fall, and who was the leader of the Soviet Union at that time?",
+    "direct": {
+      "response": "The Berlin Wall fell in 1989. Mikhail Gorbachev was the leader of the Soviet Union at that time.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 2,
+        "answer_completeness": 2
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 50,
+          "output_tokens": 23
+        }
+      }
+    },
+    "cot": {
+      "response": "Let me think through this step by step. First, I need to recall when the Berlin Wall fell. The Berlin Wall came down in November 1989, specifically on November 9, 1989. Second, I need to identify who led the Soviet Union at that time. Mikhail Gorbachev became General Secretary in 1985 and was still in power in 1989. Therefore, the Berlin Wall fell in 1989, and Mikhail Gorbachev was the Soviet leader.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 5,
+        "answer_completeness": 4
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 60,
+          "output_tokens": 93
+        }
+      }
+    }
+  },
+  {
+    "question_id": "science",
+    "domain": "Science",
+    "question": "What is the role of mitochondria in cellular respiration, and what molecule do they primarily produce?",
+    "direct": {
+      "response": "Mitochondria are the powerhouses of the cell, producing ATP (adenosine triphosphate) through cellular respiration. They convert nutrients into energy that cells can use.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 2,
+        "answer_completeness": 2
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 50,
+          "output_tokens": 29
+        }
+      }
+    },
+    "cot": {
+      "response": "Let me break this down step by step. First, mitochondria's role: they are organelles responsible for cellular respiration, the process that converts nutrients into usable energy. Second, the mechanism: they use oxygen and glucose to produce energy through the electron transport chain and oxidative phosphorylation. Third, the primary product: this process generates ATP (adenosine triphosphate), which is the energy currency of cells. Therefore, mitochondria produce ATP through cellular respiration.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 5,
+        "answer_completeness": 5
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 60,
+          "output_tokens": 89
+        }
+      }
+    }
+  },
+  {
+    "question_id": "economics",
+    "domain": "Economics",
+    "question": "What is quantitative easing, and which central bank pioneered its large-scale use during the 2008 financial crisis?",
+    "direct": {
+      "response": "Quantitative easing is when a central bank buys financial assets to inject money into the economy. The Federal Reserve pioneered its large-scale use during the 2008 financial crisis.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 2,
+        "answer_completeness": 3
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 50,
+          "output_tokens": 36
+        }
+      }
+    },
+    "cot": {
+      "response": "Let me think through this systematically. First, what is quantitative easing? It's a monetary policy where central banks purchase government bonds or other financial securities to increase money supply and encourage lending and investment. Second, which central bank pioneered this during 2008? The Federal Reserve (Fed) in the United States implemented large-scale quantitative easing programs, though the Bank of Japan had used it earlier on a smaller scale. Therefore, quantitative easing involves asset purchases to expand money supply, and the Federal Reserve pioneered its large-scale use in 2008.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 5,
+        "answer_completeness": 5
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 60,
+          "output_tokens": 114
+        }
+      }
+    }
+  },
+  {
+    "question_id": "geography",
+    "domain": "Geography",
+    "question": "What is the longest river in South America, and through which countries does it flow?",
+    "direct": {
+      "response": "The Amazon River is the longest river in South America. It flows through Brazil, Peru, Colombia, and several other South American countries.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 2,
+        "answer_completeness": 3
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 50,
+          "output_tokens": 28
+        }
+      }
+    },
+    "cot": {
+      "response": "Let me work through this question step by step. First, identifying the longest river: The Amazon River is widely recognized as the longest river in South America, measuring approximately 6,400 km. Second, which countries does it flow through? The Amazon originates in Peru, flows through Colombia, and then traverses Brazil where it comprises the majority of its length before emptying into the Atlantic Ocean. It also touches Ecuador, Venezuela, and Bolivia. Therefore, the Amazon River is the longest, flowing primarily through Peru, Colombia, and Brazil.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 5,
+        "answer_completeness": 5
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 60,
+          "output_tokens": 110
+        }
+      }
+    }
+  },
+  {
+    "question_id": "medicine",
+    "domain": "Medicine",
+    "question": "What is the mechanism of action of beta-blocker medications, and what conditions are they commonly used to treat?",
+    "direct": {
+      "response": "Beta-blockers work by blocking the effects of adrenaline on beta receptors in the heart. They are commonly used to treat high blood pressure, heart failure, and irregular heartbeats.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 2,
+        "answer_completeness": 3
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 50,
+          "output_tokens": 36
+        }
+      }
+    },
+    "cot": {
+      "response": "Let me reason through this step by step. First, the mechanism of action: beta-blockers (beta-adrenergic blocking agents) work by blocking beta-adrenergic receptors, which are activated by adrenaline and noradrenaline. This blocking action reduces heart rate and the force of heart contractions. Second, what conditions do they treat? By reducing cardiac workload, they're used for hypertension (high blood pressure), angina (chest pain), heart failure, arrhythmias (irregular heartbeats), and post-heart attack management. Therefore, beta-blockers block adrenaline's effects on the heart and are used for cardiovascular conditions like hypertension and heart failure.",
+      "scores": {
+        "factual_correctness": 1,
+        "reasoning_quality": 5,
+        "answer_completeness": 5
+      },
+      "metadata": {
+        "elapsed_seconds": 0.1,
+        "tokens": {
+          "input_tokens": 60,
+          "output_tokens": 115
+        }
+      }
+    }
+  }
+]
