@@ -1,0 +1,20 @@
+{
+  "experiment_id": "07",
+  "name": "chain-of-thought-evaluation",
+  "description": "Evaluate chain-of-thought prompting impact on factual accuracy",
+  "model": "claude-sonnet-4-20250514",
+  "questions": 5,
+  "methods": ["direct", "chain_of_thought"],
+  "evaluation_metrics": [
+    "factual_correctness",
+    "reasoning_quality",
+    "answer_completeness"
+  ],
+  "domains": [
+    "history",
+    "science",
+    "economics",
+    "geography",
+    "medicine"
+  ]
+}
