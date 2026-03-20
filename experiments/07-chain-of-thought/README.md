@@ -1,4 +1,4 @@
-# Experiment 07: Chain-of-Thought Prompting Evaluation
+# Experiment 07: Chain-of-Thought Prompting Impact
 
 Evaluate the impact of chain-of-thought (CoT) prompting on factual accuracy in question-answering tasks.
 
@@ -9,11 +9,11 @@ This experiment compares two prompting strategies for factual questions:
 2. **Chain-of-thought prompting**: Explicit "think step by step" instruction
 
 Questions span five domains:
-- History (Treaty of Versailles)
-- Science (Photosynthesis)
-- Economics (Quantitative easing)
-- Geography (Monsoons)
-- Medicine (mRNA vaccines)
+- History (Ottoman Empire decline)
+- Science (Photosynthesis process)
+- Economics (Inflation causes)
+- Geography (Amazon Basin)
+- Medicine (Antibiotic resistance)
 
 Each response is evaluated on:
 - **Factual Correctness** (binary): Accuracy of claims
@@ -28,14 +28,20 @@ Each response is evaluated on:
 ## Setup
 
 ```bash
-cd experiments/07-cot-evaluation
+cd experiments/07-chain-of-thought
 uv sync
 ```
 
 ## Running the Experiment
 
+**With API key (live API calls):**
 ```bash
 python runner.py
+```
+
+**Demo mode (no API key required):**
+```bash
+python runner_demo.py
 ```
 
 This will:
