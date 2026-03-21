@@ -1,3 +1,4 @@
+<!-- Test timestamp: 2026-03-21 22:52:24 UTC - MOR-108 warm repo caching test (session 2 - warm cache) -->
 # Autoresearcher
 
 ![Build Status](https://github.com/bmaguiraz/autoresearcher/actions/workflows/ci.yml/badge.svg?branch=main)
