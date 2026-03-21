@@ -94,5 +94,3 @@ pytest tests/
 ## License
 
 Private repository. All rights reserved.
-
-# Repo caching test - safe to delete
