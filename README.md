@@ -1,3 +1,4 @@
+<!-- final e2e test -->
 <!-- final observability test -->
 <!-- v35 test -->
 <!-- v32 archive test 2026-03-23 -->
