@@ -6,6 +6,13 @@
 <!-- v32 archive test 2026-03-23 -->
 <!-- observability test 2026-03-22 -->
 <!-- Test timestamp: 2026-03-21 22:52:24 UTC - MOR-108 warm repo caching test (session 2 - warm cache) -->
+<!-- Context7 MCP Test: Next.js Image Component Key Props
+     Required: src, alt, width/height (unless using fill or static import)
+     Layout: fill (fills parent container, parent needs position: relative)
+     Performance: priority (preload for LCP/above-fold), loading (lazy/eager), sizes (responsive hints)
+     Quality: quality (1-100, default 75), placeholder (empty/blur), blurDataURL
+     Styling: style prop for objectFit, objectPosition, etc.
+-->
 # Autoresearcher
 
 ![Build Status](https://github.com/bmaguiraz/autoresearcher/actions/workflows/ci.yml/badge.svg?branch=main)
