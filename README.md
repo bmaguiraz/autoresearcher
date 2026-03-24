@@ -1,3 +1,12 @@
+<!-- MOR-148: Context7 MCP test - Next.js Image component API
+     Required props: src (string or StaticImageData), alt (string)
+     Dimensions: width + height (numbers) OR fill (boolean for container-filling images)
+     Performance: priority (boolean, preload for LCP), loading ("lazy" | "eager", default lazy), sizes (string, responsive size hints)
+     Quality: quality (1-100, default 75), placeholder ("empty" | "blur"), blurDataURL (data URL for blur-up)
+     Layout: fill mode requires parent with position: relative
+     Remote images: require width/height explicitly (cannot be determined at build time)
+     Source: Context7 MCP /vercel/next.js
+-->
 <!-- MCP e2e test -->
 <!-- SDK 0.1.50 e2e test -->
 <!-- final e2e test -->
