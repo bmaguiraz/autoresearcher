@@ -1,3 +1,4 @@
+<!-- MCP e2e test -->
 <!-- SDK 0.1.50 e2e test -->
 <!-- final e2e test -->
 <!-- final observability test -->
