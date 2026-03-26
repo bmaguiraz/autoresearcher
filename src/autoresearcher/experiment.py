@@ -61,6 +61,7 @@ class ExperimentSummary:
     best_score: float
     average_score: float
     elapsed_seconds: float
+    status_test_id: str = "experiment-status"
 
     @property
     def improvement(self) -> float:
