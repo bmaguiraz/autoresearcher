@@ -77,10 +77,8 @@ class ExperimentSummary:
         return round((self.final_score - self.initial_score) / self.initial_score * 100, 2)
 
     def to_dict(self) -> dict:
-        d = asdict(self)
-        d["improvement"] = self.improvement
-        d["improvement_percentage"] = self.improvement_percentage
-        return d
+        """Convert to dictionary for serialization."""
+        return asdict(self)
 
 
 class BaseExperiment(ABC):
