@@ -1,3 +1,4 @@
+<!-- persona-config-test -->
 <!-- MOR-148: Context7 MCP test - Next.js Image component API
      Required props: src (string or StaticImageData), alt (string)
      Dimensions: width + height (numbers) OR fill (boolean for container-filling images)
