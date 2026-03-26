@@ -107,6 +107,14 @@ class BaseExperiment(ABC):
         self.retry_config: RetryConfig = retry_config or RetryConfig()
         self.results: list[ExperimentResult] = []
 
+        # Input validation
+        if not isinstance(self.experiment_id, str) or not self.experiment_id.strip():
+            raise ValueError("experiment_id must be a non-empty string")
+        if not isinstance(self.max_cycles, int) or self.max_cycles <= 0:
+            raise ValueError("max_cycles must be a positive integer")
+        if not isinstance(self.retry_config, RetryConfig):
+            raise ValueError("retry_config must be a RetryConfig instance")
+
         logger.info("Experiment initialized: id=%s, max_cycles=%d", self.experiment_id, self.max_cycles)
         logger.debug("Experiment config: %s", json.dumps(self.config, indent=2))
 
