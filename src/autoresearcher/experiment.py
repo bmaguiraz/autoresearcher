@@ -110,7 +110,7 @@ class BaseExperiment(ABC):
         # Input validation
         if not isinstance(self.experiment_id, str) or not self.experiment_id.strip():
             raise ValueError("experiment_id must be a non-empty string")
-        if not isinstance(self.max_cycles, int) or self.max_cycles <= 0:
+        if isinstance(self.max_cycles, bool) or not isinstance(self.max_cycles, int) or self.max_cycles <= 0:
             raise ValueError("max_cycles must be a positive integer")
         if not isinstance(self.retry_config, RetryConfig):
             raise ValueError("retry_config must be a RetryConfig instance")
