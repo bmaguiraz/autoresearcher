@@ -27,7 +27,9 @@ class RetryConfig:
 
     def get_delay(self, attempt: int) -> float:
         """Calculate delay for a given retry attempt (0-indexed)."""
-        return self.base_delay * (self.backoff_factor ** attempt)
+        delay = self.base_delay * (self.backoff_factor ** attempt)
+        logger.debug("Retry attempt %d: calculated delay = %.2fs", attempt, delay)
+        return delay
 
 
 @dataclass
@@ -77,10 +79,8 @@ class ExperimentSummary:
         return round((self.final_score - self.initial_score) / self.initial_score * 100, 2)
 
     def to_dict(self) -> dict:
-        d = asdict(self)
-        d["improvement"] = self.improvement
-        d["improvement_percentage"] = self.improvement_percentage
-        return d
+        """Convert to dictionary for serialization."""
+        return asdict(self)
 
 
 class BaseExperiment(ABC):
@@ -105,6 +105,19 @@ class BaseExperiment(ABC):
         self.experiment_id: str = self.config.get("experiment_id", "unknown")
         self.max_cycles: int = self.config.get("cycles", 5)
         self.retry_config: RetryConfig = retry_config or RetryConfig()
+
+        # Validate experiment_id
+        if not isinstance(self.experiment_id, str) or not self.experiment_id.strip():
+            raise ValueError("experiment_id must be a non-empty string")
+
+        # Validate max_cycles
+        if not isinstance(self.max_cycles, int) or isinstance(self.max_cycles, bool) or self.max_cycles <= 0:
+            raise ValueError("max_cycles must be a positive integer")
+
+        # Validate retry_config
+        if not isinstance(self.retry_config, RetryConfig):
+            raise ValueError("retry_config must be a RetryConfig instance")
+
         self.results: list[ExperimentResult] = []
 
         logger.info("Experiment initialized: id=%s, max_cycles=%d", self.experiment_id, self.max_cycles)

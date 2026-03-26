@@ -115,8 +115,13 @@ class TestExperimentSummary:
             elapsed_seconds=3.0,
         )
         d = s.to_dict()
-        assert "improvement" in d
-        assert "improvement_percentage" in d
+        assert d["total_cycles"] == 2
+        assert d["initial_score"] == 0.4
+        assert d["final_score"] == 0.6
+        assert d["best_score"] == 0.6
+        assert d["average_score"] == 0.5
+        assert d["elapsed_seconds"] == 3.0
+        assert d["status_test_id"] == "experiment-status"
 
 
 class TestBaseExperiment:
