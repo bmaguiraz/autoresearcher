@@ -27,7 +27,7 @@ def _make_config(tmp_path, experiment_id="test-exp", cycles=5):
     return config_path
 
 
-class ValidationExperimentIdValidation:
+class TestExperimentIdValidation:
     def test_valid_experiment_id(self, tmp_path):
         """Valid non-empty string should pass validation."""
         config_path = _make_config(tmp_path, experiment_id="valid-id")
