@@ -78,7 +78,10 @@ class ExperimentSummary:
 
     def to_dict(self) -> dict:
         """Convert to dictionary for serialization."""
-        return asdict(self)
+        d = asdict(self)
+        d["improvement"] = self.improvement
+        d["improvement_percentage"] = self.improvement_percentage
+        return d
 
 
 class BaseExperiment(ABC):

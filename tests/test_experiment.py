@@ -115,6 +115,7 @@ class TestExperimentSummary:
             elapsed_seconds=3.0,
         )
         d = s.to_dict()
+        # Verify all dataclass fields
         assert d["total_cycles"] == 2
         assert d["initial_score"] == 0.4
         assert d["final_score"] == 0.6
@@ -122,6 +123,11 @@ class TestExperimentSummary:
         assert d["average_score"] == 0.5
         assert d["elapsed_seconds"] == 3.0
         assert d["status_test_id"] == "experiment-status"
+        # Verify computed properties are included
+        assert "improvement" in d
+        assert d["improvement"] == 0.2
+        assert "improvement_percentage" in d
+        assert d["improvement_percentage"] == 50.0
 
 
 class TestBaseExperiment:
