@@ -27,7 +27,9 @@ class RetryConfig:
 
     def get_delay(self, attempt: int) -> float:
         """Calculate delay for a given retry attempt (0-indexed)."""
-        return self.base_delay * (self.backoff_factor ** attempt)
+        delay = self.base_delay * (self.backoff_factor ** attempt)
+        logger.debug("Retry attempt %d: calculated delay = %.2fs", attempt, delay)
+        return delay
 
 
 @dataclass
