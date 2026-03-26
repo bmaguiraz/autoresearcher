@@ -159,7 +159,7 @@ class PromptOptimizationExperiment:
         print(f"\n[3/3] Saving results...")
         logger.debug(f"Step 3/3: Saving results")
         try:
-            self.save_results()
+            self.export_results()
             print(f"  → Results saved to {self.results_dir}")
             logger.info(f"Results saved successfully")
         except Exception as e:
@@ -169,7 +169,7 @@ class PromptOptimizationExperiment:
         logger.info(f"Cycle {cycle} completed successfully")
         return evaluation
 
-    def save_results(self):
+    def export_results(self):
         """Save experiment results to disk."""
         logger.debug("Saving experiment results")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
