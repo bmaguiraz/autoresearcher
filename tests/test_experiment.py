@@ -152,7 +152,7 @@ class TestBaseExperiment:
         assert summary.total_cycles == 2
         assert summary.final_score >= summary.initial_score
 
-    def test_save_results(self, tmp_path):
+    def test_export_results(self, tmp_path):
         config_path = _make_config(tmp_path)
         exp = SimpleExperiment(config_path)
         exp.run_cycle(1)
