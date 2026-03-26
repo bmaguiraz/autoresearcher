@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class RetryConfig:
-    """Configuration for retry behavior in experiment cycles."""
+    """Configuration for retry behavior with exponential backoff."""
 
     max_retries: int = 3
     base_delay: float = 1.0
