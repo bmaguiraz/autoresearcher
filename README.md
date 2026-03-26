@@ -1,3 +1,4 @@
+<!-- persona-cold-test -->
 <!-- persona-test -->
 <!-- persona-config-test -->
 <!-- MOR-148: Context7 MCP test - Next.js Image component API
