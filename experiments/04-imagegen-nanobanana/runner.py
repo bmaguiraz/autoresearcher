@@ -137,14 +137,14 @@ class ImageGenPromptExperiment:
 
         # Save intermediate results
         print(f"\n[3/3] Saving results...")
-        self.save_results()
+        self.export_results()
         print(f"  → Results saved to {self.results_dir}")
         logger.info(f"Results saved successfully")
 
         logger.info(f"Cycle {cycle} completed successfully")
         return evaluation
 
-    def save_results(self):
+    def export_results(self):
         """Save experiment results to disk."""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         results_file = self.results_dir / f"results_{timestamp}.json"

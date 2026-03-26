@@ -191,7 +191,7 @@ class BaseExperiment(ABC):
 
         print("\n[3/3] Saving results...")
         logger.debug("Saving results for cycle %d", cycle)
-        self.save_results()
+        self.export_results()
         logger.info("Cycle %d completed successfully", cycle)
 
         return result
@@ -248,7 +248,7 @@ class BaseExperiment(ABC):
         logger.debug("Summary generated: %s", summary.to_dict())
         return summary
 
-    def save_results(self) -> Path:
+    def export_results(self) -> Path:
         """Save current results to disk. Returns the path to the results file."""
         logger.debug("Saving %d results to disk", len(self.results))
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
