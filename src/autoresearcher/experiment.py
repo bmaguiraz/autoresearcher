@@ -12,6 +12,7 @@ from typing import Any
 
 __version__ = "0.2.0"
 __all__ = ["RetryConfig", "ExperimentResult", "ExperimentSummary", "BaseExperiment"]
+__author__ = "autoresearcher"
 
 logger = logging.getLogger(__name__)
 
