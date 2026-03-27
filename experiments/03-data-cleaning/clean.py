@@ -71,8 +71,8 @@ def normalize_date(s):
 def normalize_state(state):
     if pd.isna(state) or state == "":
         return ""
-    s = str(state).lower()
-    # Use .get() to avoid redundant lookup
+    s = str(state).strip().lower()
+    # Try mapping first
     if mapped := STATE_MAP.get(s):
         return mapped
     # Check if it's a valid 2-letter state code (check length first to avoid upper() call)
@@ -86,7 +86,7 @@ def normalize_state(state):
 def normalize_email(email):
     if pd.isna(email) or email == "":
         return ""
-    e = str(email).lower()
+    e = str(email).strip().lower()
     return e if "@" in e and " " not in e else ""
 
 
