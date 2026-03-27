@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI-powered autonomous research and optimization platform for automated experiments and data analysis.">
     <title>Autoresearcher</title>
+    <style>
+        .skip-nav {
+            position: absolute;
+            left: -9999px;
+            z-index: 999;
+            padding: 0.5em;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+        }
+        .skip-nav:focus {
+            left: 0;
+            top: 0;
+        }
+    </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <nav>
         <a href="#home" aria-label="Navigate to home page">Home</a>
         <a href="docs/architecture.md" aria-label="Navigate to architecture documentation">Architecture</a>
@@ -14,18 +30,20 @@
         <a href="docs/contributing.md" aria-label="Navigate to contributing guidelines">Contributing</a>
         <a href="https://github.com/bmaguiraz/autoresearcher" rel="noopener noreferrer" aria-label="Navigate to GitHub repository">GitHub</a>
     </nav>
-    <img src="./images/logo.png" alt="Autoresearcher Logo" width="200" height="60">
-    <h1 data-testid="page-heading">Autoresearcher</h1>
-    <p>AI-powered autonomous research and optimization platform.</p>
+    <main id="main-content">
+        <img src="./images/logo.png" alt="Autoresearcher Logo" width="200" height="60">
+        <h1 data-testid="page-heading">Autoresearcher</h1>
+        <p>AI-powered autonomous research and optimization platform.</p>
 
-    <section>
-        <h2>Features</h2>
-        <img src="./images/feature-1.png" alt="Autonomous Research Feature" width="600" height="400" loading="lazy">
-        <p>Automated research capabilities powered by AI.</p>
+        <section>
+            <h2>Features</h2>
+            <img src="./images/feature-1.png" alt="Autonomous Research Feature" width="600" height="400" loading="lazy">
+            <p>Automated research capabilities powered by AI.</p>
 
-        <img src="./images/feature-2.png" alt="Optimization Platform" width="600" height="400" loading="lazy">
-        <p>Advanced optimization and analysis tools.</p>
-    </section>
+            <img src="./images/feature-2.png" alt="Optimization Platform" width="600" height="400" loading="lazy">
+            <p>Advanced optimization and analysis tools.</p>
+        </section>
+    </main>
 
     <footer>
         <p>
