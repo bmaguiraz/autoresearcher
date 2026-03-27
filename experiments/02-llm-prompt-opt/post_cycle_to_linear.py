@@ -85,7 +85,7 @@ def format_cycle_comment(
 **Description:** {description}
 
 <details>
-<summary>📝 <code>prompt.py</code> Configuration</summary>
+<summary>📝 <code translate="no">prompt.py</code> Configuration</summary>
 
 ```python
 {prompt_config}
