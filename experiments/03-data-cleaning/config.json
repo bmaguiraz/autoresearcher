@@ -1,0 +1,17 @@
+{
+  "experiment_id": "03-data-cleaning",
+  "cycles": 2,
+  "optimization_target": "aggregate_score",
+  "quality_thresholds": {
+    "completeness": 0.80,
+    "consistency": 0.85,
+    "accuracy": 0.85,
+    "deduplication_rate": 0.90
+  },
+  "cleaning_strategies": [
+    "remove_nulls",
+    "standardize_formats",
+    "validate_values",
+    "deduplicate_records"
+  ]
+}
