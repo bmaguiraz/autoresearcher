@@ -1,0 +1,4 @@
+commit	score	type_correctness	null_handling	dedup	outlier_treatment	status	description
+376fd6f	100.0	25.0	25.0	25.0	25.0	keep	baseline - perfect score
+60f2772	87.5	25.0	12.5	25.0	25.0	discard	simplified phone normalization - broke null_handling
+1547fca	100.0	25.0	25.0	25.0	25.0	keep	alternative dedup strategy (keep=last) - maintains perfect score
